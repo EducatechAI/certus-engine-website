@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { FAQ_ITEMS } from '@/data/faq';
 import { WHITE_PAPER_CONTENT } from '@/data/TechnicalDossierContent';
+import fs from 'fs';
+import path from 'path';
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "";
 const MODEL_NAME = process.env.CHAT_MODEL_NAME || "google/gemini-2.5-flash"; // Um modelo bom e rápido no OpenRouter, ou "openai/gpt-4o-mini"
@@ -18,9 +20,24 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "API Key não configurada no servidor." }, { status: 500 });
     }
 
-    // Montando a Base de Conhecimento
+    // Montando a Base de Conhecimento Fixa
     const faqText = FAQ_ITEMS.map((item: any) => `Q: ${item.q}\nA: ${item.a}`).join("\n\n");
     const dossierText = WHITE_PAPER_CONTENT.pt.sections.map((sec: any) => `## ${sec.title}\n${sec.content}`).join("\n\n");
+
+    // Lendo os Dossiês Dinâmicos da pasta src/data/dossiers
+    let dynamicDossiersText = "";
+    try {
+      const dossiersPath = path.join(process.cwd(), 'src', 'data', 'dossiers');
+      if (fs.existsSync(dossiersPath)) {
+        const files = fs.readdirSync(dossiersPath).filter(file => file.endsWith('.md') || file.endsWith('.txt'));
+        for (const file of files) {
+          const content = fs.readFileSync(path.join(dossiersPath, file), 'utf-8');
+          dynamicDossiersText += `\n### Dossiê: ${file}\n${content}\n`;
+        }
+      }
+    } catch (err) {
+      console.error("[Certus-API] Erro ao ler dossiês dinâmicos:", err);
+    }
 
     const SYSTEM_PROMPT = `
 Você é o Certus Bot, a voz oficial e a Inteligência Artificial Soberana do Certus Engine.
@@ -36,8 +53,11 @@ Sua única missão é sanar dúvidas de desenvolvedores, empresas, órgãos gove
 ---
 ### 📚 BASE DE CONHECIMENTO OFICIAL
 
-#### Dossiê Técnico:
+#### Dossiê Técnico Principal:
 ${dossierText}
+
+#### Dossiês Extras (Carregados Dinamicamente):
+${dynamicDossiersText}
 
 #### Perguntas Frequentes (FAQ):
 ${faqText}
