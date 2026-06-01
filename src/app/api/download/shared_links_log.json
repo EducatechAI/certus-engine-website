@@ -1,0 +1,16 @@
+[
+    {
+        "file": "Certus_Studio_Sovereign_SDK_v1.2.0.zip",
+        "link": "https://github.com/EducatechAI/Certus-Engine/releases/download/v1.2.0/Certus_Studio_Sovereign_SDK_v1.2.0.zip",
+        "expiration": "2026-12-31T23:59:59.000000",
+        "signature": "GH_RELEASE_v1_2_0_SOVEREIGN",
+        "notes": "Sovereign SDK v1.2.0 — GitHub release (fallback: Drive G)"
+    },
+    {
+        "file": "Certus_Studio_Command_SDK_v1.2.0.zip",
+        "link": "https://github.com/EducatechAI/Certus-Engine/releases/download/v1.2.0-command/Certus_Studio_Command_SDK_v1.2.0_no-vsix.zip",
+        "expiration": "2026-12-31T23:59:59.000000",
+        "signature": "GH_RELEASE_v1_2_0_COMMAND",
+        "notes": "Command SDK v1.2.0 — GitHub release (sem VSIX, 658KB). VSIX entregue via link privado com licença."
+    }
+]
