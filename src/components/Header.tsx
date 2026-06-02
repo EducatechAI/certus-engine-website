@@ -3,20 +3,23 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
-const NAV_LINKS = [
-  { href: '/o-cerebro', label: 'O Cérebro Certus' },
-  { href: '/projetos', label: 'O Que Construímos' },
-  { href: '/studio', label: 'Certus Studio' },
-  { href: '/api-privada', label: 'API Privada' },
-  { href: '/documentacao', label: 'Documentação' },
-  { href: '/faq', label: 'FAQ' },
-]
+import { useTranslation } from '@/i18n/I18nProvider'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { t } = useTranslation()
+
+  const NAV_LINKS = [
+    { href: '/o-cerebro', label: t('nav_brain') },
+    { href: '/projetos',  label: t('nav_projects') },
+    { href: '/studio',    label: t('nav_studio') },
+    { href: '/api-privada', label: t('nav_api') },
+    { href: '/documentacao', label: t('nav_docs') },
+    { href: '/faq',       label: t('nav_faq') },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -64,25 +67,28 @@ export function Header() {
           ))}
         </nav>
 
-        {/* CTAs & Vault Health */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Vault Health Widget (Fase 9.4) */}
+        {/* CTAs, Language Switcher & Vault Health */}
+        <div className="hidden md:flex items-center gap-3">
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+
+          {/* Vault Health Widget */}
           <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[#000804] border border-emerald-500/30" title="Sovereign Vault Online | 5TB">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-            <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest">Vault: Online</span>
+            <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest">{t('vault_status')}</span>
           </div>
 
           <Link
             href="/studio"
             className="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white text-[10px] font-black uppercase tracking-widest transition-all"
           >
-            Acesso à IDE
+            {t('header_ide')}
           </Link>
           <Link
             href="/api-privada"
             className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-lg glow-emerald"
           >
-            API Privada
+            {t('header_api')}
           </Link>
         </div>
 
@@ -114,19 +120,23 @@ export function Header() {
             </Link>
           ))}
           <div className="pt-2 border-t border-emerald-500/10 mt-2 flex flex-col gap-2">
+            {/* Mobile Language Switcher */}
+            <div className="flex justify-center py-2">
+              <LanguageSwitcher />
+            </div>
             <Link
               href="/studio"
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center px-4 py-3 rounded-lg bg-white/5 text-white text-sm font-semibold"
             >
-              Acesso à IDE
+              {t('header_ide')}
             </Link>
             <Link
               href="/api-privada"
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-400 text-black text-sm font-bold shadow-lg glow-emerald"
             >
-              API Privada
+              {t('header_api')}
             </Link>
           </div>
         </div>
