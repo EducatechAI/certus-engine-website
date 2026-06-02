@@ -1,90 +1,79 @@
-export const FAQ_ITEMS = [
-  {
-    q: "O que é exatamente o Certus Engine?",
-    a: "O Certus Engine é um Motor de Governança de Inteligência Artificial. Ele não é apenas um modelo de linguagem, mas o 'Cérebro de Controle' que orquestra, audita e valida todas as interações entre usuários e as LLMs globais (como GPT-4 ou Gemini)."
-  },
-  {
-    q: "Por que uma instituição precisa de governança de IA?",
-    a: "Sem o Certus, a IA opera de forma probabilística e sem controle local. Isso pode resultar em 'alucinações', vazamento de dados privados e custos imprevisíveis. O Certus impõe o Determinismo (Erro Zero) através de regras rígidas."
-  },
-  {
-    q: "O que significa 'Soberania Digital' neste contexto?",
-    a: "Significa que você tem o controle total sobre o 'cérebro' da sua operação. Os dados nunca saem da sua infraestrutura sem serem anonimizados via PII-Zero, e a lógica de decisão permanece em servidores sob seu comando."
-  },
-  {
-    q: "Existem outras ferramentas em março de 2026 que dominam as LLMs como o Certus?",
-    a: "Existem 'Simulacros de Autonomia' (agentes que automatizam conversas), mas todos sofrem de Dependência de Ecossistema. O Certus é o único que trata as LLMs como CPUs Intercambiáveis sob uma governança determinística estrita."
-  },
-  {
-    q: "O Certus substitui as LLMs existentes?",
-    a: "Não. O Certus assume o comando delas. Elas se tornam 'CPUs de processamento' subordinadas que obedecem ao Maestro (Certus Engine), garantindo que a execução siga o plano técnico original."
-  },
-  {
-    q: "O que é o 'Header de Ferro' (Iron Header)?",
-    a: "É a instrução sistêmica suprema e indestrutível que o Certus injeta em cada chamada. Ela obriga a IA a seguir protocolos sintáticos estritos (Tier A+) e proíbe divagações ou alucinações criativas."
-  },
-  {
-    q: "Como o Certus garante o 'Erro Zero'?",
-    a: "Através do Tribunal de CPUs. Antes de entregar um resultado crítico, o Certus consulta múltiplos modelos simultaneamente e aplica uma votação de maioria com validação de código em tempo real."
-  },
-  {
-    q: "O que acontece se uma IA externa (OpenAI/Google) falhar?",
-    a: "O Certus ativa o Failover institucional. Ele redireciona o tráfego automaticamente para outro modelo da 'Frota' (Fleet) sem interrupção de serviço, garantindo resiliência absoluta."
-  },
-  {
-    q: "O que é o PII-Zero 2.0?",
-    a: "É o nosso paradigma de Privacidade Absoluta. Nenhum Dado Pessoal Identificável (PII) sai da rede local. O Certus mascara ou encripta informações sensíveis na borda antes de qualquer interação externa."
-  },
-  {
-    q: "O que é o 'Hardware Binding'?",
-    a: "É a âncora física do sistema. O Certus mapeia a identidade única do seu hardware (CPU, SSD, MAC). Se o software for movido para um ambiente não autorizado, ele se auto-bloqueia instantaneamente."
-  },
-  {
-    q: "Por que não posso simplesmente usar o ChatGPT na minha empresa?",
-    a: "O ChatGPT não possui governança local. Dados enviados são usados para treinamento externo e não há garantia de que a resposta será tecnicamente correta 100% das vezes. O Certus elimina esse risco."
-  },
-  {
-    q: "Como o Certus audita as decisões da IA?",
-    a: "Cada interação gera um log imutável com hash SHA-256. Auditores podem rastrear exatamente por que a IA tomou uma decisão, qual modelo foi usado e qual foi o custo exato da operação."
-  },
-  {
-    q: "O que diferencia o Certus de um 'wrapper' de API comum?",
-    a: "Um wrapper apenas repassa dados. O Certus Governa os dados: aplica filtros de segurança, valida sintaxe Tier A+, arbitra consensos entre modelos e protege a identidade do hardware."
-  },
-  {
-    q: "Qual é a economia real (ROI) de usar o Certus Engine?",
-    a: "Através do Dynamic Token Controller e da compactação de contexto, instituições podem reduzir custos de API em até 80%, eliminando o desperdício em conversas desnecessárias."
-  },
-  {
-    q: "Ele é compatível com modelos locais (Open Source)?",
-    a: "Totalmente. O Certus pode governar modelos instalados em seus próprios servidores (como Llama-3 ou Mistral), garantindo 100% de independência de nuvens estrangeiras."
-  },
-  {
-    q: "O que é ZK-ID no ecossistema Certus?",
-    a: "Zero-Knowledge Identity permite validar quem está operando o sistema sem nunca expor os dados privados dessa pessoa. É a segurança máxima para sistemas de alta autoridade."
-  },
-  {
-    q: "O Certus pode gerenciar bases de código massivas?",
-    a: "Sim. Ele utiliza o Cognitive Indexer para mapear arquiteturas de mais de 300.000 linhas de código, mantendo a precisão e o foco sem 'fadiga de memória' da IA."
-  },
-  {
-    q: "O que é o Nível de Sintaxe Tier A+?",
-    a: "É o padrão ouro de entrega. Significa que o código gerado deve ser 100% funcional, sem 'conversinhas' ou comentários inúteis, pronto para ser executado ou commitado."
-  },
-  {
-    q: "Por que o Certus é considerado 'incopiável'?",
-    a: "Porque ele não é apenas código; é uma Filosofia de Restrição. Big Techs querem que você dependa dos modelos delas. O Certus faz o oposto: ele torna os modelos irrelevantes, devolvendo o controle total ao humano."
-  },
-  {
-    q: "Por que o Certus Engine é o caminho para a Independência Digital?",
-    a: "Porque ele transforma o usuário de um 'cliente' de nuvem em um 'comandante' de frota. Ele é o único sistema que garante que a máquina obedeça às suas regras, e não aos termos de uso alheios."
-  },
-  {
-    q: "Como posso baixar o Certus Studio Desktop?",
-    a: "O Certus Studio está disponível no repositório oficial (GitHub). Atualmente, oferecemos instaladores nativos para Windows x64. As versões para OSX (Apple Silicon) e Linux (AppImage) estão em fase final de build e podem ser compiladas diretamente do código-fonte para usuários avançados."
-  },
-  {
-    q: "Onde posso auditar o código de segurança do ecossistema?",
-    a: "A transparência é um pilar da soberania. Todo o código de defesa ativa, incluindo o Wolfdog e o Kangal, está disponível no repositório de segurança 'Certus Apex Guardian'. Ele é aberto para auditoria pela comunidade Tier A+."
-  }
-]
+// ── FAQ data multilíngue ────────────────────────────────────────────────────
+
+export const FAQ_ITEMS_I18N = {
+  'pt-BR': [
+    { q: "O que é exatamente o Certus Engine?", a: "O Certus Engine é um Motor de Governança de Inteligência Artificial. Ele não é apenas um modelo de linguagem, mas o 'Cérebro de Controle' que orquestra, audita e valida todas as interações entre usuários e as LLMs globais (como GPT-4 ou Gemini)." },
+    { q: "Por que uma instituição precisa de governança de IA?", a: "Sem o Certus, a IA opera de forma probabilística e sem controle local. Isso pode resultar em 'alucinações', vazamento de dados privados e custos imprevisíveis. O Certus impõe o Determinismo (Erro Zero) através de regras rígidas." },
+    { q: "O que significa 'Soberania Digital' neste contexto?", a: "Significa que você tem o controle total sobre o 'cérebro' da sua operação. Os dados nunca saem da sua infraestrutura sem serem anonimizados via PII-Zero, e a lógica de decisão permanece em servidores sob seu comando." },
+    { q: "Existem outras ferramentas que dominam as LLMs como o Certus?", a: "Existem 'Simulacros de Autonomia' (agentes que automatizam conversas), mas todos sofrem de Dependência de Ecossistema. O Certus é o único que trata as LLMs como CPUs Intercambiáveis sob uma governança determinística estrita." },
+    { q: "O Certus substitui as LLMs existentes?", a: "Não. O Certus assume o comando delas. Elas se tornam 'CPUs de processamento' subordinadas que obedecem ao Maestro (Certus Engine), garantindo que a execução siga o plano técnico original." },
+    { q: "O que é o 'Header de Ferro' (Iron Header)?", a: "É a instrução sistêmica suprema e indestrutível que o Certus injeta em cada chamada. Ela obriga a IA a seguir protocolos sintáticos estritos (Tier A+) e proíbe divagações ou alucinações criativas." },
+    { q: "Como o Certus garante o 'Erro Zero'?", a: "Através do Tribunal de CPUs. Antes de entregar um resultado crítico, o Certus consulta múltiplos modelos simultaneamente e aplica uma votação de maioria com validação de código em tempo real." },
+    { q: "O que acontece se uma IA externa (OpenAI/Google) falhar?", a: "O Certus ativa o Failover institucional. Ele redireciona o tráfego automaticamente para outro modelo da 'Frota' (Fleet) sem interrupção de serviço, garantindo resiliência absoluta." },
+    { q: "O que é o PII-Zero 2.0?", a: "É o nosso paradigma de Privacidade Absoluta. Nenhum Dado Pessoal Identificável (PII) sai da rede local. O Certus mascara ou encripta informações sensíveis na borda antes de qualquer interação externa." },
+    { q: "O que é o 'Hardware Binding'?", a: "É a âncora física do sistema. O Certus mapeia a identidade única do seu hardware (CPU, SSD, MAC). Se o software for movido para um ambiente não autorizado, ele se auto-bloqueia instantaneamente." },
+    { q: "Por que não posso simplesmente usar o ChatGPT na minha empresa?", a: "O ChatGPT não possui governança local. Dados enviados são usados para treinamento externo e não há garantia de que a resposta será tecnicamente correta 100% das vezes. O Certus elimina esse risco." },
+    { q: "Como o Certus audita as decisões da IA?", a: "Cada interação gera um log imutável com hash SHA-256. Auditores podem rastrear exatamente por que a IA tomou uma decisão, qual modelo foi usado e qual foi o custo exato da operação." },
+    { q: "O que diferencia o Certus de um 'wrapper' de API comum?", a: "Um wrapper apenas repassa dados. O Certus Governa os dados: aplica filtros de segurança, valida sintaxe Tier A+, arbitra consensos entre modelos e protege a identidade do hardware." },
+    { q: "Qual é a economia real (ROI) de usar o Certus Engine?", a: "Através do Dynamic Token Controller e da compactação de contexto, instituições podem reduzir custos de API em até 80%, eliminando o desperdício em conversas desnecessárias." },
+    { q: "Ele é compatível com modelos locais (Open Source)?", a: "Totalmente. O Certus pode governar modelos instalados em seus próprios servidores (como Llama-3 ou Mistral), garantindo 100% de independência de nuvens estrangeiras." },
+    { q: "O que é ZK-ID no ecossistema Certus?", a: "Zero-Knowledge Identity permite validar quem está operando o sistema sem nunca expor os dados privados dessa pessoa. É a segurança máxima para sistemas de alta autoridade." },
+    { q: "O Certus pode gerenciar bases de código massivas?", a: "Sim. Ele utiliza o Cognitive Indexer para mapear arquiteturas de mais de 300.000 linhas de código, mantendo a precisão e o foco sem 'fadiga de memória' da IA." },
+    { q: "O que é o Nível de Sintaxe Tier A+?", a: "É o padrão ouro de entrega. Significa que o código gerado deve ser 100% funcional, sem 'conversinhas' ou comentários inúteis, pronto para ser executado ou commitado." },
+    { q: "Por que o Certus é considerado 'incopiável'?", a: "Porque ele não é apenas código; é uma Filosofia de Restrição. Big Techs querem que você dependa dos modelos delas. O Certus faz o oposto: ele torna os modelos irrelevantes, devolvendo o controle total ao humano." },
+    { q: "Por que o Certus Engine é o caminho para a Independência Digital?", a: "Porque ele transforma o usuário de um 'cliente' de nuvem em um 'comandante' de frota. Ele é o único sistema que garante que a máquina obedeça às suas regras, e não aos termos de uso alheios." },
+    { q: "Como posso baixar o Certus Studio Desktop?", a: "O Certus Studio está disponível no repositório oficial (GitHub). Atualmente, oferecemos instaladores nativos para Windows x64. As versões para OSX (Apple Silicon) e Linux (AppImage) estão em fase final de build e podem ser compiladas diretamente do código-fonte para usuários avançados." },
+    { q: "Onde posso auditar o código de segurança do ecossistema?", a: "A transparência é um pilar da soberania. Todo o código de defesa ativa, incluindo o Wolfdog e o Kangal, está disponível no repositório de segurança 'Certus Apex Guardian'. Ele é aberto para auditoria pela comunidade Tier A+." },
+  ],
+  'en': [
+    { q: "What exactly is the Certus Engine?", a: "The Certus Engine is an AI Governance Engine. It is not just a language model, but the 'Control Brain' that orchestrates, audits, and validates all interactions between users and global LLMs (such as GPT-4 or Gemini)." },
+    { q: "Why does an institution need AI governance?", a: "Without Certus, AI operates probabilistically and without local control. This can result in 'hallucinations', private data leaks, and unpredictable costs. Certus enforces Determinism (Zero Error) through strict rules." },
+    { q: "What does 'Digital Sovereignty' mean in this context?", a: "It means you have full control over the 'brain' of your operation. Data never leaves your infrastructure without being anonymized via PII-Zero, and the decision logic remains on servers under your command." },
+    { q: "Are there other tools that dominate LLMs like Certus?", a: "There are 'Autonomy Simulacra' (agents that automate conversations), but all suffer from Ecosystem Dependency. Certus is the only one that treats LLMs as Interchangeable CPUs under strict deterministic governance." },
+    { q: "Does Certus replace existing LLMs?", a: "No. Certus takes command of them. They become subordinate 'processing CPUs' that obey the Maestro (Certus Engine), ensuring execution follows the original technical plan." },
+    { q: "What is the 'Iron Header'?", a: "It is the supreme and indestructible systemic instruction that Certus injects into every call. It forces the AI to follow strict syntactic protocols (Tier A+) and prohibits creative digression or hallucination." },
+    { q: "How does Certus guarantee 'Zero Error'?", a: "Through the CPU Tribunal. Before delivering a critical result, Certus consults multiple models simultaneously and applies a majority vote with real-time code validation." },
+    { q: "What happens if an external AI (OpenAI/Google) fails?", a: "Certus activates institutional Failover. It automatically redirects traffic to another model in the 'Fleet' without service interruption, guaranteeing absolute resilience." },
+    { q: "What is PII-Zero 2.0?", a: "It is our Absolute Privacy paradigm. No Personally Identifiable Data (PII) leaves the local network. Certus masks or encrypts sensitive information at the edge before any external interaction." },
+    { q: "What is 'Hardware Binding'?", a: "It is the physical anchor of the system. Certus maps the unique identity of your hardware (CPU, SSD, MAC). If the software is moved to an unauthorized environment, it self-locks instantly." },
+    { q: "Why can't I just use ChatGPT in my company?", a: "ChatGPT has no local governance. Data sent is used for external training and there is no guarantee that the response will be technically correct 100% of the time. Certus eliminates this risk." },
+    { q: "How does Certus audit AI decisions?", a: "Every interaction generates an immutable log with SHA-256 hash. Auditors can trace exactly why the AI made a decision, which model was used, and what the exact cost of the operation was." },
+    { q: "What sets Certus apart from a common API 'wrapper'?", a: "A wrapper just passes data. Certus Governs the data: applies security filters, validates Tier A+ syntax, arbitrates consensus between models, and protects hardware identity." },
+    { q: "What is the real ROI of using the Certus Engine?", a: "Through the Dynamic Token Controller and context compression, institutions can reduce API costs by up to 80%, eliminating waste in unnecessary conversations." },
+    { q: "Is it compatible with local (Open Source) models?", a: "Fully. Certus can govern models installed on your own servers (such as Llama-3 or Mistral), guaranteeing 100% independence from foreign clouds." },
+    { q: "What is ZK-ID in the Certus ecosystem?", a: "Zero-Knowledge Identity allows validating who is operating the system without ever exposing that person's private data. It is maximum security for high-authority systems." },
+    { q: "Can Certus manage massive codebases?", a: "Yes. It uses the Cognitive Indexer to map architectures of over 300,000 lines of code, maintaining precision and focus without AI 'memory fatigue'." },
+    { q: "What is the Tier A+ Syntax Level?", a: "It is the gold standard of delivery. It means the generated code must be 100% functional, without 'chit-chat' or useless comments, ready to be executed or committed." },
+    { q: "Why is Certus considered 'uncopiable'?", a: "Because it is not just code; it is a Philosophy of Restriction. Big Techs want you to depend on their models. Certus does the opposite: it makes the models irrelevant, returning full control to the human." },
+    { q: "Why is Certus Engine the path to Digital Independence?", a: "Because it transforms the user from a cloud 'client' into a fleet 'commander'. It is the only system that guarantees the machine obeys your rules, not the terms of use of others." },
+    { q: "How can I download Certus Studio Desktop?", a: "Certus Studio is available in the official repository (GitHub). Currently, we offer native installers for Windows x64. Versions for OSX (Apple Silicon) and Linux (AppImage) are in the final build phase and can be compiled directly from the source code for advanced users." },
+    { q: "Where can I audit the ecosystem's security code?", a: "Transparency is a pillar of sovereignty. All active defense code, including Wolfdog and Kangal, is available in the 'Certus Apex Guardian' security repository. It is open for auditing by the Tier A+ community." },
+  ],
+  'es': [
+    { q: "¿Qué es exactamente el Certus Engine?", a: "El Certus Engine es un Motor de Gobernanza de Inteligencia Artificial. No es solo un modelo de lenguaje, sino el 'Cerebro de Control' que orquesta, audita y valida todas las interacciones entre usuarios y los LLMs globales (como GPT-4 o Gemini)." },
+    { q: "¿Por qué una institución necesita gobernanza de IA?", a: "Sin Certus, la IA opera de forma probabilística y sin control local. Esto puede resultar en 'alucinaciones', filtración de datos privados y costos impredecibles. Certus impone el Determinismo (Error Cero) a través de reglas estrictas." },
+    { q: "¿Qué significa 'Soberanía Digital' en este contexto?", a: "Significa que tienes el control total sobre el 'cerebro' de tu operación. Los datos nunca salen de tu infraestructura sin ser anonimizados via PII-Zero, y la lógica de decisión permanece en servidores bajo tu comando." },
+    { q: "¿Existen otras herramientas que dominen los LLMs como Certus?", a: "Existen 'Simulacros de Autonomía' (agentes que automatizan conversaciones), pero todos sufren de Dependencia de Ecosistema. Certus es el único que trata los LLMs como CPUs Intercambiables bajo una gobernanza determinística estricta." },
+    { q: "¿Certus reemplaza a los LLMs existentes?", a: "No. Certus asume el comando de ellos. Se convierten en 'CPUs de procesamiento' subordinadas que obedecen al Maestro (Certus Engine), garantizando que la ejecución siga el plan técnico original." },
+    { q: "¿Qué es el 'Iron Header' (Header de Hierro)?", a: "Es la instrucción sistémica suprema e indestructible que Certus inyecta en cada llamada. Obliga a la IA a seguir protocolos sintácticos estrictos (Tier A+) y prohíbe divagaciones o alucinaciones creativas." },
+    { q: "¿Cómo garantiza Certus el 'Error Cero'?", a: "A través del Tribunal de CPUs. Antes de entregar un resultado crítico, Certus consulta múltiples modelos simultáneamente y aplica una votación de mayoría con validación de código en tiempo real." },
+    { q: "¿Qué sucede si una IA externa (OpenAI/Google) falla?", a: "Certus activa el Failover institucional. Redirige el tráfico automáticamente a otro modelo de la 'Flota' sin interrupción de servicio, garantizando resiliencia absoluta." },
+    { q: "¿Qué es el PII-Zero 2.0?", a: "Es nuestro paradigma de Privacidad Absoluta. Ningún Dato Personal Identificable (PII) sale de la red local. Certus enmascara o encripta información sensible en el borde antes de cualquier interacción externa." },
+    { q: "¿Qué es el 'Hardware Binding'?", a: "Es el ancla física del sistema. Certus mapea la identidad única de tu hardware (CPU, SSD, MAC). Si el software se mueve a un entorno no autorizado, se auto-bloquea instantáneamente." },
+    { q: "¿Por qué no puedo simplemente usar ChatGPT en mi empresa?", a: "ChatGPT no tiene gobernanza local. Los datos enviados se usan para entrenamiento externo y no hay garantía de que la respuesta sea técnicamente correcta el 100% de las veces. Certus elimina ese riesgo." },
+    { q: "¿Cómo audita Certus las decisiones de la IA?", a: "Cada interacción genera un log inmutable con hash SHA-256. Los auditores pueden rastrear exactamente por qué la IA tomó una decisión, qué modelo se usó y cuál fue el costo exacto de la operación." },
+    { q: "¿Qué diferencia a Certus de un 'wrapper' de API común?", a: "Un wrapper solo pasa datos. Certus Gobierna los datos: aplica filtros de seguridad, valida sintaxis Tier A+, arbitra consensos entre modelos y protege la identidad del hardware." },
+    { q: "¿Cuál es el ROI real de usar el Certus Engine?", a: "A través del Dynamic Token Controller y la compresión de contexto, las instituciones pueden reducir los costos de API hasta en un 80%, eliminando el desperdicio en conversaciones innecesarias." },
+    { q: "¿Es compatible con modelos locales (Open Source)?", a: "Totalmente. Certus puede gobernar modelos instalados en tus propios servidores (como Llama-3 o Mistral), garantizando un 100% de independencia de nubes extranjeras." },
+    { q: "¿Qué es ZK-ID en el ecosistema Certus?", a: "Zero-Knowledge Identity permite validar quién está operando el sistema sin nunca exponer los datos privados de esa persona. Es la seguridad máxima para sistemas de alta autoridad." },
+    { q: "¿Puede Certus gestionar bases de código masivas?", a: "Sí. Utiliza el Cognitive Indexer para mapear arquitecturas de más de 300.000 líneas de código, manteniendo la precisión y el enfoque sin 'fatiga de memoria' de la IA." },
+    { q: "¿Qué es el Nivel de Sintaxis Tier A+?", a: "Es el estándar de oro de entrega. Significa que el código generado debe ser 100% funcional, sin 'charlas' o comentarios inútiles, listo para ser ejecutado o commiteado." },
+    { q: "¿Por qué Certus es considerado 'incopiable'?", a: "Porque no es solo código; es una Filosofía de Restricción. Las Big Techs quieren que dependas de sus modelos. Certus hace lo contrario: hace que los modelos sean irrelevantes, devolviendo el control total al humano." },
+    { q: "¿Por qué el Certus Engine es el camino hacia la Independencia Digital?", a: "Porque transforma al usuario de un 'cliente' de nube en un 'comandante' de flota. Es el único sistema que garantiza que la máquina obedezca tus reglas, y no los términos de uso ajenos." },
+    { q: "¿Cómo puedo descargar el Certus Studio Desktop?", a: "Certus Studio está disponible en el repositorio oficial (GitHub). Actualmente ofrecemos instaladores nativos para Windows x64. Las versiones para OSX (Apple Silicon) y Linux (AppImage) están en fase final de build y pueden compilarse directamente desde el código fuente para usuarios avanzados." },
+    { q: "¿Dónde puedo auditar el código de seguridad del ecosistema?", a: "La transparencia es un pilar de la soberanía. Todo el código de defensa activa, incluyendo el Wolfdog y el Kangal, está disponible en el repositorio de seguridad 'Certus Apex Guardian'. Está abierto para auditoría por la comunidad Tier A+." },
+  ],
+}
+
+// Backward-compat alias (uses PT-BR by default)
+export const FAQ_ITEMS = FAQ_ITEMS_I18N['pt-BR']

@@ -28,7 +28,7 @@ export const translations = {
     stat_projects:    'Grandes Projetos Entregues',
     stat_latency:     'Latência Média Nativa',
 
-    // ── BANNER 2: Problema vs Solução ──
+    // ── BANNER 2 ──
     chaos_label:      'O Caos das LLMs',
     chaos_title:      'Probabilidade Sem Controle',
     chaos_item1_title: 'Alucinações Frequentes',
@@ -47,19 +47,19 @@ export const translations = {
     order_item3_desc: 'A higienização de senhas e CPFs ocorre na borda antes de alcançar qualquer rede neural externa.',
     order_arch_link:  'Ver Arquitetura Técnica →',
 
-    // ── BANNER 3: Projetos ──
+    // ── BANNER 3 ──
     projects_label:   'Vitrine de Capacidade Real',
     projects_title:   'Provas de que o Engine Funciona.',
     projects_cta:     'Explorar Todos os Projetos',
 
-    // ── BANNER 4: Studio ──
+    // ── BANNER 4 ──
     studio_label:     'Governança no Código',
     studio_title_1:   'Não é um editor.',
     studio_title_2:   'É um ambiente de execução governada.',
     studio_desc:      'A IDE com o Certus Engine acoplado na raiz: co-pilot soberano, revisão automática, pipeline de entrega validada e integração nativa com a API Privada.',
     studio_cta:       'Solicitar Acesso Beta à IDE',
 
-    // ── BANNER 5: Parceria ──
+    // ── BANNER 5 ──
     partner_label:    'Princípios de Parceria',
     partner_title:    'Não somos um marketplace. Não vendemos horas.',
     partner_desc:     'Convidamos desenvolvedores experientes e instituições alinhadas a <strong>soberania, privacidade e governança auditável</strong> para testar, validar e integrar.',
@@ -69,7 +69,7 @@ export const translations = {
     partner_item4:    'Zero vínculo empregatício ou corporativo genérico.',
     partner_cta:      'Enviar Solicitação de Parceria',
 
-    // ── BANNER 6: Compliance ──
+    // ── BANNER 6 ──
     compliance_label: 'Garantias Reais',
     compliance_title: 'Privacidade não é um recurso. É a nossa arquitetura.',
     compliance_desc:  'Auditoria em tempo real, conformidade embutida, relatórios públicos e governança baseada em verificação criptográfica contínua.',
@@ -77,7 +77,7 @@ export const translations = {
     compliance_audit: 'Relatórios de Auditoria',
     compliance_terms: 'Termos de Uso',
 
-    // ── BANNER 7.5: CertusPay ──
+    // ── CERTUSPAY ──
     pay_label:        'Financeiro & Soberania',
     pay_title:        'A última fronteira da privacidade transacional.',
     pay_desc:         'O primeiro gateway de auditoria de pagamentos que utiliza <strong>ZK-ID (Zero-Knowledge Identity)</strong> para validar transações sem nunca expor seus dados bancários ou PII à rede.',
@@ -111,6 +111,98 @@ export const translations = {
     footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION',
     footer_sovereignty: 'Soberania',
     footer_apex:      'Apex Guardian',
+
+    // ── FAQ SECTION (homepage widget) ──
+    faq_label:        'Resiliência e Comando',
+    faq_title:        'Perguntas Frequentes.',
+    faq_subtitle:     'Esclarecimentos técnicos sobre como o Certus Engine impõe a soberania e o determinismo no ecossistema de IA.',
+    faq_see_all:      'Ver todas as perguntas →',
+
+    // ── FAQ PAGE ──
+    faq_page_label:   'Central de Resiliência',
+    faq_page_title:   'Dúvidas Frequentes.',
+    faq_page_subtitle:'Entenda como o Certus Engine neutraliza o caos e estabelece o comando supremo sobre as tecnologias de IA.',
+    faq_contact_title:'Ainda tem dúvidas técnicas?',
+    faq_contact_desc: 'Nossa equipe de engenharia está pronta para discutir integrações personalizadas e protocolos de segurança de alto nível.',
+    faq_contact_cta1: 'Falar com Engenharia',
+    faq_contact_cta2: 'Ver Documentação',
+
+    // ── O CÉREBRO PAGE ──
+    brain_title:      'A Filosofia do Determinismo Absoluto.',
+    brain_subtitle:   'O Certus Engine não é uma ferramenta de conversação. É um motor de governança que transforma a probabilidade estatística das LLMs em execução de engenharia verificável.',
+    brain_card1_title:'Fail-Closed Nativo',
+    brain_card1_desc: 'Diferente de sistemas que "tentam" acertar, o Certus opera sob o princípio de paralisia segura. Se um output não atende aos critérios de segurança Tier A+, a execução é terminada antes de qualquer impacto.',
+    brain_card2_title:'Consenso Multi-LLM',
+    brain_card2_desc: 'O Certus age como o Mestre Soberano, delegando tarefas a diferentes "CPUs" (Claude, GPT, Gemini) e realizando uma auditoria cruzada (Consenso 2.0.0) para garantir que a verdade técnica prevaleça.',
+    brain_card3_title:'Isolamento PII-Zero',
+    brain_card3_desc: 'A soberania exige privacidade. O Certus higieniza cada bit de dado sensível na borda, garantindo que nenhum segredo institucional alimente o treinamento de modelos de terceiros.',
+    brain_arch_title: 'A Arquitetura Sentinel',
+    brain_layer1:     'Onde as regras de ouro são imutáveis.',
+    brain_layer2:     'Tradução e governança cross-provider.',
+    brain_layer3:     'Blindagem de dados na camada de transporte.',
+
+    // ── STUDIO PAGE ──
+    studio_page_badge:   'Sovereign Edition — Para Estudantes & DEVs',
+    studio_page_title:   'Aprenda o Futuro da Governança de IA.',
+    studio_page_subtitle:'A primeira IDE desenhada para o currículo de engenharia do futuro. Domine a soberania digital, proteção PII-Zero e auditoria técnica enquanto você codifica.',
+    studio_page_cta1:    'Baixar Certus Studio (Grátis)',
+    studio_page_cta2:    'Ver Grade Curricular',
+    studio_dojo_title:   'Studio Dojo.',
+    studio_dojo_sub:     'Experimente a Auditoria Soberana agora. Escolha um script ou escreva seu próprio código.',
+    studio_cmd_label:    'Divisão de Auditoria Ofensiva',
+    studio_cmd_title:    'Certus Studio Command.',
+    studio_cmd_desc:     'Para pesquisadores de segurança e auditores Tier A+. Desbloqueie módulos exclusivos de Probing, Exploitation e Hardening para missões de alta integridade.',
+    studio_cmd_cta:      'Solicitar Acesso Hacker (Beta)',
+    studio_dl_title:     'Inicie sua Jornada Soberana.',
+    studio_dl_desc:      'Baixe a Sovereign Edition gratuitamente e comece a construir com a segurança de um Kernel de Governança Tier A+.',
+    studio_dl_footer:    'Distribuição Segura via Certus Download Proxy v1.0',
+
+    // ── PROJETOS PAGE ──
+    projects_page_title:   'Vitrine da Frota Soberana.',
+    projects_page_subtitle:'Cada projeto da frota é uma demonstração de como o motor Certus governa aplicações complexas com erro zero e soberania total.',
+    projects_view_prod:    'Ver em Produção ↗',
+    projects_audit_title:  'Deseja Auditar um Projeto?',
+    projects_audit_desc:   'Oferecemos acesso aos logs de Hash SHA-256 para entidades verificadas que desejam atestar a integridade das decisões de IA.',
+    projects_audit_cta:    'Solicitar Acesso à Auditoria',
+
+    // ── API PRIVADA PAGE ──
+    api_badge:           'Acesso Restrito - Tier A+',
+    api_title:           'Integração da API Privada',
+    api_subtitle:        'O gateway para o determinismo. Este portal permite a geração de credenciais efêmeras e acesso ao Kit de Sobrevivência Técnica para integradores autorizados.',
+    api_security_title:  'Protocolo de Segurança',
+    api_security_desc:   'Cada chave gerada é assinada usando o protocolo <strong>ZK-ID</strong>. A autenticação Master também libera o acesso às ferramentas de kernel e documentação soberana.',
+    api_feature1:        'Hashing Criptográfico SHA-256',
+    api_feature2:        'Mascaramento Nativo PII-Zero',
+    api_feature3:        'Logs imutáveis de Auditoria',
+    api_locked_title:    'Conteúdo Bloqueado',
+    api_locked_desc:     'Autentique-se com a Senha Mestra para liberar o Kit de Sobrevivência Técnica.',
+    api_footer_note:     '// Todas as requisições são auditadas em tempo real pelo Kernel Certus',
+
+    // ── SENTINEL REDUNDANCY ──
+    sentinel_badge:      'Protocolo Nunca às Cegas',
+    sentinel_title:      'Soberania em Redundância.',
+    sentinel_desc:       'A dependência de uma única CPU (LLM) é o maior ponto cego da engenharia moderna. No Certus Studio, sua IA paga é o músculo, mas o OpenRouter é o seu Sentinela Silencioso.',
+    sentinel_item1:      'Redundância Tripla: Se seu provedor principal cair, o Sentinela assume.',
+    sentinel_item2:      'Consenso Tier A+: Validação cruzada para eliminar alucinações.',
+    sentinel_item3:      'Custo Otimizado: Use sua própria chave para transparência total.',
+    sentinel_your_ai:    'Sua IA Pessoal (Premium)',
+    sentinel_ai_hint:    'Suporta: Claude 3.5, GPT-4o, Gemini 1.5 Pro. Use sua chave para performance bruta.',
+    sentinel_guard:      'Sentinela Certus (OpenRouter)',
+    sentinel_mandatory:  'MANDATÓRIO: O Sentinela (Qwen 2.5) garante que você nunca opere às cegas.',
+
+    // ── INSTALLATION GUIDE ──
+    install_title:       'Injeção da Soberania.',
+    install_subtitle:    'Siga os 3 passos simples abaixo para injetar e ativar o Certus Studio no seu ambiente local de desenvolvimento.',
+    install_step1_label: 'Extração',
+    install_step1_title: 'Prepare seu Core',
+    install_step1_desc:  'Extraia o arquivo ZIP do SDK baixado na mesma pasta raiz onde você possui o código-fonte do VS Code OSS ou VSCodium.',
+    install_step2_label: 'Injeção',
+    install_step2_title: 'Injete e Compile',
+    install_step2_desc:  'Execute o script de injeção correspondente à sua plataforma para acoplar a IA e o painel de governança no núcleo do editor, e compile.',
+    install_step3_label: 'Ativação',
+    install_step3_title: 'Soberania Ativa',
+    install_step3_desc:  'Inicialize a IDE compilada, cole seu token de 30 dias na chave certus.premium.licenseToken nas Configurações (Ctrl + ,) e comece a forjar.',
+    install_step3_status:'Certus Studio 100% Online',
   },
 
   'en': {
@@ -137,7 +229,7 @@ export const translations = {
     stat_projects:    'Major Projects Delivered',
     stat_latency:     'Native Average Latency',
 
-    // ── BANNER 2: Problema vs Solução ──
+    // ── BANNER 2 ──
     chaos_label:      'The LLM Chaos',
     chaos_title:      'Probability Without Control',
     chaos_item1_title: 'Frequent Hallucinations',
@@ -156,19 +248,19 @@ export const translations = {
     order_item3_desc: 'Password and PII sanitization occurs at the edge before reaching any external neural network.',
     order_arch_link:  'View Technical Architecture →',
 
-    // ── BANNER 3: Projetos ──
+    // ── BANNER 3 ──
     projects_label:   'Real Capability Showcase',
     projects_title:   'Proof that the Engine Works.',
     projects_cta:     'Explore All Projects',
 
-    // ── BANNER 4: Studio ──
+    // ── BANNER 4 ──
     studio_label:     'Governance in Code',
     studio_title_1:   "It's not an editor.",
     studio_title_2:   "It's a governed execution environment.",
     studio_desc:      'The IDE with Certus Engine coupled at the root: sovereign co-pilot, automatic review, validated delivery pipeline, and native integration with the Private API.',
     studio_cta:       'Request Beta IDE Access',
 
-    // ── BANNER 5: Parceria ──
+    // ── BANNER 5 ──
     partner_label:    'Partnership Principles',
     partner_title:    "We are not a marketplace. We don't sell hours.",
     partner_desc:     'We invite experienced developers and institutions aligned with <strong>sovereignty, privacy, and auditable governance</strong> to test, validate, and integrate.',
@@ -178,7 +270,7 @@ export const translations = {
     partner_item4:    'Zero generic employment or corporate ties.',
     partner_cta:      'Send Partnership Request',
 
-    // ── BANNER 6: Compliance ──
+    // ── BANNER 6 ──
     compliance_label: 'Real Guarantees',
     compliance_title: 'Privacy is not a feature. It is our architecture.',
     compliance_desc:  'Real-time auditing, built-in compliance, public reports, and governance based on continuous cryptographic verification.',
@@ -186,7 +278,7 @@ export const translations = {
     compliance_audit: 'Audit Reports',
     compliance_terms: 'Terms of Use',
 
-    // ── BANNER 7.5: CertusPay ──
+    // ── CERTUSPAY ──
     pay_label:        'Finance & Sovereignty',
     pay_title:        'The last frontier of transactional privacy.',
     pay_desc:         'The first payment audit gateway that uses <strong>ZK-ID (Zero-Knowledge Identity)</strong> to validate transactions without ever exposing your banking data or PII to the network.',
@@ -220,6 +312,98 @@ export const translations = {
     footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION',
     footer_sovereignty: 'Sovereignty',
     footer_apex:      'Apex Guardian',
+
+    // ── FAQ SECTION ──
+    faq_label:        'Resilience & Command',
+    faq_title:        'Frequently Asked Questions.',
+    faq_subtitle:     'Technical clarifications on how the Certus Engine enforces sovereignty and determinism in the AI ecosystem.',
+    faq_see_all:      'View all questions →',
+
+    // ── FAQ PAGE ──
+    faq_page_label:   'Resilience Center',
+    faq_page_title:   'Frequently Asked Questions.',
+    faq_page_subtitle:'Understand how the Certus Engine neutralizes chaos and establishes supreme command over AI technologies.',
+    faq_contact_title:'Still have technical questions?',
+    faq_contact_desc: 'Our engineering team is ready to discuss custom integrations and high-level security protocols.',
+    faq_contact_cta1: 'Talk to Engineering',
+    faq_contact_cta2: 'View Documentation',
+
+    // ── O CÉREBRO PAGE ──
+    brain_title:      'The Philosophy of Absolute Determinism.',
+    brain_subtitle:   'The Certus Engine is not a conversational tool. It is a governance engine that transforms the statistical probability of LLMs into verifiable engineering execution.',
+    brain_card1_title:'Native Fail-Closed',
+    brain_card1_desc: 'Unlike systems that "try" to be right, Certus operates under the principle of safe paralysis. If an output does not meet Tier A+ security criteria, execution is terminated before any impact.',
+    brain_card2_title:'Multi-LLM Consensus',
+    brain_card2_desc: 'Certus acts as the Sovereign Master, delegating tasks to different "CPUs" (Claude, GPT, Gemini) and performing cross-auditing (Consensus 2.0.0) to ensure technical truth prevails.',
+    brain_card3_title:'PII-Zero Isolation',
+    brain_card3_desc: 'Sovereignty demands privacy. Certus sanitizes every bit of sensitive data at the edge, ensuring no institutional secret feeds the training of third-party models.',
+    brain_arch_title: 'The Sentinel Architecture',
+    brain_layer1:     'Where the golden rules are immutable.',
+    brain_layer2:     'Translation and cross-provider governance.',
+    brain_layer3:     'Data shielding at the transport layer.',
+
+    // ── STUDIO PAGE ──
+    studio_page_badge:   'Sovereign Edition — For Students & Devs',
+    studio_page_title:   'Learn the Future of AI Governance.',
+    studio_page_subtitle:'The first IDE designed for the engineering curriculum of the future. Master digital sovereignty, PII-Zero protection, and technical auditing while you code.',
+    studio_page_cta1:    'Download Certus Studio (Free)',
+    studio_page_cta2:    'View Curriculum',
+    studio_dojo_title:   'Studio Dojo.',
+    studio_dojo_sub:     'Experience Sovereign Auditing now. Choose a script or write your own code.',
+    studio_cmd_label:    'Offensive Audit Division',
+    studio_cmd_title:    'Certus Studio Command.',
+    studio_cmd_desc:     'For security researchers and Tier A+ auditors. Unlock exclusive Probing, Exploitation, and Hardening modules for high-integrity missions.',
+    studio_cmd_cta:      'Request Hacker Access (Beta)',
+    studio_dl_title:     'Start your Sovereign Journey.',
+    studio_dl_desc:      'Download the Sovereign Edition for free and start building with the security of a Tier A+ Governance Kernel.',
+    studio_dl_footer:    'Secure Distribution via Certus Download Proxy v1.0',
+
+    // ── PROJETOS PAGE ──
+    projects_page_title:   'Sovereign Fleet Showcase.',
+    projects_page_subtitle:'Every fleet project demonstrates how the Certus engine governs complex applications with zero error and total sovereignty.',
+    projects_view_prod:    'View in Production ↗',
+    projects_audit_title:  'Want to Audit a Project?',
+    projects_audit_desc:   'We offer access to SHA-256 hash logs for verified entities wishing to attest the integrity of AI decisions.',
+    projects_audit_cta:    'Request Audit Access',
+
+    // ── API PRIVADA PAGE ──
+    api_badge:           'Restricted Access - Tier A+',
+    api_title:           'Private API Integration',
+    api_subtitle:        'The gateway to determinism. This portal enables the generation of ephemeral credentials and access to the Technical Survival Kit for authorized integrators.',
+    api_security_title:  'Security Protocol',
+    api_security_desc:   'Each generated key is signed using the <strong>ZK-ID</strong> protocol. Master authentication also unlocks access to kernel tools and sovereign documentation.',
+    api_feature1:        'SHA-256 Cryptographic Hashing',
+    api_feature2:        'Native PII-Zero Masking',
+    api_feature3:        'Immutable Audit Logs',
+    api_locked_title:    'Content Locked',
+    api_locked_desc:     'Authenticate with the Master Password to unlock the Technical Survival Kit.',
+    api_footer_note:     '// All requests are audited in real time by the Certus Kernel',
+
+    // ── SENTINEL REDUNDANCY ──
+    sentinel_badge:      'Never Blind Protocol',
+    sentinel_title:      'Sovereignty in Redundancy.',
+    sentinel_desc:       'Dependency on a single CPU (LLM) is the biggest blind spot in modern engineering. In Certus Studio, your paid AI is the muscle, but OpenRouter is your Silent Sentinel.',
+    sentinel_item1:      'Triple Redundancy: If your primary provider fails, the Sentinel takes over.',
+    sentinel_item2:      'Tier A+ Consensus: Cross-validation to eliminate hallucinations.',
+    sentinel_item3:      'Optimized Cost: Use your own key for full transparency.',
+    sentinel_your_ai:    'Your Personal AI (Premium)',
+    sentinel_ai_hint:    'Supports: Claude 3.5, GPT-4o, Gemini 1.5 Pro. Use your key for raw performance.',
+    sentinel_guard:      'Certus Sentinel (OpenRouter)',
+    sentinel_mandatory:  'MANDATORY: The Sentinel (Qwen 2.5) ensures you never operate blind.',
+
+    // ── INSTALLATION GUIDE ──
+    install_title:       'Injecting Sovereignty.',
+    install_subtitle:    'Follow the 3 simple steps below to inject and activate Certus Studio in your local development environment.',
+    install_step1_label: 'Extraction',
+    install_step1_title: 'Prepare your Core',
+    install_step1_desc:  'Extract the downloaded SDK ZIP file in the same root folder where you have the VS Code OSS or VSCodium source code.',
+    install_step2_label: 'Injection',
+    install_step2_title: 'Inject & Compile',
+    install_step2_desc:  'Run the injection script for your platform to couple the AI and governance panel to the editor core, then compile.',
+    install_step3_label: 'Activation',
+    install_step3_title: 'Sovereignty Active',
+    install_step3_desc:  'Launch the compiled IDE, paste your 30-day token in the certus.premium.licenseToken key in Settings (Ctrl + ,) and start forging.',
+    install_step3_status:'Certus Studio 100% Online',
   },
 
   'es': {
@@ -246,7 +430,7 @@ export const translations = {
     stat_projects:    'Grandes Proyectos Entregados',
     stat_latency:     'Latencia Promedio Nativa',
 
-    // ── BANNER 2: Problema vs Solución ──
+    // ── BANNER 2 ──
     chaos_label:      'El Caos de los LLMs',
     chaos_title:      'Probabilidad Sin Control',
     chaos_item1_title: 'Alucinaciones Frecuentes',
@@ -265,19 +449,19 @@ export const translations = {
     order_item3_desc: 'La sanitización de contraseñas y datos personales ocurre en el borde antes de alcanzar cualquier red neuronal externa.',
     order_arch_link:  'Ver Arquitectura Técnica →',
 
-    // ── BANNER 3: Proyectos ──
+    // ── BANNER 3 ──
     projects_label:   'Vitrina de Capacidad Real',
     projects_title:   'Prueba de que el Engine Funciona.',
     projects_cta:     'Explorar Todos los Proyectos',
 
-    // ── BANNER 4: Studio ──
+    // ── BANNER 4 ──
     studio_label:     'Gobernanza en el Código',
     studio_title_1:   'No es un editor.',
     studio_title_2:   'Es un entorno de ejecución gobernada.',
     studio_desc:      'El IDE con Certus Engine acoplado en la raíz: co-pilot soberano, revisión automática, pipeline de entrega validada e integración nativa con la API Privada.',
     studio_cta:       'Solicitar Acceso Beta al IDE',
 
-    // ── BANNER 5: Alianza ──
+    // ── BANNER 5 ──
     partner_label:    'Principios de Alianza',
     partner_title:    'No somos un marketplace. No vendemos horas.',
     partner_desc:     'Invitamos a desarrolladores experimentados e instituciones alineadas con <strong>soberanía, privacidad y gobernanza auditable</strong> a probar, validar e integrar.',
@@ -287,7 +471,7 @@ export const translations = {
     partner_item4:    'Cero vínculo laboral o corporativo genérico.',
     partner_cta:      'Enviar Solicitud de Alianza',
 
-    // ── BANNER 6: Compliance ──
+    // ── BANNER 6 ──
     compliance_label: 'Garantías Reales',
     compliance_title: 'La privacidad no es una función. Es nuestra arquitectura.',
     compliance_desc:  'Auditoría en tiempo real, conformidad integrada, informes públicos y gobernanza basada en verificación criptográfica continua.',
@@ -295,7 +479,7 @@ export const translations = {
     compliance_audit: 'Informes de Auditoría',
     compliance_terms: 'Términos de Uso',
 
-    // ── BANNER 7.5: CertusPay ──
+    // ── CERTUSPAY ──
     pay_label:        'Finanzas & Soberanía',
     pay_title:        'La última frontera de la privacidad transaccional.',
     pay_desc:         'El primer gateway de auditoría de pagos que utiliza <strong>ZK-ID (Zero-Knowledge Identity)</strong> para validar transacciones sin exponer nunca sus datos bancarios o PII a la red.',
@@ -329,6 +513,98 @@ export const translations = {
     footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION',
     footer_sovereignty: 'Soberanía',
     footer_apex:      'Apex Guardian',
+
+    // ── FAQ SECTION ──
+    faq_label:        'Resiliencia y Comando',
+    faq_title:        'Preguntas Frecuentes.',
+    faq_subtitle:     'Aclaraciones técnicas sobre cómo el Certus Engine impone la soberanía y el determinismo en el ecosistema de IA.',
+    faq_see_all:      'Ver todas las preguntas →',
+
+    // ── FAQ PAGE ──
+    faq_page_label:   'Central de Resiliencia',
+    faq_page_title:   'Preguntas Frecuentes.',
+    faq_page_subtitle:'Entiende cómo el Certus Engine neutraliza el caos y establece el comando supremo sobre las tecnologías de IA.',
+    faq_contact_title:'¿Todavía tienes dudas técnicas?',
+    faq_contact_desc: 'Nuestro equipo de ingeniería está listo para discutir integraciones personalizadas y protocolos de seguridad de alto nivel.',
+    faq_contact_cta1: 'Hablar con Ingeniería',
+    faq_contact_cta2: 'Ver Documentación',
+
+    // ── O CÉREBRO PAGE ──
+    brain_title:      'La Filosofía del Determinismo Absoluto.',
+    brain_subtitle:   'El Certus Engine no es una herramienta de conversación. Es un motor de gobernanza que transforma la probabilidad estadística de los LLMs en ejecución de ingeniería verificable.',
+    brain_card1_title:'Fail-Closed Nativo',
+    brain_card1_desc: 'A diferencia de sistemas que "intentan" acertar, Certus opera bajo el principio de parálisis segura. Si un output no cumple los criterios de seguridad Tier A+, la ejecución se termina antes de cualquier impacto.',
+    brain_card2_title:'Consenso Multi-LLM',
+    brain_card2_desc: 'Certus actúa como el Maestro Soberano, delegando tareas a diferentes "CPUs" (Claude, GPT, Gemini) y realizando una auditoría cruzada (Consenso 2.0.0) para garantizar que prevalezca la verdad técnica.',
+    brain_card3_title:'Aislamiento PII-Zero',
+    brain_card3_desc: 'La soberanía exige privacidad. Certus sanitiza cada bit de dato sensible en el borde, garantizando que ningún secreto institucional alimente el entrenamiento de modelos de terceros.',
+    brain_arch_title: 'La Arquitectura Sentinel',
+    brain_layer1:     'Donde las reglas de oro son inmutables.',
+    brain_layer2:     'Traducción y gobernanza cross-provider.',
+    brain_layer3:     'Blindaje de datos en la capa de transporte.',
+
+    // ── STUDIO PAGE ──
+    studio_page_badge:   'Sovereign Edition — Para Estudiantes & DEVs',
+    studio_page_title:   'Aprende el Futuro de la Gobernanza de IA.',
+    studio_page_subtitle:'El primer IDE diseñado para el currículo de ingeniería del futuro. Domina la soberanía digital, protección PII-Zero y auditoría técnica mientras codificas.',
+    studio_page_cta1:    'Descargar Certus Studio (Gratis)',
+    studio_page_cta2:    'Ver Plan de Estudios',
+    studio_dojo_title:   'Studio Dojo.',
+    studio_dojo_sub:     'Experimenta la Auditoría Soberana ahora. Elige un script o escribe tu propio código.',
+    studio_cmd_label:    'División de Auditoría Ofensiva',
+    studio_cmd_title:    'Certus Studio Command.',
+    studio_cmd_desc:     'Para investigadores de seguridad y auditores Tier A+. Desbloquea módulos exclusivos de Probing, Exploitation y Hardening para misiones de alta integridad.',
+    studio_cmd_cta:      'Solicitar Acceso Hacker (Beta)',
+    studio_dl_title:     'Inicia tu Viaje Soberano.',
+    studio_dl_desc:      'Descarga la Sovereign Edition gratis y empieza a construir con la seguridad de un Kernel de Gobernanza Tier A+.',
+    studio_dl_footer:    'Distribución Segura via Certus Download Proxy v1.0',
+
+    // ── PROJETOS PAGE ──
+    projects_page_title:   'Vitrina de la Flota Soberana.',
+    projects_page_subtitle:'Cada proyecto de la flota es una demostración de cómo el motor Certus gobierna aplicaciones complejas con error cero y soberanía total.',
+    projects_view_prod:    'Ver en Producción ↗',
+    projects_audit_title:  '¿Deseas Auditar un Proyecto?',
+    projects_audit_desc:   'Ofrecemos acceso a los logs de Hash SHA-256 para entidades verificadas que deseen atestar la integridad de las decisiones de IA.',
+    projects_audit_cta:    'Solicitar Acceso a Auditoría',
+
+    // ── API PRIVADA PAGE ──
+    api_badge:           'Acceso Restringido - Tier A+',
+    api_title:           'Integración de la API Privada',
+    api_subtitle:        'El gateway hacia el determinismo. Este portal permite la generación de credenciales efímeras y acceso al Kit de Supervivencia Técnica para integradores autorizados.',
+    api_security_title:  'Protocolo de Seguridad',
+    api_security_desc:   'Cada clave generada está firmada usando el protocolo <strong>ZK-ID</strong>. La autenticación Master también libera el acceso a las herramientas de kernel y documentación soberana.',
+    api_feature1:        'Hashing Criptográfico SHA-256',
+    api_feature2:        'Enmascaramiento Nativo PII-Zero',
+    api_feature3:        'Logs de Auditoría Inmutables',
+    api_locked_title:    'Contenido Bloqueado',
+    api_locked_desc:     'Autentícate con la Contraseña Maestra para desbloquear el Kit de Supervivencia Técnica.',
+    api_footer_note:     '// Todas las solicitudes son auditadas en tiempo real por el Kernel Certus',
+
+    // ── SENTINEL REDUNDANCY ──
+    sentinel_badge:      'Protocolo Nunca a Ciegas',
+    sentinel_title:      'Soberanía en Redundancia.',
+    sentinel_desc:       'La dependencia de una única CPU (LLM) es el mayor punto ciego de la ingeniería moderna. En Certus Studio, tu IA de pago es el músculo, pero OpenRouter es tu Centinela Silencioso.',
+    sentinel_item1:      'Redundancia Triple: Si tu proveedor principal falla, el Centinela asume.',
+    sentinel_item2:      'Consenso Tier A+: Validación cruzada para eliminar alucinaciones.',
+    sentinel_item3:      'Costo Optimizado: Usa tu propia clave para total transparencia.',
+    sentinel_your_ai:    'Tu IA Personal (Premium)',
+    sentinel_ai_hint:    'Soporta: Claude 3.5, GPT-4o, Gemini 1.5 Pro. Usa tu clave para rendimiento bruto.',
+    sentinel_guard:      'Centinela Certus (OpenRouter)',
+    sentinel_mandatory:  'OBLIGATORIO: El Centinela (Qwen 2.5) garantiza que nunca operes a ciegas.',
+
+    // ── INSTALLATION GUIDE ──
+    install_title:       'Inyección de la Soberanía.',
+    install_subtitle:    'Sigue los 3 pasos simples a continuación para inyectar y activar Certus Studio en tu entorno de desarrollo local.',
+    install_step1_label: 'Extracción',
+    install_step1_title: 'Prepara tu Core',
+    install_step1_desc:  'Extrae el archivo ZIP del SDK descargado en la misma carpeta raíz donde tienes el código fuente de VS Code OSS o VSCodium.',
+    install_step2_label: 'Inyección',
+    install_step2_title: 'Inyecta y Compila',
+    install_step2_desc:  'Ejecuta el script de inyección correspondiente a tu plataforma para acoplar la IA y el panel de gobernanza al núcleo del editor, y compila.',
+    install_step3_label: 'Activación',
+    install_step3_title: 'Soberanía Activa',
+    install_step3_desc:  'Inicializa el IDE compilado, pega tu token de 30 días en la clave certus.premium.licenseToken en Configuración (Ctrl + ,) y empieza a forjar.',
+    install_step3_status:'Certus Studio 100% Online',
   },
 } as const;
 
