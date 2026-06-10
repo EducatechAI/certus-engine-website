@@ -1,9 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { Background } from '@/components/Background'
-import { I18nProvider } from '@/i18n/I18nProvider'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
@@ -52,16 +48,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body className="bg-[#000804] text-slate-100 antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
-        <I18nProvider>
-          <Background />
-          <div className="relative z-10 flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-          {/* Chatbot Sovereign Agent Widget */}
-          <Script src="/chat-widget.js" strategy="lazyOnload" />
-        </I18nProvider>
+        {children}
+        {/* Chatbot Sovereign Agent Widget */}
+        <Script src="/chat-widget.js" strategy="lazyOnload" />
       </body>
     </html>
   )

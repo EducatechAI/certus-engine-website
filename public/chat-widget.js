@@ -177,6 +177,39 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* 🚨 FASE 15: Trainer Bot (Forense Mode) 🚨 */
+        #certus-chat-window.forense-mode {
+            width: 480px;
+        }
+
+        #certus-chat-window.forense-mode .certus-chat-header {
+            background: linear-gradient(135deg, rgba(180, 83, 9, 0.4), rgba(217, 119, 6, 0.2));
+            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        #certus-chat-window.forense-mode .certus-chat-header-avatar {
+            background: #d97706;
+            border: 1px solid #f59e0b;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+        }
+
+        #certus-chat-window.forense-mode .certus-chat-header-info p::before {
+            background: #f59e0b;
+            box-shadow: 0 0 6px #f59e0b;
+        }
+
+        .certus-code-block {
+            background: #1e1e2e;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 8px;
+            white-space: pre-wrap;
+        }
+
         #certus-chat-window.active {
             opacity: 1;
             transform: translateY(0) scale(1);
@@ -548,8 +581,17 @@ Se preferir, entre em contato direto com nossa engenharia comercial no e-mail **
     function addMessage(text, side) {
         const msg = document.createElement('div');
         msg.className = `certus-message ${side}`;
-        // Transforma quebras de linha em <br> e links HTML simples
-        msg.innerHTML = text.replace(/\n/g, '<br>');
+        
+        // FASE 15: Parser rudimentar para blocos de código JSON/Markdown
+        let formattedText = text;
+        if (formattedText.includes('```')) {
+            formattedText = formattedText.replace(/```json/g, '<div class="certus-code-block">')
+                                         .replace(/```/g, '</div>');
+        } else {
+            formattedText = formattedText.replace(/\n/g, '<br>');
+        }
+        
+        msg.innerHTML = formattedText;
         messagesContainer.appendChild(msg);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
         
@@ -575,15 +617,28 @@ Se preferir, entre em contato direto com nossa engenharia comercial no e-mail **
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         try {
-            const response = await fetch('/api/chat', {
+            // FASE 15: INTENT ROUTER (Módulo Blindado)
+            const isTrainerCommand = query.startsWith('/challenge') || query.startsWith('/verify') || query.startsWith('/ask');
+            
+            // UI Feedback: Ativa o Forense Mode se for um comando de treino
+            if (isTrainerCommand && !windowEl.classList.contains('forense-mode')) {
+                windowEl.classList.add('forense-mode');
+                document.querySelector('.certus-chat-header-info p').textContent = "Trainer Sandbox (Lazarus Auth)";
+                document.querySelector('.certus-chat-header-info h3').textContent = "Certus Bot (Forense Mode)";
+                document.querySelector('.certus-chat-header-avatar span').textContent = "⚖️";
+            }
+
+            const endpoint = isTrainerCommand ? '/api/trainer' : '/api/chat';
+            const bodyPayload = isTrainerCommand 
+                ? { action: query.split(' ')[0], payload: query.substring(query.indexOf(' ') + 1), ambassadorId: 'amb_demo_123' }
+                : { message: query, history: messageHistory.slice(0, -1) };
+
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    message: query,
-                    history: messageHistory.slice(0, -1) // envia histórico anterior
-                })
+                body: JSON.stringify(bodyPayload)
             });
 
             // Remove indicador de digitação
@@ -591,7 +646,20 @@ Se preferir, entre em contato direto com nossa engenharia comercial no e-mail **
 
             if (response.ok) {
                 const data = await response.json();
-                addMessage(data.reply, 'incoming');
+                
+                // Formata resposta do Trainer (Módulo Blindado) ou do Chat padrão
+                if (isTrainerCommand) {
+                    let trainerReply = data.message || data.reply || "";
+                    if (data.challenge_id) {
+                        trainerReply += \`\\n<br><b>ID:</b> \${data.challenge_id}\\n<br><b>Tarefa:</b> \${data.task}\\n<br><b>Payload:</b>\\n\`\`\`json\\n\${JSON.stringify(data.input, null, 2)}\\n\`\`\`\\n\\nResponda com /verify {SEU_JSON}\`;
+                    }
+                    if (data.certification_hash) {
+                         trainerReply += \`\\n<br><br>🔐 <b>Hash Certificação:</b> \${data.certification_hash}\`;
+                    }
+                    addMessage(trainerReply, 'incoming');
+                } else {
+                    addMessage(data.reply, 'incoming');
+                }
             } else {
                 throw new Error('Falha na resposta da API');
             }
