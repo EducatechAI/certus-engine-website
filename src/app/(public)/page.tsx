@@ -55,6 +55,12 @@ export default function HomePage() {
             >
               {t('hero_cta_secondary')}
             </Link>
+            <Link
+              href="/dashboard"
+              className="px-8 py-4 rounded-xl bg-navy-800 hover:bg-navy-750 border border-emerald-500/30 hover:border-emerald-500/75 text-emerald-400 font-bold transition-all text-center uppercase tracking-wide text-sm block w-full sm:w-auto"
+            >
+              Dashboard Embaixador
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl border-t border-emerald-900/30 pt-8">
