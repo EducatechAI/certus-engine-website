@@ -12,7 +12,7 @@ interface DocumentChunk {
 export class RagIngestor {
   private kbPath: string;
 
-  constructor(kbPath: string = path.join(process.cwd(), 'docs', 'training-kb')) {
+  constructor(kbPath: string = path.join(process.cwd(), 'src', 'data', 'training-kb')) {
     this.kbPath = kbPath;
   }
 

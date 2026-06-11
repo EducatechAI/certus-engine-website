@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     // 1. Processar pergunta normalmente (RAG + LLM)
     let trainingKbText = "";
     try {
-      const kbPath = path.join(process.cwd(), 'docs', 'training-kb');
+      const kbPath = path.join(process.cwd(), 'src', 'data', 'training-kb');
       if (fs.existsSync(kbPath)) {
         const files = fs.readdirSync(kbPath).filter(file => file.endsWith('.md') || file.endsWith('.json'));
         for (const file of files) {

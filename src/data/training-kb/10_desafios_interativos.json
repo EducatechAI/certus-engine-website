@@ -1,0 +1,56 @@
+[
+  {
+    "id": "CHALLENGE_01_WOLFDOG_ZK",
+    "title": "Roteamento ZK e PII-Zero na Borda",
+    "scenario": "Um sistema de saúde precisa processar um laudo, mas a LGPD proíbe que o CPF e o nome do paciente saiam do servidor local. O modelo de IA precisa apenas do CID e da observação.",
+    "task": "Utilize o Wolfdog para mascarar os dados PII e gerar o Proof Hash antes do envio. O campo 'cid10' deve permanecer legível.",
+    "input_data": {
+      "paciente": "Maria Oliveira",
+      "cpf": "987.654.321-00",
+      "cid10": "I10",
+      "observacao": "Hipertensão arterial controlada."
+    },
+    "validation_logic": {
+      "cpf_must_match": "^\\*\\*\\*\\.\\*\\*\\*\\.\\*\\*\\*-\\d{2}$",
+      "paciente_must_be_masked": true,
+      "cid10_must_remain": "I10",
+      "zk_proof_hash_generated": true
+    },
+    "success_message": "✅ Sucesso: Wolfdog aplicou PII-Zero e o ZK-Router gerou a prova. O dado sensível não deixou a borda.",
+    "failure_message": "❌ Falha: Dados PII expostos ou falha na geração do hash ZK. O sistema está vulnerável a vazamento."
+  },
+  {
+    "id": "CHALLENGE_02_PITBULL_GHOST",
+    "title": "Detecção Furtiva e Hardening Ativo",
+    "scenario": "O Ghost detectou uma anomalia na RAM (possível rootkit adormecido). Simultaneamente, um processo não autorizado tenta persistir no registro.",
+    "task": "Simule a resposta coordenada. O Pitbull deve agir em <50ms para eliminar a persistência, enquanto o Ghost mantém o rastreamento.",
+    "input_data": {
+      "ghost_alert": "RAM_ANOMALY_DETECTED",
+      "pitbull_action_required": "TASKKILL_AND_QUARANTINE"
+    },
+    "validation_logic": {
+      "response_time_ms": "< 50",
+      "process_terminated": true,
+      "quarantine_sealed": true
+    },
+    "success_message": "✅ Sucesso: Ghost mapeou a sombra e Pitbull executou o Active Hardening em <50ms. A Raiz de Confiança está preservada.",
+    "failure_message": "❌ Falha: A resposta foi muito lenta ou a persistência não foi expurgada. O sistema foi comprometido."
+  },
+  {
+    "id": "CHALLENGE_03_ORACULO_DOGO",
+    "title": "Imunização de Rebanho e Remediação Autônoma",
+    "scenario": "Uma nova variante de ataque de exfiltração foi detectada em um nó da rede em Joinville. O sistema deve reagir sem intervenção humana.",
+    "task": "Acione o protocolo de resposta. O Dogo Argentino deve isolar o nó e rotacionar as chaves, enquanto o Oráculo de Risco distribui a vacina.",
+    "input_data": {
+      "threat_vector": "NOVEL_EXFILTRATION_PATTERN",
+      "origin_node": "joinville-node-04"
+    },
+    "validation_logic": {
+      "dogo_action": "ISOLATE_NODE_AND_ROTATE_KEYS",
+      "oracle_action": "CRYPTOGRAPHIC_VACCINE_DISTRIBUTED",
+      "human_intervention_required": false
+    },
+    "success_message": "✅ Sucesso: Dogo isolou a ameaça e o Oráculo imunizou a frota global. Zero-Leakage garantido sem pânico humano.",
+    "failure_message": "❌ Falha: A remediação exigiu intervenção humana ou a vacina não foi distribuída. A frota permanece vulnerável."
+  }
+]
