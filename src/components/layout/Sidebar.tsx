@@ -9,23 +9,23 @@ export function Sidebar() {
       </div>
       
       <nav className="flex-1 py-6 px-4 space-y-2">
-        <Link href="/" className="flex items-center space-x-3 px-4 py-3 bg-emerald-500/10 text-emerald-400 rounded-lg transition-colors">
+        <Link href="/dashboard" className="flex items-center space-x-3 px-4 py-3 bg-emerald-500/10 text-emerald-400 rounded-lg transition-colors">
           <LayoutDashboard size={20} />
           <span className="font-medium">Dashboard</span>
         </Link>
-        <Link href="/leads" className="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-gray-100 hover:bg-navy-700 rounded-lg transition-colors">
+        <Link href="/dashboard/leads" className="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-gray-100 hover:bg-navy-700 rounded-lg transition-colors">
           <Users size={20} />
           <span className="font-medium">Leads</span>
         </Link>
-        <Link href="/wallet" className="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-gray-100 hover:bg-navy-700 rounded-lg transition-colors">
+        <Link href="/dashboard/wallet" className="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-gray-100 hover:bg-navy-700 rounded-lg transition-colors">
           <Wallet size={20} />
           <span className="font-medium">Carteira</span>
         </Link>
-        <Link href="/academy" className="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-gray-100 hover:bg-navy-700 rounded-lg transition-colors">
+        <Link href="/dashboard/academy" className="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-gray-100 hover:bg-navy-700 rounded-lg transition-colors">
           <GraduationCap size={20} />
           <span className="font-medium">Academy</span>
         </Link>
-        <Link href="/profile" className="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-gray-100 hover:bg-navy-700 rounded-lg transition-colors">
+        <Link href="/dashboard/profile" className="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:text-gray-100 hover:bg-navy-700 rounded-lg transition-colors">
           <User size={20} />
           <span className="font-medium">Perfil</span>
         </Link>
