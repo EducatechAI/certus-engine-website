@@ -177,27 +177,6 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* 🚨 FASE 15: Trainer Bot (Forense Mode) 🚨 */
-        #certus-chat-window.forense-mode {
-            width: 480px;
-        }
-
-        #certus-chat-window.forense-mode .certus-chat-header {
-            background: linear-gradient(135deg, rgba(180, 83, 9, 0.4), rgba(217, 119, 6, 0.2));
-            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        #certus-chat-window.forense-mode .certus-chat-header-avatar {
-            background: #d97706;
-            border: 1px solid #f59e0b;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
-        }
-
-        #certus-chat-window.forense-mode .certus-chat-header-info p::before {
-            background: #f59e0b;
-            box-shadow: 0 0 6px #f59e0b;
-        }
-
         .certus-code-block {
             background: #1e1e2e;
             padding: 12px;
@@ -519,7 +498,6 @@ Você pode iniciar o seu teste grátis imediatamente na página de <a href="pric
         }
 
         // 3. Match com o Banco de Conhecimento (245 Q&As)
-        // Mapeamento semântico básico para o protótipo local do widget
         const faqDatabase = [
             {
                 keywords: ['pii-zero', 'dados pessoais', 'lgpd', 'mascaramento', 'privacidade'],
@@ -566,7 +544,7 @@ Você pode iniciar o seu teste grátis imediatamente na página de <a href="pric
             }
         }
 
-        // 4. FALLBACK GERAL: Direcionamento para trial de 30 dias ou e-mail de negócios
+        // 4. FALLBACK GERAL
         return `Não localizei uma resposta precisa sobre este detalhe nos meus registros locais de governança. 
         
 Você pode baixar nosso Certus Studio Sovereign ou Command e testar grátis por 30 dias. O que acha de nos testar?
@@ -582,7 +560,6 @@ Se preferir, entre em contato direto com nossa engenharia comercial no e-mail **
         const msg = document.createElement('div');
         msg.className = `certus-message ${side}`;
         
-        // FASE 15: Parser rudimentar para blocos de código JSON/Markdown
         let formattedText = text;
         if (formattedText.includes('```')) {
             formattedText = formattedText.replace(/```json/g, '<div class="certus-code-block">')
@@ -595,7 +572,6 @@ Se preferir, entre em contato direto com nossa engenharia comercial no e-mail **
         messagesContainer.appendChild(msg);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
         
-        // Registra histórico
         messageHistory.push({ sender: side, text: text });
     }
 
@@ -607,7 +583,7 @@ Se preferir, entre em contato direto com nossa engenharia comercial no e-mail **
         addMessage(query, 'outgoing');
         inputEl.value = '';
 
-        // Efeito visual de digitação (typing indicator)
+        // Efeito visual de digitação
         const typingEl = document.createElement('div');
         typingEl.className = 'certus-message incoming';
         typingEl.style.fontStyle = 'italic';
@@ -617,54 +593,23 @@ Se preferir, entre em contato direto com nossa engenharia comercial no e-mail **
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         try {
-            // FASE 15: INTENT ROUTER (Módulo Blindado)
-            const isTrainerCommand = query.startsWith('/challenge') || query.startsWith('/verify') || query.startsWith('/ask');
-            
-            // UI Feedback: Ativa o Forense Mode se for um comando de treino
-            if (isTrainerCommand && !windowEl.classList.contains('forense-mode')) {
-                windowEl.classList.add('forense-mode');
-                document.querySelector('.certus-chat-header-info p').textContent = "Trainer Sandbox (Lazarus Auth)";
-                document.querySelector('.certus-chat-header-info h3').textContent = "Certus Bot (Forense Mode)";
-                document.querySelector('.certus-chat-header-avatar span').textContent = "⚖️";
-            }
-
-            const endpoint = isTrainerCommand ? '/api/trainer' : '/api/chat';
-            const bodyPayload = isTrainerCommand 
-                ? { action: query.split(' ')[0], payload: query.substring(query.indexOf(' ') + 1), ambassadorId: 'amb_demo_123' }
-                : { message: query, history: messageHistory.slice(0, -1) };
-
-            const response = await fetch(endpoint, {
+            const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(bodyPayload)
+                body: JSON.stringify({ message: query, history: messageHistory.slice(0, -1) })
             });
 
-            // Remove indicador de digitação
             messagesContainer.removeChild(typingEl);
 
             if (response.ok) {
                 const data = await response.json();
-                
-                // Formata resposta do Trainer (Módulo Blindado) ou do Chat padrão
-                if (isTrainerCommand) {
-                    let trainerReply = data.message || data.reply || "";
-                    if (data.challenge_id) {
-                        trainerReply += \`\\n<br><b>ID:</b> \${data.challenge_id}\\n<br><b>Tarefa:</b> \${data.task}\\n<br><b>Payload:</b>\\n\`\`\`json\\n\${JSON.stringify(data.input, null, 2)}\\n\`\`\`\\n\\nResponda com /verify {SEU_JSON}\`;
-                    }
-                    if (data.certification_hash) {
-                         trainerReply += \`\\n<br><br>🔐 <b>Hash Certificação:</b> \${data.certification_hash}\`;
-                    }
-                    addMessage(trainerReply, 'incoming');
-                } else {
-                    addMessage(data.reply, 'incoming');
-                }
+                addMessage(data.reply, 'incoming');
             } else {
                 throw new Error('Falha na resposta da API');
             }
         } catch (error) {
-            // Remove indicador de digitação se ainda existir
             if (messagesContainer.contains(typingEl)) {
                 messagesContainer.removeChild(typingEl);
             }

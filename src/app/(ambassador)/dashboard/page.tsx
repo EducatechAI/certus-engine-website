@@ -1,12 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Copy, TrendingUp, Users, MousePointerClick, Award, Download, MessageSquare, ExternalLink, HelpCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function Dashboard() {
   const [copied, setCopied] = useState(false);
-  const [isCertified, setIsCertified] = useState(true); // Pode ser modificado pelo usuário para testar
+  const [isCertified, setIsCertified] = useState(true);
+  const [questionsCount, setQuestionsCount] = useState(0);
+  const [seals, setSeals] = useState<string[]>([]);
   const referralUrl = "https://certusengine.vercel.app/register?ref=AMB_12345";
+
+  // Carrega progresso do localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedCount = localStorage.getItem("certus_questions_count");
+      if (savedCount) setQuestionsCount(parseInt(savedCount, 10));
+
+      const savedSeals = localStorage.getItem("certus_seals");
+      if (savedSeals) setSeals(JSON.parse(savedSeals));
+    }
+  }, []);
 
   const handleCopyLink = async () => {
     try {
@@ -49,10 +63,6 @@ export default function Dashboard() {
     }).catch((err) => console.log("LAZARUS offline or pending:", err));
   };
 
-  const openBot = () => {
-    window.open("/bot?role=embaixador", "_blank");
-  };
-
   const materiaisVenda = [
     { nome: 'Pitch Deck', arquivo: 'pitch-deck-v3.pdf', tamanho: '2.3 MB' },
     { nome: 'One-Pager', arquivo: 'one-pager-certus.pdf', tamanho: '450 KB' },
@@ -62,6 +72,30 @@ export default function Dashboard() {
     { nome: 'Vídeo de Demo (5 min)', arquivo: 'demo-certus.mp4', tamanho: '45 MB' }
   ];
 
+  const milestones = [
+    { threshold: 20, name: 'Explorador', seal: '🥉', benefits: ['Acesso a materiais básicos'] },
+    { threshold: 50, name: 'Investigador', seal: '🥈', benefits: ['Acesso a casos de uso'] },
+    { threshold: 80, name: 'Especialista', seal: '🥇', benefits: ['Link de afiliado ativado'] },
+    { threshold: 120, name: 'Mestre', seal: '💎', benefits: ['Comissão +5%'] },
+    { threshold: 150, name: 'Soberano', seal: '👑', benefits: ['Mentoria direta + 10% extra'] }
+  ];
+
+  // Ajusta o nível de exibição no MetricCard com base no contador
+  let currentLevel = "Explorador PAI";
+  if (questionsCount >= 150) currentLevel = "👑 Soberano";
+  else if (questionsCount >= 120) currentLevel = "💎 Mestre";
+  else if (questionsCount >= 80) currentLevel = "🥇 Especialista";
+  else if (questionsCount >= 50) currentLevel = "🥈 Investigador";
+  else if (questionsCount >= 20) currentLevel = "🥉 Explorador";
+
+  // Próximo nível progressivo
+  let progressTrend = "20 perguntas para Explorador";
+  if (questionsCount >= 150) progressTrend = "Nível máximo alcançado!";
+  else if (questionsCount >= 120) progressTrend = `${150 - questionsCount} perguntas para Soberano`;
+  else if (questionsCount >= 80) progressTrend = `${120 - questionsCount} perguntas para Mestre`;
+  else if (questionsCount >= 50) progressTrend = `${80 - questionsCount} perguntas para Especialista`;
+  else if (questionsCount >= 20) progressTrend = `${50 - questionsCount} perguntas para Investigador`;
+
   return (
     <div className="space-y-8">
       {/* Top Banner & Bot Link */}
@@ -70,13 +104,13 @@ export default function Dashboard() {
           <h2 className="text-xl font-bold text-gray-100 mb-1">Painel do Embaixador Certus</h2>
           <p className="text-gray-400 text-sm">Monitore suas conversões e acesse materiais oficiais de prospecção.</p>
         </div>
-        <button 
-          onClick={openBot}
+        <Link 
+          href="/dashboard/academy"
           className="bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold px-6 py-3 rounded-lg flex items-center space-x-2 transition-all shadow-lg shadow-emerald-500/20 hover:scale-[1.02]"
         >
           <MessageSquare size={20} />
-          <span>Consultar Assistente Certus</span>
-        </button>
+          <span>Ir para a Certus Academy</span>
+        </Link>
       </div>
 
       {/* Link de Afiliado & Estatísticas */}
@@ -84,39 +118,49 @@ export default function Dashboard() {
         <div className="lg:col-span-2 bg-navy-800 rounded-xl p-6 border border-navy-700 flex flex-col justify-between">
           <div>
             <h3 className="text-gray-200 font-semibold mb-4">🔗 Seu Link de Afiliado Exclusivo</h3>
-            <div className="flex items-center space-x-3 mb-6">
-              <input 
-                type="text" 
-                value={referralUrl} 
-                readOnly 
-                className="bg-navy-900 border border-navy-700 px-4 py-3 rounded-lg font-mono text-emerald-400 text-sm flex-1 focus:outline-none"
-              />
-              <button 
-                onClick={handleCopyLink}
-                className="bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold px-5 py-3 rounded-lg transition-colors flex items-center space-x-2 shrink-0"
-              >
-                <Copy size={18} />
-                <span>{copied ? "Copiado!" : "Copiar"}</span>
-              </button>
-            </div>
+            
+            {questionsCount >= 80 ? (
+              <div className="flex items-center space-x-3 mb-6">
+                <input 
+                  type="text" 
+                  value={referralUrl} 
+                  readOnly 
+                  className="bg-navy-900 border border-navy-700 px-4 py-3 rounded-lg font-mono text-emerald-400 text-sm flex-1 focus:outline-none"
+                />
+                <button 
+                  onClick={handleCopyLink}
+                  className="bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold px-5 py-3 rounded-lg transition-colors flex items-center space-x-2 shrink-0"
+                >
+                  <Copy size={18} />
+                  <span>{copied ? "Copiado!" : "Copiar"}</span>
+                </button>
+              </div>
+            ) : (
+              <div className="bg-navy-900 border border-amber-500/20 rounded-xl p-5 mb-6 text-center">
+                <p className="text-amber-400 text-sm font-semibold mb-2">🔒 Link de Afiliado Bloqueado</p>
+                <p className="text-xs text-gray-400 max-w-md mx-auto">
+                  Você precisa atingir o selo **Especialista (80 perguntas)** no Bot do Academy para liberar seu link e começar a comissionar.
+                </p>
+              </div>
+            )}
           </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-navy-700 pt-6">
             <div>
               <p className="text-gray-400 text-xs mb-1">Cliques no Link</p>
-              <p className="text-xl font-bold text-gray-100 font-mono">127</p>
+              <p className="text-xl font-bold text-gray-100 font-mono">{questionsCount >= 80 ? "127" : "0"}</p>
             </div>
             <div>
               <p className="text-gray-400 text-xs mb-1">Cadastros</p>
-              <p className="text-xl font-bold text-gray-100 font-mono">23</p>
+              <p className="text-xl font-bold text-gray-100 font-mono">{questionsCount >= 80 ? "23" : "0"}</p>
             </div>
             <div>
               <p className="text-gray-400 text-xs mb-1">Conversões</p>
-              <p className="text-xl font-bold text-gray-100 font-mono">3</p>
+              <p className="text-xl font-bold text-gray-100 font-mono">{questionsCount >= 80 ? "3" : "0"}</p>
             </div>
             <div>
               <p className="text-gray-400 text-xs mb-1">Taxa de Conversão</p>
-              <p className="text-xl font-bold text-emerald-400 font-mono">13.0%</p>
+              <p className="text-xl font-bold text-emerald-400 font-mono">{questionsCount >= 80 ? "13.0%" : "0.0%"}</p>
             </div>
           </div>
         </div>
@@ -124,27 +168,89 @@ export default function Dashboard() {
         {/* QR Code Card */}
         <div className="bg-navy-800 rounded-xl p-6 border border-navy-700 flex flex-col items-center justify-center text-center">
           <div className="w-32 h-32 bg-white rounded-lg p-3 flex items-center justify-center shadow-lg mb-3">
-            {/* SVG Simulado do QR Code do Link de Produção */}
-            <svg viewBox="0 0 100 100" className="w-full h-full text-navy-900">
-              <rect x="0" y="0" width="25" height="25" fill="currentColor" />
-              <rect x="0" y="75" width="25" height="25" fill="currentColor" />
-              <rect x="75" y="0" width="25" height="25" fill="currentColor" />
-              <rect x="10" y="10" width="5" height="5" fill="white" />
-              <rect x="10" y="85" width="5" height="5" fill="white" />
-              <rect x="85" y="10" width="5" height="5" fill="white" />
-              {/* Random QR pixels */}
-              <rect x="35" y="10" width="10" height="15" fill="currentColor" />
-              <rect x="55" y="5" width="5" height="20" fill="currentColor" />
-              <rect x="30" y="40" width="20" height="10" fill="currentColor" />
-              <rect x="60" y="35" width="15" height="15" fill="currentColor" />
-              <rect x="10" y="45" width="15" height="10" fill="currentColor" />
-              <rect x="40" y="65" width="25" height="15" fill="currentColor" />
-              <rect x="15" y="60" width="10" height="5" fill="currentColor" />
-              <rect x="70" y="60" width="25" height="25" fill="currentColor" />
-            </svg>
+            {questionsCount >= 80 ? (
+              <svg viewBox="0 0 100 100" className="w-full h-full text-navy-900">
+                <rect x="0" y="0" width="25" height="25" fill="currentColor" />
+                <rect x="0" y="75" width="25" height="25" fill="currentColor" />
+                <rect x="75" y="0" width="25" height="25" fill="currentColor" />
+                <rect x="10" y="10" width="5" height="5" fill="white" />
+                <rect x="10" y="85" width="5" height="5" fill="white" />
+                <rect x="85" y="10" width="5" height="5" fill="white" />
+                <rect x="35" y="10" width="10" height="15" fill="currentColor" />
+                <rect x="55" y="5" width="5" height="20" fill="currentColor" />
+                <rect x="30" y="40" width="20" height="10" fill="currentColor" />
+                <rect x="60" y="35" width="15" height="15" fill="currentColor" />
+                <rect x="10" y="45" width="15" height="10" fill="currentColor" />
+                <rect x="40" y="65" width="25" height="15" fill="currentColor" />
+                <rect x="15" y="60" width="10" height="5" fill="currentColor" />
+                <rect x="70" y="60" width="25" height="25" fill="currentColor" />
+              </svg>
+            ) : (
+              <div className="flex items-center justify-center h-full text-gray-400 font-bold text-[10px]">BLOQUEADO</div>
+            )}
           </div>
           <p className="text-gray-300 text-xs font-semibold">QR Code para Divulgação Rápida</p>
           <p className="text-gray-500 text-[10px] mt-1 font-mono">AMB_12345 • VERCEL_LIVE</p>
+        </div>
+      </div>
+
+      {/* 🏆 Sua Jornada de Conhecimento */}
+      <div className="bg-navy-800 rounded-xl p-6 border border-navy-700 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h3 className="text-lg font-bold text-gray-100">🏆 Sua Jornada de Conhecimento</h3>
+            <p className="text-xs text-gray-400">Faça perguntas no Bot da Academy para desbloquear selos e benefícios imutáveis.</p>
+          </div>
+          <div className="bg-navy-900 border border-navy-700 px-4 py-2 rounded-xl text-center shrink-0">
+            <span className="text-xs font-mono font-bold text-emerald-400">{questionsCount} / 150 Perguntas</span>
+          </div>
+        </div>
+
+        {/* Barra de progresso */}
+        <div className="relative w-full h-3 bg-navy-900 rounded-full overflow-hidden border border-navy-700">
+          <div 
+            className="absolute top-0 left-0 h-full bg-gradient-to-r from-amber-600 via-yellow-500 to-emerald-500 transition-all duration-500" 
+            style={{ width: `${Math.min((questionsCount / 150) * 100, 100)}%` }}
+          />
+        </div>
+
+        {/* Grid de Selos */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {milestones.map(m => {
+            const achieved = questionsCount >= m.threshold;
+            return (
+              <div 
+                key={m.name} 
+                className={`p-4 rounded-xl border transition-all flex flex-col items-center text-center justify-between space-y-3 ${
+                  achieved 
+                    ? "bg-navy-900/60 border-emerald-500/30 shadow-lg shadow-emerald-500/5" 
+                    : "bg-navy-900/20 border-navy-700 opacity-40"
+                }`}
+              >
+                <span className="text-4xl">{m.seal}</span>
+                <div>
+                  <h4 className="font-bold text-sm text-white">{m.name}</h4>
+                  <p className="text-[10px] text-gray-500 font-mono mt-0.5">{m.threshold} perguntas</p>
+                </div>
+                <div className="bg-black/20 rounded-lg p-2 w-full text-[10px] text-gray-400 min-h-[40px] flex items-center justify-center">
+                  <div>
+                    {m.benefits.map((b, idx) => (
+                      <p key={idx} className="leading-tight">{b}</p>
+                    ))}
+                  </div>
+                </div>
+                {achieved ? (
+                  <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
+                    ✓ Liberado
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+                    Bloqueado
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -152,8 +258,8 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <MetricCard 
           title="Comissões Recebidas" 
-          value="R$ 1.500,00" 
-          trend="+15% este mês" 
+          value={questionsCount >= 120 ? (questionsCount >= 150 ? "R$ 1.650,00" : "R$ 1.575,00") : "R$ 1.500,00"} 
+          trend={questionsCount >= 120 ? (questionsCount >= 150 ? "+10% Bônus Soberano" : "+5% Bônus Mestre") : "+15% este mês"} 
           icon={<TrendingUp size={24} className="text-emerald-500" />} 
         />
         <MetricCard 
@@ -170,27 +276,24 @@ export default function Dashboard() {
         />
         <MetricCard 
           title="Nível Atual" 
-          value="Bronze" 
-          trend="70% para Prata" 
+          value={currentLevel} 
+          trend={progressTrend} 
           icon={<Award size={24} className="text-emerald-500" />} 
         />
       </div>
 
       {/* Gráfico & Atividades & Treinamento */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Gráfico de Desempenho em SVG */}
         <div className="lg:col-span-2 bg-navy-800 rounded-xl p-6 border border-navy-700 flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-gray-100">Desempenho Semanal (Cliques vs. Conversões)</h3>
             <span className="text-xs text-gray-400">Últimos 7 dias</span>
           </div>
           <div className="h-64 flex items-end justify-between px-4 pb-2 border-b border-navy-700 relative">
-            {/* Linha guia de background */}
             <div className="absolute left-0 right-0 top-1/4 border-t border-navy-700/40"></div>
             <div className="absolute left-0 right-0 top-2/4 border-t border-navy-700/40"></div>
             <div className="absolute left-0 right-0 top-3/4 border-t border-navy-700/40"></div>
             
-            {/* Colunas do gráfico SVG/CSS */}
             <Bar day="Seg" clicks={45} conversions={5} height="40%" />
             <Bar day="Ter" clicks={62} conversions={8} height="55%" />
             <Bar day="Qua" clicks={89} conversions={12} height="80%" />
@@ -215,20 +318,20 @@ export default function Dashboard() {
         <div className="bg-navy-800 rounded-xl p-6 border border-navy-700 flex flex-col justify-between">
           <div>
             <h3 className="font-semibold text-gray-100 mb-4">🎓 Status de Treinamento</h3>
-            {isCertified ? (
+            {questionsCount >= 20 ? (
               <div className="space-y-4">
                 <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 text-center">
-                  <span className="text-emerald-400 font-bold text-sm block mb-1">✓ CERTIFICAÇÃO ATIVA</span>
-                  <p className="text-xs text-gray-400">Você concluiu a trilha do Certus Trainer e está habilitado a vender.</p>
+                  <span className="text-emerald-400 font-bold text-sm block mb-1">✓ CAPACITAÇÃO INICIADA</span>
+                  <p className="text-xs text-gray-400">Você já desbloqueou o selo Explorador e está ativamente aprendendo.</p>
                 </div>
                 <div className="text-xs text-gray-400 space-y-2">
                   <div className="flex justify-between">
-                    <span>Pontuação Média:</span>
-                    <span className="font-semibold text-gray-200">92%</span>
+                    <span>Selo Atual:</span>
+                    <span className="font-semibold text-gray-200">{currentLevel}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Status LAZARUS:</span>
-                    <span className="font-semibold text-emerald-400">Assinado Criptograficamente</span>
+                    <span className="font-semibold text-emerald-400">Bloco de Selo Registrado</span>
                   </div>
                 </div>
               </div>
@@ -236,23 +339,22 @@ export default function Dashboard() {
               <div className="space-y-4">
                 <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4 text-center">
                   <span className="text-yellow-400 font-bold text-sm block mb-1">⏳ PENDENTE</span>
-                  <p className="text-xs text-gray-400">Complete o desafio de treinamento no bot para validar seu perfil.</p>
+                  <p className="text-xs text-gray-400">Complete o desafio de treinamento ou faça pelo menos 20 perguntas no bot para validar seu perfil.</p>
                 </div>
               </div>
             )}
           </div>
-          <button 
-            onClick={openBot}
+          <Link 
+            href="/dashboard/academy"
             className="w-full mt-6 bg-navy-900 hover:bg-navy-950 text-emerald-400 border border-emerald-500/30 hover:border-emerald-500/60 font-semibold py-2.5 rounded-lg transition-colors flex items-center justify-center space-x-2 text-sm"
           >
-            <span>🤖 {isCertified ? "Consultar Bot Treinador" : "Iniciar Treinamento"}</span>
-          </button>
+            <span>🤖 Consultar Bot Treinador</span>
+          </Link>
         </div>
       </div>
 
       {/* Materiais de Venda & Suporte */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Materiais de Venda */}
         <div className="lg:col-span-2 bg-navy-800 rounded-xl p-6 border border-navy-700">
           <h3 className="font-semibold text-gray-100 mb-4">📦 Materiais de Venda & Prospecção</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -279,7 +381,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Central de Suporte */}
         <div className="bg-navy-800 rounded-xl p-6 border border-navy-700 flex flex-col justify-between">
           <div>
             <h3 className="font-semibold text-gray-100 mb-4">🆘 Central de Suporte</h3>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { GraduationCap, MessageSquare, Send, CheckCircle2, Shield, Loader2, Sparkles } from "lucide-react";
+import { GraduationCap, MessageSquare, Send, CheckCircle2, Shield, Loader2, Sparkles, Award } from "lucide-react";
 
 interface Message {
   sender: "incoming" | "outgoing";
@@ -10,15 +10,28 @@ interface Message {
 
 export default function AcademyPage() {
   const [isTraining, setIsTraining] = useState(false);
+  const [questionsCount, setQuestionsCount] = useState(0);
+  const [seals, setSeals] = useState<string[]>([]);
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: "incoming",
-      text: "Olá, futuro Certus Trainer! Eu sou o assistente de Capacitação e Governança da Certus Academy. Aqui você aprenderá a arquitetura do Certus Engine resolvendo desafios práticos.\n\nDigite **/challenge start** para iniciar seu treinamento interativo agora!"
+      text: "Olá, futuro Certus Trainer! Eu sou o assistente de Capacitação e Governança da Certus Academy. Aqui você aprenderá a arquitetura do Certus Engine explorando e fazendo perguntas livres.\n\nExperimente perguntar algo sobre a IDE Certus, os 12 agentes ou o PII-Zero para ver como o Certus funciona, ou digite **/challenge start** para iniciar um desafio interativo!"
     }
   ]);
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
+
+  // Carrega progresso do localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedCount = localStorage.getItem("certus_questions_count");
+      if (savedCount) setQuestionsCount(parseInt(savedCount, 10));
+
+      const savedSeals = localStorage.getItem("certus_seals");
+      if (savedSeals) setSeals(JSON.parse(savedSeals));
+    }
+  }, []);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -28,16 +41,23 @@ export default function AcademyPage() {
     if (!inputValue.trim()) return;
 
     const userText = inputValue.trim();
-    setMessages((prev) => [...prev, { sender: "outgoing", text: userText }]);
+    const newMessages = [...messages, { sender: "outgoing" as const, text: userText }];
+    setMessages(newMessages);
     setInputValue("");
     setLoading(true);
 
     try {
-      const isTrainerCommand = userText.startsWith("/challenge") || userText.startsWith("/verify") || userText.startsWith("/ask");
+      const isTrainerCommand = userText.startsWith("/");
       const endpoint = "/api/trainer";
+      
       const payload = isTrainerCommand
-        ? { action: userText.split(" ")[0], payload: userText.substring(userText.indexOf(" ") + 1), ambassadorId: "amb_demo_123" }
-        : { message: userText, context: "academy" };
+        ? { action: userText.split(" ")[0], payload: userText.substring(userText.indexOf(" ") + 1), ambassadorId: "AMB_12345" }
+        : { 
+            message: userText, 
+            currentCount: questionsCount, 
+            ambassadorId: "AMB_12345",
+            history: messages.map(m => ({ sender: m.sender, text: m.text })).slice(-5) // Envia as últimas 5 mensagens para contexto
+          };
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -47,14 +67,43 @@ export default function AcademyPage() {
 
       if (response.ok) {
         const data = await response.json();
-        let botText = data.message || data.reply || "Resposta processada com sucesso.";
+        let botText = data.reply || data.message || "Resposta processada com sucesso.";
+
         if (data.challenge_id) {
           botText += `\n\n**ID do Desafio:** ${data.challenge_id}\n**Tarefa:** ${data.task}\n\nResponda usando o comando \`/verify {seu_json}\`.`;
         }
-        if (data.certification_hash) {
+        if (data.certification_hash && !data.milestone) {
           botText += `\n\n🔐 **Certificação Gerada com Sucesso!**\n**Hash:** ${data.certification_hash}`;
         }
+
+        // Atualiza contagem se for retornada
+        if (typeof data.questions_count === "number") {
+          const newQCount = data.questions_count;
+          setQuestionsCount(newQCount);
+          localStorage.setItem("certus_questions_count", newQCount.toString());
+        }
+
         setMessages((prev) => [...prev, { sender: "incoming", text: botText }]);
+
+        // Se um novo selo/marco foi alcançado
+        if (data.milestone && data.milestone.achieved) {
+          const milestone = data.milestone;
+          const updatedSeals = [...seals, milestone.name];
+          setSeals(updatedSeals);
+          localStorage.setItem("certus_seals", JSON.stringify(updatedSeals));
+
+          // Inserir mensagem de notificação de selo no chat
+          setTimeout(() => {
+            setMessages((prev) => [
+              ...prev,
+              {
+                sender: "incoming",
+                text: `🎉 **BOOM! CONQUISTA DESBLOQUEADA** 🎉\n\nVocê atingiu o marco de perguntas e desbloqueou o selo **${milestone.seal} ${milestone.name}**!\n\n🎁 **Benefícios Ativados:**\n${milestone.benefits.map((b: string) => `- ${b}`).join("\n")}\n\n🔐 **Hash Forense (LAZARUS):**\n${milestone.hash}`
+              }
+            ]);
+          }, 800);
+        }
+
       } else {
         throw new Error("Erro de resposta do servidor.");
       }
@@ -85,6 +134,15 @@ export default function AcademyPage() {
           </h2>
           <p className="text-gray-400 text-sm mt-1">Aprenda ativamente. Sem vídeos lineares ou passividade. Governança e vendas de IA com o Certus Trainer.</p>
         </div>
+
+        {/* Contador rápido no topo */}
+        <div className="bg-navy-800 border border-navy-700 rounded-xl px-4 py-2 flex items-center space-x-3">
+          <Award className="text-amber-500" size={20} />
+          <div>
+            <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Perguntas Feitas</p>
+            <p className="text-sm font-bold text-white font-mono">{questionsCount}/150</p>
+          </div>
+        </div>
       </div>
 
       {/* Hero Interativo da Trilha de Aprendizado */}
@@ -101,7 +159,7 @@ export default function AcademyPage() {
           </span>
           <h3 className="text-2xl font-black text-white">Domine a Soberania e o Fechamento de Contratos</h3>
           <p className="text-gray-300 leading-relaxed text-sm">
-            Aqui você não assiste a aulas expositivas. Você interage diretamente com o **Certus Trainer** no console expansível de simulação, resolvendo desafios de conformidade LGPD, PII-Zero e fechamento de contratos públicos via Marco Legal das Startups (CPSI).
+            Aqui você não assiste a aulas expositivas. Você interage diretamente com o **Certus Trainer** no console de simulação, explorando livremente a documentação oficial ou resolvendo desafios práticos para obter conquistas criptografadas e comissões extras.
           </p>
 
           {!isTraining && (
@@ -178,7 +236,7 @@ export default function AcademyPage() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              placeholder="Digite /challenge start para começar, ou tire dúvidas técnicas..."
+              placeholder="Pergunte sobre IDE, 12 agentes, ou digite comandos..."
               className="flex-1 bg-navy-900 border border-navy-700 focus:border-amber-500/60 focus:outline-none rounded-xl px-4 py-3 text-white text-sm transition-colors"
             />
             <button
