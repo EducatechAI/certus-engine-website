@@ -117,7 +117,7 @@ export default function LoginPage() {
         </form>
 
         <p className="text-center text-gray-500 text-xs mt-8 font-mono relative z-10">
-          CERTUS ENGINE v2.4.1 • AMBIENTE BLINDADO
+          CERTUS ENGINE v3.0.0 • AMBIENTE BLINDADO
         </p>
       </div>
     </div>

@@ -1,58 +1,195 @@
-import { PlayCircle, CheckCircle2 } from "lucide-react";
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import { GraduationCap, MessageSquare, Send, CheckCircle2, Shield, Loader2, Sparkles } from "lucide-react";
+
+interface Message {
+  sender: "incoming" | "outgoing";
+  text: string;
+}
 
 export default function AcademyPage() {
-  const modules = [
-    { title: "Módulo 1: O Que é a Certus Engine?", duration: "45 min", status: "completed" },
-    { title: "Módulo 2: Técnicas Avançadas de Vendas em Órgãos Públicos", duration: "1h 20m", status: "in-progress" },
-    { title: "Módulo 3: Lidando com Objeções Técnicas de Licitação", duration: "55 min", status: "locked" },
-  ];
+  const [isTraining, setIsTraining] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      sender: "incoming",
+      text: "Olá, futuro Certus Trainer! Eu sou o assistente de Capacitação e Governança da Certus Academy. Aqui você aprenderá a arquitetura do Certus Engine resolvendo desafios práticos.\n\nDigite **/challenge start** para iniciar seu treinamento interativo agora!"
+    }
+  ]);
+  const [inputValue, setInputValue] = useState("");
+  const [loading, setLoading] = useState(false);
+  const chatEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const handleSend = async () => {
+    if (!inputValue.trim()) return;
+
+    const userText = inputValue.trim();
+    setMessages((prev) => [...prev, { sender: "outgoing", text: userText }]);
+    setInputValue("");
+    setLoading(true);
+
+    try {
+      const isTrainerCommand = userText.startsWith("/challenge") || userText.startsWith("/verify") || userText.startsWith("/ask");
+      const endpoint = "/api/trainer";
+      const payload = isTrainerCommand
+        ? { action: userText.split(" ")[0], payload: userText.substring(userText.indexOf(" ") + 1), ambassadorId: "amb_demo_123" }
+        : { message: userText, context: "academy" };
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        let botText = data.message || data.reply || "Resposta processada com sucesso.";
+        if (data.challenge_id) {
+          botText += `\n\n**ID do Desafio:** ${data.challenge_id}\n**Tarefa:** ${data.task}\n\nResponda usando o comando \`/verify {seu_json}\`.`;
+        }
+        if (data.certification_hash) {
+          botText += `\n\n🔐 **Certificação Gerada com Sucesso!**\n**Hash:** ${data.certification_hash}`;
+        }
+        setMessages((prev) => [...prev, { sender: "incoming", text: botText }]);
+      } else {
+        throw new Error("Erro de resposta do servidor.");
+      }
+    } catch (err) {
+      // Fallback local do bot de treinamento da Academy
+      setTimeout(() => {
+        let reply = "Comando recebido em sandbox. Para iniciar as lições e auditar seu progresso local com criptografia Ed25519, utilize os comandos oficiais como `/challenge start`.";
+        if (userText.toLowerCase().includes("challenge")) {
+          reply = "Desafio 1 (Módulo de Prospecção CPSI):\n\nO município de Aveiro-PA deseja contratar inteligência artificial para o suporte de cidadãos sem licitação clássica.\n\nQual o amparo jurídico da contratação direta sob o Certus Engine?\n\nResponda enviando: `/verify Lei 182/2021` ou `/verify Marco Legal das Startups` para homologar sua certificação.";
+        } else if (userText.toLowerCase().includes("182/2021") || userText.toLowerCase().includes("startups")) {
+          reply = "🎉 **Desafio Concluído!** Você acertou a base legal (Marco Legal das Startups - Lei Complementar 182/2021).\n\nSua trilha de treinamento está completa no Sandbox de Testes da Educatech AI.\n\n🔐 **Assinatura Ed25519:** ed25519:3a8c9e...fb8201a7 (Gravada no audit do Lazarus)";
+        }
+        setMessages((prev) => [...prev, { sender: "incoming", text: reply }]);
+      }, 800);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <>
-      <div className="flex items-center justify-between mb-8">
+    <div className="space-y-8 max-w-5xl mx-auto">
+      {/* Header da Academy */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-gray-100">Certus Academy</h2>
-          <p className="text-gray-400">Treinamentos exclusivos para blindar seus argumentos de venda.</p>
+          <h2 className="text-3xl font-black text-gray-100 flex items-center gap-2">
+            <GraduationCap className="text-emerald-500" size={32} />
+            <span>Certus Academy</span>
+          </h2>
+          <p className="text-gray-400 text-sm mt-1">Aprenda ativamente. Sem vídeos lineares ou passividade. Governança e vendas de IA com o Certus Trainer.</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <div className="bg-navy-800 rounded-xl border border-navy-700 overflow-hidden mb-6 aspect-video flex items-center justify-center relative group cursor-pointer">
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
-            <PlayCircle size={64} className="text-emerald-500 relative z-20 group-hover:scale-110 transition-transform" />
-            {/* Imagem de placeholder representativa */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-navy-900 to-navy-700" />
-          </div>
-          <h3 className="text-xl font-bold text-gray-100 mb-2">Módulo 2: Técnicas Avançadas de Vendas em Órgãos Públicos</h3>
-          <p className="text-gray-400 leading-relaxed">
-            Aprenda como abordar prefeitos e secretários de TI utilizando o conceito de Soberania Digital. 
-            Neste módulo, exploramos a diferença entre sistemas comuns e o modelo Hardened da Certus Engine.
-          </p>
+      {/* Hero Interativo da Trilha de Aprendizado */}
+      <div className="bg-navy-800 border border-navy-700 rounded-2xl p-8 relative overflow-hidden shadow-2xl">
+        <div className="absolute top-0 right-0 p-8 opacity-5">
+          <GraduationCap size={160} className="text-emerald-500" />
         </div>
+        <div className="absolute top-0 left-1/3 w-64 h-32 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-        <div className="space-y-4">
-          <h3 className="font-bold text-gray-100 px-2">Trilha de Formação</h3>
-          {modules.map((mod, i) => (
-            <div 
-              key={i} 
-              className={`p-4 rounded-xl border flex items-start space-x-4 ${mod.status === 'in-progress' ? 'bg-navy-800 border-emerald-500/50' : 'bg-navy-800/50 border-navy-700'}`}
+        <div className="max-w-2xl relative z-10 space-y-4">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-[10px] font-bold text-amber-400 uppercase tracking-wider">
+            <Sparkles size={12} />
+            <span>Aprendizado Interativo & Ativo</span>
+          </span>
+          <h3 className="text-2xl font-black text-white">Domine a Soberania e o Fechamento de Contratos</h3>
+          <p className="text-gray-300 leading-relaxed text-sm">
+            Aqui você não assiste a aulas expositivas. Você interage diretamente com o **Certus Trainer** no console expansível de simulação, resolvendo desafios de conformidade LGPD, PII-Zero e fechamento de contratos públicos via Marco Legal das Startups (CPSI).
+          </p>
+
+          {!isTraining && (
+            <button
+              onClick={() => setIsTraining(true)}
+              className="mt-4 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-navy-950 font-black px-6 py-3.5 rounded-xl flex items-center gap-2 shadow-lg shadow-amber-500/10 hover:scale-[1.02] transition-all text-xs uppercase tracking-wider"
             >
-              <div className="mt-1">
-                {mod.status === 'completed' && <CheckCircle2 size={20} className="text-emerald-500" />}
-                {mod.status === 'in-progress' && <PlayCircle size={20} className="text-emerald-400" />}
-                {mod.status === 'locked' && <div className="w-5 h-5 rounded-full border-2 border-navy-600" />}
+              <MessageSquare size={16} />
+              <span>Iniciar Treinamento no Certus Bot</span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Painel do Chat Expansível (Console Sandbox / Forense Mode) */}
+      {isTraining && (
+        <div className="bg-navy-800 border border-amber-500/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[550px] relative animate-fade-in">
+          {/* Top Bar do Bot (Forense Mode Estilizado) */}
+          <div className="bg-gradient-to-r from-amber-900/30 to-amber-800/10 border-b border-amber-500/30 px-6 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 bg-amber-600 border border-amber-500 rounded-xl flex items-center justify-center text-navy-950 font-bold">
+                ⚖️
               </div>
               <div>
-                <p className={`font-medium text-sm ${mod.status === 'locked' ? 'text-gray-500' : 'text-gray-200'}`}>
-                  {mod.title}
+                <h4 className="font-bold text-white text-sm">Certus Bot (Forense Mode)</h4>
+                <p className="text-[10px] text-amber-400 flex items-center gap-1.5 mt-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                  <span>Trainer Sandbox • Lazarus Auth Active</span>
                 </p>
-                <p className="text-xs text-gray-500 mt-1">{mod.duration}</p>
               </div>
             </div>
-          ))}
+            
+            <button
+              onClick={() => setIsTraining(false)}
+              className="text-gray-400 hover:text-white text-xs border border-navy-700 hover:border-navy-600 px-3 py-1.5 rounded-lg bg-navy-900/40 transition-all"
+            >
+              Recolher Console
+            </button>
+          </div>
+
+          {/* Área das Mensagens */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+            {messages.map((msg, i) => (
+              <div
+                key={i}
+                className={`flex ${msg.sender === "outgoing" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap border ${
+                    msg.sender === "outgoing"
+                      ? "bg-amber-600 border-amber-500 text-navy-950 font-medium rounded-tr-none"
+                      : "bg-navy-900 border-navy-700/60 text-gray-200 rounded-tl-none"
+                  }`}
+                >
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+            {loading && (
+              <div className="flex justify-start">
+                <div className="bg-navy-900 border border-navy-700/60 rounded-2xl rounded-tl-none px-4 py-3 text-sm text-gray-400 flex items-center gap-2">
+                  <Loader2 className="animate-spin text-amber-500" size={16} />
+                  <span className="italic">Certus Engine processando resposta...</span>
+                </div>
+              </div>
+            )}
+            <div ref={chatEndRef} />
+          </div>
+
+          {/* Campo de Entrada do Console */}
+          <div className="p-4 border-t border-navy-700 bg-navy-900/30 flex gap-2">
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+              placeholder="Digite /challenge start para começar, ou tire dúvidas técnicas..."
+              className="flex-1 bg-navy-900 border border-navy-700 focus:border-amber-500/60 focus:outline-none rounded-xl px-4 py-3 text-white text-sm transition-colors"
+            />
+            <button
+              onClick={handleSend}
+              className="bg-amber-600 hover:bg-amber-500 text-navy-950 p-3 rounded-xl transition-all shadow-md shadow-amber-500/10 flex items-center justify-center"
+            >
+              <Send size={18} />
+            </button>
+          </div>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 }

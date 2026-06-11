@@ -15,8 +15,8 @@ export function Header() {
   const NAV_LINKS = [
     { href: '/o-cerebro', label: t('nav_brain') },
     { href: '/projetos',  label: t('nav_projects') },
-    { href: '/studio',    label: t('nav_studio') },
-    { href: '/api-privada', label: t('nav_api') },
+    { href: '/#materiais', label: 'Recursos' },
+    { href: '/#embaixadores', label: 'Embaixadores' },
     { href: '/documentacao', label: t('nav_docs') },
     { href: '/faq',       label: t('nav_faq') },
   ]
@@ -46,7 +46,7 @@ export function Header() {
             <span className="font-black text-xl tracking-tighter text-white">
               Certus<span className="text-emerald-500">Engine</span>
             </span>
-            <span className="text-[8px] font-bold text-emerald-800 uppercase tracking-widest mt-0.5">Sovereign Master v2.2</span>
+            <span className="text-[8px] font-bold text-emerald-800 uppercase tracking-widest mt-0.5">Sovereign Master v3.0.0</span>
           </div>
         </Link>
 

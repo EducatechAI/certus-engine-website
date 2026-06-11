@@ -108,7 +108,7 @@ export const translations = {
     footer_newsletter:'Newsletter Soberana',
     footer_newsletter_desc: 'Receba atualizações do Tier A+ e novos gateways.',
     footer_email_placeholder: 'Email institucional',
-    footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION',
+    footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION v3.0.0',
     footer_sovereignty: 'Soberania',
     footer_apex:      'Apex Guardian',
 
@@ -309,7 +309,7 @@ export const translations = {
     footer_newsletter:'Sovereign Newsletter',
     footer_newsletter_desc: 'Receive Tier A+ updates and new gateways.',
     footer_email_placeholder: 'Institutional email',
-    footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION',
+    footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION v3.0.0',
     footer_sovereignty: 'Sovereignty',
     footer_apex:      'Apex Guardian',
 
@@ -510,7 +510,7 @@ export const translations = {
     footer_newsletter:'Newsletter Soberana',
     footer_newsletter_desc: 'Recibe actualizaciones de Tier A+ y nuevos gateways.',
     footer_email_placeholder: 'Correo institucional',
-    footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION',
+    footer_copyright: '© 2026 CERTUS ENGINE // SOVEREIGN MASTER EDITION v3.0.0',
     footer_sovereignty: 'Soberanía',
     footer_apex:      'Apex Guardian',
 

@@ -204,7 +204,7 @@ export default function HomePage() {
                   <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                   <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                  <div className="ml-4 font-mono text-[10px] text-slate-500 tracking-widest font-bold">CERTUS-STUDIO-V2.2 // SOVEREIGN ENGINE</div>
+                  <div className="ml-4 font-mono text-[10px] text-slate-500 tracking-widest font-bold">CERTUS-STUDIO-V3.0.0 // SOVEREIGN ENGINE</div>
                 </div>
                 {/* Fake IDE Body */}
                 <div className="flex-1 bg-[#010409] rounded-xl border border-slate-800 p-4 font-mono text-xs text-slate-300 overflow-hidden relative">
@@ -341,8 +341,115 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 🟦 BANNER 7.6: Torne-se um Embaixador Certus */}
+      <section id="embaixadores" className="py-24 relative z-10 bg-navy-900/40 border-t border-emerald-900/20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">Programa de Parcerias</p>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Torne-se um Embaixador Certus</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-12">
+            Ganhe comissões recorrentes promovendo a governança de IA determinística. 
+            Tenha acesso a treinamento ativo, materiais técnicos oficiais e suporte na prospecção.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="bg-navy-800/50 border border-navy-700 p-6 rounded-2xl">
+              <span className="text-3xl block mb-2">💰</span>
+              <h4 className="font-bold text-white text-lg">50% Comissão</h4>
+              <p className="text-xs text-gray-500 mt-1">No primeiro ano de licenças comerciais corporativas.</p>
+            </div>
+            <div className="bg-navy-800/50 border border-navy-700 p-6 rounded-2xl">
+              <span className="text-3xl block mb-2">🔄</span>
+              <h4 className="font-bold text-white text-lg">20% Recorrente</h4>
+              <p className="text-xs text-gray-500 mt-1">Garantido a cada renovação contratual ativa da conta.</p>
+            </div>
+            <div className="bg-navy-800/50 border border-navy-700 p-6 rounded-2xl">
+              <span className="text-3xl block mb-2">🏛️</span>
+              <h4 className="font-bold text-white text-lg">10-15% CPSI Gov</h4>
+              <p className="text-xs text-gray-500 mt-1">Para contratos públicos inovadores fechados com municípios.</p>
+            </div>
+          </div>
+          
+          <Link href="/login" className="inline-flex px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold text-sm uppercase tracking-wider transition-all glow-emerald">
+            Quero Ser Embaixador
+          </Link>
+        </div>
+      </section>
+
+      {/* 🟦 BANNER 7.7: Recursos & Materiais para Embaixadores */}
+      <section id="materiais" className="py-24 relative z-10 border-t border-emerald-900/20 bg-black/20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">Kit de Prospecção</p>
+            <h2 className="text-3xl font-black text-white">Recursos e Materiais</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { title: "Pitch Deck v3.0", desc: "Apresentação comercial e executiva de impacto.", file: "pitch-deck-v3.pdf", size: "2.3 MB", format: "PDF" },
+              { title: "One-Pager Certus", desc: "Ficha resumida com diferenciais PII-Zero e determinismo.", file: "one-pager-certus.pdf", size: "450 KB", format: "PDF" },
+              { title: "Whitepaper Técnico v3.1.0", desc: "Documento com o mapeamento completo do core.", file: "whitepaper-v3.pdf", size: "1.8 MB", format: "PDF" },
+              { title: "Calculadora de ROI", desc: "Planilha para cálculo de economia de API e tokens.", file: "roi-calculator.xlsx", size: "120 KB", format: "XLSX" },
+              { title: "Template de Proposta", desc: "Modelo formal para envio a parceiros privados.", file: "proposal-template.docx", size: "85 KB", format: "DOCX" },
+              { title: "Vídeo de Demo (5 min)", desc: "Demonstração prática da IDE Sovereign executando.", file: "demo-certus.mp4", size: "45 MB", format: "MP4" }
+            ].map(mat => (
+              <a 
+                key={mat.title}
+                href={`/downloads/${mat.file}`} 
+                download
+                className="bg-navy-800/40 border border-navy-700/60 p-6 rounded-2xl block hover:bg-navy-900/40 hover:border-emerald-500/30 transition-all group"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <span className="text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 px-2.5 py-0.5 rounded border border-emerald-500/20">{mat.format}</span>
+                  <span className="text-[10px] text-gray-500 font-mono font-bold">{mat.size}</span>
+                </div>
+                <h4 className="font-bold text-white text-base group-hover:text-emerald-400 transition-colors">{mat.title}</h4>
+                <p className="text-xs text-gray-500 mt-2 leading-relaxed">{mat.desc}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 🟦 BANNER 7.8: Prova Social */}
+      <section id="clientes" className="py-24 relative z-10 border-t border-emerald-900/20 bg-navy-900/10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">Parcerias e Credibilidade</p>
+            <h2 className="text-3xl font-black text-white">Quem Confia na Soberania Certus</h2>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center mb-16 justify-items-center opacity-60">
+            <span className="font-black text-gray-400 text-lg sm:text-xl tracking-tight">Prefeitura de Joinville</span>
+            <span className="font-black text-gray-400 text-lg sm:text-xl tracking-tight">StartupES</span>
+            <span className="font-black text-gray-400 text-lg sm:text-xl tracking-tight">Prefeitura de Aveiro</span>
+            <span className="font-black text-gray-400 text-lg sm:text-xl tracking-tight">EducaTech AI Corp</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="bg-navy-800/40 border border-navy-700/60 p-6 rounded-2xl flex flex-col justify-between">
+              <p className="text-sm text-gray-300 italic leading-relaxed">
+                "O Certus Engine neutralizou 100% dos riscos de vazamento de dados (PII) em nosso setor de suporte de TI e automatizou a verificação regulatória."
+              </p>
+              <div className="mt-6">
+                <span className="font-bold text-white text-xs block">Gestor de Inovação Digital</span>
+                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Secretaria de Administração</span>
+              </div>
+            </div>
+            <div className="bg-navy-800/40 border border-navy-700/60 p-6 rounded-2xl flex flex-col justify-between">
+              <p className="text-sm text-gray-300 italic leading-relaxed">
+                "A contratação via CPSI simplificou o processo regulatório. A auditoria contínua do Lazarus garante que o sistema atenda rigorosamente à LGPD."
+              </p>
+              <div className="mt-6">
+                <span className="font-bold text-white text-xs block">Assessor de TI e Compliance</span>
+                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Setor Público Associado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 🟦 BANNER 8: CTA Final */}
-      <section className="py-32 relative z-10">
+      <section className="py-32 relative z-10 border-t border-emerald-900/20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <div className="ultra-glass rounded-3xl p-12 glow-emerald relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500" />

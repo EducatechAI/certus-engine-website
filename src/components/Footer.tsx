@@ -67,11 +67,15 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-emerald-900/20 flex flex-col md:flex-row justify-between items-center gap-6">
-           <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest">{t('footer_copyright')}</p>
+           <div className="flex flex-col gap-1 text-[10px] text-slate-600 font-bold uppercase tracking-widest">
+             <p>{t('footer_copyright')}</p>
+             <p className="text-[8px] text-slate-700 font-mono mt-1">CNPJ: [AGUARDANDO VALIDAÇÃO] • Educatech AI Digital Sovereign</p>
+           </div>
            <div className="flex gap-8 text-[10px] font-bold text-slate-600 uppercase tracking-widest">
               <Link href="/faq" className="hover:text-emerald-500">FAQ</Link>
               <Link href="/documentacao" className="hover:text-emerald-500">{t('footer_sovereignty')}</Link>
-              <Link href="#" className="hover:text-emerald-500">{t('footer_apex')}</Link>
+              <Link href="/privacidade" className="hover:text-emerald-500">{t('compliance_privacy')}</Link>
+              <Link href="/termos" className="hover:text-emerald-500">{t('compliance_terms')}</Link>
            </div>
         </div>
       </div>
