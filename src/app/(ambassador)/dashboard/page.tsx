@@ -76,8 +76,8 @@ export default function Dashboard() {
     { threshold: 20, name: 'Explorador', seal: '🥉', benefits: ['Acesso a materiais básicos'] },
     { threshold: 50, name: 'Investigador', seal: '🥈', benefits: ['Acesso a casos de uso'] },
     { threshold: 80, name: 'Especialista', seal: '🥇', benefits: ['Link de afiliado ativado'] },
-    { threshold: 120, name: 'Mestre', seal: '💎', benefits: ['Comissão +5%'] },
-    { threshold: 150, name: 'Soberano', seal: '👑', benefits: ['Mentoria direta + 10% extra'] }
+    { threshold: 120, name: 'Mestre', seal: '💎', benefits: ['Comissão +5%', '(vendas do próximo mês, não recorrente)'] },
+    { threshold: 150, name: 'Soberano', seal: '👑', benefits: ['Mentoria direta + 10% extra', '(vendas do próximo mês, não recorrente)'] }
   ];
 
   // Ajusta o nível de exibição no MetricCard com base no contador
