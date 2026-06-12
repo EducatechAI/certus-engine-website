@@ -598,7 +598,11 @@ Se preferir, entre em contato direto com nossa engenharia comercial no e-mail **
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: query, history: messageHistory.slice(0, -1) })
+                body: JSON.stringify({ 
+                    message: query, 
+                    history: messageHistory.slice(0, -1),
+                    locale: localStorage.getItem('certus-locale') || 'pt-BR'
+                })
             });
 
             messagesContainer.removeChild(typingEl);

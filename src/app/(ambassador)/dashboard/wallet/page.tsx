@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { Download, ArrowUpRight, Clock, CheckCircle, AlertTriangle, X } from "lucide-react";
+import { useTranslation } from "@/i18n/I18nProvider";
 
 export default function WalletPage() {
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
 
   const mockTransactions = [
@@ -39,17 +41,17 @@ export default function WalletPage() {
       <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 flex items-start space-x-3">
         <AlertTriangle className="text-amber-500 shrink-0 mt-0.5" size={20} />
         <div>
-          <h4 className="text-amber-400 font-bold text-sm">Pendência Cadastral Ativa: Aguardando Validação Jurídica/CNPJ</h4>
+          <h4 className="text-amber-400 font-bold text-sm">{t('wallet_warning_title')}</h4>
           <p className="text-gray-400 text-xs mt-1">
-            Seu link de indicação está ativo para vendas de teste e prospecção de leads. No entanto, saques e faturamento de comissões acima de limites de Pessoa Física estão temporariamente bloqueados até que o CNPJ institucional seja validado em nosso sistema.
+            {t('wallet_warning_desc')}
           </p>
         </div>
       </div>
 
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-gray-100">Carteira Financeira</h2>
-          <p className="text-gray-400 text-sm font-medium">Gerenciamento de saldos, prazos de maturação e prestação de contas.</p>
+          <h2 className="text-2xl font-bold text-gray-100">{t('wallet_title')}</h2>
+          <p className="text-gray-400 text-sm font-medium">{t('wallet_desc')}</p>
         </div>
       </div>
 
@@ -57,7 +59,7 @@ export default function WalletPage() {
         <div className="bg-navy-800 rounded-xl p-6 border border-navy-700 col-span-2">
           <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-4 mb-6">
             <div>
-              <h3 className="text-gray-400 font-medium text-sm mb-1">Saldo Disponível para Resgate</h3>
+              <h3 className="text-gray-400 font-medium text-sm mb-1">{t('saldo_disponivel')}</h3>
               <p className="text-4xl font-bold text-emerald-400 font-mono">R$ 11.500,00</p>
             </div>
             <button 
@@ -65,17 +67,17 @@ export default function WalletPage() {
               className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500 hover:text-navy-900 px-6 py-3 rounded-lg font-bold flex items-center justify-center space-x-2 transition-all"
             >
               <ArrowUpRight size={20} />
-              <span>Solicitar Saque</span>
+              <span>{t('solicitar_saque')}</span>
             </button>
           </div>
           
           <div className="flex space-x-8 pt-6 border-t border-navy-700">
             <div>
-              <p className="text-gray-400 text-xs mb-1">Total Faturado</p>
+              <p className="text-gray-400 text-xs mb-1">{t('total_faturado')}</p>
               <p className="text-lg font-bold text-gray-200 font-mono">R$ 163.700,00</p>
             </div>
             <div>
-              <p className="text-gray-400 text-xs mb-1">Total Sacado</p>
+              <p className="text-gray-400 text-xs mb-1">{t('total_sacado')}</p>
               <p className="text-lg font-bold text-gray-200 font-mono">R$ 11.500,00</p>
             </div>
           </div>
@@ -85,19 +87,19 @@ export default function WalletPage() {
           <div className="absolute top-0 right-0 p-4 opacity-5">
             <Clock size={100} />
           </div>
-          <h3 className="text-gray-400 font-medium text-sm mb-2 relative z-10">Em Maturação (Dilema Temporal)</h3>
+          <h3 className="text-gray-400 font-medium text-sm mb-2 relative z-10">{t('em_maturacao')}</h3>
           <p className="text-3xl font-bold text-gray-100 font-mono relative z-10">R$ 152.200,00</p>
-          <p className="text-xs text-gray-400 mt-4 relative z-10">Prazo de segurança contra chargeback: 30 dias</p>
+          <p className="text-xs text-gray-400 mt-4 relative z-10">{t('prazo_seguranca')}</p>
         </div>
       </div>
 
       {/* Histórico de Vendas e Comissões */}
       <div className="bg-navy-800 rounded-xl border border-navy-700 overflow-hidden">
         <div className="p-6 border-b border-navy-700 flex justify-between items-center">
-          <h3 className="font-bold text-gray-100">Histórico de Comissionamento</h3>
+          <h3 className="font-bold text-gray-100">{t('historico_comissionamento')}</h3>
           <button className="text-gray-400 hover:text-gray-100 flex items-center space-x-2 text-xs">
             <Download size={16} />
-            <span>Exportar Relatório</span>
+            <span>{t('exportar_relatorio')}</span>
           </button>
         </div>
         <div className="overflow-x-auto">
@@ -105,11 +107,11 @@ export default function WalletPage() {
             <thead className="bg-navy-900 border-b border-navy-700">
               <tr>
                 <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">Data</th>
-                <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">Cliente</th>
+                <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">{t('cliente')}</th>
                 <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">Produto</th>
-                <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">Valor Total</th>
-                <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">Sua Comissão</th>
-                <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">Status</th>
+                <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">{t('valor_total')}</th>
+                <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">{t('sua_comissao')}</th>
+                <th className="py-4 px-6 text-gray-400 font-medium text-xs uppercase">{t('status')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-navy-700 text-sm">
@@ -124,19 +126,19 @@ export default function WalletPage() {
                     {tx.status === 'PAID' && (
                       <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                         <CheckCircle size={10} />
-                        <span>Paga</span>
+                        <span>{t('paga')}</span>
                       </span>
                     )}
                     {tx.status === 'MATURING' && (
                       <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
                         <Clock size={10} />
-                        <span>Maturando</span>
+                        <span>{t('maturando')}</span>
                       </span>
                     )}
                     {tx.status === 'CANCELLED' && (
                       <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20">
                         <X size={10} />
-                        <span>Cancelada</span>
+                        <span>{t('cancelada')}</span>
                       </span>
                     )}
                   </td>
@@ -161,16 +163,15 @@ export default function WalletPage() {
               <div className="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl mx-auto flex items-center justify-center mb-4">
                 <AlertTriangle className="text-amber-500" size={24} />
               </div>
-              <h3 className="text-lg font-bold text-gray-100 mb-2">Saque Bloqueado: Validação Pendente</h3>
+              <h3 className="text-lg font-bold text-gray-100 mb-2">{t('modal_saque_titulo')}</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Para solicitar resgates financeiros de comissões, é obrigatório registrar um CNPJ ativo (MEI, LTDA ou Individual) e emitir a respectiva Nota Fiscal de prestação de serviços. 
-                Configure suas chaves cadastrais no seu perfil de embaixador.
+                {t('modal_saque_desc')}
               </p>
               <button 
                 onClick={() => setShowModal(false)}
                 className="w-full bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold py-2.5 rounded-lg transition-colors"
               >
-                Entendido
+                {t('entendido')}
               </button>
             </div>
           </div>

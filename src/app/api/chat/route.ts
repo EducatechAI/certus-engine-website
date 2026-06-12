@@ -1,15 +1,25 @@
 import { NextResponse } from 'next/server';
-import { FAQ_ITEMS } from '@/data/faq';
+import { FAQ_ITEMS_I18N } from '@/data/faq';
 import { WHITE_PAPER_CONTENT } from '@/data/TechnicalDossierContent';
 import fs from 'fs';
 import path from 'path';
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "";
-const MODEL_NAME = process.env.CHAT_MODEL_NAME || "google/gemini-2.5-flash"; // Um modelo bom e rápido no OpenRouter, ou "openai/gpt-4o-mini"
+const MODEL_NAME = process.env.CHAT_MODEL_NAME || "google/gemini-2.5-flash";
+
+function protectSovereignTerms(text: string): string {
+  if (!text) return text;
+  return text
+    .replace(/Fail-Cerrado/gi, 'Fail-Closed')
+    .replace(/Fail cerrado/gi, 'Fail-Closed')
+    .replace(/PII-Cero/gi, 'PII-Zero')
+    .replace(/PII cero/gi, 'PII-Zero')
+    .replace(/Pii-Zero/gi, 'PII-Zero');
+}
 
 export async function POST(req: Request) {
   try {
-    const { message, history = [] } = await req.json();
+    const { message, history = [], locale = 'pt-BR' } = await req.json();
 
     if (!message) {
       return NextResponse.json({ error: "O campo 'message' é obrigatório." }, { status: 400 });
@@ -20,9 +30,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "API Key não configurada no servidor." }, { status: 500 });
     }
 
-    // Montando a Base de Conhecimento Fixa
-    const faqText = FAQ_ITEMS.map((item: any) => `Q: ${item.q}\nA: ${item.a}`).join("\n\n");
-    const dossierText = WHITE_PAPER_CONTENT.pt.sections.map((sec: any) => `## ${sec.title}\n${sec.content}`).join("\n\n");
+    // Dynamic selection of technical whitepaper and FAQ based on locale
+    const langKey = locale.startsWith('es') ? 'es' : locale.startsWith('en') ? 'en' : 'pt';
+    const dossierObj = WHITE_PAPER_CONTENT[langKey] || WHITE_PAPER_CONTENT.pt;
+    const dossierText = dossierObj.sections.map((sec: any) => `## ${sec.title}\n${sec.content}`).join("\n\n");
+
+    const faqItems = FAQ_ITEMS_I18N[locale as keyof typeof FAQ_ITEMS_I18N] || FAQ_ITEMS_I18N['pt-BR'];
+    const faqText = faqItems.map((item: any) => `Q: ${item.q}\nA: ${item.a}`).join("\n\n");
 
     // Lendo os Dossiês Dinâmicos da pasta src/data/dossiers
     let dynamicDossiersText = "";
@@ -39,6 +53,14 @@ export async function POST(req: Request) {
       console.error("[Certus-API] Erro ao ler dossiês dinâmicos:", err);
     }
 
+    // Select Multilingual CTA depending on user language
+    let ctaText = 'Gostou? Na Academy você pode ganhar selos explorando mais! Acesse certusengine.vercel.app/login';
+    if (locale.startsWith('en')) {
+      ctaText = 'Liked it? In our Academy you can earn achievement seals by exploring more! Access certusengine.vercel.app/login';
+    } else if (locale.startsWith('es')) {
+      ctaText = '¿Te gustó? ¡En la Academy puedes ganar sellos de logro explorando más! Accede a certusengine.vercel.app/login';
+    }
+
     const SYSTEM_PROMPT = `
 Você é o Certus Bot, a voz oficial e a Inteligência Artificial Soberana do Certus Engine.
 Sua única missão é sanar dúvidas de desenvolvedores, empresas, órgãos governamentais e instituições de ensino sobre a tecnologia Certus Engine, baseando-se ESTRITAMENTE na base de conhecimento oficial fornecida abaixo.
@@ -47,8 +69,10 @@ Sua única missão é sanar dúvidas de desenvolvedores, empresas, órgãos gove
 1. **Veracidade Estrita:** Responda apenas com fatos contidos na base de conhecimento abaixo. Nunca invente capacidades técnicas ou preços que não estejam descritos aqui.
 2. **Identidade:** Comporte-se como um assistente técnico-operacional. Valorize a integridade, a resiliência e a privacidade (PII-Zero).
 3. **Seja Conciso e Inteligente:** Formule respostas naturais e educadas, mas diretas ao ponto. Se o usuário fizer perguntas genéricas, direcione-o para os diferenciais do Certus.
-4. **Fechamento e CTA da Academy:** Ao finalizar a explicação, sempre pergunte sutilmente "O que mais deseja saber?". De forma sutil e natural, convide o usuário a conhecer nossa Academy onde ele pode aprender explorando livremente e ganhar selos de conquista: "Gostou? Na Academy você pode ganhar selos explorando mais! Acesse certusengine.vercel.app/login".
+4. **Fechamento e CTA da Academy:** Ao finalizar a explicação, sempre pergunte sutilmente "O que mais deseja saber?". De forma sutil e natural, convide o usuário a conhecer nossa Academy onde ele pode aprender explorando livremente e ganhar selos de conquista: "${ctaText}".
 5. **Alinhamento de Órgãos Públicos:** Se o usuário se identificar como Prefeitura, Consórcio, Governo ou Universidade, direcione o foco para o **Pacote GOV Diamante (CPSI - Lei 182/2021)**, destacando a dispensa de licitação e indique o e-mail: enterprise@certus.engine.
+6. **Proteção de Termos Soberanos:** NUNCA traduza termos de marca e técnicos soberanos como "Fail-Closed" e "PII-Zero". Mantenha-os idênticos em qualquer idioma.
+7. **Idioma de Resposta:** Responda SEMPRE no idioma do usuário/locale solicitado (Locale: ${locale}). Se for 'en', responda em inglês. Se for 'es', responda em espanhol. Se for 'pt-BR', responda em português.
 
 ---
 ### 📚 BASE DE CONHECIMENTO OFICIAL
@@ -95,7 +119,10 @@ ${faqText}
     }
 
     const data = await response.json();
-    const reply = data.choices?.[0]?.message?.content || "Desculpe, não consegui processar a resposta.";
+    let reply = data.choices?.[0]?.message?.content || "Desculpe, não consegui processar a resposta.";
+
+    // Protect sovereign terms in the generated reply
+    reply = protectSovereignTerms(reply);
 
     return NextResponse.json({ reply });
 

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { GraduationCap, MessageSquare, Send, CheckCircle2, Shield, Loader2, Sparkles, Award } from "lucide-react";
+import { useTranslation } from "@/i18n/I18nProvider";
 
 interface Message {
   sender: "incoming" | "outgoing";
@@ -9,18 +10,24 @@ interface Message {
 }
 
 export default function AcademyPage() {
+  const { t, locale } = useTranslation();
   const [isTraining, setIsTraining] = useState(false);
   const [questionsCount, setQuestionsCount] = useState(0);
   const [seals, setSeals] = useState<string[]>([]);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      sender: "incoming",
-      text: "Olá, futuro Certus Trainer! Eu sou o assistente de Capacitação e Governança da Certus Academy. Aqui você aprenderá a arquitetura do Certus Engine explorando e fazendo perguntas livres.\n\nExperimente perguntar algo sobre a IDE Certus, os 12 agentes ou o PII-Zero para ver como o Certus funciona, ou digite **/challenge start** para iniciar um desafio interativo!"
-    }
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
+
+  // Initialize welcome message dynamically on load or locale change
+  useEffect(() => {
+    setMessages([
+      {
+        sender: "incoming",
+        text: t('academy_welcome') + "\n\n" + t('academy_desc_interactive')
+      }
+    ]);
+  }, [locale, t]);
 
   // Carrega progresso do localStorage
   useEffect(() => {
@@ -51,11 +58,12 @@ export default function AcademyPage() {
       const endpoint = "/api/trainer";
       
       const payload = isTrainerCommand
-        ? { action: userText.split(" ")[0], payload: userText.substring(userText.indexOf(" ") + 1), ambassadorId: "AMB_12345" }
+        ? { action: userText.split(" ")[0], payload: userText.substring(userText.indexOf(" ") + 1), ambassadorId: "AMB_12345", locale }
         : { 
             message: userText, 
             currentCount: questionsCount, 
             ambassadorId: "AMB_12345",
+            locale,
             history: messages.map(m => ({ sender: m.sender, text: m.text })).slice(-5) // Envia as últimas 5 mensagens para contexto
           };
 
@@ -130,16 +138,16 @@ export default function AcademyPage() {
         <div>
           <h2 className="text-3xl font-black text-gray-100 flex items-center gap-2">
             <GraduationCap className="text-emerald-500" size={32} />
-            <span>Certus Academy</span>
+            <span>{t('academy_title')}</span>
           </h2>
-          <p className="text-gray-400 text-sm mt-1">Aprenda ativamente. Sem vídeos lineares ou passividade. Governança e vendas de IA com o Certus Trainer.</p>
+          <p className="text-gray-400 text-sm mt-1">{t('academy_subtitle')}</p>
         </div>
 
         {/* Contador rápido no topo */}
         <div className="bg-navy-800 border border-navy-700 rounded-xl px-4 py-2 flex items-center space-x-3">
           <Award className="text-amber-500" size={20} />
           <div>
-            <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Perguntas Feitas</p>
+            <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">{t('perguntas_feitas')}</p>
             <p className="text-sm font-bold text-white font-mono">{questionsCount}/150</p>
           </div>
         </div>

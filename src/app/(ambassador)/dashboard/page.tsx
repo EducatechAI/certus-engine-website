@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import { Copy, TrendingUp, Users, MousePointerClick, Award, Download, MessageSquare, ExternalLink, HelpCircle } from "lucide-react";
 import Link from "next/link";
+import { useTranslation } from "@/i18n/I18nProvider";
 
 export default function Dashboard() {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
   const [isCertified, setIsCertified] = useState(true);
   const [questionsCount, setQuestionsCount] = useState(0);
@@ -81,7 +83,7 @@ export default function Dashboard() {
   ];
 
   // Ajusta o nível de exibição no MetricCard com base no contador
-  let currentLevel = "Explorador PAI";
+  let currentLevel = t('nivel_bronze');
   if (questionsCount >= 150) currentLevel = "👑 Soberano";
   else if (questionsCount >= 120) currentLevel = "💎 Mestre";
   else if (questionsCount >= 80) currentLevel = "🥇 Especialista";
@@ -89,27 +91,27 @@ export default function Dashboard() {
   else if (questionsCount >= 20) currentLevel = "🥉 Explorador";
 
   // Próximo nível progressivo
-  let progressTrend = "20 perguntas para Explorador";
-  if (questionsCount >= 150) progressTrend = "Nível máximo alcançado!";
-  else if (questionsCount >= 120) progressTrend = `${150 - questionsCount} perguntas para Soberano`;
-  else if (questionsCount >= 80) progressTrend = `${120 - questionsCount} perguntas para Mestre`;
-  else if (questionsCount >= 50) progressTrend = `${80 - questionsCount} perguntas para Especialista`;
-  else if (questionsCount >= 20) progressTrend = `${50 - questionsCount} perguntas para Investigador`;
+  let progressTrend = "20 " + t('perguntas_para') + " Explorador";
+  if (questionsCount >= 150) progressTrend = t('nivel_maximo');
+  else if (questionsCount >= 120) progressTrend = `${150 - questionsCount} ${t('perguntas_para')} Soberano`;
+  else if (questionsCount >= 80) progressTrend = `${120 - questionsCount} ${t('perguntas_para')} Mestre`;
+  else if (questionsCount >= 50) progressTrend = `${80 - questionsCount} ${t('perguntas_para')} Especialista`;
+  else if (questionsCount >= 20) progressTrend = `${50 - questionsCount} ${t('perguntas_para')} Investigador`;
 
   return (
     <div className="space-y-8">
       {/* Top Banner & Bot Link */}
       <div className="bg-navy-800 rounded-xl p-6 border border-navy-700 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold text-gray-100 mb-1">Painel do Embaixador Certus</h2>
-          <p className="text-gray-400 text-sm">Monitore suas conversões e acesse materiais oficiais de prospecção.</p>
+          <h2 className="text-xl font-bold text-gray-100 mb-1">{t('ambassador_title')}</h2>
+          <p className="text-gray-400 text-sm">{t('ambassador_desc')}</p>
         </div>
         <Link 
           href="/dashboard/academy"
           className="bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold px-6 py-3 rounded-lg flex items-center space-x-2 transition-all shadow-lg shadow-emerald-500/20 hover:scale-[1.02]"
         >
           <MessageSquare size={20} />
-          <span>Ir para a Certus Academy</span>
+          <span>{t('btn_academy')}</span>
         </Link>
       </div>
 
@@ -117,7 +119,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-navy-800 rounded-xl p-6 border border-navy-700 flex flex-col justify-between">
           <div>
-            <h3 className="text-gray-200 font-semibold mb-4">🔗 Seu Link de Afiliado Exclusivo</h3>
+            <h3 className="text-gray-200 font-semibold mb-4">🔗 {t('affiliate_link')}</h3>
             
             {questionsCount >= 80 ? (
               <div className="flex items-center space-x-3 mb-6">
@@ -132,14 +134,14 @@ export default function Dashboard() {
                   className="bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold px-5 py-3 rounded-lg transition-colors flex items-center space-x-2 shrink-0"
                 >
                   <Copy size={18} />
-                  <span>{copied ? "Copiado!" : "Copiar"}</span>
+                  <span>{copied ? t('copied') : t('copy')}</span>
                 </button>
               </div>
             ) : (
               <div className="bg-navy-900 border border-amber-500/20 rounded-xl p-5 mb-6 text-center">
-                <p className="text-amber-400 text-sm font-semibold mb-2">🔒 Link de Afiliado Bloqueado</p>
+                <p className="text-amber-400 text-sm font-semibold mb-2">🔒 {t('affiliate_locked')}</p>
                 <p className="text-xs text-gray-400 max-w-md mx-auto">
-                  Você precisa atingir o selo **Especialista (80 perguntas)** no Bot do Academy para liberar seu link e começar a comissionar.
+                  {t('affiliate_locked_desc')}
                 </p>
               </div>
             )}
@@ -147,7 +149,7 @@ export default function Dashboard() {
           
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-navy-700 pt-6">
             <div>
-              <p className="text-gray-400 text-xs mb-1">Cliques no Link</p>
+              <p className="text-gray-400 text-xs mb-1">{t('cliques')}</p>
               <p className="text-xl font-bold text-gray-100 font-mono">{questionsCount >= 80 ? "127" : "0"}</p>
             </div>
             <div>
@@ -198,11 +200,11 @@ export default function Dashboard() {
       <div className="bg-navy-800 rounded-xl p-6 border border-navy-700 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h3 className="text-lg font-bold text-gray-100">🏆 Sua Jornada de Conhecimento</h3>
+            <h3 className="text-lg font-bold text-gray-100">🏆 {t('progresso_trilha')}</h3>
             <p className="text-xs text-gray-400">Faça perguntas no Bot da Academy para desbloquear selos e benefícios imutáveis.</p>
           </div>
           <div className="bg-navy-900 border border-navy-700 px-4 py-2 rounded-xl text-center shrink-0">
-            <span className="text-xs font-mono font-bold text-emerald-400">{questionsCount} / 150 Perguntas</span>
+            <span className="text-xs font-mono font-bold text-emerald-400">{questionsCount} / 150 {t('perguntas_feitas')}</span>
           </div>
         </div>
 
@@ -257,25 +259,25 @@ export default function Dashboard() {
       {/* Métricas Principais */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <MetricCard 
-          title="Comissões Recebidas" 
+          title={t('comissao_receber')} 
           value={questionsCount >= 120 ? (questionsCount >= 150 ? "R$ 1.650,00" : "R$ 1.575,00") : "R$ 1.500,00"} 
           trend={questionsCount >= 120 ? (questionsCount >= 150 ? "+10% Bônus Soberano" : "+5% Bônus Mestre") : "+15% este mês"} 
           icon={<TrendingUp size={24} className="text-emerald-500" />} 
         />
         <MetricCard 
-          title="Leads Totais" 
+          title={t('leads_indicados')} 
           value="42" 
           trend="+3 esta semana" 
           icon={<Users size={24} className="text-emerald-500" />} 
         />
         <MetricCard 
-          title="Cliques Totais" 
+          title={t('cliques')} 
           value="1.240" 
           trend="3.4% conv. rate" 
           icon={<MousePointerClick size={24} className="text-emerald-500" />} 
         />
         <MetricCard 
-          title="Nível Atual" 
+          title={t('nivel_atual')} 
           value={currentLevel} 
           trend={progressTrend} 
           icon={<Award size={24} className="text-emerald-500" />} 
@@ -317,7 +319,7 @@ export default function Dashboard() {
         {/* Status de Treinamento */}
         <div className="bg-navy-800 rounded-xl p-6 border border-navy-700 flex flex-col justify-between">
           <div>
-            <h3 className="font-semibold text-gray-100 mb-4">🎓 Status de Treinamento</h3>
+            <h3 className="font-semibold text-gray-100 mb-4">🎓 {t('status_onboarding')}</h3>
             {questionsCount >= 20 ? (
               <div className="space-y-4">
                 <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 text-center">
@@ -356,7 +358,7 @@ export default function Dashboard() {
       {/* Materiais de Venda & Suporte */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-navy-800 rounded-xl p-6 border border-navy-700">
-          <h3 className="font-semibold text-gray-100 mb-4">📦 Materiais de Venda & Prospecção</h3>
+          <h3 className="font-semibold text-gray-100 mb-4">{t('materiais_prospeccao')}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {materiaisVenda.map((mat) => (
               <a 

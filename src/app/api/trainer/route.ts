@@ -1,12 +1,22 @@
 import { NextResponse } from 'next/server';
 import { LazarusVault } from '@/shared/LazarusVault';
-import { TRAINER_SYSTEM_PROMPT } from '@/bot/trainer/trainerSystemPrompt';
+import { TRAINER_SYSTEM_PROMPTS } from '@/bot/trainer/trainerSystemPrompt';
 import { ChallengeValidator } from '@/bot/trainer/challengeValidator';
 import fs from 'fs';
 import path from 'path';
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "";
 const MODEL_NAME = process.env.CHAT_MODEL_NAME || "google/gemini-2.5-flash";
+
+function protectSovereignTerms(text: string): string {
+  if (!text) return text;
+  return text
+    .replace(/Fail-Cerrado/gi, 'Fail-Closed')
+    .replace(/Fail cerrado/gi, 'Fail-Closed')
+    .replace(/PII-Cero/gi, 'PII-Zero')
+    .replace(/PII cero/gi, 'PII-Zero')
+    .replace(/Pii-Zero/gi, 'PII-Zero');
+}
 
 interface Milestone {
   threshold: number;
@@ -29,7 +39,7 @@ function checkMilestone(count: number): Milestone | null {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { action, payload, ambassadorId, message, currentCount, history = [] } = body;
+    const { action, payload, ambassadorId, message, currentCount, history = [], locale = 'pt-BR' } = body;
 
     const activeAmbassadorId = ambassadorId || "amb_demo_123";
 
@@ -103,8 +113,10 @@ export async function POST(req: Request) {
       console.error("[Trainer-API] Erro ao ler base de conhecimento de treino:", err);
     }
 
+    const promptSelected = TRAINER_SYSTEM_PROMPTS[locale as keyof typeof TRAINER_SYSTEM_PROMPTS] || TRAINER_SYSTEM_PROMPTS['pt-BR'];
+
     const systemPromptCombined = `
-${TRAINER_SYSTEM_PROMPT}
+${promptSelected}
 
 ### BASE DE CONHECIMENTO DE TREINAMENTO (docs/training-kb):
 ${trainingKbText}
@@ -149,15 +161,38 @@ ${trainingKbText}
     // Fallback local se a chamada à API falhar ou não estiver configurada
     if (!reply) {
       const lowerQuery = userQuery.toLowerCase();
-      if (lowerQuery.includes('cpsi') || lowerQuery.includes('182/2021')) {
-        reply = "Conforme detalhado no playbook_govtech.md, a contratação direta via CPSI (Contrato Público para Solução Inovadora) tem amparo no Marco Legal das Startups (Lei Complementar 182/2021). Isso permite testar e adquirir tecnologia sem licitação tradicional.";
-      } else if (lowerQuery.includes('agente') || lowerQuery.includes('wolfdog')) {
-        reply = "Na arquitetura Certus (arquitetura_frota_apex.md), temos 12 sub-agentes. O Wolfdog é o watchdog de resiliência e persistência (anti-kill), enquanto o Pitbull cuida da defesa contra Ransomwares na camada de arquivos.";
+      if (locale.startsWith('en')) {
+        if (lowerQuery.includes('cpsi') || lowerQuery.includes('182/2021')) {
+          reply = "As detailed in playbook_govtech.md, direct contracting via CPSI (Public Contract for Innovative Solution) is authorized under the Startups Legal Framework (Complementary Law 182/2021). This allows testing and purchasing technology without traditional bidding.";
+        } else if (lowerQuery.includes('agent') || lowerQuery.includes('wolfdog')) {
+          reply = "In the Certus architecture (arquitetura_frota_apex.md), we have 12 sub-agents. Wolfdog is the watchdog for resilience and persistence (anti-kill), while Pitbull handles defense against Ransomwares at the file layer.";
+        } else {
+          reply = "This information is not in my current base, but I can help you find it on the certusengine.com.br website. If you need more details, you can also ask the Certus IDE directly or download it if you haven't already.";
+        }
+        reply += "\n\nWant to explore more? Keep asking!";
+      } else if (locale.startsWith('es')) {
+        if (lowerQuery.includes('cpsi') || lowerQuery.includes('182/2021')) {
+          reply = "Como se detalla en playbook_govtech.md, la contratación directa vía CPSI (Contrato Público para Solución Innovadora) está respaldada por el Marco Legal de Startups (Ley Complementaria 182/2021). Esto permite probar y adquirir tecnología sin licitación tradicional.";
+        } else if (lowerQuery.includes('agente') || lowerQuery.includes('wolfdog')) {
+          reply = "En la arquitectura de Certus (arquitetura_frota_apex.md), tenemos 12 subagentes. Wolfdog es el perro guardián de resiliencia y persistencia (anti-kill), mientras que Pitbull se encarga de la defensa contra Ransomwares en la capa de archivos.";
+        } else {
+          reply = "Esta información no está en mi base actual, pero puedo ayudarte a encontrarla en el sitio web certusengine.com.br. Si necesitas más detalles, también puedes preguntar directamente a la IDE Certus o descargarla si aún no lo has hecho.";
+        }
+        reply += "\n\n¿Quieres explorar más? ¡Sigue preguntando!";
       } else {
-        reply = "Essa informação não está na minha base atual, mas posso ajudá-lo a encontrar no site certusengine.com.br. Caso precise de mais detalhes, você também pode perguntar diretamente para a IDE Certus ou fazer o download dela se ainda não o fez.";
+        if (lowerQuery.includes('cpsi') || lowerQuery.includes('182/2021')) {
+          reply = "Conforme detalhado no playbook_govtech.md, a contratação direta via CPSI (Contrato Público para Solução Inovadora) tem amparo no Marco Legal das Startups (Lei Complementar 182/2021). Isso permite testar e adquirir tecnologia sem licitação tradicional.";
+        } else if (lowerQuery.includes('agente') || lowerQuery.includes('wolfdog')) {
+          reply = "Na arquitetura Certus (arquitetura_frota_apex.md), temos 12 sub-agentes. O Wolfdog é o watchdog de resiliência e persistência (anti-kill), enquanto o Pitbull cuida da defesa contra Ransomwares na camada de arquivos.";
+        } else {
+          reply = "Essa informação não está na minha base atual, mas posso ajudá-lo a encontrar no site certusengine.com.br. Caso precise de mais detalhes, você também pode perguntar diretamente para a IDE Certus ou fazer o download dela se ainda não o fez.";
+        }
+        reply += "\n\nQuer explorar mais? Continue perguntando!";
       }
-      reply += "\n\nQuer explorar mais? Continue perguntando!";
     }
+
+    // Protect sovereign terms in the generated reply
+    reply = protectSovereignTerms(reply);
 
     // 2. Incrementar contador de perguntas
     const prevCount = typeof currentCount === 'number' ? currentCount : 0;
