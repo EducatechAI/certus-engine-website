@@ -7,7 +7,7 @@ import { useTranslation } from '@/i18n/I18nProvider'
 // ─── PAGE ────────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
 
   const PROJECTS = [
     { name: 'Certus Studio', tag: '✅ Validado', desc: 'IDE governada com co-pilot soberano e controle de execução.', href: '/studio' },
@@ -59,7 +59,7 @@ export default function HomePage() {
               href="/dashboard"
               className="px-8 py-4 rounded-xl bg-navy-800 hover:bg-navy-750 border border-emerald-500/30 hover:border-emerald-500/75 text-emerald-400 font-bold transition-all text-center uppercase tracking-wide text-sm block w-full sm:w-auto"
             >
-              Dashboard Embaixador
+              {locale === 'en' ? 'Ambassador Dashboard' : locale === 'es' ? 'Panel de Embajador' : 'Dashboard Embaixador'}
             </Link>
           </div>
 

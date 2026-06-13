@@ -163,11 +163,15 @@ export default function AcademyPage() {
         <div className="max-w-2xl relative z-10 space-y-4">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-[10px] font-bold text-amber-400 uppercase tracking-wider">
             <Sparkles size={12} />
-            <span>Aprendizado Interativo & Ativo</span>
+            <span>{locale === 'en' ? 'Interactive & Active Learning' : locale === 'es' ? 'Aprendizaje Interactivo & Activo' : 'Aprendizado Interactivo & Ativo'}</span>
           </span>
-          <h3 className="text-2xl font-black text-white">Domine a Soberania e o Fechamento de Contratos</h3>
+          <h3 className="text-2xl font-black text-white">{locale === 'en' ? 'Master Sovereignty and Closing Contracts' : locale === 'es' ? 'Domina la Soberanía y el Cierre de Contratos' : 'Domine a Soberania e o Fechamento de Contratos'}</h3>
           <p className="text-gray-300 leading-relaxed text-sm">
-            Aqui você não assiste a aulas expositivas. Você interage diretamente com o **Certus Trainer** no console de simulação, explorando livremente a documentação oficial ou resolvendo desafios práticos para obter conquistas criptografadas e comissões extras.
+            {locale === 'en' 
+              ? 'Here you do not watch lectures. You interact directly with the Certus Trainer in the simulation console, freely exploring official documentation or solving practical challenges to unlock cryptographic achievements and extra commissions.'
+              : locale === 'es'
+              ? 'Aquí no asistes a clases expositivas. Interactúas directamente con el Certus Trainer en la consola de simulación, explorando libremente la documentación oficial o resolviendo desafíos prácticos para obtener logros criptográficos y comisiones extras.'
+              : 'Aqui você não assiste a aulas expositivas. Você interage diretamente com o Certus Trainer no console de simulação, explorando livremente a documentação oficial ou resolvendo desafios práticos para obter conquistas criptografadas e comissões extras.'}
           </p>
 
           {!isTraining && (
@@ -176,7 +180,7 @@ export default function AcademyPage() {
               className="mt-4 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-navy-950 font-black px-6 py-3.5 rounded-xl flex items-center gap-2 shadow-lg shadow-amber-500/10 hover:scale-[1.02] transition-all text-xs uppercase tracking-wider"
             >
               <MessageSquare size={16} />
-              <span>Iniciar Treinamento no Certus Bot</span>
+              <span>{locale === 'en' ? 'Start Training on Certus Bot' : locale === 'es' ? 'Iniciar Entrenamiento en Certus Bot' : 'Iniciar Treinamento no Certus Bot'}</span>
             </button>
           )}
         </div>
@@ -192,7 +196,7 @@ export default function AcademyPage() {
                 ⚖️
               </div>
               <div>
-                <h4 className="font-bold text-white text-sm">Certus Bot (Forense Mode)</h4>
+                <h4 className="font-bold text-white text-sm">Certus Bot ({locale === 'en' ? 'Forensic Mode' : locale === 'es' ? 'Modo Forense' : 'Forense Mode'})</h4>
                 <p className="text-[10px] text-amber-400 flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                   <span>Trainer Sandbox • Lazarus Auth Active</span>
@@ -204,7 +208,7 @@ export default function AcademyPage() {
               onClick={() => setIsTraining(false)}
               className="text-gray-400 hover:text-white text-xs border border-navy-700 hover:border-navy-600 px-3 py-1.5 rounded-lg bg-navy-900/40 transition-all"
             >
-              Recolher Console
+              {locale === 'en' ? 'Collapse Console' : locale === 'es' ? 'Contraer Consola' : 'Recolher Console'}
             </button>
           </div>
 
@@ -230,7 +234,13 @@ export default function AcademyPage() {
               <div className="flex justify-start">
                 <div className="bg-navy-900 border border-navy-700/60 rounded-2xl rounded-tl-none px-4 py-3 text-sm text-gray-400 flex items-center gap-2">
                   <Loader2 className="animate-spin text-amber-500" size={16} />
-                  <span className="italic">Certus Engine processando resposta...</span>
+                  <span className="italic">
+                    {locale === 'en' 
+                      ? 'Certus Engine processing response...' 
+                      : locale === 'es' 
+                      ? 'Certus Engine procesando respuesta...' 
+                      : 'Certus Engine processando resposta...'}
+                  </span>
                 </div>
               </div>
             )}
@@ -244,7 +254,7 @@ export default function AcademyPage() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              placeholder="Pergunte sobre IDE, 12 agentes, ou digite comandos..."
+              placeholder={locale === 'en' ? 'Ask about IDE, 12 agents, or type commands...' : locale === 'es' ? 'Pregunta sobre IDE, 12 agentes, o escribe comandos...' : 'Pergunte sobre IDE, 12 agentes, ou digite comandos...'}
               className="flex-1 bg-navy-900 border border-navy-700 focus:border-amber-500/60 focus:outline-none rounded-xl px-4 py-3 text-white text-sm transition-colors"
             />
             <button
