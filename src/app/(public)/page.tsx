@@ -467,8 +467,12 @@ export default function HomePage() {
       <section id="clientes" className="py-24 relative z-10 border-t border-emerald-900/20 bg-navy-900/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">Parcerias e Credibilidade</p>
-            <h2 className="text-3xl font-black text-white">Quem Confia na Soberania Certus</h2>
+            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">
+              {locale === 'en' ? 'Partnerships and Credibility' : locale === 'es' ? 'Alianzas y Credibilidad' : 'Parcerias e Credibilidade'}
+            </p>
+            <h2 className="text-3xl font-black text-white">
+              {locale === 'en' ? 'Who Trusts Certus Sovereignty' : locale === 'es' ? 'Quién Confía en la Soberanía de Certus' : 'Quem Confia na Soberania Certus'}
+            </h2>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center mb-16 justify-items-center opacity-60">
@@ -481,20 +485,36 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="bg-navy-800/40 border border-navy-700/60 p-6 rounded-2xl flex flex-col justify-between">
               <p className="text-sm text-gray-300 italic leading-relaxed">
-                "O Certus Engine neutralizou 100% dos riscos de vazamento de dados (PII) em nosso setor de suporte de TI e automatizou a verificação regulatória."
+                {locale === 'en' 
+                  ? '"Certus Engine neutralized 100% of data leak (PII) risks in our IT support department and automated regulatory verification."'
+                  : locale === 'es'
+                  ? '"Certus Engine neutralizó el 100% de los riesgos de filtración de datos (PII) en nuestro departamento de soporte de TI y automatizó la verificación regulatoria."'
+                  : '"O Certus Engine neutralizou 100% dos riscos de vazamento de dados (PII) em nosso setor de suporte de TI e automatizou a verificação regulatória."'}
               </p>
               <div className="mt-6">
-                <span className="font-bold text-white text-xs block">Gestor de Inovação Digital</span>
-                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Secretaria de Administração</span>
+                <span className="font-bold text-white text-xs block">
+                  {locale === 'en' ? 'Digital Innovation Manager' : locale === 'es' ? 'Gestor de Innovación Digital' : 'Gestor de Inovação Digital'}
+                </span>
+                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">
+                  {locale === 'en' ? 'Department of Administration' : locale === 'es' ? 'Secretaría de Administración' : 'Secretaria de Administração'}
+                </span>
               </div>
             </div>
             <div className="bg-navy-800/40 border border-navy-700/60 p-6 rounded-2xl flex flex-col justify-between">
               <p className="text-sm text-gray-300 italic leading-relaxed">
-                "A contratação via CPSI simplificou o processo regulatório. A auditoria contínua do Lazarus garante que o sistema atenda rigorosamente à LGPD."
+                {locale === 'en' 
+                  ? '"Hiring via CPSI simplified the regulatory process. The continuous auditing of Lazarus ensures that the system strictly complies with GDPR/LGPD."'
+                  : locale === 'es'
+                  ? '"La contratación a través de CPSI simplificó el proceso regulatorio. La auditoría continua de Lazarus garantiza que el sistema cumpla estrictamente con la LGPD."'
+                  : '"A contratação via CPSI simplificou o processo regulatório. A auditoria contínua do Lazarus garante que o sistema atenda rigorosamente à LGPD."'}
               </p>
               <div className="mt-6">
-                <span className="font-bold text-white text-xs block">Assessor de TI e Compliance</span>
-                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Setor Público Associado</span>
+                <span className="font-bold text-white text-xs block">
+                  {locale === 'en' ? 'IT and Compliance Advisor' : locale === 'es' ? 'Asesor de TI y Cumplimiento' : 'Assessor de TI e Compliance'}
+                </span>
+                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">
+                  {locale === 'en' ? 'Associated Public Sector' : locale === 'es' ? 'Sector Público Asociado' : 'Setor Público Associado'}
+                </span>
               </div>
             </div>
           </div>

@@ -34,6 +34,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale)
     localStorage.setItem('certus-locale', newLocale)
+    // Despacha evento customizado para notificar componentes nativos de JS (como o chat-widget)
+    window.dispatchEvent(new CustomEvent('certus-locale-change', { detail: newLocale }))
   }
 
   const t = (key: TranslationKey): string => translations[locale][key]

@@ -411,13 +411,73 @@
         }
     });
 
-    // Lógica do Bubble Callout (Notificação de Engajamento)
-    const bubbleMessages = [
-        "Dúvidas sobre contratação via CPSI (Lei 182/2021) ou IDE Sovereign? Pergunte-me!",
-        "Descubra como o agente Lazarus protege e torna o código 'imortal'.",
-        "Teste a IDE Sovereign ou Command grátis por 30 dias!"
-    ];
+    // Lógica do Bubble Callout (Notificação de Engajamento) multilíngue
+    const localizedData = {
+        'pt-BR': {
+            bubbleMessages: [
+                "Dúvidas sobre contratação via CPSI (Lei 182/2021) ou IDE Sovereign? Pergunte-me!",
+                "Descubra como o agente Lazarus protege e torna o código 'imortal'.",
+                "Teste a IDE Sovereign ou Command grátis por 30 dias!"
+            ],
+            headerSub: "Defesa e Governança Ativa",
+            welcome: "Olá! Eu sou o assistente do **Certus Engine**. Como posso ajudar você hoje com dúvidas de conformidade LGPD, segurança de dados e orquestração de IAs?",
+            inputPlaceholder: "Pergunte sobre IDE, 12 agentes, LGPD..."
+        },
+        'en': {
+            bubbleMessages: [
+                "Questions about CPSI contracting (Law 182/2021) or Sovereign IDE? Ask me!",
+                "Discover how the Lazarus agent protects and makes code 'immortal'.",
+                "Test Sovereign or Command IDE free for 30 days!"
+            ],
+            headerSub: "Active Defense & Governance",
+            welcome: "Hello! I am the **Certus Engine** assistant. How can I help you today with GDPR compliance, data security, and AI orchestration questions?",
+            inputPlaceholder: "Ask about IDE, 12 agents, GDPR..."
+        },
+        'es': {
+            bubbleMessages: [
+                "¿Dudas sobre contratación CPSI (Ley 182/2021) o IDE Sovereign? ¡Pregúntame!",
+                "Descubre cómo el agente Lazarus protege y hace el código 'inmortal'.",
+                "¡Prueba IDE Sovereign o Command gratis por 30 días!"
+            ],
+            headerSub: "Defensa y Gobernanza Activa",
+            welcome: "¡Hola! Soy el asistente de **Certus Engine**. ¿Cómo puedo ayudarte hoy con dudas de cumplimiento de RGPD, seguridad de datos y orquestación de IAs?",
+            inputPlaceholder: "Pregunta sobre IDE, 12 agentes, RGPD..."
+        }
+    };
+
+    function getLocale() {
+        return localStorage.getItem('certus-locale') || 'pt-BR';
+    }
+
+    let currentLocale = getLocale();
+    let bubbleMessages = localizedData[currentLocale].bubbleMessages;
     let currentBubbleIndex = 0;
+
+    // Atualiza os textos iniciais baseados no idioma
+    function updateWidgetTexts() {
+        const langData = localizedData[currentLocale];
+        bubbleMessages = langData.bubbleMessages;
+        document.getElementById('certus-bubble-text').textContent = bubbleMessages[currentBubbleIndex];
+        document.querySelector('.certus-chat-header-info p').textContent = langData.headerSub;
+        document.getElementById('certus-message-input').placeholder = langData.inputPlaceholder;
+        
+        // Atualiza a mensagem de boas-vindas inicial se nenhuma mensagem foi enviada ainda
+        if (messageHistory.length === 0) {
+            const firstMsg = document.querySelector('#certus-messages-container .certus-message.incoming');
+            if (firstMsg) {
+                firstMsg.textContent = langData.welcome;
+            }
+        }
+    }
+
+    // Escuta evento de alteração de idioma do I18nProvider
+    window.addEventListener('certus-locale-change', function(e) {
+        currentLocale = e.detail;
+        updateWidgetTexts();
+    });
+
+    // Inicializa textos na montagem
+    setTimeout(updateWidgetTexts, 50);
 
     // Exibe o Callout após 5 segundos do carregamento da página
     setTimeout(() => {
@@ -432,7 +492,7 @@
             bubbleCallout.classList.remove('active');
             setTimeout(() => {
                 currentBubbleIndex = (currentBubbleIndex + 1) % bubbleMessages.length;
-                bubbleText.textContent = bubbleMessages[currentBubbleIndex];
+                document.getElementById('certus-bubble-text').textContent = bubbleMessages[currentBubbleIndex];
                 if (!chatActive) {
                     bubbleCallout.classList.add('active');
                 }
