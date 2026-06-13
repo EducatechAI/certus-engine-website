@@ -122,16 +122,16 @@ export default function Dashboard() {
             <h3 className="text-gray-200 font-semibold mb-4">🔗 {t('affiliate_link')}</h3>
             
             {questionsCount >= 80 ? (
-              <div className="flex items-center space-x-3 mb-6">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
                 <input 
                   type="text" 
                   value={referralUrl} 
                   readOnly 
-                  className="bg-navy-900 border border-navy-700 px-4 py-3 rounded-lg font-mono text-emerald-400 text-sm flex-1 focus:outline-none"
+                  className="bg-navy-900 border border-navy-700 px-4 py-3 rounded-lg font-mono text-emerald-400 text-sm flex-1 focus:outline-none w-full"
                 />
                 <button 
                   onClick={handleCopyLink}
-                  className="bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold px-5 py-3 rounded-lg transition-colors flex items-center space-x-2 shrink-0"
+                  className="bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold px-5 py-3 rounded-lg transition-colors flex items-center justify-center space-x-2 shrink-0 w-full sm:w-auto"
                 >
                   <Copy size={18} />
                   <span>{copied ? t('copied') : t('copy')}</span>

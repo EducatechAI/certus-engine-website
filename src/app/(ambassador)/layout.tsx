@@ -9,11 +9,15 @@ export default function DashboardLayout({
 }) {
   return (
     <I18nProvider>
-      <div className="flex bg-navy-900 min-h-screen">
-        <Sidebar />
-        <div className="flex-1">
+      <div className="flex bg-navy-900 min-h-screen relative overflow-x-hidden">
+        {/* Sidebar hides on mobile, shown on md and larger */}
+        <div className="hidden md:block">
+          <Sidebar />
+        </div>
+        <div className="flex-1 md:pl-64">
           <Header />
-          <main className="ml-64 pt-24 px-8 pb-8">
+          {/* pt-24 standard header padding, adjust px on mobile to not break edge grids */}
+          <main className="pt-24 px-4 sm:px-8 pb-8">
             {children}
           </main>
         </div>
