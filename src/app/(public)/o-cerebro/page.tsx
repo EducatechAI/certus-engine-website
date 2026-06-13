@@ -11,8 +11,7 @@ export default function OCerebro() {
       {/* HERO */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 text-center mb-24">
         <h1 className="text-4xl md:text-7xl font-black text-white mb-8">
-          {t('brain_title').split(' ').slice(0, -2).join(' ')} <br />
-          <span className="gradient-text">{t('brain_title').split(' ').slice(-2).join(' ')}</span>
+          <span className="gradient-text">{t('brain_title')}</span>
         </h1>
         <p className="text-xl text-emerald-200/60 max-w-3xl mx-auto font-medium leading-relaxed">
           {t('brain_subtitle')}

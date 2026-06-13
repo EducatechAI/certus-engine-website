@@ -10,13 +10,13 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
 
   const NAV_LINKS = [
     { href: '/o-cerebro', label: t('nav_brain') },
     { href: '/projetos',  label: t('nav_projects') },
-    { href: '/#materiais', label: 'Recursos' },
-    { href: '/#embaixadores', label: 'Embaixadores' },
+    { href: '/#materiais', label: locale === 'en' ? 'Resources' : locale === 'es' ? 'Recursos' : 'Recursos' },
+    { href: '/#embaixadores', label: locale === 'en' ? 'Ambassadors' : locale === 'es' ? 'Embajadores' : 'Embaixadores' },
     { href: '/documentacao', label: t('nav_docs') },
     { href: '/faq',       label: t('nav_faq') },
   ]

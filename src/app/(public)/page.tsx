@@ -344,33 +344,46 @@ export default function HomePage() {
       {/* 🟦 BANNER 7.6: Torne-se um Embaixador Certus */}
       <section id="embaixadores" className="py-24 relative z-10 bg-navy-900/40 border-t border-emerald-900/20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">Programa de Parcerias</p>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Torne-se um Embaixador Certus</h2>
+          <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">
+            {locale === 'en' ? 'Partnership Program' : locale === 'es' ? 'Programa de Alianzas' : 'Programa de Parcerias'}
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
+            {locale === 'en' ? 'Become a Certus Ambassador' : locale === 'es' ? 'Conviértete en Embajador de Certus' : 'Torne-se um Embaixador Certus'}
+          </h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-12">
-            Ganhe comissões recorrentes promovendo a governança de IA determinística. 
-            Tenha acesso a treinamento ativo, materiais técnicos oficiais e suporte na prospecção.
+            {locale === 'en'
+              ? 'Earn recurring commissions by promoting deterministic AI governance. Get access to active training, official technical materials, and prospecting support.'
+              : locale === 'es'
+              ? 'Gana comisiones recurrentes promoviendo la gobernanza de IA determinista. Obtén acceso a capacitación activa, materiales técnicos oficiales y soporte de prospección.'
+              : 'Ganhe comissões recorrentes promovendo a governança de IA determinística. Tenha acesso a treinamento ativo, materiais técnicos oficiais e suporte na prospecção.'}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-navy-800/50 border border-navy-700 p-6 rounded-2xl">
               <span className="text-3xl block mb-2">💰</span>
-              <h4 className="font-bold text-white text-lg">50% Comissão</h4>
-              <p className="text-xs text-gray-500 mt-1">No primeiro ano de licenças comerciais corporativas.</p>
+              <h4 className="font-bold text-white text-lg">{locale === 'en' ? '50% Commission' : locale === 'es' ? '50% de Comisión' : '50% Comissão'}</h4>
+              <p className="text-xs text-gray-500 mt-1">
+                {locale === 'en' ? 'On the first year of corporate commercial licenses.' : locale === 'es' ? 'En el primer año de licencias comerciales corporativas.' : 'No primeiro ano de licenças comerciais corporativas.'}
+              </p>
             </div>
             <div className="bg-navy-800/50 border border-navy-700 p-6 rounded-2xl">
               <span className="text-3xl block mb-2">🔄</span>
-              <h4 className="font-bold text-white text-lg">20% Recorrente</h4>
-              <p className="text-xs text-gray-500 mt-1">Garantido a cada renovação contratual ativa da conta.</p>
+              <h4 className="font-bold text-white text-lg">{locale === 'en' ? '20% Recurring' : locale === 'es' ? '20% Recurrente' : '20% Recorrente'}</h4>
+              <p className="text-xs text-gray-500 mt-1">
+                {locale === 'en' ? 'Guaranteed with each active renewal of the account.' : locale === 'es' ? 'Garantizado en cada renovación activa de la cuenta.' : 'Garantido a cada renovação contratual ativa da conta.'}
+              </p>
             </div>
             <div className="bg-navy-800/50 border border-navy-700 p-6 rounded-2xl">
               <span className="text-3xl block mb-2">🏛️</span>
               <h4 className="font-bold text-white text-lg">10-15% CPSI Gov</h4>
-              <p className="text-xs text-gray-500 mt-1">Para contratos públicos inovadores fechados com municípios.</p>
+              <p className="text-xs text-gray-500 mt-1">
+                {locale === 'en' ? 'For innovative public contracts closed with municipalities.' : locale === 'es' ? 'Para contratos públicos innovadores cerrados con municipios.' : 'Para contratos públicos inovadores fechados com municípios.'}
+              </p>
             </div>
           </div>
           
           <Link href="/login" className="inline-flex px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-navy-900 font-bold text-sm uppercase tracking-wider transition-all glow-emerald">
-            Quero Ser Embaixador
+            {locale === 'en' ? 'I Want to Be an Ambassador' : locale === 'es' ? 'Quiero ser Embajador' : 'Quero Ser Embaixador'}
           </Link>
         </div>
       </section>
@@ -379,18 +392,58 @@ export default function HomePage() {
       <section id="materiais" className="py-24 relative z-10 border-t border-emerald-900/20 bg-black/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">Kit de Prospecção</p>
-            <h2 className="text-3xl font-black text-white">Recursos e Materiais</h2>
+            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">
+              {locale === 'en' ? 'Prospecting Kit' : locale === 'es' ? 'Kit de Prospección' : 'Kit de Prospecção'}
+            </p>
+            <h2 className="text-3xl font-black text-white">
+              {locale === 'en' ? 'Resources and Materials' : locale === 'es' ? 'Recursos y Materiales' : 'Recursos e Materiais'}
+            </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { title: "Pitch Deck v3.0", desc: "Apresentação comercial e executiva de impacto.", file: "pitch-deck-v3.pdf", size: "2.3 MB", format: "PDF" },
-              { title: "One-Pager Certus", desc: "Ficha resumida com diferenciais PII-Zero e determinismo.", file: "one-pager-certus.pdf", size: "450 KB", format: "PDF" },
-              { title: "Whitepaper Técnico v3.1.0", desc: "Documento com o mapeamento completo do core.", file: "whitepaper-v3.pdf", size: "1.8 MB", format: "PDF" },
-              { title: "Calculadora de ROI", desc: "Planilha para cálculo de economia de API e tokens.", file: "roi-calculator.xlsx", size: "120 KB", format: "XLSX" },
-              { title: "Template de Proposta", desc: "Modelo formal para envio a parceiros privados.", file: "proposal-template.docx", size: "85 KB", format: "DOCX" },
-              { title: "Vídeo de Demo (5 min)", desc: "Demonstração prática da IDE Sovereign executando.", file: "demo-certus.mp4", size: "45 MB", format: "MP4" }
+              { 
+                title: "Pitch Deck v3.0", 
+                desc: locale === 'en' ? "Impactful commercial and executive presentation." : locale === 'es' ? "Presentación comercial y ejecutiva de impacto." : "Apresentação comercial e executiva de impacto.", 
+                file: "pitch-deck-v3.pdf", 
+                size: "2.3 MB", 
+                format: "PDF" 
+              },
+              { 
+                title: "One-Pager Certus", 
+                desc: locale === 'en' ? "Summary sheet highlighting PII-Zero and determinism." : locale === 'es' ? "Ficha resumen con diferencias PII-Zero y determinismo." : "Ficha resumida com diferenciais PII-Zero e determinismo.", 
+                file: "one-pager-certus.pdf", 
+                size: "450 KB", 
+                format: "PDF" 
+              },
+              { 
+                title: "Whitepaper Técnico v3.1.0", 
+                desc: locale === 'en' ? "Detailed technical document of the core architecture mapping." : locale === 'es' ? "Documento con el mapeo técnico completo del núcleo." : "Documento com o mapeamento completo do core.", 
+                file: "whitepaper-v3.pdf", 
+                size: "1.8 MB", 
+                format: "PDF" 
+              },
+              { 
+                title: "Calculadora de ROI", 
+                desc: locale === 'en' ? "Spreadsheet for API cost and token optimization calculations." : locale === 'es' ? "Hoja de cálculo para economía de API y optimización de tokens." : "Planilha para cálculo de economia de API e tokens.", 
+                file: "roi-calculator.xlsx", 
+                size: "120 KB", 
+                format: "XLSX" 
+              },
+              { 
+                title: "Template de Proposta", 
+                desc: locale === 'en' ? "Formal proposal template to send to private partners." : locale === 'es' ? "Plantilla de propuesta formal para enviar a socios privados." : "Modelo formal para envio a parceiros privados.", 
+                file: "proposal-template.docx", 
+                size: "85 KB", 
+                format: "DOCX" 
+              },
+              { 
+                title: "Vídeo de Demo (5 min)", 
+                desc: locale === 'en' ? "Practical demonstration of the Sovereign IDE executing." : locale === 'es' ? "Demostración práctica del IDE Sovereign ejecutándose." : "Demonstração prática da IDE Sovereign executando.", 
+                file: "demo-certus.mp4", 
+                size: "45 MB", 
+                format: "MP4" 
+              }
             ].map(mat => (
               <a 
                 key={mat.title}
