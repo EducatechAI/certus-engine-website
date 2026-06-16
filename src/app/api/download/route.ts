@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 /**
- * CERTUS ENGINE — SOVEREIGN DOWNLOAD PROXY (v3.0.0)
+ * CERTUS ENGINE — SOVEREIGN DOWNLOAD PROXY (v3.1.0)
  * Gateway soberano com detecção automática da release mais recente via GitHub API.
  * Cache de 1 hora (ISR) para evitar rate-limit sem sacrificar atualização.
  *
@@ -20,6 +20,14 @@ const RELEASES_PAGE = `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases`;
 const SDK_LINKS: Record<string, string | undefined> = {
   sovereign: process.env.SDK_SOVEREIGN_LINK,
   command:   process.env.SDK_COMMAND_LINK,
+};
+
+// Variáveis para info de integridade
+const SDK_VERSIONS: Record<string, string | undefined> = {
+  command: process.env.SDK_COMMAND_VERSION,
+};
+const SDK_HASHES: Record<string, string | undefined> = {
+  command: process.env.SDK_COMMAND_HASH,
 };
 
 const PLATFORM_MATCHERS: Record<string, (name: string) => boolean> = {
@@ -65,9 +73,24 @@ async function fetchLatestRelease(): Promise<GitHubRelease | null> {
   }
 }
 
+function logDownload(platform: string) {
+  try {
+    const logsDir = path.join(process.cwd(), 'logs');
+    if (!fs.existsSync(logsDir)) {
+      fs.mkdirSync(logsDir, { recursive: true });
+    }
+    const logFile = path.join(logsDir, 'downloads.log');
+    const timestamp = new Date().toISOString();
+    fs.appendFileSync(logFile, `[${timestamp}] PLATFORM: ${platform}\n`);
+  } catch (err) {
+    console.error('[Certus Proxy] Falha ao registrar log de download:', err);
+  }
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const platform = searchParams.get('platform')?.toLowerCase();
+  const info = searchParams.get('info');
 
   const supportedPlatforms = Object.keys(PLATFORM_MATCHERS);
 
@@ -80,14 +103,27 @@ export async function GET(request: Request) {
 
   const matcher = PLATFORM_MATCHERS[platform];
 
+  // Se o usuário pedir apenas info de integridade
+  if (info === 'true') {
+    return NextResponse.json({
+      platform,
+      version: SDK_VERSIONS[platform] || '1.0.0',
+      hash: SDK_HASHES[platform] || 'hash_nao_disponivel',
+      download_url: SDK_LINKS[platform] || 'URL_nao_disponivel',
+      released_at: new Date().toISOString()
+    });
+  }
+
   // 1️⃣ PRIORIDADE: Links soberanos via variáveis de ambiente (Vercel)
   // Configure SDK_SOVEREIGN_LINK e SDK_COMMAND_LINK no dashboard do Vercel.
   if (platform === 'sovereign' && SDK_LINKS.sovereign) {
+    logDownload(platform);
     console.log('[Certus Proxy] Redirecionando para SDK Sovereign via env var.');
     return NextResponse.redirect(SDK_LINKS.sovereign, 302);
   }
 
   if (platform === 'command' && SDK_LINKS.command) {
+    logDownload(platform);
     console.log('[Certus Proxy] Redirecionando para SDK Command via env var.');
     return NextResponse.redirect(SDK_LINKS.command, 302);
   }
@@ -99,6 +135,7 @@ export async function GET(request: Request) {
       const logs = JSON.parse(fs.readFileSync(logPath, 'utf8'));
       const entry = logs.find((l: any) => l.file.toLowerCase().includes(platform));
       if (entry && entry.link) {
+        logDownload(platform);
         console.log(`[Certus Proxy] Redirecionando para ${platform} via shared_links_log fallback local.`);
         return NextResponse.redirect(entry.link, 302);
       }
@@ -123,8 +160,7 @@ export async function GET(request: Request) {
     return NextResponse.redirect(RELEASES_PAGE, 302);
   }
 
+  logDownload(platform);
   // 3️⃣ Redirecionar para o binário correto (302 oculta a URL original)
   return NextResponse.redirect(asset.browser_download_url, 302);
 }
-
-
