@@ -14,6 +14,7 @@ export function Header() {
 
   const NAV_LINKS = [
     { href: '/o-cerebro', label: t('nav_brain') },
+    { href: '/governance', label: locale === 'en' ? 'Governance' : locale === 'es' ? 'Gobernanza' : 'Governança' },
     { href: '/projetos',  label: t('nav_projects') },
     { href: '/#materiais', label: locale === 'en' ? 'Resources' : locale === 'es' ? 'Recursos' : 'Recursos' },
     { href: '/#embaixadores', label: locale === 'en' ? 'Ambassadors' : locale === 'es' ? 'Embajadores' : 'Embaixadores' },
