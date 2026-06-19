@@ -215,9 +215,9 @@ export const translations = {
     studio_cmd_title:    'Certus Studio Command.',
     studio_cmd_desc:     'Para pesquisadores de segurança e auditores Tier A+. Desbloqueie módulos exclusivos de Probing, Exploitation e Hardening para missões de alta integridade.',
     studio_cmd_cta:      'Solicitar Acesso Hacker (Beta)',
-    studio_dl_title:     'Inicie sua Jornada Soberana.',
-    studio_dl_desc:      'Baixe a Sovereign Edition gratuitamente e comece a construir com a segurança de um Kernel de Governança Tier A+.',
-    studio_dl_footer:    'Distribuição Segura via Certus Download Proxy v1.0',
+    studio_dl_title:     'Escolha o seu Kernel de Governança.',
+    studio_dl_desc:      'Traga a robustez Tier A+ para a sua máquina local. Instalação rápida, independente de nuvens corporativas e 100% focada em produtividade blindada.',
+    studio_dl_footer:    '⚡ Download Criptografado & Rate-Limited via Certus ZK-Proxy',
 
     // ── PROJETOS PAGE ──
     projects_page_title:   'Vitrine da Frota Soberana.',

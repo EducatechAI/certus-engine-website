@@ -6,7 +6,7 @@ const EDITIONS = [
   {
     id: 'sovereign',
     label: 'Sovereign SDK',
-    description: 'Focado em Estética Emerald Ultra-Glass, Governança PII-Zero e Advisor de Arquitetura em tempo real.',
+    description: 'A base da soberania digital: PII-Zero, compliance LGPD e arquitetura auditável desde o primeiro commit.',
     icon: '🛡️',
     version: 'v1.2.0',
     size: '74 MB',
@@ -16,7 +16,7 @@ const EDITIONS = [
   {
     id: 'command',
     label: 'Command SDK',
-    description: 'Edição Premium para Operações Ofensivas e Motor Forense de Segurança Ativa (Regra Soberana #001: Desconfiança Zero).',
+    description: 'O motor forense que detecta ransomware, zero-days e ameaças internas antes do dano. Para quem não aceita risco.',
     icon: '⚔️',
     version: 'v1.3.4',
     size: '~71 MB',
