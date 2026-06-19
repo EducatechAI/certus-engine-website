@@ -24,7 +24,7 @@ const InstallationGuide = () => {
             <h3 className="text-xl font-bold text-white mb-4">{t('install_step1_title')}</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">{t('install_step1_desc')}</p>
             <div className="p-4 rounded-xl bg-black/40 border border-white/5 text-[10px] font-mono text-emerald-400">
-               Unzip Certus_Studio_SDK.zip -d ./
+               Extrair Certus_Studio_Command_SDK_v1.3.4.zip
             </div>
           </div>
         </div>
@@ -37,9 +37,8 @@ const InstallationGuide = () => {
             <h3 className="text-xl font-bold text-white mb-4">{t('install_step2_title')}</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">{t('install_step2_desc')}</p>
             <div className="p-4 rounded-xl bg-black/40 border border-white/5 text-[10px] font-mono text-slate-400 overflow-x-auto">
-              Windows: powershell ./sovereign_inject.ps1<br/>
-              Linux/Mac: ./sovereign_inject.sh<br/>
-              Build: yarn run build
+              Windows: Botão Direito &gt; Executar com o PowerShell<br/>
+              Terminal: .\certus_command_installer.ps1
             </div>
           </div>
         </div>
