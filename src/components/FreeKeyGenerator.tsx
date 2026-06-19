@@ -50,12 +50,12 @@ export default function FreeKeyGenerator({ onAuth }: { onAuth?: () => void }) {
     if (!key) return
     navigator.clipboard.writeText(key)
     setCopied(true)
-    // Protocolo de Segurança: A chave some em 2 segundos após a cópia
+    // Protocolo de Segurança: A chave some 5 segundos APÓS a cópia ser detectada (botão ou Ctrl+C)
     setTimeout(() => {
       setKey(null)
       setCopied(false)
       setPassword('')
-    }, 2000)
+    }, 5000)
   }
 
   return (
@@ -94,7 +94,11 @@ export default function FreeKeyGenerator({ onAuth }: { onAuth?: () => void }) {
         </div>
       ) : (
         <div className="space-y-4 animate-fade-in-up">
-          <div className="bg-black/80 rounded-xl p-4 border border-emerald-500/40 font-mono text-sm break-all text-emerald-400 text-center glow-neon">
+          <div 
+            className="bg-black/80 rounded-xl p-4 border border-emerald-500/40 font-mono text-sm break-all text-emerald-400 text-center glow-neon select-all cursor-copy"
+            onCopy={copyToClipboard}
+            onClick={copyToClipboard}
+          >
             {key}
           </div>
           <button
@@ -109,10 +113,10 @@ export default function FreeKeyGenerator({ onAuth }: { onAuth?: () => void }) {
           </button>
           <div className="mt-4 text-center">
             <p className="text-[10px] text-red-400 uppercase tracking-widest font-bold mb-1 animate-pulse-glow">
-              ⚠️ ATENÇÃO: COPIE A CHAVE AGORA!
+              ⚠️ A CHAVE SE AUTO-DESTRUIRÁ LOGO APÓS SER COPIADA!
             </p>
             <p className="text-[10px] text-emerald-500/70 uppercase tracking-widest font-semibold">
-              (Apaga em 2s. Limite de 1 por dia. Trials adicionais bloqueados via Kernel Blinding ZK-ID.)
+              (Limite de 1 por dia no site. Multi-trials bloqueados na máquina via ZK-ID.)
             </p>
           </div>
         </div>
