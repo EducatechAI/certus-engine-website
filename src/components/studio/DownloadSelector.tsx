@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const EDITIONS = [
   {
@@ -26,6 +26,24 @@ const EDITIONS = [
 ]
 
 export default function DownloadSelector() {
+  const [dynamicVersions, setDynamicVersions] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    EDITIONS.forEach(os => {
+      fetch(`/api/download?platform=${os.id}&info=true`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.version && data.version !== '1.0.0') {
+            setDynamicVersions(prev => ({ 
+              ...prev, 
+              [os.id]: data.version.startsWith('v') ? data.version : `v${data.version}` 
+            }));
+          }
+        })
+        .catch(() => {});
+    });
+  }, []);
+
   const handleDownload = (edition: string) => {
     // Redireciona para o nosso proxy blindado do Vault
     window.location.href = `/api/download?platform=${edition}`
@@ -52,7 +70,7 @@ export default function DownloadSelector() {
           {/* Detalhes da Versão */}
           <div className="flex items-center gap-2 mb-3">
             <span className="text-slate-500 text-[10px] uppercase tracking-widest font-mono font-bold">
-              Versão {os.version}
+              Versão {dynamicVersions[os.id] || os.version}
             </span>
             <span className="text-slate-600 text-[10px] font-mono">•</span>
             <span className="text-slate-500 text-[10px] uppercase tracking-widest font-mono font-bold">
