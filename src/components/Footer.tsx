@@ -13,9 +13,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-black font-black text-xs">C</div>
-              <span className="font-black text-lg tracking-tighter text-white">Certus<span className="text-emerald-500">Engine</span></span>
+            <Link href="/" className="flex items-center group mb-2">
+              <img src="/certus_nova_logo.png" alt="Certus Engine Logo" className="h-16 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
             </Link>
             <p className="text-sm text-slate-500 leading-relaxed max-w-[240px]">{t('footer_desc')}</p>
             <div className="flex gap-4">

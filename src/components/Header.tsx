@@ -38,17 +38,8 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-[#000804] border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-black text-lg shadow-2xl group-hover:border-emerald-400 transition-all duration-500 relative overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent" />
-             <span className="relative z-10">C</span>
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="font-black text-xl tracking-tighter text-white">
-              Certus<span className="text-emerald-500">Engine</span>
-            </span>
-            <span className="text-[8px] font-bold text-emerald-800 uppercase tracking-widest mt-0.5">Sovereign Master v3.0.0</span>
-          </div>
+        <Link href="/" className="flex items-center group">
+          <img src="/certus_nova_logo.png" alt="Certus Engine Logo" className="h-16 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-transform duration-500 group-hover:scale-105" />
         </Link>
 
         {/* Desktop nav */}
