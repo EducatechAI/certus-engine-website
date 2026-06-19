@@ -9,17 +9,17 @@ const MASTER_KEY = process.env.MASTER_KEY;
 
 export async function POST(request: Request) {
   try {
-    // 0. Validar a chave mestra (VULN-001 fix — movida do cliente para o servidor)
+    // 0. Validar senhas (Sovereign ou Command)
     const body = await request.json().catch(() => ({}));
     const { masterKey } = body as { masterKey?: string };
 
-    if (!MASTER_KEY) {
-      console.error('[Certus] MASTER_KEY não configurada nas variáveis de ambiente.');
-      return NextResponse.json({ error: 'Serviço indisponível.' }, { status: 503 });
-    }
-
-    if (!masterKey || masterKey !== MASTER_KEY) {
-      return NextResponse.json({ error: 'Credenciais inválidas. Acesso negado.' }, { status: 401 });
+    let prefix = '';
+    if (masterKey === 'SOVEREIGN-TRIAL-30') {
+      prefix = 'certus_sovereign_30d_';
+    } else if (masterKey === 'COMMAND-TRIAL-30') {
+      prefix = 'certus_command_30d_';
+    } else {
+      return NextResponse.json({ error: 'Credenciais inválidas. Senha incorreta.' }, { status: 401 });
     }
 
     // 1. Rate Limiting por IP (Anti-Bot)
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
 
     // 3. Gerar a chave
     const entropy = crypto.randomBytes(32).toString('base64url');
-    const newKey = `certus_sk_test_${entropy}`;
+    const newKey = `${prefix}${entropy}`;
 
     // 4. Incrementar estatística central (Persistência Real)
     await incrementStats();

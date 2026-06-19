@@ -67,16 +67,19 @@ export default function FreeKeyGenerator({ onAuth }: { onAuth?: () => void }) {
           </svg>
         </div>
       </div>
-      <h3 className="text-xl font-bold text-white mb-2 text-center tracking-tight">Autorização Necessária</h3>
-      <p className="text-emerald-200/60 text-xs mb-6 text-center leading-relaxed">
-        Gere sua chave de acesso soberano temporário. Requer credenciais de Admin.
-      </p>
+      <h3 className="text-xl font-bold text-white mb-2 text-center tracking-tight">Gerador de Chaves (30 Dias)</h3>
+      
+      <div className="mb-6 text-xs font-mono text-emerald-400 text-center bg-black/30 p-4 rounded-xl border border-emerald-500/20">
+        <p className="mb-2 text-emerald-200/80">Senhas de Teste Públicas:</p>
+        <p>Sovereign IDE: <span className="font-bold text-white bg-emerald-900/50 px-2 py-1 rounded select-all cursor-pointer">SOVEREIGN-TRIAL-30</span></p>
+        <p className="mt-2">Command IDE: <span className="font-bold text-white bg-purple-900/50 px-2 py-1 rounded select-all cursor-pointer">COMMAND-TRIAL-30</span></p>
+      </div>
 
       {!key ? (
         <div className="space-y-4">
           <input
             type="password"
-            placeholder="Senha Mestra"
+            placeholder="Cole a senha do SDK escolhido..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full bg-black/50 border border-emerald-500/30 rounded-xl px-4 py-3 text-white placeholder-emerald-700 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all font-mono text-center tracking-widest text-sm"
@@ -104,9 +107,14 @@ export default function FreeKeyGenerator({ onAuth }: { onAuth?: () => void }) {
           >
             {copied ? '✓ Copiado com Sucesso' : 'Copiar Chave'}
           </button>
-          <p className="text-[10px] text-emerald-500/70 text-center uppercase tracking-widest font-semibold animate-pulse-glow">
-            Auto-destruição em 2s
-          </p>
+          <div className="mt-4 text-center">
+            <p className="text-[10px] text-red-400 uppercase tracking-widest font-bold mb-1 animate-pulse-glow">
+              ⚠️ ATENÇÃO: COPIE A CHAVE AGORA!
+            </p>
+            <p className="text-[10px] text-emerald-500/70 uppercase tracking-widest font-semibold">
+              (Apaga em 2s. Limite de 1 por dia. Trials adicionais bloqueados via Kernel Blinding ZK-ID.)
+            </p>
+          </div>
         </div>
       )}
 
