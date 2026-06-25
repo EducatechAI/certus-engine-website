@@ -11,7 +11,7 @@ export default function HomePage() {
 
   const PROJECTS = [
     { name: 'Certus Studio', tag: '✅ Validado', desc: 'IDE governada com co-pilot soberano e controle de execução.', href: '/studio' },
-    { name: 'CertusPay',     tag: '⚡ Em Ativação', desc: 'Gateway de pagamentos auditáveis com ZK-ID e PII-Zero.',   href: '/projetos/certus-pay' },
+    { name: 'CertusPay',     tag: '⚡ ZK-Ready', desc: 'Gateway auditável arquitetado para ZK-ID (Cardano) e PII-Zero.',   href: '/projetos/certus-pay' },
   ]
 
   const COMPLIANCE_ITEMS = [
@@ -311,7 +311,7 @@ export default function HomePage() {
                       <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-black font-bold text-sm">C</div>
                       <span className="text-white font-bold tracking-tight">CertusPay Terminal</span>
                     </div>
-                    <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold text-emerald-400 uppercase tracking-widest">ZK-ID Ativo</div>
+                    <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold text-emerald-400 uppercase tracking-widest">ZK-Ready (Q3)</div>
                   </div>
 
                   <div className="space-y-6">
@@ -326,7 +326,7 @@ export default function HomePage() {
                     <div className="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/10">
                       <p className="text-[10px] text-emerald-500/60 uppercase font-bold tracking-widest mb-1">{t('pay_identity')}</p>
                       <div className="font-mono text-xs text-emerald-400 break-all">
-                        zk-proof-8a2b...f92e (PII-Zero Shielded)
+                        zk-simulated-8a2b...f92e (PII-Zero Shielded)
                       </div>
                     </div>
 
@@ -403,46 +403,46 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               { 
-                title: "Pitch Deck v3.0", 
-                desc: locale === 'en' ? "Impactful commercial and executive presentation." : locale === 'es' ? "Presentación comercial y ejecutiva de impacto." : "Apresentação comercial e executiva de impacto.", 
-                file: "pitch-deck-v3.pdf", 
-                size: "2.3 MB", 
+                title: "Dossiê Institucional v3.0", 
+                desc: locale === 'en' ? "Focused on C-Levels and VCs: BYOK economy, 99.95% SLA and financial ROI metrics." : locale === 'es' ? "Enfocado en C-Levels y VCs: Economía BYOK, 99.95% SLA y métricas de ROI." : "Focado em C-Levels e VCs: Economia BYOK, SLA de 99.95% e métricas de ROI financeiro.", 
+                file: "dossie-institucional-v3.0.0.pdf", 
+                size: "1.2 MB", 
                 format: "PDF" 
               },
               { 
-                title: "One-Pager Certus", 
-                desc: locale === 'en' ? "Summary sheet highlighting PII-Zero and determinism." : locale === 'es' ? "Ficha resumen con diferencias PII-Zero y determinismo." : "Ficha resumida com diferenciais PII-Zero e determinismo.", 
-                file: "one-pager-certus.pdf", 
-                size: "450 KB", 
+                title: "Dossiê LATAM v3.0", 
+                desc: locale === 'en' ? "GovTech vision for governments: PII-Zero, compliance and the secure CivitasVote system." : locale === 'es' ? "Visión GovTech para gobiernos: PII-Zero, cumplimiento y el sistema seguro CivitasVote." : "Visão GovTech para governos: PII-Zero, LGPD e o sistema CivitasVote blindado.", 
+                file: "dossie-latam-v3.0.0.pdf", 
+                size: "1.4 MB", 
                 format: "PDF" 
               },
               { 
-                title: "Whitepaper Técnico v3.1.0", 
-                desc: locale === 'en' ? "Detailed technical document of the core architecture mapping." : locale === 'es' ? "Documento con el mapeo técnico completo del núcleo." : "Documento com o mapeamento completo do core.", 
-                file: "whitepaper-v3.pdf", 
+                title: "Dossiê Mestre Soberano v3.0", 
+                desc: locale === 'en' ? "Tactical access for CISOs and Red Teams. The mathematics of Layer 7 interception." : locale === 'es' ? "Acceso táctico para CISOs y Red Teams. Matemáticas de intercepción Capa 7." : "Acesso tático para CISOs e Red Teams. A matemática da interceptação HTTP Layer 7.", 
+                file: "dossie-mestre-soberano-v3.0.0.pdf", 
+                size: "980 KB", 
+                format: "PDF" 
+              },
+              { 
+                title: "Dossiê Certus Studio v3.0", 
+                desc: locale === 'en' ? "Ambassador Manual: How to configure BYOK natively and use the Sovereign IDE." : locale === 'es' ? "Manual del Embajador: Cómo configurar BYOK nativamente y usar el IDE Soberano." : "Manual do Embaixador: Como configurar o BYOK nativo e usar a IDE Soberana.", 
+                file: "dossie-certus-studio-v3.0.0.pdf", 
+                size: "1.1 MB", 
+                format: "PDF" 
+              },
+              { 
+                title: "Dossiê de Transparência v1.0", 
+                desc: locale === 'en' ? "135 public tests of Security, Governance, QA, and the 14 patent applications." : locale === 'es' ? "135 pruebas públicas de Seguridad, QA, y las 14 solicitudes de patentes." : "135 testes públicos de Segurança, Governança, QA e os 14 pedidos de patente.", 
+                file: "dossie-transparencia-v1.0.0.pdf", 
+                size: "850 KB", 
+                format: "PDF" 
+              },
+              { 
+                title: "Whitepaper Técnico v3.0", 
+                desc: locale === 'en' ? "Complete architecture mapping: Rust Gateway, Tribunals, and the 12-agent APEX Fleet." : locale === 'es' ? "Mapeo de arquitectura: Gateway Rust, Tribunales y la Flota APEX de 12 agentes." : "Mapeamento da arquitetura: Gateway Rust, Tribunais e a Frota APEX de 12 agentes.", 
+                file: "whitepaper-v3.0.0.pdf", 
                 size: "1.8 MB", 
                 format: "PDF" 
-              },
-              { 
-                title: "Calculadora de ROI", 
-                desc: locale === 'en' ? "Spreadsheet for API cost and token optimization calculations." : locale === 'es' ? "Hoja de cálculo para economía de API y optimización de tokens." : "Planilha para cálculo de economia de API e tokens.", 
-                file: "roi-calculator.xlsx", 
-                size: "120 KB", 
-                format: "XLSX" 
-              },
-              { 
-                title: "Template de Proposta", 
-                desc: locale === 'en' ? "Formal proposal template to send to private partners." : locale === 'es' ? "Plantilla de propuesta formal para enviar a socios privados." : "Modelo formal para envio a parceiros privados.", 
-                file: "proposal-template.docx", 
-                size: "85 KB", 
-                format: "DOCX" 
-              },
-              { 
-                title: "Vídeo de Demo (5 min)", 
-                desc: locale === 'en' ? "Practical demonstration of the Sovereign IDE executing." : locale === 'es' ? "Demostración práctica del IDE Sovereign ejecutándose." : "Demonstração prática da IDE Sovereign executando.", 
-                file: "demo-certus.mp4", 
-                size: "45 MB", 
-                format: "MP4" 
               }
             ].map(mat => (
               <a 
