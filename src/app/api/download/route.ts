@@ -1,166 +1,106 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 
-/**
- * CERTUS ENGINE — SOVEREIGN DOWNLOAD PROXY (v3.1.0)
- * Gateway soberano com detecção automática da release mais recente via GitHub API.
- * Cache de 1 hora (ISR) para evitar rate-limit sem sacrificar atualização.
- *
- * VULN-005 fix: Links do Google Drive movidos para variáveis de ambiente Vercel.
- * Nunca commitar URLs de acesso a ficheiros no repositório Git.
- * Configure no dashboard Vercel: SDK_SOVEREIGN_LINK e SDK_COMMAND_LINK
- */
+export const dynamic = 'force-dynamic';
 
 const REPO_OWNER = 'EducatechAI';
-const REPO_NAME  = 'Certus-Engine';
-const RELEASES_PAGE = `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases`;
-
-// Links lidos exclusivamente de variáveis de ambiente — nunca de ficheiros estáticos no Git
-const SDK_LINKS: Record<string, string | undefined> = {
-  sovereign: process.env.SDK_SOVEREIGN_LINK,
-  command:   process.env.SDK_COMMAND_LINK,
-};
-
-// Variáveis para info de integridade
-const SDK_VERSIONS: Record<string, string | undefined> = {
-  command: process.env.SDK_COMMAND_VERSION,
-};
-const SDK_HASHES: Record<string, string | undefined> = {
-  command: process.env.SDK_COMMAND_HASH,
-};
-
-const PLATFORM_MATCHERS: Record<string, (name: string) => boolean> = {
-  windows:   (n) => /win(32|64|dows)?.*\.exe$/i.test(n) || /\.exe$/i.test(n),
-  osx:       (n) => /darwin|mac|osx/i.test(n) && /\.(dmg|zip)$/i.test(n),
-  linux:     (n) => /linux/i.test(n) && /\.(AppImage|deb|rpm|tar\.gz)$/i.test(n),
-  sovereign: (n) => /Sovereign_SDK/i.test(n),
-  command:   (n) => /Command_SDK/i.test(n),
-};
-
-interface GitHubAsset {
-  name: string;
-  browser_download_url: string;
-}
-
-interface GitHubRelease {
-  tag_name: string;
-  assets: GitHubAsset[];
-}
-
-/**
- * Busca a release mais recente do GitHub com cache de 1 hora (Next.js ISR).
- * Basta criar uma nova tag no repositório e o site se atualiza automaticamente.
- */
-async function fetchLatestRelease(): Promise<GitHubRelease | null> {
-  try {
-    const res = await fetch(
-      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/latest`,
-      {
-        headers: {
-          Accept: 'application/vnd.github+json',
-          'X-GitHub-Api-Version': '2022-11-28',
-        },
-        // Cache Next.js: revalida a cada 1 hora — zero custo de rate-limit
-        next: { revalidate: 3600 },
-      }
-    );
-
-    if (!res.ok) return null;
-    return (await res.json()) as GitHubRelease;
-  } catch {
-    return null;
-  }
-}
-
-function logDownload(platform: string) {
-  try {
-    const logsDir = path.join(process.cwd(), 'logs');
-    if (!fs.existsSync(logsDir)) {
-      fs.mkdirSync(logsDir, { recursive: true });
-    }
-    const logFile = path.join(logsDir, 'downloads.log');
-    const timestamp = new Date().toISOString();
-    fs.appendFileSync(logFile, `[${timestamp}] PLATFORM: ${platform}\n`);
-  } catch (err) {
-    console.error('[Certus Proxy] Falha ao registrar log de download:', err);
-  }
-}
+const REPO_NAME = 'Certus-Engine';
+const TAG_NAME = 'v1.3.4'; // A tag exata onde estão os arquivos LIMPA
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const platform = searchParams.get('platform')?.toLowerCase();
-  const info = searchParams.get('info');
 
-  const supportedPlatforms = Object.keys(PLATFORM_MATCHERS);
+  const headers = {
+    'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+    'Pragma': 'no-cache',
+    'Expires': '0',
+  };
 
-  if (!platform || !supportedPlatforms.includes(platform)) {
+  if (platform !== 'sovereign' && platform !== 'command') {
     return NextResponse.json(
-      { error: 'Plataforma não suportada. Use: windows | osx | linux | sovereign | command' },
-      { status: 400 }
+      { error: 'Plataforma não suportada. Use: ?platform=sovereign ou ?platform=command' },
+      { status: 400, headers }
     );
   }
 
-  const matcher = PLATFORM_MATCHERS[platform];
+  const targetFileName = platform === 'sovereign' 
+    ? 'Certus_Studio_Sovereign_SDK_v1.3.4_LIMPA.zip'
+    : 'Certus_Studio_Command_SDK_v1.3.4_LIMPA.zip';
 
-  // Se o usuário pedir apenas info de integridade
-  if (info === 'true') {
-    return NextResponse.json({
-      platform,
-      version: SDK_VERSIONS[platform] || '1.0.0',
-      hash: SDK_HASHES[platform] || 'hash_nao_disponivel',
-      download_url: SDK_LINKS[platform] || 'URL_nao_disponivel',
-      released_at: new Date().toISOString()
-    });
+  const token = process.env.GITHUB_TOKEN;
+  
+  if (!token) {
+    return NextResponse.json(
+      { error: 'GITHUB_TOKEN não configurado na Vercel. Não é possível acessar o repositório privado.' },
+      { status: 500, headers }
+    );
   }
 
-  // 1️⃣ PRIORIDADE: Links soberanos via variáveis de ambiente (Vercel)
-  // Configure SDK_SOVEREIGN_LINK e SDK_COMMAND_LINK no dashboard do Vercel.
-  if (platform === 'sovereign' && SDK_LINKS.sovereign) {
-    logDownload(platform);
-    console.log('[Certus Proxy] Redirecionando para SDK Sovereign via env var.');
-    return NextResponse.redirect(SDK_LINKS.sovereign, 302);
-  }
-
-  if (platform === 'command' && SDK_LINKS.command) {
-    logDownload(platform);
-    console.log('[Certus Proxy] Redirecionando para SDK Command via env var.');
-    return NextResponse.redirect(SDK_LINKS.command, 302);
-  }
-
-  // 2️⃣ SEGUNDA PRIORIDADE (Fallback Resiliente Local): Ler do shared_links_log.json local
   try {
-    const logPath = path.join(process.cwd(), 'src/app/api/download/shared_links_log.json');
-    if (fs.existsSync(logPath)) {
-      const logs = JSON.parse(fs.readFileSync(logPath, 'utf8'));
-      const entry = logs.find((l: any) => l.file.toLowerCase().includes(platform));
-      if (entry && entry.link) {
-        logDownload(platform);
-        console.log(`[Certus Proxy] Redirecionando para ${platform} via shared_links_log fallback local.`);
-        return NextResponse.redirect(entry.link, 302);
+    // 1. Busca os metadados da Release específica (v1.3.4) no repositório privado
+    const releaseRes = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/tags/${TAG_NAME}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github.v3+json',
+        },
+        cache: 'no-store'
+      }
+    );
+
+    if (!releaseRes.ok) {
+      console.error('Falha ao buscar release:', await releaseRes.text());
+      return NextResponse.json(
+        { error: `Falha ao acessar a release ${TAG_NAME} no GitHub. Verifique o GITHUB_TOKEN ou se a tag existe.` },
+        { status: 500, headers }
+      );
+    }
+
+    const releaseData = await releaseRes.json();
+    
+    // 2. Encontra o asset correto pelo nome
+    const asset = releaseData.assets.find((a: any) => a.name === targetFileName);
+
+    if (!asset) {
+      return NextResponse.json(
+        { error: `Arquivo ${targetFileName} não encontrado na release ${TAG_NAME}.` },
+        { status: 404, headers }
+      );
+    }
+
+    // 3. Solicita o link de download direto temporário da Amazon S3 do GitHub
+    // Para baixar, precisamos enviar um GET para asset.url com Accept: application/octet-stream
+    const assetRes = await fetch(asset.url, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/octet-stream',
+      },
+      redirect: 'manual', // Impede que o Node siga o redirecionamento automaticamente
+    });
+
+    // O GitHub retorna um 302 Found com o link público temporário no header 'Location'
+    if (assetRes.status === 302 || assetRes.status === 301) {
+      const downloadUrl = assetRes.headers.get('location');
+      
+      if (downloadUrl) {
+        return NextResponse.redirect(downloadUrl, { status: 302, headers });
       }
     }
-  } catch (err) {
-    console.error('Falha ao ler fallback local:', err);
+
+    // Se o fetch falhar ou não retornar 302
+    console.error('Falha ao obter URL de download S3:', await assetRes.text());
+    return NextResponse.json(
+      { error: 'Não foi possível obter o link temporário do GitHub.' },
+      { status: 500, headers }
+    );
+
+  } catch (error) {
+    console.error('Erro no Proxy Autenticado do GitHub:', error);
+    return NextResponse.json(
+      { error: 'Erro interno no Proxy de Download.' },
+      { status: 500, headers }
+    );
   }
-
-  // 3️⃣ TERCEIRA OPÇÃO: Buscar release mais recente no GitHub API
-  const release = await fetchLatestRelease();
-
-  if (!release) {
-    // Fallback seguro: manda para a página de releases do GitHub
-    return NextResponse.redirect(RELEASES_PAGE, 302);
-  }
-
-  // Encontrar o asset correto para a plataforma
-  const asset = release.assets.find((a) => matcher(a.name));
-
-  if (!asset) {
-    // Sem binário para esta plataforma nesta release → página de releases
-    return NextResponse.redirect(RELEASES_PAGE, 302);
-  }
-
-  logDownload(platform);
-  // 3️⃣ Redirecionar para o binário correto (302 oculta a URL original)
-  return NextResponse.redirect(asset.browser_download_url, 302);
 }

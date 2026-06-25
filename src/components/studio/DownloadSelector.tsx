@@ -1,14 +1,14 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 const EDITIONS = [
   {
     id: 'sovereign',
     label: 'Sovereign SDK',
-    description: 'A base da soberania digital: PII-Zero, compliance LGPD e arquitetura auditável desde o primeiro commit.',
+    description: 'Focado em Estética Emerald Ultra-Glass, Governança PII-Zero e Advisor de Arquitetura em tempo real.',
     icon: '🛡️',
-    version: 'v1.2.0',
+    version: 'v1.3.4',
     size: '74 MB',
     badge: 'Recomendado',
     badgeClass: 'bg-emerald-500 text-black'
@@ -16,7 +16,7 @@ const EDITIONS = [
   {
     id: 'command',
     label: 'Command SDK',
-    description: 'O motor forense que detecta ransomware, zero-days e ameaças internas antes do dano. Para quem não aceita risco.',
+    description: 'Edição Premium para Operações Ofensivas e Auditoria Ativa de Segurança (FORGE: BOLA, IDOR, GraphQL).',
     icon: '⚔️',
     version: 'v1.3.4',
     size: '~71 MB',
@@ -26,27 +26,9 @@ const EDITIONS = [
 ]
 
 export default function DownloadSelector() {
-  const [dynamicVersions, setDynamicVersions] = useState<Record<string, string>>({});
-
-  useEffect(() => {
-    EDITIONS.forEach(os => {
-      fetch(`/api/download?platform=${os.id}&info=true`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.version && data.version !== '1.0.0') {
-            setDynamicVersions(prev => ({ 
-              ...prev, 
-              [os.id]: data.version.startsWith('v') ? data.version : `v${data.version}` 
-            }));
-          }
-        })
-        .catch(() => {});
-    });
-  }, []);
-
   const handleDownload = (edition: string) => {
-    // Redireciona para o nosso proxy blindado do Vault
-    window.location.href = `/api/download?platform=${edition}`
+    // Redireciona para o nosso proxy blindado do Vault, com timestamp para quebrar cache do navegador
+    window.location.href = `/api/download?platform=${edition}&t=${Date.now()}`
   }
 
   return (
@@ -70,7 +52,7 @@ export default function DownloadSelector() {
           {/* Detalhes da Versão */}
           <div className="flex items-center gap-2 mb-3">
             <span className="text-slate-500 text-[10px] uppercase tracking-widest font-mono font-bold">
-              Versão {dynamicVersions[os.id] || os.version}
+              Versão {os.version}
             </span>
             <span className="text-slate-600 text-[10px] font-mono">•</span>
             <span className="text-slate-500 text-[10px] uppercase tracking-widest font-mono font-bold">
