@@ -3,6 +3,7 @@
   "version": "1.6.0",
   "private": true,
   "scripts": {
+    "build:pdfs": "node scripts/generate-all-pdfs.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { FAQSection } from '@/components/FAQSection'
+import { DocumentDownload } from '@/components/DocumentDownload'
 import { useTranslation } from '@/i18n/I18nProvider'
 
 // ─── PAGE ────────────────────────────────────────────────────────────────────
@@ -445,19 +446,15 @@ export default function HomePage() {
                 format: "PDF" 
               }
             ].map(mat => (
-              <a 
+              <DocumentDownload
                 key={mat.title}
-                href={`/downloads/${mat.file}`} 
-                download
-                className="bg-navy-800/40 border border-navy-700/60 p-6 rounded-2xl block hover:bg-navy-900/40 hover:border-emerald-500/30 transition-all group"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <span className="text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 px-2.5 py-0.5 rounded border border-emerald-500/20">{mat.format}</span>
-                  <span className="text-[10px] text-gray-500 font-mono font-bold">{mat.size}</span>
-                </div>
-                <h4 className="font-bold text-white text-base group-hover:text-emerald-400 transition-colors">{mat.title}</h4>
-                <p className="text-xs text-gray-500 mt-2 leading-relaxed">{mat.desc}</p>
-              </a>
+                baseName={mat.file.replace('.pdf', '')}
+                version="v3.0.0"
+                locale={locale}
+                title={mat.title}
+                desc={mat.desc}
+                size={mat.size}
+              />
             ))}
           </div>
         </div>
