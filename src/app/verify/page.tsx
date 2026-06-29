@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck, UploadCloud, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
-import { useTranslation } from '@/i18n/I18nProvider';
+import { I18nProvider, useTranslation } from '@/i18n/I18nProvider';
 
 // Um simples calculador SHA-256 no browser
 async function calculateSHA256(file: File): Promise<string> {
@@ -13,7 +13,7 @@ async function calculateSHA256(file: File): Promise<string> {
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-export default function VerifyPage() {
+function VerifyPageContent() {
   const { t, locale } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const [hash, setHash] = useState<string>('');
@@ -141,5 +141,13 @@ export default function VerifyPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function VerifyPage() {
+  return (
+    <I18nProvider>
+      <VerifyPageContent />
+    </I18nProvider>
   );
 }
