@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 const REPO_OWNER = 'EducatechAI';
 const REPO_NAME = 'Certus-Engine';
-const TAG_NAME = 'v1.3.4'; // A tag exata onde estão os arquivos LIMPA
+const TAG_NAME = 'v1.3.5'; // A tag exata onde estão os arquivos LIMPA
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -24,8 +24,8 @@ export async function GET(request: Request) {
   }
 
   const targetFileName = platform === 'sovereign' 
-    ? 'Certus_Studio_Sovereign_SDK_v1.3.4_LIMPA.zip'
-    : 'Certus_Studio_Command_SDK_v1.3.4_LIMPA.zip';
+    ? 'Certus_Studio_Sovereign_SDK_v1.3.5_LIMPA.zip'
+    : 'Certus_Studio_Command_SDK_v1.3.5_LIMPA.zip';
 
   const token = process.env.GITHUB_TOKEN;
   

@@ -24,7 +24,7 @@ const InstallationGuide = () => {
             <h3 className="text-xl font-bold text-white mb-4">{t('install_step1_title')}</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">{t('install_step1_desc')}</p>
             <div className="p-4 rounded-xl bg-black/40 border border-white/5 text-[10px] font-mono text-emerald-400">
-               Extrair Certus_Studio_Command_SDK_v1.3.4.zip
+               Extrair Certus_Studio_Command_SDK_v1.3.5.zip
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ const EDITIONS = [
     label: 'Sovereign SDK',
     description: 'Focado em Estética Emerald Ultra-Glass, Governança PII-Zero e Advisor de Arquitetura em tempo real.',
     icon: '🛡️',
-    version: 'v1.3.4',
+    version: 'v1.3.5',
     size: '74 MB',
     badge: 'Recomendado',
     badgeClass: 'bg-emerald-500 text-black'
@@ -18,7 +18,7 @@ const EDITIONS = [
     label: 'Command SDK',
     description: 'Edição Premium para Operações Ofensivas e Auditoria Ativa de Segurança (FORGE: BOLA, IDOR, GraphQL).',
     icon: '⚔️',
-    version: 'v1.3.4',
+    version: 'v1.3.5',
     size: '~71 MB',
     badge: 'Premium',
     badgeClass: 'bg-purple-500 text-white'
