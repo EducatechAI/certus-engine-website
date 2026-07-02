@@ -28,45 +28,45 @@ export default function CertusPayPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="ultra-glass rounded-3xl p-10 border border-emerald-500/10 bg-black/40">
-            <h2 className="text-3xl font-bold text-white mb-8">Arquitetura ZK-ID Auth Gateway</h2>
+            <h2 className="text-3xl font-bold text-white mb-8">{t('certuspay_arch_title')}</h2>
             <div className="space-y-8">
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xl">1</div>
-                <div>
-                   <h3 className="text-white font-bold mb-2">Geração Local de Prova</h3>
-                   <p className="text-sm text-slate-400">O Certus Engine local gera uma prova de conhecimento zero (ZKP) atestando saldo e autoridade sem expor o número da conta.</p>
-                </div>
+                 <div>
+                   <h3 className="text-white font-bold mb-2">{t('certuspay_arch_step1_title')}</h3>
+                   <p className="text-sm text-slate-400">{t('certuspay_arch_step1_desc')}</p>
+                 </div>
               </div>
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xl">2</div>
-                <div>
-                   <h3 className="text-white font-bold mb-2">Validação Trustless</h3>
-                   <p className="text-sm text-slate-400">O Gateway recebe apenas o hash da prova. A validação é matemática, não baseada em acesso direto ao banco de dados.</p>
-                </div>
+                 <div>
+                   <h3 className="text-white font-bold mb-2">{t('certuspay_arch_step2_title')}</h3>
+                   <p className="text-sm text-slate-400">{t('certuspay_arch_step2_desc')}</p>
+                 </div>
               </div>
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xl">3</div>
-                <div>
-                   <h3 className="text-white font-bold mb-2">Liquidação Fail-Closed</h3>
-                   <p className="text-sm text-slate-400">Se houver qualquer discrepância na prova ou latência de reconciliação, a transação é bloqueada instantaneamente.</p>
-                </div>
+                 <div>
+                   <h3 className="text-white font-bold mb-2">{t('certuspay_arch_step3_title')}</h3>
+                   <p className="text-sm text-slate-400">{t('certuspay_arch_step3_desc')}</p>
+                 </div>
               </div>
             </div>
           </div>
 
           <div className="space-y-6">
-            <h2 className="text-4xl font-black text-white leading-tight">Privacidade que escala com a <span className="text-emerald-500">segurança institucional.</span></h2>
+            <h2 className="text-4xl font-black text-white leading-tight">{t('certuspay_priv_title1')}<span className="text-emerald-500">{t('certuspay_priv_title2')}</span></h2>
             <p className="text-slate-400 text-lg">
-              Diferente de gateways comuns que armazenam seus dados para "facilitar o checkout", o CertusPay descentraliza a confiança. Seus dados financeiros permanecem no seu Sovereign Vault.
+              {t('certuspay_priv_desc')}
             </p>
             <div className="grid grid-cols-2 gap-4 pt-4">
                <div className="p-4 rounded-xl border border-white/5 bg-white/5">
                  <p className="text-2xl font-black text-white mb-1">0%</p>
-                 <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Risco de PII Leak</p>
+                 <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">{t('certuspay_priv_risk')}</p>
                </div>
                <div className="p-4 rounded-xl border border-white/5 bg-white/5">
                  <p className="text-2xl font-black text-white mb-1">100%</p>
-                 <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Auditabilidade ZK</p>
+                 <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">{t('certuspay_priv_audit')}</p>
                </div>
             </div>
           </div>
@@ -75,22 +75,22 @@ export default function CertusPayPage() {
 
       {/* USE CASES */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-32">
-        <h2 className="text-center text-3xl font-black text-white mb-16">Casos de Uso Soberanos</h2>
+        <h2 className="text-center text-3xl font-black text-white mb-16">{t('certuspay_cases_title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-8 rounded-3xl bg-[#010804] border border-emerald-500/10 hover:border-emerald-500/30 transition-all group">
             <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">🏦</div>
-            <h3 className="text-xl font-bold text-white mb-4">Banking & FinTech</h3>
-            <p className="text-sm text-slate-400">Proteção contra ataques de State Confusion em sistemas de alta volumetria.</p>
+            <h3 className="text-xl font-bold text-white mb-4">{t('certuspay_case1_title')}</h3>
+            <p className="text-sm text-slate-400">{t('certuspay_case1_desc')}</p>
           </div>
           <div className="p-8 rounded-3xl bg-[#010804] border border-emerald-500/10 hover:border-emerald-500/30 transition-all group">
             <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">🎓</div>
-            <h3 className="text-xl font-bold text-white mb-4">Educação & Taxas</h3>
-            <p className="text-sm text-slate-400">Pagamento de mensalidades e taxas acadêmicas com anonimato garantido para o aluno.</p>
+            <h3 className="text-xl font-bold text-white mb-4">{t('certuspay_case2_title')}</h3>
+            <p className="text-sm text-slate-400">{t('certuspay_case2_desc')}</p>
           </div>
           <div className="p-8 rounded-3xl bg-[#010804] border border-emerald-500/10 hover:border-emerald-500/30 transition-all group">
             <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">⚖️</div>
-            <h3 className="text-xl font-bold text-white mb-4">Governança Pública</h3>
-            <p className="text-sm text-slate-400">Transferências governamentais auditáveis via blockchain ou Real Digital.</p>
+            <h3 className="text-xl font-bold text-white mb-4">{t('certuspay_case3_title')}</h3>
+            <p className="text-sm text-slate-400">{t('certuspay_case3_desc')}</p>
           </div>
         </div>
       </section>
