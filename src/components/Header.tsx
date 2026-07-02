@@ -78,9 +78,15 @@ export function Header() {
           </Link>
           <Link
             href="/api-privada"
-            className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-lg glow-emerald"
+            className="px-5 py-2.5 rounded-xl bg-transparent border border-emerald-500/50 hover:bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase tracking-widest transition-all"
           >
             {t('header_api')}
+          </Link>
+          <Link
+            href="/projetos/certus-pay#loja"
+            className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-lg glow-emerald"
+          >
+            COMPRAR LICENÇA
           </Link>
         </div>
 
@@ -126,9 +132,16 @@ export function Header() {
             <Link
               href="/api-privada"
               onClick={() => setMenuOpen(false)}
-              className="block w-full text-center px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-400 text-black text-sm font-bold shadow-lg glow-emerald"
+              className="block w-full text-center px-4 py-3 rounded-lg border border-emerald-500/50 text-emerald-400 text-sm font-bold"
             >
               {t('header_api')}
+            </Link>
+            <Link
+              href="/projetos/certus-pay#loja"
+              onClick={() => setMenuOpen(false)}
+              className="block w-full text-center px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-400 text-black text-sm font-bold shadow-lg glow-emerald"
+            >
+              COMPRAR LICENÇA
             </Link>
           </div>
         </div>

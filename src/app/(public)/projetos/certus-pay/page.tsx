@@ -11,14 +11,14 @@ export default function CertusPayPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-24 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-emerald-500/30 bg-emerald-500/10">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Protocolo de Pagamento Trustless</span>
+          <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Gateway de Pagamento Ativado</span>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
           Certus<span className="text-emerald-500">Pay.</span>
         </h1>
         <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium">
-          A infraestrutura definitiva para transações financeiras imunes a IDOR, BOLA e vazamentos de dados sensíveis.
+          A infraestrutura definitiva para transações financeiras imunes a IDOR, BOLA e vazamentos de dados sensíveis. Compre sua licença da IDE diretamente pelo protocolo Soberano.
         </p>
       </section>
 
@@ -93,14 +93,16 @@ export default function CertusPayPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <div className="ultra-glass rounded-3xl p-12 border border-emerald-500/20 glow-emerald">
-          <h2 className="text-3xl font-bold text-white mb-6">Integre o Futuro dos Pagamentos</h2>
-          <p className="text-slate-400 mb-10">O CertusPay está em fase de ativação para parceiros selecionados. Solicite a documentação técnica da API.</p>
-          <Link href="/api-privada" className="inline-flex px-10 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-black font-black uppercase tracking-widest text-sm transition-all glow-emerald">
-            Solicitar Acesso à API Privada
-          </Link>
+      {/* LOJA SOBERANA EMBARCADA (iFrame) */}
+      <section id="loja" className="max-w-7xl mx-auto px-4 sm:px-6 mt-12 mb-32">
+        <div className="w-full rounded-[2rem] overflow-hidden border border-emerald-500/20 shadow-2xl shadow-emerald-500/10 bg-[#000804] min-h-[900px] relative">
+           <iframe 
+             src="https://certus-site-five.vercel.app" 
+             className="w-full h-full min-h-[900px] absolute inset-0 border-0"
+             allow="payment"
+             title="CertusPay Sovereign Store"
+             sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
+           />
         </div>
       </section>
     </main>
