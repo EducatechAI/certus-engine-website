@@ -4,7 +4,8 @@ export const dynamic = 'force-dynamic';
 
 const REPO_OWNER = 'EducatechAI';
 const REPO_NAME = 'Certus-Engine';
-const TAG_NAME = 'v1.3.5'; // A tag exata onde estão os arquivos LIMPA
+const TAG_NAME_SOVEREIGN = 'v1.3.5'; 
+const TAG_NAME_COMMAND = 'v1.3.6';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -25,7 +26,9 @@ export async function GET(request: Request) {
 
   const targetFileName = platform === 'sovereign' 
     ? 'Certus_Studio_Sovereign_SDK_v1.3.5_LIMPA.zip'
-    : 'Certus_Studio_Command_SDK_v1.3.5_LIMPA.zip';
+    : 'Certus_Studio_Command_SDK_v1.3.6_LIMPA.zip';
+
+  const targetTagName = platform === 'sovereign' ? TAG_NAME_SOVEREIGN : TAG_NAME_COMMAND;
 
   const token = process.env.GITHUB_TOKEN;
   
@@ -37,9 +40,9 @@ export async function GET(request: Request) {
   }
 
   try {
-    // 1. Busca os metadados da Release específica (v1.3.4) no repositório privado
+    // 1. Busca os metadados da Release específica no repositório privado
     const releaseRes = await fetch(
-      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/tags/${TAG_NAME}`,
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/tags/${targetTagName}`,
       {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -52,7 +55,7 @@ export async function GET(request: Request) {
     if (!releaseRes.ok) {
       console.error('Falha ao buscar release:', await releaseRes.text());
       return NextResponse.json(
-        { error: `Falha ao acessar a release ${TAG_NAME} no GitHub. Verifique o GITHUB_TOKEN ou se a tag existe.` },
+        { error: `Falha ao acessar a release ${targetTagName} no GitHub. Verifique o GITHUB_TOKEN ou se a tag existe.` },
         { status: 500, headers }
       );
     }
@@ -64,7 +67,7 @@ export async function GET(request: Request) {
 
     if (!asset) {
       return NextResponse.json(
-        { error: `Arquivo ${targetFileName} não encontrado na release ${TAG_NAME}.` },
+        { error: `Arquivo ${targetFileName} não encontrado na release ${targetTagName}.` },
         { status: 404, headers }
       );
     }
