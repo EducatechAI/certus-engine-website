@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useTranslation } from '@/i18n/I18nProvider'
 
 export default function CertusPayPage() {
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
   return (
     <main className="relative z-10 pt-32 pb-24">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-emerald-500/5 blur-[120px] pointer-events-none" />
@@ -97,9 +97,13 @@ export default function CertusPayPage() {
 
       {/* LOJA SOBERANA EMBARCADA (iFrame) */}
       <section id="loja" className="max-w-7xl mx-auto px-4 sm:px-6 mt-12 mb-32">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-black text-white mb-4">{t('certuspay_store_title')}</h2>
+          <p className="text-slate-400">{t('certuspay_store_desc')}</p>
+        </div>
         <div className="w-full rounded-[2rem] overflow-hidden border border-emerald-500/20 shadow-2xl shadow-emerald-500/10 bg-[#000804] min-h-[900px] relative">
            <iframe 
-             src="https://certus-site-five.vercel.app" 
+             src={`https://certus-site-five.vercel.app/?lang=${locale}`}
              className="w-full h-full min-h-[900px] absolute inset-0 border-0"
              allow="payment"
              title="CertusPay Sovereign Store"
