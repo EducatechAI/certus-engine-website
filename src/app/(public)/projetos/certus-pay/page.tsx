@@ -2,8 +2,10 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { useTranslation } from '@/i18n/I18nProvider'
 
 export default function CertusPayPage() {
+  const { t } = useTranslation()
   return (
     <main className="relative z-10 pt-32 pb-24">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-emerald-500/5 blur-[120px] pointer-events-none" />
@@ -11,14 +13,14 @@ export default function CertusPayPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-24 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-emerald-500/30 bg-emerald-500/10">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Gateway de Pagamento Ativado</span>
+          <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">{t('certuspay_badge')}</span>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
-          Certus<span className="text-emerald-500">Pay.</span>
+          {t('certuspay_title1')}<span className="text-emerald-500">{t('certuspay_title2')}</span>
         </h1>
         <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium">
-          A infraestrutura definitiva para transações financeiras imunes a IDOR, BOLA e vazamentos de dados sensíveis. Compre sua licença da IDE diretamente pelo protocolo Soberano.
+          {t('certuspay_subtitle')}
         </p>
       </section>
 

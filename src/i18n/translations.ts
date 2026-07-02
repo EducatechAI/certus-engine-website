@@ -15,6 +15,13 @@ export const translations = {
     header_ide:       'Acesso à IDE',
     header_api:       'API Privada',
     vault_status:     'Vault: Online',
+    nav_buy_license:  'Comprar Licença',
+
+    // ── CERTUS PAY ──
+    certuspay_badge:  'Gateway de Pagamento Ativado',
+    certuspay_title1: 'Certus',
+    certuspay_title2: 'Pay.',
+    certuspay_subtitle: 'A infraestrutura definitiva para transações financeiras imunes a IDOR, BOLA e vazamentos de dados sensíveis. Compre sua licença da IDE diretamente pelo protocolo Soberano.',
 
     // ── HERO ──
     hero_badge:       'Núcleo Determinístico Ativo',
@@ -370,6 +377,13 @@ export const translations = {
     header_ide:       'IDE Access',
     header_api:       'Private API',
     vault_status:     'Vault: Online',
+    nav_buy_license:  'Buy License',
+
+    // ── CERTUS PAY ──
+    certuspay_badge:  'Payment Gateway Activated',
+    certuspay_title1: 'Certus',
+    certuspay_title2: 'Pay.',
+    certuspay_subtitle: 'The ultimate infrastructure for financial transactions immune to IDOR, BOLA, and sensitive data leaks. Buy your IDE license directly through the Sovereign protocol.',
 
     // ── HERO ──
     hero_badge:       'Deterministic Core Active',
