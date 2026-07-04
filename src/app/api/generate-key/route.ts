@@ -13,11 +13,11 @@ export async function POST(request: Request) {
     const body = await request.json().catch(() => ({}));
     const { masterKey } = body as { masterKey?: string };
 
-    let prefix = '';
+    let plan = '';
     if (masterKey === 'SOVEREIGN-TRIAL-30') {
-      prefix = 'certus_sovereign_30d_';
+      plan = 'SOVEREIGN';
     } else if (masterKey === 'COMMAND-TRIAL-30') {
-      prefix = 'certus_command_30d_';
+      plan = 'COMMAND';
     } else {
       return NextResponse.json({ error: 'Credenciais inválidas. Senha incorreta.' }, { status: 401 });
     }
@@ -42,9 +42,18 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Limite atingido' }, { status: 403 });
     }
 
-    // 3. Gerar a chave
-    const entropy = crypto.randomBytes(32).toString('base64url');
-    const newKey = `${prefix}${entropy}`;
+    // 3. Gerar a chave JWT Trial
+    const now = Date.now();
+    const expiresAt = now + 30 * 24 * 60 * 60 * 1000;
+    const payload = {
+      userId: `TRIAL-${crypto.randomBytes(4).toString('hex').toUpperCase()}`,
+      email: 'trial@certus.engine',
+      plan,
+      issuedAt: now,
+      expiresAt
+    };
+    const payloadBase64 = Buffer.from(JSON.stringify(payload)).toString('base64');
+    const newKey = `${payloadBase64}.TRIAL_ZkSnarks_MOCK_SIG`;
 
     // 4. Incrementar estatística central (Persistência Real)
     await incrementStats();
