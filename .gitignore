@@ -36,3 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+public/downloads/*.pdf
+public/downloads/*.sha256
+public/downloads/hashes.json

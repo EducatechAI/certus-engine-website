@@ -18,7 +18,7 @@ const EDITIONS = [
     label: 'Command SDK',
     description: 'Edição Premium para Operações Ofensivas e Auditoria Ativa de Segurança (FORGE: BOLA, IDOR, GraphQL).',
     icon: '⚔️',
-    version: 'v1.3.5',
+    version: 'v1.3.6 LIMPA',
     size: '~71 MB',
     badge: 'Premium',
     badgeClass: 'bg-purple-500 text-white'

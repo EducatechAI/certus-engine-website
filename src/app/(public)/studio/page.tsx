@@ -1,8 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import StudioDojo from '@/components/StudioDojo'
+import DiamondPortal from '@/components/studio/DiamondPortal'
 import SentinelRedundancy from '@/components/SentinelRedundancy'
 import InstallationGuide from '@/components/InstallationGuide'
 import DownloadSelector from '@/components/studio/DownloadSelector'
@@ -10,6 +11,7 @@ import { useTranslation } from '@/i18n/I18nProvider'
 
 export default function StudioPage() {
   const { t } = useTranslation()
+  const [isUnlocked, setIsUnlocked] = useState(false)
 
   const scrollToDownload = () => {
     const element = document.getElementById('download-section');
@@ -50,13 +52,17 @@ export default function StudioPage() {
         </div>
       </section>
 
-      {/* DOJO SECTION */}
+      {/* DOJO SECTION / DIAMOND PORTAL */}
       <section className="mb-24">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
             <h2 className="text-3xl font-black text-white mb-4">Studio <span className="text-emerald-500">{t('studio_dojo_title').replace('Studio ', '')}</span></h2>
             <p className="text-slate-500 text-sm font-medium">{t('studio_dojo_sub')}</p>
          </div>
-         <StudioDojo />
+         {isUnlocked ? (
+            <StudioDojo />
+         ) : (
+            <DiamondPortal onUnlock={() => setIsUnlocked(true)} />
+         )}
       </section>
 
       {/* COMMAND EDITION */}
