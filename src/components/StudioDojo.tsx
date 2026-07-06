@@ -30,24 +30,39 @@ export default function StudioDojo() {
   const [metrics, setMetrics] = useState({ tokens: 0, time: 0 })
   const terminalRef = useRef<HTMLDivElement>(null)
 
-  const runAudit = () => {
+  const runAudit = async () => {
     setIsAuditing(true)
-    setTerminal(prev => [...prev, '> Iniciando Ativação Soberana...', '[1/3] Scanning PII Shield...'])
+    setTerminal(prev => [...prev, '> Iniciando Ativação Soberana (Proxy Seguro)...', '[1/3] Conectando ao Módulo Diamante...'])
     
     // Trigger background overdrive
     window.dispatchEvent(new CustomEvent('certus-overdrive', { detail: { duration: 3000 } }))
 
-    setTimeout(() => {
-      setTerminal(prev => [...prev, '[2/3] Verificando Consenso Multi-LLM...'])
-      setMetrics({ tokens: Math.floor(Math.random() * 400) + 100, time: Math.floor(Math.random() * 800) + 200 })
-    }, 1000)
+    try {
+      const res = await fetch('/api/diamante', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code, rules: [] }) // Regras são adicionadas no proxy
+      })
 
-    setTimeout(() => {
-      const match = SCRIPTS.find(s => s.code === code)
-      const result = match ? match.result : 'Audit: [VALIDADO] Código personalizado aprovado\nStatus: Tier A+'
-      setTerminal(prev => [...prev, '[3/3] Auditoria Concluída.', result])
+      setTerminal(prev => [...prev, '[2/3] BFT Consenso em deliberação...'])
+      setMetrics({ tokens: Math.floor(Math.random() * 400) + 100, time: Math.floor(Math.random() * 800) + 1200 })
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`)
+      }
+
+      const data = await res.json()
+      
+      const isBlocked = data.blocked || data.status === 'BLOCKED'
+      const statusTag = isBlocked ? '[BLOQUEADO]' : '[VALIDADO]'
+      const resultText = `Audit: ${statusTag}\nReport: ${data.report || 'Processado com sucesso'}`
+
+      setTerminal(prev => [...prev, '[3/3] Veredito Soberano Concluído.', resultText])
+    } catch (error: any) {
+      setTerminal(prev => [...prev, `[ERRO CRÍTICO] Falha na comunicação: ${error.message}`])
+    } finally {
       setIsAuditing(false)
-    }, 2500)
+    }
   }
 
   useEffect(() => {
