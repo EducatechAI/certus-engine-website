@@ -594,6 +594,10 @@ Você pode iniciar o seu teste grátis imediatamente na página de <a href="pric
             {
                 keywords: ['consenso', 'tribunal', 'cpu', 'alucinação'],
                 answer: 'O **Tribunal de CPUs** do Certus submete tarefas críticas a múltiplos modelos de IA simultaneamente. Para que a ação seja aprovada em produção, é exigido um consenso mínimo de 2/3. Se houver divergência, o gate entra em fail-closed e notifica o supervisor humano.'
+            },
+            {
+                keywords: ['diamante', 'modulo diamante', 'diamond', 'gateway', 'enterprise'],
+                answer: 'O **Módulo Diamante (Diamond Gateway)** é a arquitetura enterprise de alto desempenho do Certus Engine, focada em transações volumétricas corporativas. Ele possui processamento em pipeline (Assíncrono Multi-Threaded Rust) garantindo zero perda de dados na borda, ideal para bancos, prefeituras e integrações de larga escala.'
             }
         ];
 
