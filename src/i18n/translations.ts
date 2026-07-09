@@ -528,7 +528,7 @@ export const translations = {
     // ── GOVERNANCE PAGE ──
     gov_badge: 'Deterministic AI Governance',
     gov_title_main: 'Governance is Immutable Math.',
-    gov_title_sub: 'Don\\'t trust. Verify Cryptographically.',
+    gov_title_sub: "Don't trust. Verify Cryptographically.",
     gov_subtitle: 'The Certus Engine does not replace COBIT or ISO. It materializes them in deterministic infrastructure with immutable mathematical evidence.',
     gov_cta_benchmark: 'View Benchmark Report',
     gov_cta_demo: 'Schedule Technical Demo',
