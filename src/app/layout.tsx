@@ -48,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body className="bg-[#000804] text-slate-100 antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+        <div className="circuit-grid-bg" />
         {children}
         {/* Chatbot Sovereign Agent Widget */}
         <Script src="/chat-widget.js" strategy="lazyOnload" />

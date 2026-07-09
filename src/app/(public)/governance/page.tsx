@@ -28,7 +28,7 @@ export default function GovernancePage() {
       
       {/* Background Radial Glow Effects */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[40%] right-[20%] w-[300px] h-[300px] rounded-full bg-emerald-500/5 blur-[80px] pointer-events-none" />
       <div className="absolute top-[40%] right-[20%] w-[300px] h-[300px] rounded-full bg-emerald-500/5 blur-[80px] pointer-events-none" />
 
       {/* Hero Section */}
@@ -38,8 +38,8 @@ export default function GovernancePage() {
           {t('gov_badge')}
         </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
-          {t('gov_title_main')}{' '}
-          <span className="block mt-2 bg-gradient-to-r from-emerald-400 via-emerald-500 to-cyan-400 bg-clip-text text-transparent">
+          <span className="block text-2xl md:text-3xl font-medium text-emerald-400/80 mb-2">{t('gov_title_main')}</span>
+          <span className="block mt-2 bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-500 bg-clip-text text-transparent">
             {t('gov_title_sub')}
           </span>
         </h1>
@@ -49,7 +49,7 @@ export default function GovernancePage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#benchmark"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-semibold text-base transition-transform hover:scale-105 active:scale-95 duration-200 shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 text-slate-950 font-bold text-base transition-transform hover:scale-105 active:scale-95 duration-200 shadow-[0_0_30px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2 glow-emerald"
           >
             {t('gov_cta_benchmark')}
             <ArrowRight className="w-5 h-5" />
@@ -117,7 +117,7 @@ export default function GovernancePage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Pillar 1 */}
-          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300">
+          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-emerald-500/30 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-mono px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-400">01</span>
               <h3 className="text-lg font-bold text-white">{t('gov_pillar_cobit')}</h3>
@@ -126,7 +126,7 @@ export default function GovernancePage() {
           </div>
 
           {/* Pillar 2 */}
-          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300">
+          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-emerald-500/30 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-mono px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-400">02</span>
               <h3 className="text-lg font-bold text-white">{t('gov_pillar_iso31000')}</h3>
@@ -135,7 +135,7 @@ export default function GovernancePage() {
           </div>
 
           {/* Pillar 3 */}
-          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300">
+          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-emerald-500/30 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-mono px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-400">03</span>
               <h3 className="text-lg font-bold text-white">{t('gov_pillar_iso42001')}</h3>
@@ -144,7 +144,7 @@ export default function GovernancePage() {
           </div>
 
           {/* Pillar 4 */}
-          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300">
+          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-emerald-500/30 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-mono px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-400">04</span>
               <h3 className="text-lg font-bold text-white">{t('gov_pillar_tprm')}</h3>

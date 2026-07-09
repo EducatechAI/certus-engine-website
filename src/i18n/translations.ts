@@ -143,8 +143,8 @@ export const translations = {
 
     // ── GOVERNANCE PAGE ──
     gov_badge: 'Governança de IA Determinística',
-    gov_title_main: 'GRC de TI Deixou de Ser Sobre Frameworks.',
-    gov_title_sub: 'Agora é Sobre Prova Criptográfica.',
+    gov_title_main: 'Governança é Matemática Imutável.',
+    gov_title_sub: 'Não Confie. Verifique Criptograficamente.',
     gov_subtitle: 'O Certus Engine não substitui o COBIT ou a ISO. Ele os materializa em infraestrutura determinística com evidências matemáticas imutáveis.',
     gov_cta_benchmark: 'Ver Benchmark Report',
     gov_cta_demo: 'Agendar Demo Técnica',
@@ -527,8 +527,8 @@ export const translations = {
 
     // ── GOVERNANCE PAGE ──
     gov_badge: 'Deterministic AI Governance',
-    gov_title_main: 'IT GRC Has Stopped Being About Frameworks.',
-    gov_title_sub: 'Now It Is About Cryptographic Proof.',
+    gov_title_main: 'Governance is Immutable Math.',
+    gov_title_sub: 'Don\\'t trust. Verify Cryptographically.',
     gov_subtitle: 'The Certus Engine does not replace COBIT or ISO. It materializes them in deterministic infrastructure with immutable mathematical evidence.',
     gov_cta_benchmark: 'View Benchmark Report',
     gov_cta_demo: 'Schedule Technical Demo',
@@ -1095,8 +1095,8 @@ export const translations = {
 
     // ── GOVERNANCE PAGE ──
     gov_badge: 'Gobernanza de IA Determinista',
-    gov_title_main: 'IT GRC Dejó de Ser Sobre Frameworks.',
-    gov_title_sub: 'Ahora es Sobre Prueba Criptográfica.',
+    gov_title_main: 'Gobernanza es Matemática Inmutable.',
+    gov_title_sub: 'No confíes. Verifica Criptográficamente.',
     gov_subtitle: 'El Certus Engine no reemplaza a COBIT o ISO. Los materializa en infraestructura determinista con evidencia matemática inmutable.',
     gov_cta_benchmark: 'Ver Benchmark Report',
     gov_cta_demo: 'Agendar Demo Técnica',
