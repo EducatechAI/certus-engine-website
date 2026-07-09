@@ -24,7 +24,7 @@ export default function GovernancePage() {
   const [activeTimeline, setActiveTimeline] = useState<'yes' | 'no'>('yes')
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-emerald-500 selection:text-slate-950 relative overflow-hidden">
+    <div className="text-slate-100 min-h-screen font-sans selection:bg-emerald-500 selection:text-slate-950 relative z-10 overflow-hidden">
       
       {/* Background Radial Glow Effects */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" />
