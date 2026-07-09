@@ -39,7 +39,7 @@ export default function GovernancePage() {
         </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
           <span className="block text-2xl md:text-3xl font-medium text-emerald-400/80 mb-2">{t('gov_title_main')}</span>
-          <span className="block mt-2 bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-500 bg-clip-text text-transparent">
+          <span className="block mt-2 gradient-text">
             {t('gov_title_sub')}
           </span>
         </h1>
@@ -153,7 +153,7 @@ export default function GovernancePage() {
           </div>
 
           {/* Pillar 5 */}
-          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300 lg:col-span-1 md:col-span-2 lg:max-w-none md:max-w-md md:mx-auto lg:mx-0 w-full">
+          <div className="p-8 rounded-2xl bg-slate-900/20 border border-slate-800/60 backdrop-blur-md hover:border-emerald-500/30 transition-all duration-300 lg:col-span-1 md:col-span-2 lg:max-w-none md:max-w-md md:mx-auto lg:mx-0 w-full">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-mono px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-400">05</span>
               <h3 className="text-lg font-bold text-white">{t('gov_pillar_cyber')}</h3>
@@ -343,7 +343,7 @@ export default function GovernancePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="mailto:contact@certus.engine"
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-base transition-transform hover:scale-105 duration-200 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 text-slate-950 font-bold text-base transition-transform hover:scale-105 active:scale-95 duration-200 shadow-[0_0_30px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2 glow-emerald"
             >
               Falar com Engenharia de Governança
               <ArrowRight className="w-5 h-5" />
