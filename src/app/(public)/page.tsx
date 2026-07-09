@@ -11,8 +11,9 @@ export default function HomePage() {
   const { t, locale } = useTranslation()
 
   const PROJECTS = [
-    { name: 'Certus Studio', tag: '✅ Validado', desc: 'IDE governada com co-pilot soberano e controle de execução.', href: '/studio' },
-    { name: 'CertusPay',     tag: '⚡ ZK-Ready', desc: 'Gateway auditável arquitetado para ZK-ID (Cardano) e PII-Zero.',   href: '/projetos/certus-pay' },
+    { name: 'Certus Studio', tag: '✅ Validado', desc: 'IDE governada com co-pilot soberano e controle de execução.', href: '/studio', icon: '💻' },
+    { name: 'CertusPay',     tag: '⚡ ZK-Ready', desc: 'Gateway auditável arquitetado para ZK-ID (Cardano) e PII-Zero.',   href: '/projetos/certus-pay', icon: '🔒' },
+    { name: 'Certus APEX Guardian', tag: '🛡️ Ativo', desc: 'Frota de defesa (Wolfdog, Kangal, Pitbull) operando em tempo real na borda.', href: '/projetos/apex', icon: '🐺' },
   ]
 
   const COMPLIANCE_ITEMS = [
@@ -159,13 +160,17 @@ export default function HomePage() {
             <h2 className="text-4xl font-black text-white mb-4">{t('projects_title').replace('Engine Funciona.', '')}<span className="gradient-text">Engine Funciona.</span></h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }}></div>
             {PROJECTS.map(p => (
-              <Link key={p.name} href={p.href} className="group">
-                <div className="h-full glass-bright rounded-2xl p-6 border border-emerald-500/10 hover:border-emerald-500/30 hover:bg-emerald-900/10 transition-all duration-300">
+              <Link key={p.name} href={p.href} className="group relative z-10">
+                <div className="h-full glass-bright rounded-2xl p-6 border border-emerald-500/10 hover:border-emerald-500/50 hover:bg-emerald-900/10 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 backdrop-blur-md">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors tracking-tight">{p.name}</h3>
-                    <span className={`text-[10px] font-mono border rounded px-2 py-0.5 ${p.tag === '✅ Validado' ? 'border-emerald-500/40 text-emerald-400 bg-emerald-500/10' : 'border-slate-500/40 text-slate-400 bg-slate-500/10'}`}>
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl drop-shadow-md group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.8)] transition-all duration-300">{p.icon}</span>
+                      <h3 className="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors tracking-tight">{p.name}</h3>
+                    </div>
+                    <span className="text-[10px] font-mono border rounded px-2 py-0.5 border-emerald-500/40 text-emerald-400 bg-emerald-500/10 shadow-[0_0_10px_rgba(16,185,129,0.15)] animate-pulse" style={{ animationDuration: '3s' }}>
                       {p.tag}
                     </span>
                   </div>
@@ -175,8 +180,8 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center">
-            <Link href="/projetos" className="inline-flex px-8 py-3 rounded-xl border border-emerald-500/20 text-white font-bold hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all text-sm uppercase tracking-wider">
+          <div className="text-center relative z-10">
+            <Link href="/projetos" className="inline-flex px-8 py-3 rounded-xl border border-emerald-500/20 text-white font-bold hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all text-sm uppercase tracking-wider hover:shadow-[0_0_20px_rgba(16,185,129,0.6)]">
               {t('projects_cta')}
             </Link>
           </div>
