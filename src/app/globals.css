@@ -24,6 +24,15 @@
   --syntax-string: #facc15;
   --syntax-comment: #334155;
   --syntax-function: #34d399;
+
+  /* Fallbacks padrão (serão sobrescritos pelo script) */
+  --dynamic-lightness: 30%;
+  --dynamic-glow-alpha: 0.3;
+  --time-intensity: 0;
+  
+  /* Cores dinâmicas do Time-Shift */
+  --primary-green: hsl(150, 80%, var(--dynamic-lightness));
+  --glow-color: hsla(150, 80%, var(--dynamic-lightness), var(--dynamic-glow-alpha));
 }
 
 @layer base {
@@ -217,8 +226,8 @@
   pointer-events: none;
   z-index: 1; /* Fica acima do fundo preto, atrás do conteúdo */
   background-image: 
-    linear-gradient(to right, rgba(16, 185, 129, 0.20) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(16, 185, 129, 0.20) 1px, transparent 1px);
+    linear-gradient(to right, var(--glow-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--glow-color) 1px, transparent 1px);
   background-size: 50px 50px;
   mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
   -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
@@ -229,15 +238,16 @@
   content: '';
   position: absolute;
   inset: 0;
-  /* Pulsos horizontais e verticais de luz */
+  /* Pulsos horizontais e verticais de luz atrelados à intensidade */
   background-image: 
-    linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.8), transparent),
-    linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.9), transparent),
-    linear-gradient(180deg, transparent, rgba(52, 211, 153, 0.8), transparent),
-    linear-gradient(180deg, transparent, rgba(52, 211, 153, 0.9), transparent);
+    linear-gradient(90deg, transparent, var(--glow-color), transparent),
+    linear-gradient(90deg, transparent, var(--glow-color), transparent),
+    linear-gradient(180deg, transparent, var(--glow-color), transparent),
+    linear-gradient(180deg, transparent, var(--glow-color), transparent);
   background-size: 200px 1px, 350px 1px, 1px 250px, 1px 400px;
   background-repeat: no-repeat;
-  animation: data-flow-pulses 6s linear infinite;
+  /* A velocidade dos pulsos aumenta conforme a intensidade do sol (Time-Shift) */
+  animation: data-flow-pulses calc(6s / (0.5 + var(--time-intensity))) linear infinite;
 }
 
 @keyframes data-flow-pulses {
@@ -258,7 +268,8 @@
 }
 
 @keyframes circuit-pulse {
-  0% { opacity: 0.4; transform: scale(1); }
-  100% { opacity: 0.8; transform: scale(1.01); }
+  /* Pulso afeta a opacidade de acordo com o time-intensity */
+  0% { opacity: calc(0.3 + var(--time-intensity) * 0.2); transform: scale(1); }
+  100% { opacity: calc(0.6 + var(--time-intensity) * 0.4); transform: scale(1.01); }
 }
 

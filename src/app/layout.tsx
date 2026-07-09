@@ -39,6 +39,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const hour = new Date().getHours();
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                
+                // Onda senoidal: pico ao meio-dia (12h), mínimo à meia-noite (0h)
+                const intensity = (Math.sin((hour - 6) * Math.PI / 12) + 1) / 2;
+                
+                // Ajustar baseado em dark mode
+                const baseLightness = prefersDark ? 20 : 30;
+                const maxLightness = prefersDark ? 35 : 50;
+                const lightness = baseLightness + (intensity * (maxLightness - baseLightness));
+                
+                const baseAlpha = prefersDark ? 0.2 : 0.3;
+                const maxAlpha = prefersDark ? 0.4 : 0.7;
+                const alpha = baseAlpha + (intensity * (maxAlpha - baseAlpha));
+                
+                document.documentElement.style.setProperty('--dynamic-lightness', lightness + '%');
+                document.documentElement.style.setProperty('--dynamic-glow-alpha', alpha);
+                document.documentElement.style.setProperty('--time-intensity', intensity);
+              })();
+            `,
+          }}
+        />
         {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
           <script
             defer
