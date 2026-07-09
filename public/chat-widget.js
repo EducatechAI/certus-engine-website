@@ -598,6 +598,10 @@ Você pode iniciar o seu teste grátis imediatamente na página de <a href="pric
             {
                 keywords: ['diamante', 'modulo diamante', 'diamond', 'gateway', 'enterprise'],
                 answer: 'O **Módulo Diamante (Diamond Gateway)** é a arquitetura enterprise de alto desempenho do Certus Engine, focada em transações volumétricas corporativas. Ele possui processamento em pipeline (Assíncrono Multi-Threaded Rust) garantindo zero perda de dados na borda, ideal para bancos, prefeituras e integrações de larga escala.'
+            },
+            {
+                keywords: ['testes', '11 testes', 'bft', 'hard', 'validação', 'empírica'],
+                answer: 'O Certus Engine foi submetido a uma bateria rigorosa de **11 testes empíricos de nível HARD**. O Tribunal de CPUs (Frota BFT) defendeu a infraestrutura contra ataques como Logic Bombs, evasão de Regex com PII fragmentada, injeções SQLi/RCE brutais e vazamentos via Side-Channel (mensagens de erro). A taxa de bloqueio de ameaças foi de 100%, operando com uma latência média ultrabaixa na borda e acionando supervisão humana (HITL) apenas em casos ambíguos.'
             }
         ];
 
