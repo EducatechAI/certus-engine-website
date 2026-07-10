@@ -213,8 +213,11 @@ R: Soluções concorrentes (como Guardrails AI ou LangChain) usam uma única LLM
 
 ## Bloco 8: Licenciamento e Suporte (60-63)
 
-**60. Quais são os tiers de licença do Módulo Diamante?**
-R: Três tiers: Trial (gratuito, 30 dias, 1000 requisições), Command (R$ 499,90/mês, 50k requisições), e Diamante (R$ 3.000+/mês, 500k requisições + suporte prioritário). Todos com PII-Zero, Tribunal BFT e Lazarus Vault.
+**60. Quais são os tiers de licença do Ecossistema Certus?**
+R: O modelo de licenciamento é flexível, onde a infraestrutura LLM primária (chaves do OpenRouter ou modelos locais) é provida pelo cliente.
+1. **IDE Sovereign (R$ 79,90/mês):** Focada em desenvolvedores e estudantes.
+2. **IDE Command (R$ 499,90/mês):** Focada em auditores e C-Levels, com acesso ao Lazarus Vault e controle tático.
+3. **Módulo Diamante (Enterprise/GovTech):** A licença do Gateway de Borda é vendida sob demanda via CPSI (Marco Legal das Startups) ou venda direta. O valor é customizado após negociação de escopo com a Prefeitura ou Empresa.
 
 **61. Como funciona a integração com Asaas/CertusPay?**
 R: O CertusPay integra nativamente com Asaas para cobrança via PIX e cartão. O webhook do Asaas ativa automaticamente a licença no Lazarus Vault, com idempotência criptográfica para prevenir replay attacks.
