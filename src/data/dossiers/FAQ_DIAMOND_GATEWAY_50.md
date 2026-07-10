@@ -126,7 +126,7 @@ R: Ele audita as chamadas para Smart Contracts, atuando contra ataques de manipu
 R: Sim, ele atua como um "Reverse Proxy" (Proxy Reverso). A empresa não precisa reescrever seu código monolítico; basta colocar o Módulo Diamante na frente dele e deixar a magia BFT acontecer.
 
 **36. É útil para e-commerce de alto tráfego (Black Friday)?**
-R: Exatamente. A taxa de 500k TPS suporta picos massivos de requisições de compra, impedindo bots de *Scalping* (compra automatizada de ingressos/tênis) através da análise comportamental.
+R: Exatamente. A arquitetura escalável do Diamante suporta picos massivos de requisições de compra, impedindo bots de Scalping (compra automatizada de ingressos/tênis) através da análise comportamental e rate limiting inteligente.
 
 **37. Órgãos Governamentais podem adquirir via licitação?**
 R: A Educatech AI, via CPSI (Marco Legal das Startups, Lei 182/2021), pode fechar contratos de inovação com o setor público para modernização e compliance cibernético com facilidade contratual.
@@ -198,7 +198,7 @@ R: No modo "strict", o Tribunal BFT é obrigatório e qualquer dúvida resulta e
 ## Bloco 7: FinOps e Custos Operacionais (56-59)
 
 **56. Qual o custo operacional médio por requisição?**
-R: O custo real varia drasticamente dependendo da LLM local (Pessoal da Empresa) ou da "Frota BFT" selecionada pelo usuário no OpenRouter, pois cada modelo cobra um valor diferente por 1M de tokens. Contudo, em uma frota otimizada de referência (ex: DeepSeek, Qwen, GLM), o custo médio é ~$0.003 por requisição BFT completa (sendo ~$0.002 no Nível 1 e ~$0.005 quando escala para o Nível 3).
+R: O custo real varia drasticamente dependendo da LLM local (Pessoal da Empresa) ou da "Frota BFT" selecionada pelo usuário no OpenRouter, pois cada modelo cobra um valor diferente por 1M de tokens. Contudo, em uma frota otimizada de referência (ex: DeepSeek, Qwen, GLM), o custo médio é US$ 0.003 por requisição BFT completa (sendo US$ 0.002 no Nível 1 e US$ 0.005 quando escala para o Nível 3).
 
 **57. Como funciona o Budget Manager?**
 R: O Budget Manager monitora em tempo real o consumo de tokens da OpenRouter e calcula a margem bruta (Receita Asaas - Custo LLM). É possível definir limites diários/mensais e receber alertas quando o consumo atinge 80% do budget.
@@ -207,7 +207,7 @@ R: O Budget Manager monitora em tempo real o consumo de tokens da OpenRouter e c
 R: Sim. Via variável de ambiente DAILY_LIMIT_USD, é possível definir um teto de gastos diários. Se o limite for atingido, o sistema entra em modo degradado (apenas validações determinísticas, sem LLMs).
 
 **59. Como o Certus compara com soluções concorrentes em termos de custo?**
-R: Soluções concorrentes (como Guardrails AI ou LangChain) usam uma única LLM, custando ~$0.01-0.03 por requisição. O Certus, com BFT de 3-6 LLMs e Early Stopping, custa ~$0.003, oferecendo segurança superior com custo 70-90% menor.
+R: Soluções concorrentes (como Guardrails AI ou LangChain) usam uma única LLM, custando US$ 0.01 a 0.03 por requisição. O Certus, com BFT de 3-6 LLMs e Early Stopping, custa US$ 0.003, oferecendo segurança superior com custo 70-90% menor.
 
 ---
 
