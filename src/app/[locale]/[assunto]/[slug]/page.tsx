@@ -1,47 +1,53 @@
 import { notFound } from 'next/navigation';
-import { matrixLegado } from '@/data/matrix-legado';
-import { matrixB2b } from '@/data/matrix-b2b';
-import { matrixSoberana } from '@/data/matrix-soberana';
+import fs from 'fs';
+import path from 'path';
 import type { Metadata } from 'next';
 import DripFeedDashboard from '@/components/ui/DripFeedDashboard';
+import ReactMarkdown from 'react-markdown';
 
-const ALL_MATRICES = [...matrixLegado, ...matrixB2b, ...matrixSoberana];
+// Função para ler o seeds.json
+function getSeeds() {
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'data', 'seeds.json');
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch (error) {
+    console.error('Erro ao ler seeds.json na rota dinâmica', error);
+    return [];
+  }
+}
 
 export async function generateStaticParams() {
-  const highPriority = matrixSoberana.concat(matrixB2b.slice(0, 50)); 
-  // No roteamento i18n estático, devemos gerar para os 3 locales
-  const params: { locale: string; assunto: string; slug: string }[] = [];
+  const seeds = getSeeds();
+  // Gera estaticamente apenas as páginas que já têm conteúdo (forjadas)
+  const released = seeds.filter((s: any) => s.contentMarkdown);
   
-  for (const locale of ['pt', 'en', 'es']) {
-    for (const item of highPriority) {
-      params.push({ locale, assunto: item.assunto, slug: item.slug });
-    }
-  }
-  return params;
+  return released.map((seed: any) => ({
+    locale: seed.locale,
+    assunto: seed.assunto,
+    slug: seed.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: { params: { locale: string; assunto: string; slug: string } }): Promise<Metadata> {
-  const page = ALL_MATRICES.find((p) => p.assunto === params.assunto && p.slug === params.slug);
-  if (!page) return { title: 'Não Encontrado | Certus Engine' };
+  const seeds = getSeeds();
+  const page = seeds.find((p: any) => p.locale === params.locale && p.assunto === params.assunto && p.slug === params.slug);
+  
+  if (!page || !page.contentMarkdown) return { title: 'Não Encontrado | Certus Engine' };
   
   return {
     title: `${page.title} | Certus Engine`,
-    description: page.description,
+    description: `Dossiê Técnico sobre mitigação de ${page.painPoint} para o setor de ${page.niche}.`,
   };
 }
 
 export default async function Page({ params }: { params: { locale: string; assunto: string; slug: string } }) {
-  const page = ALL_MATRICES.find((p) => p.assunto === params.assunto && p.slug === params.slug);
+  const seeds = getSeeds();
+  const page = seeds.find((p: any) => p.locale === params.locale && p.assunto === params.assunto && p.slug === params.slug);
 
-  if (!page) {
+  // Se a página não existe no seeds, ou se existe mas NÃO FOI forjada ainda (contentMarkdown = null), retorna 404 (Acesso Negado)
+  if (!page || !page.contentMarkdown) {
     notFound(); 
   }
-
-  // Se a página já possui o campo contentMarkdown (gerado pela Frota APEX), renderiza ele.
-  // Caso contrário, faz um fallback elegante para o contentBlocks.
-  const contentHtml = page.contentMarkdown 
-    ? page.contentMarkdown 
-    : page.contentBlocks.map((b: string) => `<p class="mb-6">${b}</p>`).join('');
 
   return (
     <div className="min-h-screen bg-[#030d08] text-slate-300 font-sans relative overflow-hidden">
@@ -61,31 +67,40 @@ export default async function Page({ params }: { params: { locale: string; assun
             <span className="px-3 py-1 rounded bg-slate-900/40 border border-slate-700/50 text-slate-400 text-xs font-mono uppercase tracking-widest">
               Locale: {params.locale}
             </span>
+            <span className="px-3 py-1 rounded bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 text-xs font-mono uppercase tracking-widest flex items-center gap-2">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+              ZK-Ready
+            </span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-md">{page.title}</h1>
-          <p className="text-xl md:text-2xl text-emerald-100/70 font-light leading-relaxed">{page.description}</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-md leading-tight">{page.title}</h1>
         </header>
         
-        <div 
-          className="prose prose-lg prose-invert prose-emerald max-w-none
-                     prose-headings:font-bold prose-headings:text-emerald-50
+        <div className="prose prose-lg prose-invert prose-emerald max-w-none
+                     prose-headings:font-bold prose-headings:text-emerald-50 prose-headings:border-b prose-headings:border-emerald-900/30 prose-headings:pb-2
                      prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:text-emerald-300 hover:prose-a:underline
                      prose-strong:text-emerald-200
                      prose-code:text-emerald-300 prose-code:bg-emerald-900/30 prose-code:px-1 prose-code:rounded
-                     prose-blockquote:border-l-emerald-500 prose-blockquote:bg-emerald-900/10 prose-blockquote:py-2 prose-blockquote:px-4"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
-        />
+                     prose-blockquote:border-l-emerald-500 prose-blockquote:bg-emerald-900/10 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
+                     prose-table:border prose-table:border-emerald-900/40 prose-th:bg-emerald-900/20 prose-th:p-3 prose-td:p-3 prose-td:border-t prose-td:border-emerald-900/40">
+          <ReactMarkdown>{page.contentMarkdown}</ReactMarkdown>
+        </div>
         
-        <div className="mt-16 p-6 bg-black/40 border border-emerald-900/50 rounded-xl backdrop-blur-sm">
-          <p className="text-sm text-slate-500 font-mono">
-            <strong>ID Criptográfico:</strong> {page.id} <br/>
-            <strong>Nicho Catalogado:</strong> {page.niche} <br/>
-            <strong>Integridade:</strong> ZK-Ready Verified
+        <div className="mt-16 p-6 bg-black/40 border border-emerald-900/50 rounded-xl backdrop-blur-sm shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+          <p className="text-sm text-slate-500 font-mono leading-loose">
+            <strong className="text-emerald-500">Hash ID (Lazarus Vault):</strong> {page.id} <br/>
+            <strong className="text-emerald-500">Alvo Tático:</strong> {page.niche} <br/>
+            <strong className="text-emerald-500">Compliance:</strong> {page.law} <br/>
+            <strong className="text-emerald-500">Mitigação Focada:</strong> {page.painPoint}
           </p>
         </div>
       </article>
 
-      <DripFeedDashboard totalPages={4680} />
+      {/* Como DripFeedDashboard está estático e não foi atualizado, usamos um link direto para o Command Center */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <a href="/status" className="px-6 py-3 border border-emerald-500/40 rounded-full bg-black/80 backdrop-blur-xl text-emerald-400 font-mono text-xs uppercase tracking-widest hover:bg-emerald-900/50 transition-colors shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+          [Retornar ao Command Center]
+        </a>
+      </div>
     </div>
   );
 }
