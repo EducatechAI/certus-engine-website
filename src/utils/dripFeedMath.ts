@@ -6,7 +6,7 @@
  * Fase 3: 12/dia (90 dias) -> 4 PT, 4 EN, 4 ES (Temas Únicos)
  */
 
-export const ZERO_DAY = '2026-07-20T00:00:00.000Z'; // Data base de início oficial
+export const ZERO_DAY = '2026-07-20T18:00:00.000Z'; // 15:00 PM Horário de Brasília
 
 export function calculateReleaseDate(index: number, startDateStr: string = ZERO_DAY): string {
   const startDate = new Date(startDateStr);
