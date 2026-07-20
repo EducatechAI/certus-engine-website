@@ -83,7 +83,7 @@ export function Header() {
             {t('header_api')}
           </Link>
           <Link
-            href="/projetos/certus-pay#loja"
+            href="/pricing"
             className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-lg glow-emerald"
           >
             {t('nav_buy_license')}
@@ -137,7 +137,7 @@ export function Header() {
               {t('header_api')}
             </Link>
             <Link
-              href="/projetos/certus-pay#loja"
+              href="/pricing"
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-400 text-black text-sm font-bold shadow-lg glow-emerald"
             >

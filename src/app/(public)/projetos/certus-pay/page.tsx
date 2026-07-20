@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useTranslation } from '@/i18n/I18nProvider'
+import PricingPage from '@/app/(public)/pricing/page'
 
 export default function CertusPayPage() {
   const { t, locale } = useTranslation()
@@ -101,14 +102,8 @@ export default function CertusPayPage() {
           <h2 className="text-3xl font-black text-white mb-4">{t('certuspay_store_title')}</h2>
           <p className="text-slate-400">{t('certuspay_store_desc')}</p>
         </div>
-        <div className="w-full rounded-[2rem] overflow-hidden border border-emerald-500/20 shadow-2xl shadow-emerald-500/10 bg-[#000804] min-h-[900px] relative">
-           <iframe 
-             src={`https://certus-site-five.vercel.app/?lang=${locale}`}
-             className="w-full h-full min-h-[900px] absolute inset-0 border-0"
-             allow="payment"
-             title="CertusPay Sovereign Store"
-             sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
-           />
+        <div className="w-full rounded-[2rem] border border-emerald-500/20 shadow-2xl shadow-emerald-500/10 bg-[#000804] relative">
+           <PricingPage />
         </div>
       </section>
     </main>
