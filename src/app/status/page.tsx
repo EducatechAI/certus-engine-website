@@ -99,6 +99,15 @@ export default function StatusPage() {
           </div>
         </div>
 
+        {/* RODAPÉ DE COMPLIANCE CORPORATIVO */}
+        <footer className="mt-20 w-full text-center border-t border-emerald-900/40 pt-6 pb-2">
+          <p className="text-[10px] font-sans text-slate-500 uppercase tracking-widest leading-relaxed">
+            Educatech AI Digital Sovereign Ltda. <span className="text-emerald-700 mx-2">|</span> 
+            Infraestrutura em conformidade com LGPD (Art. 46) e Resolução BACEN 4.893.<br />
+            Powered by Certus Engine v3.3.0 & Midnight Network
+          </p>
+        </footer>
+
       </div>
     </main>
   );
