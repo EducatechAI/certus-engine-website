@@ -31,16 +31,44 @@ export default function StatusPage() {
 
   return (
     <main className="min-h-screen bg-[#030d08] relative overflow-hidden flex flex-col font-sans selection:bg-emerald-500/30">
-      {/* Background Animated SVG Circuit (Simplified for scale) */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      {/* Background Animated SVG Circuit (Chip Data Flow) */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes flow {
+            from { stroke-dashoffset: 100; }
+            to { stroke-dashoffset: 0; }
+          }
+          .circuit-line {
+            stroke-dasharray: 10 20;
+            animation: flow 3s linear infinite;
+          }
+          .circuit-line-fast {
+            stroke-dasharray: 5 15;
+            animation: flow 1.5s linear infinite reverse;
+          }
+        `}} />
+        <svg className="w-full h-full opacity-[0.15]" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <path d="M10 10 L90 10 M50 10 L50 90 M10 90 L90 90" stroke="#10b981" strokeWidth="0.5" fill="none" opacity="0.3"/>
-              <circle cx="50" cy="50" r="2" fill="#10b981" className="animate-pulse" />
+            <pattern id="chip-circuit" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+              {/* Linhas de base fixas */}
+              <path d="M20 20 h40 v40 h40 v-20 h60 M100 100 v60 h-40 v40 M160 160 h40" stroke="#042f1c" strokeWidth="1" fill="none" />
+              <path d="M0 80 h40 v-40 h20 M140 0 v40 h-20 v20" stroke="#042f1c" strokeWidth="1" fill="none" />
+              
+              {/* Pontos de conexão (Nós) */}
+              <circle cx="20" cy="20" r="2" fill="#065f3a" />
+              <circle cx="100" cy="60" r="2.5" fill="#065f3a" />
+              <circle cx="160" cy="40" r="2" fill="#065f3a" />
+              <circle cx="100" cy="160" r="3" fill="#10b981" className="animate-pulse" />
+              <circle cx="60" cy="160" r="2" fill="#065f3a" />
+
+              {/* Linhas de energia fluindo (Eletricidade) */}
+              <path d="M20 20 h40 v40 h40 v-20 h60" stroke="#10b981" strokeWidth="1.5" fill="none" className="circuit-line" />
+              <path d="M100 100 v60 h-40 v40" stroke="#34d399" strokeWidth="1" fill="none" className="circuit-line-fast" />
+              <path d="M0 80 h40 v-40 h20" stroke="#10b981" strokeWidth="1" fill="none" className="circuit-line" />
+              <path d="M140 0 v40 h-20 v20" stroke="#059669" strokeWidth="1.5" fill="none" className="circuit-line-fast" />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#circuit)" />
+          <rect width="100%" height="100%" fill="url(#chip-circuit)" />
         </svg>
       </div>
 
