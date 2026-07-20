@@ -1,0 +1,50 @@
+name: APEX Forge JIT (Cron)
+
+on:
+  schedule:
+    # Roda a cada 30 minutos (0 e 30)
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    # Permite rodar manualmente pelo painel do GitHub
+
+permissions:
+  contents: write # Necessário para o bot fazer o commit
+
+jobs:
+  forge-content:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🛎️ Checkout do Repositório
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: 📦 Instalar Dependências (tsx)
+        run: npm install -g tsx
+        
+      - name: ⚡ Rodar Motor JIT (Frota APEX)
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+        run: tsx scripts/apex-cron.ts
+        
+      - name: 💾 Commit & Push das Novas Sementes
+        run: |
+          git config --global user.name "APEX Guardian Bot"
+          git config --global user.email "apex-bot@certus.engine"
+          git add src/data/seeds.json
+          
+          # Só faz commit se houver mudanças reais (semente gerada)
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "bot(apex-forge): Geração JIT de novo dossiê [skip ci se necessário, mas queremos deploy da Vercel]"
+            git push
+          else
+            echo "Nenhuma semente madura pendente. Nada a commitar."
+          fi
