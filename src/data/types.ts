@@ -7,5 +7,8 @@ export interface ContentMatrixItem {
   title: string;
   description: string;
   contentBlocks: string[];
+  contentMarkdown?: string;
+  releaseDate?: string;
+  locale?: 'pt' | 'en' | 'es';
   priority: '0.9' | '0.8' | '0.7' | '0.5';
 }
