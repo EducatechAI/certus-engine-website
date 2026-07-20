@@ -139,50 +139,68 @@ async function runCron() {
   const seeds = JSON.parse(fs.readFileSync(SEEDS_FILE, 'utf-8'));
   const now = Date.now();
   
-  const targetSeed = seeds.find((s: any) => !s.contentMarkdown && new Date(s.releaseDate).getTime() <= now);
+  // Protocolo Berserker: Captura até 3 sementes maduras atrasadas para compensar delay do GitHub
+  const targetSeeds = seeds.filter((s: any) => !s.contentMarkdown && new Date(s.releaseDate).getTime() <= now).slice(0, 3);
   
-  if (!targetSeed) {
+  if (targetSeeds.length === 0) {
     console.log('[APEX Cron] Nenhuma semente madura pendente. Hibernando.');
     return;
   }
   
-  console.log(`[APEX Cron] Target Adquirido: ${targetSeed.slug} (Release: ${targetSeed.releaseDate})`);
+  console.log(`[APEX Cron] PROTOCOLO BERSERKER: ${targetSeeds.length} sementes atrasadas. Iniciando caça tática...`);
   
-  try {
-    const localRAG = await loadRAGContext();
-    const webRAG = await performWebRAG(targetSeed.niche, targetSeed.law, targetSeed.painPoint);
+  for (let i = 0; i < targetSeeds.length; i++) {
+    const targetSeed = targetSeeds[i];
+    console.log(`\n--- [Alvo ${i + 1}/${targetSeeds.length}] ${targetSeed.slug} ---`);
     
-    // Roda a Forja (com Circuit Breaker e Quality Gate embargados)
-    const result = await generateContent(targetSeed, localRAG, webRAG);
-    
-    // Atualiza o JSON
-    const seedIndex = seeds.findIndex((s: any) => s.id === targetSeed.id);
-    seeds[seedIndex].contentMarkdown = result.content;
-    fs.writeFileSync(SEEDS_FILE, JSON.stringify(seeds, null, 2));
-    
-    // Log de Sucesso
-    appendLog(LOG_SUCCESS_FILE, {
-      seedId: targetSeed.id,
-      slug: targetSeed.slug,
-      modelUsed: result.model,
-      length: result.content.length,
-      status: 'SUCCESS'
-    });
-    
-    console.log(`[APEX Cron] Sucesso Máximo. Semente ${targetSeed.slug} forjada e auditada.`);
-  } catch (error: any) {
-    console.error(`[APEX Cron] 🛑 FALHA CRÍTICA: ${error.message}`);
-    
-    // Log de Falha
-    appendLog(LOG_ERROR_FILE, {
-      seedId: targetSeed.id,
-      slug: targetSeed.slug,
-      error: error.message,
-      status: 'FAILED'
-    });
-    
-    process.exit(1); // Aciona alerta vermelho no GitHub Actions
+    try {
+      const localRAG = await loadRAGContext();
+      const webRAG = await performWebRAG(targetSeed.niche, targetSeed.law, targetSeed.painPoint);
+      
+      // Roda a Forja
+      const result = await generateContent(targetSeed, localRAG, webRAG);
+      
+      // Atualiza na memória
+      const seedIndex = seeds.findIndex((s: any) => s.id === targetSeed.id);
+      seeds[seedIndex].contentMarkdown = result.content;
+      
+      // Log de Sucesso
+      appendLog(LOG_SUCCESS_FILE, {
+        seedId: targetSeed.id,
+        slug: targetSeed.slug,
+        modelUsed: result.model,
+        length: result.content.length,
+        status: 'SUCCESS'
+      });
+      
+      console.log(`[APEX Cron] Sucesso Máximo. Semente ${targetSeed.slug} forjada e auditada.`);
+      
+      // Descanso tático (5s) anti-Rate Limit, se não for o último
+      if (i < targetSeeds.length - 1) {
+        console.log('[APEX Cron] Descanso tático (5s) anti-Rate Limit...');
+        await new Promise(r => setTimeout(r, 5000));
+      }
+      
+    } catch (error: any) {
+      console.error(`[APEX Cron] 🛑 FALHA CRÍTICA na semente ${targetSeed.slug}: ${error.message}`);
+      
+      // Log de Falha
+      appendLog(LOG_ERROR_FILE, {
+        seedId: targetSeed.id,
+        slug: targetSeed.slug,
+        error: error.message,
+        status: 'FAILED'
+      });
+      
+      // Se der erro, salva o que já forjou e aborta para não piorar o bloqueio
+      fs.writeFileSync(SEEDS_FILE, JSON.stringify(seeds, null, 2));
+      process.exit(1); 
+    }
   }
+  
+  // Salva o JSON no disco com todo o lote
+  fs.writeFileSync(SEEDS_FILE, JSON.stringify(seeds, null, 2));
+  console.log(`\n[APEX Cron] PROTOCOLO BERSERKER concluído. Arquivos selados.`);
 }
 
 runCron();
