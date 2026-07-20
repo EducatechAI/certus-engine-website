@@ -63,22 +63,42 @@ async function performWebRAG(niche: string, law: string, pain: string): Promise<
 async function generateContent(seed: any, localRAG: string, webRAG: string): Promise<{model: string, content: string}> {
   if (!OPENROUTER_API_KEY) throw new Error('OPENROUTER_API_KEY is required');
 
-  const prompt = `
-  Você é o Mestre Soberano do Certus Engine, a IA letal de defesa cibernética.
-  Escreva um Dossiê Técnico de altíssima densidade (3000 a 4000 caracteres) no idioma '${seed.locale}'.
+  const currentYear = new Date().getFullYear();
   
-  TÍTULO DO DOSSIÊ: ${seed.title}
-  ALVO (NICHO): ${seed.niche}
-  LEI / COMPLIANCE: ${seed.law}
-  DOR: ${seed.painPoint}
+  // Dicionário Tático de Localização (Para evitar Language Bleed)
+  const dict = {
+    pt: { rule: "Regra #001 do Certus Engine", target: "Alvo Tático", compliance: "Compliance", mitigation: "Mitigação Focada" },
+    en: { rule: "Rule #001 of Certus Engine", target: "Tactical Target", compliance: "Compliance", mitigation: "Focused Mitigation" },
+    es: { rule: "Regla #001 del Certus Engine", target: "Objetivo Táctico", compliance: "Cumplimiento", mitigation: "Mitigación Enfocada" }
+  };
+  const locale = (seed.locale as 'pt' | 'en' | 'es') || 'pt';
+  const loc = dict[locale];
 
-  DIRETRIZES:
+  const prompt = \`
+  Você é o Mestre Soberano do Certus Engine, a IA letal de defesa cibernética.
+  Escreva um Dossiê Técnico de altíssima densidade (3000 a 4000 caracteres) no idioma '\${seed.locale}'.
+  
+  TÍTULO DO DOSSIÊ: \${seed.title}
+  ALVO (NICHO): \${seed.niche}
+  LEI / COMPLIANCE: \${seed.law}
+  DOR: \${seed.painPoint}
+
+  DIRETRIZES DE FERRO (Obrigatórias):
   1. Prove matematicamente como o Certus Engine mitiga esse ataque usando Provas de Conhecimento Zero (ZK-SNARKs).
-  2. Use tom autoritário e determinístico (Regra #001: Desconfiança Zero).
-  3. Não cite "achismos". Use os fatos recentes do Web RAG: ${webRAG}
-  4. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): ${localRAG}
-  5. Formate estritamente em Markdown avançado (use tabelas, blocos de código e blockquotes).
-  `;
+  2. Use tom autoritário e determinístico (\${loc.rule}: Desconfiança Zero).
+  3. [CONSISTÊNCIA LÓGICA] Latência de cibersegurança é medida em MILISSEGUNDOS (ex: 1.7ms, 10ms). NUNCA afirme que o sistema leva "segundos" para detectar ou agir.
+  4. [REALISMO MÉTRICO] NUNCA gere métricas de performance fisicamente impossíveis ou hiperbólicas. Velocidade de análise de logs deve ser em GB/s ou TB/dia, NUNCA TB/s. Tempos de resposta devem ser consistentes (ms ou µs). Se em dúvida, use "sub-millisecond" ou "real-time".
+  5. [INTEGRIDADE TEMPORAL] A data atual do sistema é \${currentYear}. TODAS as referências a relatórios ou anos devem usar o ano corrente (\${currentYear}) ou um intervalo que termine em \${currentYear}. NUNCA gere datas do passado como se fossem o presente.
+  6. Não cite "achismos". Use os fatos recentes do Web RAG: \${webRAG}
+  7. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): \${localRAG}
+  8. Formate estritamente em Markdown avançado (tabelas, blocos de código e blockquotes). 
+  9. Inclua no final do dossiê EXATAMENTE este bloco finalizador, substituindo os valores entre colchetes pelo conteúdo correspondente:
+
+  Hash ID (Lazarus Vault): \${seed.id}
+  \${loc.target}: [\${seed.niche}]
+  \${loc.compliance}: [\${seed.law}]
+  \${loc.mitigation}: [\${seed.painPoint}]
+  \`;
 
   const MODELS_ROULETTE = [
     "deepseek/deepseek-r1",
