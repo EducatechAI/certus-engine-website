@@ -89,10 +89,11 @@ async function generateContent(seed: any, localRAG: string, webRAG: string): Pro
   3. [CONSISTÊNCIA LÓGICA] Latência de cibersegurança é medida em MILISSEGUNDOS (ex: 1.7ms, 10ms). NUNCA afirme que o sistema leva "segundos" para detectar ou agir.
   4. [REALISMO MÉTRICO] NUNCA gere métricas de performance fisicamente impossíveis ou hiperbólicas. Velocidade de análise de logs deve ser em GB/s ou TB/dia, NUNCA TB/s. Tempos de resposta devem ser consistentes (ms ou µs). Se em dúvida, use "sub-millisecond" ou "real-time".
   5. [INTEGRIDADE TEMPORAL] A data atual do sistema é ${currentYear}. TODAS as referências a relatórios ou anos devem usar o ano corrente (${currentYear}) ou um intervalo que termine em ${currentYear}. NUNCA gere datas do passado como se fossem o presente.
-  6. Não cite "achismos". Use os fatos recentes do Web RAG: ${webRAG}
-  7. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): ${localRAG}
-  8. Formate estritamente em Markdown avançado (tabelas, blocos de código e blockquotes). 
-  9. Inclua no final do dossiê EXATAMENTE este bloco finalizador, substituindo os valores entre colchetes pelo conteúdo correspondente:
+  6. [INTEGRIDADE DE DADOS - QUALITY GATE v2.1] NUNCA invente estatísticas de implantação real com clientes (ex: "Em 172 municípios...", "Reduziu em 98.3% para a Empresa X"). Como os dados reais de clientes são confidenciais, todos os "Case Studies" devem ser explicitamente enquadrados como: 1. "Em simulações de ambiente de produção controlado...", 2. "Em testes de laboratório (Red Team) baseados em vetores de ameaça de ${currentYear}...", ou 3. "Cenário hipotético baseado em ataques reais a prefeituras...". Use métricas de performance do sistema (ex: "latência de 0.5ms", "throughput de 28 GB/s"), mas NUNCA invente números de adoção de mercado ou clientes fictícios como se fossem fatos históricos.
+  7. Não cite "achismos". Use os fatos recentes do Web RAG: ${webRAG}
+  8. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): ${localRAG}
+  9. Formate estritamente em Markdown avançado (tabelas, blocos de código e blockquotes). 
+  10. Inclua no final do dossiê EXATAMENTE este bloco finalizador, substituindo os valores entre colchetes pelo conteúdo correspondente:
 
   Hash ID (Lazarus Vault): ${seed.id}
   ${loc.target}: [${seed.niche}]
