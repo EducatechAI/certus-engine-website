@@ -85,14 +85,7 @@ export default async function Page({ params }: { params: { locale: string; assun
           <ReactMarkdown>{page.contentMarkdown}</ReactMarkdown>
         </div>
         
-        <div className="mt-16 p-6 bg-black/40 border border-emerald-900/50 rounded-xl backdrop-blur-sm shadow-[0_0_30px_rgba(16,185,129,0.05)]">
-          <p className="text-sm text-slate-500 font-mono leading-loose">
-            <strong className="text-emerald-500">Hash ID (Lazarus Vault):</strong> {page.id} <br/>
-            <strong className="text-emerald-500">Alvo Tático:</strong> {page.niche} <br/>
-            <strong className="text-emerald-500">Compliance:</strong> {page.law} <br/>
-            <strong className="text-emerald-500">Mitigação Focada:</strong> {page.painPoint}
-          </p>
-        </div>
+
       </article>
 
       {/* Como DripFeedDashboard está estático e não foi atualizado, usamos um link direto para o Command Center */}
