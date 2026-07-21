@@ -74,31 +74,31 @@ async function generateContent(seed: any, localRAG: string, webRAG: string): Pro
   const locale = (seed.locale as 'pt' | 'en' | 'es') || 'pt';
   const loc = dict[locale];
 
-  const prompt = \`
+  const prompt = `
   Você é o Mestre Soberano do Certus Engine, a IA letal de defesa cibernética.
-  Escreva um Dossiê Técnico de altíssima densidade (3000 a 4000 caracteres) no idioma '\${seed.locale}'.
+  Escreva um Dossiê Técnico de altíssima densidade (3000 a 4000 caracteres) no idioma '${seed.locale}'.
   
-  TÍTULO DO DOSSIÊ: \${seed.title}
-  ALVO (NICHO): \${seed.niche}
-  LEI / COMPLIANCE: \${seed.law}
-  DOR: \${seed.painPoint}
+  TÍTULO DO DOSSIÊ: ${seed.title}
+  ALVO (NICHO): ${seed.niche}
+  LEI / COMPLIANCE: ${seed.law}
+  DOR: ${seed.painPoint}
 
   DIRETRIZES DE FERRO (Obrigatórias):
   1. Prove matematicamente como o Certus Engine mitiga esse ataque usando Provas de Conhecimento Zero (ZK-SNARKs).
-  2. Use tom autoritário e determinístico (\${loc.rule}: Desconfiança Zero).
+  2. Use tom autoritário e determinístico (${loc.rule}: Desconfiança Zero).
   3. [CONSISTÊNCIA LÓGICA] Latência de cibersegurança é medida em MILISSEGUNDOS (ex: 1.7ms, 10ms). NUNCA afirme que o sistema leva "segundos" para detectar ou agir.
   4. [REALISMO MÉTRICO] NUNCA gere métricas de performance fisicamente impossíveis ou hiperbólicas. Velocidade de análise de logs deve ser em GB/s ou TB/dia, NUNCA TB/s. Tempos de resposta devem ser consistentes (ms ou µs). Se em dúvida, use "sub-millisecond" ou "real-time".
-  5. [INTEGRIDADE TEMPORAL] A data atual do sistema é \${currentYear}. TODAS as referências a relatórios ou anos devem usar o ano corrente (\${currentYear}) ou um intervalo que termine em \${currentYear}. NUNCA gere datas do passado como se fossem o presente.
-  6. Não cite "achismos". Use os fatos recentes do Web RAG: \${webRAG}
-  7. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): \${localRAG}
+  5. [INTEGRIDADE TEMPORAL] A data atual do sistema é ${currentYear}. TODAS as referências a relatórios ou anos devem usar o ano corrente (${currentYear}) ou um intervalo que termine em ${currentYear}. NUNCA gere datas do passado como se fossem o presente.
+  6. Não cite "achismos". Use os fatos recentes do Web RAG: ${webRAG}
+  7. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): ${localRAG}
   8. Formate estritamente em Markdown avançado (tabelas, blocos de código e blockquotes). 
   9. Inclua no final do dossiê EXATAMENTE este bloco finalizador, substituindo os valores entre colchetes pelo conteúdo correspondente:
 
-  Hash ID (Lazarus Vault): \${seed.id}
-  \${loc.target}: [\${seed.niche}]
-  \${loc.compliance}: [\${seed.law}]
-  \${loc.mitigation}: [\${seed.painPoint}]
-  \`;
+  Hash ID (Lazarus Vault): ${seed.id}
+  ${loc.target}: [${seed.niche}]
+  ${loc.compliance}: [${seed.law}]
+  ${loc.mitigation}: [${seed.painPoint}]
+  `;
 
   const MODELS_ROULETTE = [
     "deepseek/deepseek-r1",
