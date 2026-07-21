@@ -83,6 +83,17 @@ async function generateContent(seed: any, localRAG: string, webRAG: string): Pro
   LEI / COMPLIANCE: ${seed.law}
   DOR: ${seed.painPoint}
 
+  [DIRETRIZ DE POLIMORFISMO DE CONTEÚDO - ANTI-REPETIÇÃO]
+  NUNCA use a mesma estrutura de artigo duas vezes seguidas. Para cada semente, o sistema deve sortear aleatoriamente um dos 5 Arquétipos abaixo e adaptar o tom, a estrutura de títulos e o foco do conteúdo:
+
+  1. POST-MORTEM DE INCIDENTE: Foco em linha do tempo (T+0ms), narrativa de ataque e resposta autônoma.
+  2. GUIA DE CONFORMIDADE: Foco em checklists, passos práticos e mapeamento direto Lei vs. Ação.
+  3. COMPARATIVO TÉCNICO: Foco em contrastar "Método Legado" vs. "Solução Certus ZK".
+  4. BRIEFING EXECUTIVO: Foco em ROI, mitigação de risco de negócio e linguagem C-Level (menos código, mais estratégia).
+  5. DEEP DIVE CRIPTOGRÁFICO: Foco em equações, circuitos aritméticos e limites de hardware (use com moderação, max 20% dos artigos).
+
+  REGRA DE OURO: Independente do arquétipo, mantenha o Quality Gate (Métricas realistas, Ano ${currentYear}, Cenários simulados/hipotéticos, e Rodapé poliglota perfeito).
+
   DIRETRIZES DE FERRO (Obrigatórias):
   1. Prove matematicamente como o Certus Engine mitiga esse ataque usando Provas de Conhecimento Zero (ZK-SNARKs).
   2. Use tom autoritário e determinístico (${loc.rule}: Desconfiança Zero).
