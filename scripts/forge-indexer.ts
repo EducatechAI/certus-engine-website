@@ -82,7 +82,7 @@ function generateSeeds() {
   const forgedMap = new Map();
   for (const seed of existingSeeds) {
     if (seed.contentMarkdown) {
-      forgedMap.set(seed.id, seed);
+      // forgedMap.set(seed.id, seed); // PURGED: Limpando a base antiga para aplicar os ganchos 100%
     }
   }
   
