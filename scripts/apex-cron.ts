@@ -32,7 +32,38 @@ function appendLog(file: string, logEntry: any) {
   fs.writeFileSync(file, JSON.stringify(logs, null, 2));
 }
 
-async function loadRAGContext(): Promise<string> {
+// Parser tolerante (Fail-Closed)
+function extrairSaidaForge(raw: string): any {
+  const tentativas = [
+    () => JSON.parse(raw),
+    () => JSON.parse(raw.match(/```(?:json)?\s*([\s\S]*?)```/)?.[1] ?? ""),
+    () => JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1)),
+  ];
+  for (const t of tentativas) {
+    try {
+      const o = t();
+      if (o && typeof o === "object" && o.url && o.score_unicidade != null
+          && ["VIVO","QUARENTENA"].includes(o.status)) {
+        return o; 
+      }
+    } catch { /* tenta o próximo */ }
+  }
+  return null; 
+}
+
+// Similaridade Jaccard (Anti Near-Duplicate)
+function similaridade(a: string, b: string): number {
+  if (!a || !b) return 0;
+  const sh = (t: string) => new Set(
+    t.toLowerCase().split(/\W+/).filter(Boolean)
+     .map((_, i, arr) => arr.slice(i, i + 5).join(" "))
+     .filter(w => w.split(" ").length === 5));
+  const A = sh(a), B = sh(b);
+  const inter = [...A].filter(x => B.has(x)).length;
+  return inter / (A.size + B.size - inter || 1);
+}
+
+export async function loadRAGContext(): Promise<string> {
   let context = '';
   for (const doc of TOP_DOSSIERS) {
     const docPath = path.join(DOSSIERS_DIR, doc);
@@ -60,10 +91,11 @@ async function performWebRAG(niche: string, law: string, pain: string): Promise<
   }
 }
 
-async function generateContent(seed: any, localRAG: string, webRAG: string): Promise<{model: string, content: string}> {
+export async function generateContent(seed: any, localRAG: string, webRAG: string, ultimaDoMesmoSetorLei: string = "", esqueletoAnterior: string = ""): Promise<{model: string, content: string, rawOutput: any}> {
   if (!OPENROUTER_API_KEY) throw new Error('OPENROUTER_API_KEY is required');
 
   const currentYear = new Date().getFullYear();
+  const isMock = process.env.MOCK_MODE === 'true';
   
   // Dicionário Tático de Localização (Para evitar Language Bleed)
   const dict = {
@@ -74,43 +106,105 @@ async function generateContent(seed: any, localRAG: string, webRAG: string): Pro
   const locale = (seed.locale as 'pt' | 'en' | 'es') || 'pt';
   const loc = dict[locale];
 
+  let rulesForLabels = "";
+  if (isMock) {
+    rulesForLabels = "ATENÇÃO: MOCK_MODE está ativo. O rótulo DEVE ser APENAS 🟡 ou 🔵 (NUNCA 🟢).";
+  } else {
+    if (seed.autorizacaoEscrita) {
+      rulesForLabels = "Este caso POSSUI autorização escrita confirmada. O rótulo 🟢 PODE ser utilizado se for um caso real da nossa empresa.";
+    } else {
+      rulesForLabels = "ATENÇÃO: Este caso NÃO possui autorização escrita. O rótulo DEVE ser APENAS 🟡 ou 🔵 (NUNCA 🟢).";
+    }
+  }
+
   const prompt = `
-  Você é o Mestre Soberano do Certus Engine, a IA letal de defesa cibernética.
-  Escreva um Dossiê Técnico de altíssima densidade (3000 a 4000 caracteres) no idioma '${seed.locale}'.
-  
-  TÍTULO DO DOSSIÊ: ${seed.title}
-  ALVO (NICHO): ${seed.niche}
-  LEI / COMPLIANCE: ${seed.law}
-  DOR: ${seed.painPoint}
+# ============================================================
+# FORJA SOBERANA v2 — PROMPT MATRIZ DE GERAÇÃO (ANTI-SPAM)
+# Motor: OMNI MATRIX V3 | Regime: DETERMINÍSTICO | Fail-Closed
+# ============================================================
 
-  [DIRETRIZ DE POLIMORFISMO DE CONTEÚDO - ANTI-REPETIÇÃO]
-  NUNCA use a mesma estrutura de artigo duas vezes seguidas. Para cada semente, o sistema deve sortear aleatoriamente um dos 5 Arquétipos abaixo e adaptar o tom, a estrutura de títulos e o foco do conteúdo:
+Você é o MÓDULO DE GERAÇÃO da Forja do Certus Engine (Educatech AI).
+Sua missão: produzir páginas de autoridade técnica trilíngues (PT/ES/EN)
+que sejam INDEXÁVEIS pelo Google e CITÁVEIS por LLMs, sem jamais
+disparar os filtros de "scaled content abuse" ou "thin/duplicate content".
 
-  1. POST-MORTEM DE INCIDENTE: Foco em linha do tempo (T+0ms), narrativa de ataque e resposta autônoma.
-  2. GUIA DE CONFORMIDADE: Foco em checklists, passos práticos e mapeamento direto Lei vs. Ação.
-  3. COMPARATIVO TÉCNICO: Foco em contrastar "Método Legado" vs. "Solução Certus ZK".
-  4. BRIEFING EXECUTIVO: Foco em ROI, mitigação de risco de negócio e linguagem C-Level (menos código, mais estratégia).
-  5. DEEP DIVE CRIPTOGRÁFICO: Foco em equações, circuitos aritméticos e limites de hardware (use com moderação, max 20% dos artigos).
+ALVO (NICHO): ${seed.niche}
+LEI / COMPLIANCE: ${seed.law}
+DOR (VETOR): ${seed.painPoint}
+GANCHO OBRIGATÓRIO (H1): ${seed.title}
+IDIOMA: '${seed.locale}'
+ANO: ${currentYear}
 
-  REGRA DE OURO: Independente do arquétipo, mantenha o Quality Gate (Métricas realistas, Ano ${currentYear}, Cenários simulados/hipotéticos, e Rodapé poliglota perfeito).
+## LEI ZERO (inviolável)
+Nenhuma página é publicada se violar qualquer regra abaixo.
+Em caso de dúvida → QUARENTENA CRIPTOGRÁFICA (não publica).
 
-  DIRETRIZES DE FERRO (Obrigatórias):
-  1. Prove matematicamente como o Certus Engine mitiga esse ataque usando Provas de Conhecimento Zero (ZK-SNARKs).
-  2. Use tom autoritário e determinístico (${loc.rule}: Desconfiança Zero).
-  3. [CONSISTÊNCIA LÓGICA] Latência de cibersegurança é medida em MILISSEGUNDOS (ex: 1.7ms, 10ms). NUNCA afirme que o sistema leva "segundos" para detectar ou agir.
-  4. [REALISMO MÉTRICO] NUNCA gere métricas de performance fisicamente impossíveis ou hiperbólicas. Velocidade de análise de logs deve ser em GB/s ou TB/dia, NUNCA TB/s. Tempos de resposta devem ser consistentes (ms ou µs). Se em dúvida, use "sub-millisecond" ou "real-time".
-  5. [INTEGRIDADE TEMPORAL] A data atual do sistema é ${currentYear}. TODAS as referências a relatórios ou anos devem usar o ano corrente (${currentYear}) ou um intervalo que termine em ${currentYear}. NUNCA gere datas do passado como se fossem o presente.
-  6. [INTEGRIDADE DE DADOS - QUALITY GATE v2.1] NUNCA invente estatísticas de implantação real com clientes (ex: "Em 172 municípios...", "Reduziu em 98.3% para a Empresa X"). Como os dados reais de clientes são confidenciais, todos os "Case Studies" devem ser explicitamente enquadrados como: 1. "Em simulações de ambiente de produção controlado...", 2. "Em testes de laboratório (Red Team) baseados em vetores de ameaça de ${currentYear}...", ou 3. "Cenário hipotético baseado em ataques reais a prefeituras...". Use métricas de performance do sistema (ex: "latência de 0.5ms", "throughput de 28 GB/s"), mas NUNCA invente números de adoção de mercado ou clientes fictícios como se fossem fatos históricos.
-  7. [INTEGRIDADE JURISDICIONAL] NUNCA misture jurisdições. Se o cenário for específico de um país (ex: Chile, México, Colômbia), a lei e os artigos citados DEVEM ser estritamente os solicitados. Qualquer menção a leis ou instituições de outros países neste contexto resultará em falha crítica de compliance.
-  8. Não cite "achismos". Use os fatos recentes do Web RAG: ${webRAG}
-  9. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): ${localRAG}
-  10. Formate estritamente em Markdown avançado (tabelas, blocos de código e blockquotes). 
-  11. Inclua no final do dossiê EXATAMENTE este bloco finalizador, substituindo os valores entre colchetes pelo conteúdo correspondente:
+## REGRA 1 — PROIBIÇÃO DE TEMPLATE NO TÍTULO/H1
+- É PROIBIDO exibir "Case Study N", "Estudo de Caso N" ou numeração sequencial no H1, no <title> ou no meta description visível.
+- O H1 (Título) já foi fornecido acima no campo GANCHO OBRIGATÓRIO (H1). Use-o EXATAMENTE como fornecido.
 
-  Hash ID (Lazarus Vault): ${seed.id}
-  ${loc.target}: [${seed.niche}]
-  ${loc.compliance}: [${seed.law}]
-  ${loc.mitigation}: [${seed.painPoint}]
+## REGRA 3 — VARIAÇÃO DE CORPO (esqueleto E5, rotação obrigatória)
+Força a rotação de esqueletos (S1-S6) em cada lote. 
+Se o esqueleto anterior for ${esqueletoAnterior || 'nenhum'}, o próximo DEVE ser diferente (escolha um dos outros disponíveis).
+Máximo 30% dos artigos podem usar esqueleto S3. Priorize ativamente S1, S2, S4, S5, S6 para garantir diversidade.
+Rotacione aleatoriamente escolhendo UM dos 6 esqueletos abaixo para o corpo do texto:
+  S1 Anatomia do Ataque (passo a passo + ponto de interceptação)
+  S2 Checklist de Conformidade (cláusula-por-cláusula, mapeado)
+  S3 Cenário "E se" / Threat Model (timeline de incidente SIMULADO)
+  S4 Comparativo antes/depois (tabela: sem vs. com governança)
+  S5 Forense / Prova (qual log/hash provaria o fato em tribunal)
+  S6 Custo da Inação (multa + downtime + TCO de remediação)
+
+## REGRA 4 — DENSIDADE ÚNICA (anti near-duplicate)
+Cada página DEVE conter, no mínimo, 3 elementos VERIFICÁVEIS e ÚNICOS:
+  (a) ≥1 trecho REAL de lei/norma com link oficial (planalto.gov.br / eur-lex / ABNT / ISO público / bacen),
+  (b) ≥1 dado técnico específico (cláusula, artigo, porta, CVSS, latência, extensão de ransomware, padrão de DGA, etc.),
+  (c) ≥1 elemento do ecossistema Certus aplicado ao caso concreto (Wolfdog/Kangal/Pitbull/Presa/LAZARUS/PII-Zero/Tribunal de CPUs).
+
+## REGRA 4.5 — ANTI-JACCARD (VARIAÇÃO OBRIGATÓRIA)
+Quando setor+lei são idênticos, o corpo DEVE usar vocabulário técnico diferente (sinônimos, ângulos de análise diferentes). Ex: um artigo foca em multa, outro em downtime, outro em TCO, outro em reputação. NÃO repetir a mesma estrutura de mitigação com palavras diferentes.
+
+## REGRA 5 — E-E-A-T + SCHEMA
+Você deve gerar o código HTML do JSON-LD schema.org/Article com: headline (= H1 variado), author (Paulino Gerlack / Educatech AI Digital Sovereign Ltda), datePublished, dateModified, publisher, e "about" com a lei/norma citada.
+Você deve gerar a tag <link rel="canonical" href="https://certusengine.vercel.app/article/${seed.slug}" />
+Você deve gerar as tags Open Graph + Twitter Card.
+
+## REGRA 6 — INTEGRIDADE / ROTULAGEM (anti-claim fraudulento)
+Todo exemplo de incidente DEVE ser rotulado no topo do bloco:
+  🟢 CASO REAL AUTORIZADO | 🟡 CENÁRIO SIMULADO / THREAT MODEL | 🔵 REFERÊNCIA NORMATIVA
+É PROIBIDO inventar hashes/logs que pareçam reais sem marcar como ilustrativos. Determinismo = não mentir com dados.
+${rulesForLabels}
+
+## REGRA 8 — SCORE DE UNICIDADE
+Calcule o Score de Unicidade:
+  Score = (unicidade de gancho 0..30) + (unicidade de corpo 0..30) + (densidade verificável 0..20) + (schema completo 0..10) + (rotulagem de integridade 0..10). Máx = 100.
+  Se Score < 85, defina status = "QUARENTENA". Se >= 85, defina status = "VIVO".
+
+## CONTEXTO RAG
+Web RAG: ${webRAG}
+Local RAG: ${localRAG}
+
+## SAÍDA OBRIGATÓRIA (FORMATO JSON ESTRITO)
+Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou depois do JSON. O objeto JSON deve seguir EXATAMENTE esta estrutura:
+
+{
+  "url": "https://certusengine.vercel.app/article/${seed.slug}",
+  "idioma": "${seed.locale}",
+  "gancho_usado": "INFORME O H1 AQUI",
+  "esqueleto_usado": "S1..S6",
+  "eixos": {
+    "setor": "${seed.niche}",
+    "lei": "${seed.law}",
+    "vetor": "${seed.painPoint}"
+  },
+  "score_unicidade": 95,
+  "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL",
+  "json_ld": "<script type=\\"application/ld+json\\">...</script>",
+  "canonical": "<link rel=\\"canonical\\" href=\\"...\\" />",
+  "status": "VIVO",
+  "motivo_se_quarentena": "",
+  "contentMarkdown": "TEXTO COMPLETO DO ARTIGO EM MARKDOWN (INCLUINDO AS TAGS HTML SCHEMA/CANONICAL NO INÍCIO). DEVE TER ENTRE 3000 A 4000 CARACTERES. USE TOM AUTORITÁRIO (${loc.rule}). NUNCA USE TB/s, APENAS GB/s OU TB/dia. LATÊNCIA EM MILISSEGUNDOS."
+}
   `;
 
   const MODELS_ROULETTE = [
@@ -142,15 +236,28 @@ async function generateContent(seed: any, localRAG: string, webRAG: string): Pro
       
       if (data.error) throw new Error(data.error.message);
       
-      const content = data.choices[0].message.content;
+      const rawContent = data.choices[0].message.content;
+      const parsedOutput = extrairSaidaForge(rawContent);
 
-      // QUALITY GATE (Mínimo de caracteres exigidos pelo Mestre)
+      if (!parsedOutput) {
+         throw new Error(`Quality Gate Reprovado: Falha no Parse JSON (Fail-Closed). O modelo não retornou o JSON estruturado válido.`);
+      }
+
+      if (parsedOutput.status === 'QUARENTENA' || (parsedOutput.score_unicidade && parsedOutput.score_unicidade < 85)) {
+         throw new Error(`Quality Gate Reprovado: Score de Unicidade < 85 ou status QUARENTENA. Score: ${parsedOutput.score_unicidade}. Motivo: ${parsedOutput.motivo_se_quarentena}`);
+      }
+
+      const content = parsedOutput.contentMarkdown || "";
       if (content.length < 1500) {
         throw new Error(`Quality Gate Reprovado: Texto gerado muito curto (${content.length} caracteres). Exigido ~3000.`);
       }
+
+      if (ultimaDoMesmoSetorLei && similaridade(content, ultimaDoMesmoSetorLei) >= 0.30) {
+        throw new Error(`Quality Gate Reprovado: Similaridade >= 30% com artigo anterior do mesmo setor/lei (Template Detection / Anti Near-Duplicate).`);
+      }
       
-      console.log(`  -> [SUCESSO] Texto forjado pelo modelo: ${model} (${content.length} chars)`);
-      return { model, content };
+      console.log(`  -> [SUCESSO] Texto forjado pelo modelo: ${model} (${content.length} chars, Score: ${parsedOutput.score_unicidade}, Jaccard < 30%)`);
+      return { model, content, rawOutput: parsedOutput };
 
     } catch (error: any) {
       console.warn(`  ⚠️ [FALHA] no modelo ${model}: ${error.message}. Puxando fallback...`);
@@ -190,12 +297,43 @@ async function runCron() {
       const localRAG = await loadRAGContext();
       const webRAG = await performWebRAG(targetSeed.niche, targetSeed.law, targetSeed.painPoint);
       
+      let ultimaDoMesmoSetorLei = "";
+      // Busca o último forjado do mesmo nicho e lei para Jaccard similarity test
+      const lastForged = seeds.slice().reverse().find((s: any) => s.contentMarkdown && s.niche === targetSeed.niche && s.law === targetSeed.law);
+      if (lastForged) {
+        ultimaDoMesmoSetorLei = lastForged.contentMarkdown;
+      }
+
+      // Verifica contagem de S3 para o limite de 30% em produção
+      const approvedSeeds = seeds.filter((s: any) => s.contentMarkdown);
+      const prevEsqueleto = approvedSeeds.length > 0 ? approvedSeeds[approvedSeeds.length - 1].forgeMeta?.esqueleto_usado : "";
+      const countS3 = approvedSeeds.filter((s: any) => s.forgeMeta?.esqueleto_usado === 'S3').length;
+
       // Roda a Forja
-      const result = await generateContent(targetSeed, localRAG, webRAG);
+      const result = await generateContent(targetSeed, localRAG, webRAG, ultimaDoMesmoSetorLei, prevEsqueleto);
       
+      const esqueletoRaw = result.rawOutput.esqueleto_usado || "";
+      const matches = esqueletoRaw.match(/S[1-6]/g);
+      const esqueletoNormalizado = matches && matches.length > 0 ? matches[0] : "S3"; // fallback seguro
+      
+      if (esqueletoNormalizado === prevEsqueleto) {
+        throw new Error(`Esqueleto ${esqueletoNormalizado} repetido do artigo anterior. Qualidade rejeitada em produção.`);
+      }
+
+      if (esqueletoNormalizado === 'S3' && countS3 >= Math.ceil(seeds.length * 0.3)) {
+        throw new Error("Limite S3 atingido (30%) no banco de dados. Qualidade rejeitada.");
+      }
+
       // Atualiza na memória
       const seedIndex = seeds.findIndex((s: any) => s.id === targetSeed.id);
       seeds[seedIndex].contentMarkdown = result.content;
+      // Injeta também as metainformações da Forja V2
+      seeds[seedIndex].forgeMeta = {
+        gancho_usado: result.rawOutput.gancho_usado,
+        esqueleto_usado: esqueletoNormalizado,
+        score_unicidade: result.rawOutput.score_unicidade,
+        rotulo_integridade: result.rawOutput.rotulo_integridade
+      };
       
       // Log de Sucesso
       appendLog(LOG_SUCCESS_FILE, {
@@ -236,4 +374,6 @@ async function runCron() {
   console.log(`\n[APEX Cron] PROTOCOLO BERSERKER concluído. Arquivos selados.`);
 }
 
-runCron();
+if (process.env.NO_CRON !== 'true') {
+  runCron();
+}

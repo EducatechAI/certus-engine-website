@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { GANCHOS, embaralharDeterministico } from './ganchos';
 
 // --- CONFIGURAÇÃO DOS CLUSTERS ---
 const clusters: any = {
@@ -40,11 +41,35 @@ function slugify(text: string) {
   return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 }
 
+function createShortSlug(title: string, v: number, hookId: string) {
+  let s = slugify(title);
+  s = s.replace(/prefeituras/g, 'pref')
+       .replace(/lgpd-art-46/g, 'lgpd46')
+       .replace(/resolucao-bacen-4-893/g, 'bacen4893')
+       .replace(/ransomware-bloqueando-servidores/g, 'ransom')
+       .replace(/roubo-de-chaves-de-api/g, 'api-keys')
+       .replace(/vazamento-de-cpf-e-pii/g, 'cpf-pii')
+       .replace(/como-podemos-provar-conformidade/g, 'provar-conformidade')
+       .replace(/como-funciona-por-dentro/g, 'como-funciona');
+       
+  // Remover "case-study-N" se existir no meio, pois vamos colocar no final
+  s = s.replace(/-case-study-\d+/g, '');
+  
+  const vSuffix = v > 1 ? `-cs${v}` : '';
+  const hookSuffix = `-${hookId.toLowerCase()}`;
+  const totalSuffix = vSuffix + hookSuffix;
+  
+  const maxPrefixLen = 69 - totalSuffix.length;
+  if (s.length > maxPrefixLen) {
+    s = s.substring(0, maxPrefixLen).replace(/-$/, '');
+  }
+  return s + totalSuffix;
+}
+
 function generateSeeds() {
   const outputPath = path.join(__dirname, '..', 'src', 'data', 'seeds.json');
   let existingSeeds: any[] = [];
   
-  // 1. Lógica de Preservação: ler sementes existentes
   if (fs.existsSync(outputPath)) {
     try {
       existingSeeds = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
@@ -54,7 +79,6 @@ function generateSeeds() {
     }
   }
 
-  // Mapa de sementes forjadas por ID para manter slug, contentMarkdown e releaseDate
   const forgedMap = new Map();
   for (const seed of existingSeeds) {
     if (seed.contentMarkdown) {
@@ -65,7 +89,14 @@ function generateSeeds() {
   const seeds: any[] = [];
   let idCounter = 1;
 
-  // Processar PT e EN normalmente
+  const hooksArrPT = embaralharDeterministico(GANCHOS.pt);
+  const hooksArrEN = embaralharDeterministico(GANCHOS.en);
+  const hooksArrES = embaralharDeterministico(GANCHOS.es);
+  
+  let hookIndexPT = 0, lastHookPT = '';
+  let hookIndexEN = 0, lastHookEN = '';
+  let hookIndexES = 0, lastHookES = '';
+
   for (const locale of ['pt', 'en']) {
     const { niches, laws, pains } = clusters[locale];
     let localeCount = 0;
@@ -80,15 +111,35 @@ function generateSeeds() {
               seeds.push(forgedMap.get(seedId));
             } else {
               const variationText = v > 1 ? ` (Case Study ${v})` : '';
-              const title = locale === 'pt' 
-                ? `Como o Certus Engine Mitiga ${pains[k]} em ${niches[i]} sob a ${laws[j]}${variationText}`
-                : `Certus Engine: Mitigating ${pains[k]} for ${niches[i]} under ${laws[j]}${variationText}`;
               
+              const hooksArr = locale === 'pt' ? hooksArrPT : hooksArrEN;
+              let hookIndex = locale === 'pt' ? hookIndexPT : hookIndexEN;
+              let lastHook = locale === 'pt' ? lastHookPT : lastHookEN;
+
+              if (hooksArr[hookIndex % 25].id === lastHook) { hookIndex++; }
+              const chosenHook = hooksArr[hookIndex % 25];
+              
+              if (locale === 'pt') { hookIndexPT = hookIndex + 1; lastHookPT = chosenHook.id; }
+              else { hookIndexEN = hookIndex + 1; lastHookEN = chosenHook.id; }
+
+              let title = chosenHook.text
+                .replace('{vetor}', pains[k])
+                .replace('{setor}', niches[i])
+                .replace('{lei}', laws[j]);
+              
+              title += variationText;
+              
+              if (title.includes('{vetor}') || title.includes('{setor}') || title.includes('{lei}')) {
+                 console.error(`[FALHA] Token não substituído no título: ${title}`);
+              }
+
+              const slugFinal = createShortSlug(title, v, chosenHook.id);
+
               seeds.push({
                 id: seedId,
                 locale,
                 assunto: locale === 'pt' ? 'soberana' : 'global',
-                slug: slugify(title),
+                slug: slugFinal,
                 title,
                 niche: niches[i],
                 law: laws[j],
@@ -103,17 +154,15 @@ function generateSeeds() {
     }
   }
 
-  // Processar ES com Matriz LATAM Específica
-  const locale = 'es';
-  let localeCount = 0;
+  const localeES = 'es';
+  let localeCountES = 0;
   
-  for (let m = 0; m < esMappings.length && localeCount < SEEDS_PER_LOCALE; m++) {
-    for (let p = 0; p < esPains.length && localeCount < SEEDS_PER_LOCALE; p++) {
-      for (let v = 1; v <= 40 && localeCount < SEEDS_PER_LOCALE; v++) {
-        const seedId = `omni-${locale}-${idCounter.toString().padStart(5, '0')}`;
+  for (let m = 0; m < esMappings.length && localeCountES < SEEDS_PER_LOCALE; m++) {
+    for (let p = 0; p < esPains.length && localeCountES < SEEDS_PER_LOCALE; p++) {
+      for (let v = 1; v <= 40 && localeCountES < SEEDS_PER_LOCALE; v++) {
+        const seedId = `omni-${localeES}-${idCounter.toString().padStart(5, '0')}`;
         
         if (forgedMap.has(seedId)) {
-          // Mantém a semente exata que já foi forjada e tem SEO indexado
           seeds.push(forgedMap.get(seedId));
         } else {
           const mapping = esMappings[m];
@@ -121,13 +170,30 @@ function generateSeeds() {
           const variationText = v > 1 ? ` (Case Study ${v})` : '';
           
           const nicheCombined = `${mapping.niche} (${mapping.country})`;
-          const title = `Cómo Certus Engine Mitiga ${pain} en ${nicheCombined} bajo la ${mapping.law}${variationText}`;
+
+          if (hooksArrES[hookIndexES % 25].id === lastHookES) { hookIndexES++; }
+          const chosenHook = hooksArrES[hookIndexES % 25];
+          lastHookES = chosenHook.id;
+          hookIndexES++;
+
+          let title = chosenHook.text
+            .replace('{vetor}', pain)
+            .replace('{setor}', nicheCombined)
+            .replace('{lei}', mapping.law);
           
+          title += variationText;
+
+          if (title.includes('{vetor}') || title.includes('{setor}') || title.includes('{lei}')) {
+             console.error(`[FALHA] Token não substituído no título: ${title}`);
+          }
+
+          const slugFinal = createShortSlug(title, v, chosenHook.id);
+
           seeds.push({
             id: seedId,
-            locale,
+            locale: localeES,
             assunto: 'latam',
-            slug: slugify(title),
+            slug: slugFinal,
             title,
             niche: nicheCombined,
             law: mapping.law,
@@ -135,7 +201,7 @@ function generateSeeds() {
           });
         }
         idCounter++;
-        localeCount++;
+        localeCountES++;
       }
     }
   }
