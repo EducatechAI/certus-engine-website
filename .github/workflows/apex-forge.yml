@@ -2,8 +2,9 @@ name: APEX Forge JIT (Cron)
 
 on:
   schedule:
-    # Roda a cada 60 minutos (hora cheia) - 24 páginas/dia
-    - cron: '0 * * * *'
+    # Roda a cada 20 minutos para driblar o gargalo do GitHub Actions no minuto zero.
+    # O script (apex-cron.ts) regula matematicamente para 1 página/hora baseado no seeds.json
+    - cron: '*/20 * * * *'
   workflow_dispatch:
     # Permite rodar manualmente pelo painel do GitHub
 
