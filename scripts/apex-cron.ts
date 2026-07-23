@@ -209,6 +209,7 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
 
   const MODELS_ROULETTE = [
     "deepseek/deepseek-r1",
+    "moonshotai/kimi-k2.7/k3",
     "qwen/qwen-2.5-72b-instruct",
     "meta-llama/llama-3.1-70b-instruct",
     "google/gemini-2.5-flash",
