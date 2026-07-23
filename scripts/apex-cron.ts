@@ -203,7 +203,7 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
   "canonical": "<link rel=\\"canonical\\" href=\\"...\\" />",
   "status": "VIVO",
   "motivo_se_quarentena": "",
-  "contentMarkdown": "TEXTO COMPLETO DO ARTIGO EM MARKDOWN (INCLUINDO AS TAGS HTML SCHEMA/CANONICAL NO INÍCIO). DEVE TER ENTRE 3000 A 4000 CARACTERES. USE TOM AUTORITÁRIO (${loc.rule}). NUNCA USE TB/s, APENAS GB/s OU TB/dia. LATÊNCIA EM MILISSEGUNDOS."
+  "contentMarkdown": "TEXTO COMPLETO DO ARTIGO EM MARKDOWN (INCLUINDO AS TAGS HTML SCHEMA/CANONICAL NO INÍCIO). O TEXTO DEVE SER EXTENSO E APROFUNDADO, CONTENDO ENTRE 2500 E 4000 CARACTERES. MENOS QUE 2000 CARACTERES CAUSARÁ REJEIÇÃO IMEDIATA. USE TOM AUTORITÁRIO (${loc.rule}). NUNCA USE TB/s, APENAS GB/s OU TB/dia. LATÊNCIA EM MILISSEGUNDOS."
 }
   `;
 
@@ -249,8 +249,8 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
       }
 
       const content = parsedOutput.contentMarkdown || "";
-      if (content.length < 1500) {
-        throw new Error(`Quality Gate Reprovado: Texto gerado muito curto (${content.length} caracteres). Exigido ~3000.`);
+      if (content.length < 2000) {
+        throw new Error(`Quality Gate Reprovado: Texto gerado muito curto (${content.length} caracteres). O ponto de corte é de 2000 caracteres, recomendado entre 2500 e 4000.`);
       }
 
       if (ultimaDoMesmoSetorLei && similaridade(content, ultimaDoMesmoSetorLei) >= 0.30) {
