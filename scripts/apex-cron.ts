@@ -91,7 +91,7 @@ async function performWebRAG(niche: string, law: string, pain: string): Promise<
   }
 }
 
-export async function generateContent(seed: any, localRAG: string, webRAG: string, ultimaDoMesmoSetorLei: string = "", esqueletoAnterior: string = ""): Promise<{model: string, content: string, rawOutput: any}> {
+export async function generateContent(seed: any, localRAG: string, webRAG: string, ultimaDoMesmoSetorLei: string = "", esqueletoAnterior: string = "", limitS3Exceeded: boolean = false): Promise<{model: string, content: string, rawOutput: any}> {
   if (!OPENROUTER_API_KEY) throw new Error('OPENROUTER_API_KEY is required');
 
   const currentYear = new Date().getFullYear();
@@ -256,6 +256,19 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
         throw new Error(`Quality Gate Reprovado: Similaridade >= 30% com artigo anterior do mesmo setor/lei (Template Detection / Anti Near-Duplicate).`);
       }
       
+      const esqueletoRaw = parsedOutput.esqueleto_usado || "";
+      const matches = esqueletoRaw.match(/S[1-6]/g);
+      const esqueletoNormalizado = matches && matches.length > 0 ? matches[0] : "S3";
+      parsedOutput.esqueleto_usado = esqueletoNormalizado;
+
+      if (esqueletoAnterior && esqueletoNormalizado === esqueletoAnterior) {
+        throw new Error(`Quality Gate Reprovado: Esqueleto ${esqueletoNormalizado} repetido do artigo anterior.`);
+      }
+
+      if (esqueletoNormalizado === 'S3' && limitS3Exceeded) {
+        throw new Error("Quality Gate Reprovado: Limite S3 atingido (30%) no banco de dados.");
+      }
+
       console.log(`  -> [SUCESSO] Texto forjado pelo modelo: ${model} (${content.length} chars, Score: ${parsedOutput.score_unicidade}, Jaccard < 30%)`);
       return { model, content, rawOutput: parsedOutput };
 
@@ -308,21 +321,10 @@ async function runCron() {
       const approvedSeeds = seeds.filter((s: any) => s.contentMarkdown);
       const prevEsqueleto = approvedSeeds.length > 0 ? approvedSeeds[approvedSeeds.length - 1].forgeMeta?.esqueleto_usado : "";
       const countS3 = approvedSeeds.filter((s: any) => s.forgeMeta?.esqueleto_usado === 'S3').length;
+      const limitS3Exceeded = countS3 >= Math.ceil(seeds.length * 0.3);
 
       // Roda a Forja
-      const result = await generateContent(targetSeed, localRAG, webRAG, ultimaDoMesmoSetorLei, prevEsqueleto);
-      
-      const esqueletoRaw = result.rawOutput.esqueleto_usado || "";
-      const matches = esqueletoRaw.match(/S[1-6]/g);
-      const esqueletoNormalizado = matches && matches.length > 0 ? matches[0] : "S3"; // fallback seguro
-      
-      if (esqueletoNormalizado === prevEsqueleto) {
-        throw new Error(`Esqueleto ${esqueletoNormalizado} repetido do artigo anterior. Qualidade rejeitada em produção.`);
-      }
-
-      if (esqueletoNormalizado === 'S3' && countS3 >= Math.ceil(seeds.length * 0.3)) {
-        throw new Error("Limite S3 atingido (30%) no banco de dados. Qualidade rejeitada.");
-      }
+      const result = await generateContent(targetSeed, localRAG, webRAG, ultimaDoMesmoSetorLei, prevEsqueleto, limitS3Exceeded);
 
       // Atualiza na memória
       const seedIndex = seeds.findIndex((s: any) => s.id === targetSeed.id);
@@ -330,7 +332,7 @@ async function runCron() {
       // Injeta também as metainformações da Forja V2
       seeds[seedIndex].forgeMeta = {
         gancho_usado: result.rawOutput.gancho_usado,
-        esqueleto_usado: esqueletoNormalizado,
+        esqueleto_usado: result.rawOutput.esqueleto_usado,
         score_unicidade: result.rawOutput.score_unicidade,
         rotulo_integridade: result.rawOutput.rotulo_integridade
       };
@@ -363,9 +365,10 @@ async function runCron() {
         status: 'FAILED'
       });
       
-      // Se der erro, salva o que já forjou e aborta para não piorar o bloqueio
+      // Se der erro, salva o que já forjou e marca erro no código de saída, mas NÃO aborta o processo imediatamente (permite commitar as que passaram)
       fs.writeFileSync(SEEDS_FILE, JSON.stringify(seeds, null, 2));
-      process.exit(1); 
+      process.exitCode = 1; 
+      continue; // Vai para a próxima semente do lote, se houver
     }
   }
   
