@@ -45,6 +45,7 @@ jobs:
           # Só faz commit se houver mudanças reais (semente gerada)
           if ! git diff-index --quiet HEAD; then
             git commit -m "bot(apex-forge): Geração JIT de novo dossiê [skip ci se necessário, mas queremos deploy da Vercel]"
+            git pull --rebase origin main
             git push
           else
             echo "Nenhuma semente madura pendente. Nada a commitar."
