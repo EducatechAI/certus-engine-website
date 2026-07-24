@@ -176,7 +176,7 @@ Todo exemplo de incidente DEVE ser rotulado no topo do bloco:
 ${rulesForLabels}
 
 ## REGRA 7 — FORMATAÇÃO OBRIGATÓRIA (MARKDOWN & RENDERING)
-1. Ao gerar trechos de código, use SEMPRE a sintaxe de bloco com a linguagem especificada (ex: \`\`\`python, \`\`\`javascript, \`\`\`bash). Nunca use blocos de código vazios (\`\`\`).
+1. QUALQUER bloco de código, não importa o tamanho (mesmo que seja de 1 linha), DEVE começar obrigatoriamente com a linguagem especificada (ex: bash,powershell, python). É estritamente PROIBIDO usar crases vazias (```).
 2. Todas as tabelas devem seguir estritamente a sintaxe Markdown com a linha separadora de cabeçalho. Exemplo obrigatório:
 | Coluna 1 | Coluna 2 |
 |---|---|

@@ -5,5 +5,19 @@
     "slug": "certus-engine-mitigating-corporate-espionage-for-enterprise-healthcare-under-gdpr-europe-case-study-4",
     "error": "OPENROUTER_API_KEY is required",
     "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-07-24T09:12:15.311Z",
+    "seedId": "omni-pt-00013",
+    "slug": "o-que-e-ransom-e-como-resolver-na-pratica-sob-lgpd46-cs3-g09",
+    "error": "OPENROUTER_API_KEY is required",
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-07-24T09:12:15.355Z",
+    "seedId": "omni-pt-00014",
+    "slug": "o-que-acontece-quando-ransom-ataca-pref-sob-lgpd46-cs4-g01",
+    "error": "OPENROUTER_API_KEY is required",
+    "status": "FAILED"
   }
 ]
