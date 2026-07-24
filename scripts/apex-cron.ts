@@ -166,7 +166,7 @@ Quando setor+lei são idênticos, o corpo DEVE usar vocabulário técnico difere
 
 ## REGRA 5 — E-E-A-T + SCHEMA
 Você deve gerar o código HTML do JSON-LD schema.org/Article com: headline (= H1 variado), author (Paulino Gerlack / Educatech AI Digital Sovereign Ltda), datePublished, dateModified, publisher, e "about" com a lei/norma citada.
-Você deve gerar a tag <link rel="canonical" href="https://certusengine.vercel.app/article/${seed.slug}" />
+Você deve gerar a tag <link rel="canonical" href="https://certusengine.ia.br/article/${seed.slug}" />
 Você deve gerar as tags Open Graph + Twitter Card.
 
 ## REGRA 6 — INTEGRIDADE / ROTULAGEM (anti-claim fraudulento)
@@ -188,7 +188,7 @@ Local RAG: ${localRAG}
 Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou depois do JSON. O objeto JSON deve seguir EXATAMENTE esta estrutura:
 
 {
-  "url": "https://certusengine.vercel.app/article/${seed.slug}",
+  "url": "https://certusengine.ia.br/article/${seed.slug}",
   "idioma": "${seed.locale}",
   "gancho_usado": "INFORME O H1 AQUI",
   "esqueleto_usado": "S1..S6",

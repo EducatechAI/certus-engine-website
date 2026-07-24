@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [isCertified, setIsCertified] = useState(true);
   const [questionsCount, setQuestionsCount] = useState(0);
   const [seals, setSeals] = useState<string[]>([]);
-  const referralUrl = "https://certusengine.vercel.app/register?ref=AMB_12345";
+  const referralUrl = "https://certusengine.ia.br/register?ref=AMB_12345";
 
   // Carrega progresso do localStorage
   useEffect(() => {

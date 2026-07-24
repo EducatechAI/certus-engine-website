@@ -139,7 +139,7 @@ ${trainingKbText}
           headers: {
             "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://certusengine.vercel.app",
+            "HTTP-Referer": "https://certusengine.ia.br",
             "X-Title": "Certus Engine Trainer Bot"
           },
           body: JSON.stringify({

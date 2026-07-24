@@ -84,7 +84,7 @@ Custo total dos 5 testes: ~$0.04-0.06 (apenas 2 cenários consumiram tokens LLM 
 ## 5. Integração Segura: Proxy Next.js + CORS Restritivo
 O Studio Dojo (frontend no Vercel) se conecta ao Módulo Diamante (backend Rust no Render) através de uma arquitetura de Proxy Reverso Seguro:
 *   Next.js API Routes atuam como proxy, escondendo a chave dia_xxxxx no backend (variável de ambiente).
-*   CORS Restritivo no Axum permite apenas origens autorizadas (certusengine.vercel.app + localhost:3000).
+*   CORS Restritivo no Axum permite apenas origens autorizadas (certusengine.ia.br + localhost:3000).
 *   Zero exposição de chaves no client-side (validado via DevTools F12).
 Essa arquitetura garante que apenas usuários autorizados (com chave válida) possam acessar o Módulo Diamante, eliminando riscos de abuso e vazamento de credenciais.
 
@@ -110,7 +110,7 @@ A Educatech AI está em estágio Pré-Seed, com produto funcional, validação e
 
 ## 8. Conclusão: A Soberania Determinística
 O Certus Engine redefine a relação da tecnologia institucional com a inteligência artificial generativa. Não apostamos na perfeição do modelo — apostamos na implacabilidade da contenção.
-Para demonstração pública e imediata do potencial da ferramenta, o projeto disponibiliza em sua interface web o Studio Dojo (certusengine.vercel.app/studio). Nele, prefeituras e gestores podem solicitar chaves temporárias _demo_xxxxx para disparar e testar manualmente cenários de invasão, vazamento e conformidade GRC direto na tela.
+Para demonstração pública e imediata do potencial da ferramenta, o projeto disponibiliza em sua interface web o Studio Dojo (certusengine.ia.br/studio). Nele, prefeituras e gestores podem solicitar chaves temporárias _demo_xxxxx para disparar e testar manualmente cenários de invasão, vazamento e conformidade GRC direto na tela.
 Não criamos uma IA para escrever código. Criamos um Juiz Criptográfico para garantir que qualquer IA obedeça à Lei Humana.
 A inteligência é probabilística. A Soberania é Determinística.
 

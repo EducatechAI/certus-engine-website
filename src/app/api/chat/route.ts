@@ -54,11 +54,11 @@ export async function POST(req: Request) {
     }
 
     // Select Multilingual CTA depending on user language
-    let ctaText = 'Gostou? Na Academy você pode ganhar selos explorando mais! Acesse certusengine.vercel.app/login';
+    let ctaText = 'Gostou? Na Academy você pode ganhar selos explorando mais! Acesse certusengine.ia.br/login';
     if (locale.startsWith('en')) {
-      ctaText = 'Liked it? In our Academy you can earn achievement seals by exploring more! Access certusengine.vercel.app/login';
+      ctaText = 'Liked it? In our Academy you can earn achievement seals by exploring more! Access certusengine.ia.br/login';
     } else if (locale.startsWith('es')) {
-      ctaText = '¿Te gustó? ¡En la Academy puedes ganar sellos de logro explorando más! Accede a certusengine.vercel.app/login';
+      ctaText = '¿Te gustó? ¡En la Academy puedes ganar sellos de logro explorando más! Accede a certusengine.ia.br/login';
     }
 
     const SYSTEM_PROMPT = `
@@ -102,7 +102,7 @@ ${faqText}
       headers: {
         "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "https://certusengine.vercel.app", // Requisito do OpenRouter
+        "HTTP-Referer": "https://certusengine.ia.br", // Requisito do OpenRouter
         "X-Title": "Certus Engine Bot"
       },
       body: JSON.stringify({

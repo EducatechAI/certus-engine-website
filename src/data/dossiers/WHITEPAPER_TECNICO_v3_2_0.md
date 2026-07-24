@@ -522,7 +522,7 @@ O **Módulo Diamante** (Diamond Gateway) é a expressão máxima da arquitetura 
 ### 13.1 Arquitetura de Proxy Seguro e Isolamento Restrito
 O Módulo Diamante rompe com o acesso direto à API. Ele exige uma infraestrutura Single-Tenant blindada:
 * **Proxy Next.js:** Ocultação absoluta da chave Mestre (`dia_xxxxx`) no lado do servidor. O *Client-side* jamais entra em contato direto com os túneis de autenticação.
-* **CORS Implacável (Tower-HTTP):** O backend Axum (Rust) aceita origens exclusivamente pré-autorizadas (`certusengine.vercel.app` e localhost estrito). Qualquer *Cross-Origin* não catalogado é fuzilado com 403 Forbidden antes do roteamento lógico.
+* **CORS Implacável (Tower-HTTP):** O backend Axum (Rust) aceita origens exclusivamente pré-autorizadas (`certusengine.ia.br` e localhost estrito). Qualquer *Cross-Origin* não catalogado é fuzilado com 403 Forbidden antes do roteamento lógico.
 * **Proteção DDoS e Rate Limiting:** Mitigação nativa contra abusos de volumetria, evitando estouro de orçamento por automações hostis ou loops acidentais.
 
 ### 13.2 Regras Soberanas Globais (A Barreira Legal e Forense)

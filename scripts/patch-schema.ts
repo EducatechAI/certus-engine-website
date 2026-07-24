@@ -40,7 +40,7 @@ function patchSchema() {
 }
 </script>`;
 
-      const canonical = `<link rel="canonical" href="https://certusengine.vercel.app/article/${seed.slug}" />`;
+      const canonical = `<link rel="canonical" href="https://certusengine.ia.br/article/${seed.slug}" />`;
       const rotulo = `> 🟡 CENÁRIO SIMULADO / THREAT MODEL`; // Defaulting to simulated for safety (Regra 6)
 
       // Prepend the meta tags and label to the existing content
