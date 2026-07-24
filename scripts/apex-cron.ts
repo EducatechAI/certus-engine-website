@@ -164,10 +164,11 @@ Cada página DEVE conter, no mínimo, 3 elementos VERIFICÁVEIS e ÚNICOS:
 ## REGRA 4.5 — ANTI-JACCARD (VARIAÇÃO OBRIGATÓRIA)
 Quando setor+lei são idênticos, o corpo DEVE usar vocabulário técnico diferente (sinônimos, ângulos de análise diferentes). Ex: um artigo foca em multa, outro em downtime, outro em TCO, outro em reputação. NÃO repetir a mesma estrutura de mitigação com palavras diferentes.
 
-## REGRA 5 — E-E-A-T + SCHEMA
+## REGRA 5 — E-E-A-T + SCHEMA (CAUDA LONGA NO FINAL DO ARTIGO)
 Você deve gerar o código HTML do JSON-LD schema.org/Article com: headline (= H1 variado), author (Paulino Gerlack / Educatech AI Digital Sovereign Ltda), datePublished, dateModified, publisher, e "about" com a lei/norma citada.
 Você deve gerar a tag <link rel="canonical" href="https://certusengine.ia.br/article/${seed.slug}" />
 Você deve gerar as tags Open Graph + Twitter Card.
+ATENÇÃO CRÍTICA: TODAS ESSAS TAGS HTML DEVEM SER INSERIDAS OBRIGATORIAMENTE NO EXATO FINAL DO ARTIGO (COMO UMA CAUDA LONGA), APÓS A ÚLTIMA FRASE DE FECHAMENTO. NUNCA NO TOPO.
 
 ## REGRA 6 — INTEGRIDADE / ROTULAGEM (anti-claim fraudulento)
 Todo exemplo de incidente DEVE ser rotulado no topo do bloco:
@@ -212,7 +213,7 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
   "canonical": "<link rel=\\"canonical\\" href=\\"...\\" />",
   "status": "VIVO",
   "motivo_se_quarentena": "",
-  "contentMarkdown": "TEXTO COMPLETO DO ARTIGO EM MARKDOWN (INCLUINDO AS TAGS HTML SCHEMA/CANONICAL). ATENÇÃO CRÍTICA: COMO ISSO É UM VALOR JSON, VOCÊ DEVE ESCAPAR OBRIGATORIAMENTE TODAS AS QUEBRAS DE LINHA USANDO \\n E ASPAS DUPLAS COM \\\". NUNCA PULE LINHAS REAIS DENTRO DESTA STRING, OU O PARSER FALHARÁ. O TEXTO DEVE TER ENTRE 2500 E 4000 CARACTERES. USE TOM AUTORITÁRIO (${loc.rule}). NUNCA USE TB/s, APENAS GB/s OU TB/dia. LATÊNCIA EM MILISSEGUNDOS."
+  "contentMarkdown": "TEXTO COMPLETO DO ARTIGO EM MARKDOWN (INCLUINDO AS TAGS HTML SCHEMA/CANONICAL NO FINAL). ATENÇÃO CRÍTICA: COMO ISSO É UM VALOR JSON, VOCÊ DEVE ESCAPAR OBRIGATORIAMENTE TODAS AS ASPAS DUPLAS COM \\\". PARA QUEBRAS DE LINHA (COMO EM TABELAS E PARÁGRAFOS), VOCÊ DEVE USAR O CARACTERE \\n. NUNCA PULE LINHAS FISICAMENTE NO MEIO DA STRING (NÃO APERTE ENTER), MAS USE \\n ABUNDANTEMENTE PARA PRESERVAR A FORMATAÇÃO DO MARKDOWN. O TEXTO DEVE TER ENTRE 2500 E 4000 CARACTERES. USE TOM AUTORITÁRIO (${loc.rule}). NUNCA USE TB/s, APENAS GB/s OU TB/dia. LATÊNCIA EM MILISSEGUNDOS."
 }
   `;
 
