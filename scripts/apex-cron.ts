@@ -145,7 +145,7 @@ Em caso de dúvida → QUARENTENA CRIPTOGRÁFICA (não publica).
 
 ## REGRA 3 — VARIAÇÃO DE CORPO (esqueleto E5, rotação obrigatória)
 Força a rotação de esqueletos (S1-S6) em cada lote. 
-Se o esqueleto anterior for ${esqueletoAnterior || 'nenhum'}, o próximo DEVE ser diferente (escolha um dos outros disponíveis).
+ATENÇÃO: É ESTABELECIDO QUE O ESQUELETO ANTERIOR FOI O [ ${esqueletoAnterior || 'nenhum'} ]. PORTANTO, É ESTRITAMENTE PROIBIDO USAR O ESQUELETO [ ${esqueletoAnterior || 'nenhum'} ] NESTE ARTIGO. SE VOCÊ O UTILIZAR, SEU TEXTO SERÁ REJEITADO PELO QUALITY GATE. ESCOLHA OBRIGATORIAMENTE QUALQUER UM DOS OUTROS DISPONÍVEIS.
 Máximo 30% dos artigos podem usar esqueleto S3. Priorize ativamente S1, S2, S4, S5, S6 para garantir diversidade.
 Rotacione aleatoriamente escolhendo UM dos 6 esqueletos abaixo para o corpo do texto:
   S1 Anatomia do Ataque (passo a passo + ponto de interceptação)
@@ -212,17 +212,17 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
   "canonical": "<link rel=\\"canonical\\" href=\\"...\\" />",
   "status": "VIVO",
   "motivo_se_quarentena": "",
-  "contentMarkdown": "TEXTO COMPLETO DO ARTIGO EM MARKDOWN (INCLUINDO AS TAGS HTML SCHEMA/CANONICAL NO INÍCIO). O TEXTO DEVE SER EXTENSO E APROFUNDADO, CONTENDO ENTRE 2500 E 4000 CARACTERES. MENOS QUE 2000 CARACTERES CAUSARÁ REJEIÇÃO IMEDIATA. USE TOM AUTORITÁRIO (${loc.rule}). NUNCA USE TB/s, APENAS GB/s OU TB/dia. LATÊNCIA EM MILISSEGUNDOS."
+  "contentMarkdown": "TEXTO COMPLETO DO ARTIGO EM MARKDOWN (INCLUINDO AS TAGS HTML SCHEMA/CANONICAL). ATENÇÃO CRÍTICA: COMO ISSO É UM VALOR JSON, VOCÊ DEVE ESCAPAR OBRIGATORIAMENTE TODAS AS QUEBRAS DE LINHA USANDO \\n E ASPAS DUPLAS COM \\\". NUNCA PULE LINHAS REAIS DENTRO DESTA STRING, OU O PARSER FALHARÁ. O TEXTO DEVE TER ENTRE 2500 E 4000 CARACTERES. USE TOM AUTORITÁRIO (${loc.rule}). NUNCA USE TB/s, APENAS GB/s OU TB/dia. LATÊNCIA EM MILISSEGUNDOS."
 }
   `;
 
   const MODELS_ROULETTE = [
     "deepseek/deepseek-r1",
-    "moonshotai/kimi-k2.7/k3",
+    "google/gemini-pro-1.5",
     "qwen/qwen-2.5-72b-instruct",
     "meta-llama/llama-3.1-70b-instruct",
-    "google/gemini-2.5-flash",
-    "anthropic/claude-3.5-sonnet"
+    "google/gemini-flash-1.5",
+    "openai/gpt-4o-mini"
   ];
 
   let lastError = null;
