@@ -175,6 +175,15 @@ Todo exemplo de incidente DEVE ser rotulado no topo do bloco:
 É PROIBIDO inventar hashes/logs que pareçam reais sem marcar como ilustrativos. Determinismo = não mentir com dados.
 ${rulesForLabels}
 
+## REGRA 7 — FORMATAÇÃO OBRIGATÓRIA (MARKDOWN & RENDERING)
+1. Ao gerar trechos de código, use SEMPRE a sintaxe de bloco com a linguagem especificada (ex: \`\`\`python, \`\`\`javascript, \`\`\`bash). Nunca use blocos de código vazios (\`\`\`).
+2. Todas as tabelas devem seguir estritamente a sintaxe Markdown com a linha separadora de cabeçalho. Exemplo obrigatório:
+| Coluna 1 | Coluna 2 |
+|---|---|
+| Dado A | Dado B |
+3. Conclua sempre o artigo com uma frase de fechamento completa e pontuada. Não corte o texto no meio de uma palavra ou frase.
+
+
 ## REGRA 8 — SCORE DE UNICIDADE
 Calcule o Score de Unicidade:
   Score = (unicidade de gancho 0..30) + (unicidade de corpo 0..30) + (densidade verificável 0..20) + (schema completo 0..10) + (rotulagem de integridade 0..10). Máx = 100.
@@ -229,7 +238,8 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
         },
         body: JSON.stringify({
           model: model,
-          messages: [{ role: "user", content: prompt }]
+          messages: [{ role: "user", content: prompt }],
+          max_tokens: 3000
         })
       });
 
@@ -251,6 +261,11 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
       const content = parsedOutput.contentMarkdown || "";
       if (content.length < 2000) {
         throw new Error(`Quality Gate Reprovado: Texto gerado muito curto (${content.length} caracteres). O ponto de corte é de 2000 caracteres, recomendado entre 2500 e 4000.`);
+      }
+      
+      const lastChar = content.trim().slice(-1);
+      if (!['.', '!', '?', '}'].includes(lastChar)) {
+        throw new Error(`Quality Gate Reprovado: Texto cortado abruptamente (truncation detected). O último caractere foi '${lastChar}'.`);
       }
 
       if (ultimaDoMesmoSetorLei && similaridade(content, ultimaDoMesmoSetorLei) >= 0.30) {

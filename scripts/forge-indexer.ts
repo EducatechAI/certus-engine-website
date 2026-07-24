@@ -50,7 +50,11 @@ function createShortSlug(title: string, v: number, hookId: string) {
        .replace(/roubo-de-chaves-de-api/g, 'api-keys')
        .replace(/vazamento-de-cpf-e-pii/g, 'cpf-pii')
        .replace(/como-podemos-provar-conformidade/g, 'provar-conformidade')
-       .replace(/como-funciona-por-dentro/g, 'como-funciona');
+       .replace(/como-funciona-por-dentro/g, 'como-funciona')
+       .replace(/infraestrutura/g, 'infra')
+       .replace(/probabilistica/g, 'prob')
+       .replace(/governanca/g, 'gov')
+       .replace(/possivel/g, 'possiv');
        
   // Remover "case-study-N" se existir no meio, pois vamos colocar no final
   s = s.replace(/-case-study-\d+/g, '');
@@ -63,7 +67,13 @@ function createShortSlug(title: string, v: number, hookId: string) {
   if (s.length > maxPrefixLen) {
     s = s.substring(0, maxPrefixLen).replace(/-$/, '');
   }
-  return s + totalSuffix;
+  
+  const slugFinal = s + totalSuffix;
+  if (slugFinal.length >= 70) {
+    console.warn(`[WARNING] Slug excede 70 caracteres: ${slugFinal} (Length: ${slugFinal.length})`);
+  }
+  
+  return slugFinal;
 }
 
 function generateSeeds() {
