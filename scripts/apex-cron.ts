@@ -177,7 +177,13 @@ Todo exemplo de incidente DEVE ser rotulado no topo do bloco:
 ${rulesForLabels}
 
 ## REGRA 7 — FORMATAÇÃO OBRIGATÓRIA (MARKDOWN & RENDERING)
-1. QUALQUER bloco de código, não importa o tamanho (mesmo que seja de 1 linha), DEVE começar obrigatoriamente com a linguagem especificada (ex: bash,powershell, python). É estritamente PROIBIDO usar crases vazias (\`\`\`).
+// 🛡️ [OE-12] REGRAS NEGATIVAS PARA BLOCOS DE CÓDIGO
+// É ESTRITAMENTE PROIBIDO gerar blocos de código com crases vazias (\`\`\`). 
+// Se você gerar um bloco sem a linguagem especificada (ex: \`\`\`bash), 
+// o sistema descartará sua resposta e você receberá penalidade de pontuação.
+// SEMPRE use \`\`\`bash, \`\`\`powershell ou \`\`\`python.
+// REGRA DE OURO: Qualquer bloco de código, mesmo que seja de 1 linha, 
+// DEVE começar com a tag da linguagem.
 2. Todas as tabelas devem seguir estritamente a sintaxe Markdown com a linha separadora de cabeçalho. Exemplo obrigatório:
 | Coluna 1 | Coluna 2 |
 |---|---|
@@ -349,7 +355,29 @@ async function runCron() {
 
       // Atualiza na memória
       const seedIndex = seeds.findIndex((s: any) => s.id === targetSeed.id);
-      seeds[seedIndex].contentMarkdown = result.content;
+      
+      // 🛡️ [OE-13] INJEÇÃO FORÇADA DE SCHEMA.ORG
+      let conteudoLLM = result.content;
+      conteudoLLM = conteudoLLM.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '').replace(/<link rel="canonical"[^>]*>/g, '').trim();
+      
+      const schema = `<script type="application/ld+json">${JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": targetSeed.title,
+        "author": { "@type": "Person", "name": "Paulino Gerlack" },
+        "datePublished": new Date().toISOString().split('T')[0],
+        "publisher": {
+          "@type": "Organization",
+          "name": "Educatech AI Digital Sovereign Ltda",
+          "logo": { "@type": "ImageObject", "url": "https://certusengine.ia.br/logo.svg" }
+        },
+        "about": targetSeed.law,
+        "description": result.rawOutput.gancho_usado
+      })}</script>\n`;
+      const canonical = `<link rel="canonical" href="https://certusengine.ia.br/article/${targetSeed.slug}" />\n`;
+      const outputFinal = schema + canonical + conteudoLLM;
+      
+      seeds[seedIndex].contentMarkdown = outputFinal;
       // Injeta também as metainformações da Forja V2
       seeds[seedIndex].forgeMeta = {
         gancho_usado: result.rawOutput.gancho_usado,

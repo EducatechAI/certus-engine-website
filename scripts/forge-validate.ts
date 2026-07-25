@@ -207,7 +207,13 @@ async function start() {
         out = await generateContent(s, localRAG, "Referência para teste sem WebRAG lento", prevContent, prevEsqueleto);
       }
       
-      const content = out.content || '';
+      let content = out.content || '';
+      
+      // 🛡️ [OE-12] FILTRO DE ARTEFATOS FINAIS
+      content = content.replace(
+        /(\[Retornar.*\]|\d+x|\*|💡|⚠️|Dúvidas sobre|Clique aqui|Compartilhe)/g, 
+        ''
+      ).replace(/\s+$/, ''); // Remover espaços finais
       
       // NORMALIZAÇÃO ROBUSTA OE-10
       const esqueletoRaw = out.rawOutput.esqueleto_usado || "";

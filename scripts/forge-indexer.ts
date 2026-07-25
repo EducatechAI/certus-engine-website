@@ -59,6 +59,20 @@ function createShortSlug(title: string, v: number, hookId: string) {
   // Remover "case-study-N" se existir no meio, pois vamos colocar no final
   s = s.replace(/-case-study-\d+/g, '');
   
+  // 🛡️ [OE-12] AJUSTE FINO NO TRUNCADOR DE SLUGS
+  const palavrasLongas: any = {
+    "governanca": "gov",
+    "probabilistica": "prob",
+    "criptografica": "cripto",
+    "possivel": "possiv",
+    "conformidade": "conf"
+  };
+  if (s.length > 65) {
+    s = s.split('-').map(palavra => {
+      return palavrasLongas[palavra] || palavra;
+    }).join('-');
+  }
+  
   const vSuffix = v > 1 ? `-cs${v}` : '';
   const hookSuffix = `-${hookId.toLowerCase()}`;
   const totalSuffix = vSuffix + hookSuffix;

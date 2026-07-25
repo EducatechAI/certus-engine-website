@@ -19,5 +19,26 @@
     "slug": "o-que-acontece-quando-ransom-ataca-pref-sob-lgpd46-cs4-g01",
     "error": "OPENROUTER_API_KEY is required",
     "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-07-25T08:20:53.776Z",
+    "seedId": "omni-pt-00024",
+    "slug": "como-lgpd46-trata-o-vazamento-de-dados-criticos-em-pref-cs4-g15",
+    "error": "OPENROUTER_API_KEY is required",
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-07-25T08:20:54.017Z",
+    "seedId": "omni-es-03121",
+    "slug": "es-viable-una-ia-on-premise-soberana-para-gobierno-digital-mexico-g16",
+    "error": "OPENROUTER_API_KEY is required",
+    "status": "FAILED"
+  },
+  {
+    "timestamp": "2026-07-25T08:20:54.059Z",
+    "seedId": "omni-es-03122",
+    "slug": "es-posible-implementar-sistemas-civicos-en-gobierno-digital-m-cs2-g23",
+    "error": "OPENROUTER_API_KEY is required",
+    "status": "FAILED"
   }
 ]
