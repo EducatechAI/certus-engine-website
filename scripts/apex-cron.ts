@@ -251,7 +251,8 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
           model: model,
           messages: [{ role: "user", content: prompt }],
           max_tokens: 3000
-        })
+        }),
+        signal: AbortSignal.timeout(90000) // 🛡️ TIMEOUT SOBERANO: 90s máximo por LLM
       });
 
       const data = await response.json();
