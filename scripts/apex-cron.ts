@@ -397,7 +397,33 @@ async function runCron() {
         "description": result.rawOutput.gancho_usado
       })}</script>\n`;
       const canonical = `<link rel="canonical" href="https://certusengine.ia.br/article/${targetSeed.slug}" />\n`;
-      const outputFinal = schema + canonical + conteudoLLM;
+      
+      // 🛡️ [OE-14.1] INJEÇÃO FORÇADA DE RÓTULOS POR IDIOMA
+      const labelsFormatados: any = {
+        PT: "🟡 CENÁRIO SIMULADO / THREAT MODEL\n\n",
+        ES: "🟡 ESCENARIO SIMULADO / THREAT MODEL\n\n",
+        EN: "🟡 SIMULATED SCENARIO / THREAT MODEL\n\n"
+      };
+      
+      let textoLimpo = conteudoLLM.replace(/🟡\s*(CENÁRIO|ESCENARIO|SIMULATED)\s*SIMULADO.*\n/gi, '');
+      const locIdioma = (targetSeed.locale as string || 'pt').toUpperCase();
+      let textoFinalComRotulo = (labelsFormatados[locIdioma] || labelsFormatados.PT) + textoLimpo;
+
+      // 🛡️ [OE-12.1] CORREÇÃO FORÇADA DE BLOCOS DE CÓDIGO SEM CRASES
+      textoFinalComRotulo = textoFinalComRotulo.replace(
+        /(^|\n)(# Certus Engine:|if \[ "\$latency"|def verify_identity)/g, 
+        '\n```bash\n$2'
+      );
+      textoFinalComRotulo = textoFinalComRotulo.replace(
+        /(^|\n)(import hashlib|import time)/g, 
+        '\n```python\n$2'
+      );
+      // Garante que o bloco de código seja fechado se não estiver
+      if (textoFinalComRotulo.split('```').length % 2 === 0) {
+        textoFinalComRotulo += '\n```';
+      }
+
+      const outputFinal = schema + canonical + textoFinalComRotulo;
       
       seeds[seedIndex].contentMarkdown = outputFinal;
       // Injeta também as metainformações da Forja V2

@@ -64,7 +64,9 @@ function createShortSlug(title: string, v: number, hookId: string) {
     // Português
     "governanca": "gov", "probabilistica": "prob", "criptografica": "cripto", "possivel": "possiv", "conformidade": "conf",
     // Espanhol
-    "gobierno": "gob", "secuestro": "secuest", "ransomware": "ransom", "instituciones": "inst", "actualizaciones": "actual"
+    "gobierno": "gob", "secuestro": "secuest", "ransomware": "ransom", "instituciones": "inst", "actualizaciones": "actual",
+    // Inglês (Novo)
+    "enterprise": "ent", "healthcare": "health", "espionage": "esp", "vulnerability": "vuln", "infrastructure": "infra"
   };
   if (s.length > 65) {
     s = s.split('-').map(palavra => {
