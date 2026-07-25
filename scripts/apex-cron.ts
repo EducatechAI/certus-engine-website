@@ -103,8 +103,29 @@ export async function generateContent(seed: any, localRAG: string, webRAG: strin
     en: { rule: "Rule #001 of Certus Engine", target: "Tactical Target", compliance: "Compliance", mitigation: "Focused Mitigation" },
     es: { rule: "Regla #001 del Certus Engine", target: "Objetivo Táctico", compliance: "Cumplimiento", mitigation: "Mitigación Enfocada" }
   };
+  
+  // 🛡️ [OE-14] Dicionário de Rótulos por Idioma
+  const labels = {
+    pt: {
+      real: "🟢 CASO REAL AUTORIZADO",
+      scenario: "🟡 CENÁRIO SIMULADO / THREAT MODEL",
+      normative: "🔵 REFERÊNCIA NORMATIVA"
+    },
+    es: {
+      real: "🟢 CASO REAL AUTORIZADO",
+      scenario: "🟡 ESCENARIO SIMULADO / THREAT MODEL",
+      normative: "🔵 REFERENCIA NORMATIVA"
+    },
+    en: {
+      real: "🟢 AUTHORIZED REAL CASE",
+      scenario: "🟡 SIMULATED SCENARIO / THREAT MODEL",
+      normative: "🔵 NORMATIVE REFERENCE"
+    }
+  };
+
   const locale = (seed.locale as 'pt' | 'en' | 'es') || 'pt';
   const loc = dict[locale];
+  const locLabels = labels[locale];
 
   let rulesForLabels = "";
   if (isMock) {
@@ -172,7 +193,7 @@ ATENÇÃO CRÍTICA: TODAS ESSAS TAGS HTML DEVEM SER INSERIDAS OBRIGATORIAMENTE N
 
 ## REGRA 6 — INTEGRIDADE / ROTULAGEM (anti-claim fraudulento)
 Todo exemplo de incidente DEVE ser rotulado no topo do bloco:
-  🟢 CASO REAL AUTORIZADO | 🟡 CENÁRIO SIMULADO / THREAT MODEL | 🔵 REFERÊNCIA NORMATIVA
+  ${locLabels.real} | ${locLabels.scenario} | ${locLabels.normative}
 É PROIBIDO inventar hashes/logs que pareçam reais sem marcar como ilustrativos. Determinismo = não mentir com dados.
 ${rulesForLabels}
 
