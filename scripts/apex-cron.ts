@@ -378,52 +378,61 @@ async function runCron() {
       // Atualiza na memória
       const seedIndex = seeds.findIndex((s: any) => s.id === targetSeed.id);
       
-      // 🛡️ [OE-13] INJEÇÃO FORÇADA DE SCHEMA.ORG
-      let conteudoLLM = result.content;
-      conteudoLLM = conteudoLLM.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '').replace(/<link rel="canonical"[^>]*>/g, '').trim();
-      
-      const schema = `<script type="application/ld+json">${JSON.stringify({
+      // 🛡️ [OE-16] ESTERILIZAÇÃO TOTAL E MONTAGEM IMUTÁVEL
+      let textoLimpo = result.content;
+
+      // 1. ANIQUILAR qualquer tag HTML de metadados ou comentários no corpo do texto
+      // (Pega <meta...>, <link...>, <script...>, <!-- --> mesmo com quebras de linha ou aspas estranhas)
+      textoLimpo = textoLimpo.replace(/<\s*(meta|link|script|style)\b[^>]*>/gi, '');
+      textoLimpo = textoLimpo.replace(/<!--[\s\S]*?-->/g, '');
+
+      // 2. ANIQUILAR QUALQUER rótulo de cenário/referência gerado pelo LLM em qualquer lugar do texto
+      // (Remove linhas que começam com 🟡, 🔵, 🟢 seguidas de palavras-chave de cenário)
+      textoLimpo = textoLimpo.replace(/^[\s]*[🟡🔵🟢]\s*(CENÁRIO|ESCENARIO|SIMULATED|SIMULADO|SCENARIO|THREAT|MODEL|REFERÊNCIA|REFERENCE|NORMATIVA).*$/gim, '');
+
+      // 3. FORÇAR BLOCOS DE CÓDIGO (A Regra de Ouro)
+      // Se encontrar linhas consecutivas que parecem código (começam com #, ./, def, import, bash, python, certus, etc.)
+      // e NÃO estão dentro de crases, envelopa tudo em ```bash ou ```python
+      textoLimpo = textoLimpo.replace(/((?:^|\n)(?:bash|python|powershell|javascript|json|sql|#\s[^\n]*|\.[\/\\][^\n]*|def\s[^\n]*|import\s[^\n]*|certus[^\n]*|lazarus[^\n]*|wolfdog[^\n]*){1,})/gm, (match) => {
+          // Se já tiver crases, não mexe
+          if (match.includes('```')) return match;
+          
+          // Tenta adivinhar a linguagem pelo primeiro token
+          let lang = 'bash';
+          if (match.match(/def\s|import\s|python/i)) lang = 'python';
+          if (match.match(/powershell/i)) lang = 'powershell';
+          if (match.match(/\bjson\b/i)) lang = 'json';
+          
+          return '\n```' + lang + '\n' + match.trim() + '\n```\n';
+      });
+
+      // 4. Correção de borda: garante que o número de crases seja par (bloco fechado)
+      const partes = textoLimpo.split('```');
+      if (partes.length % 2 !== 0) {
+          textoLimpo += '\n```';
+      }
+
+      // 5. MONTAGEM FINAL SAGRADA (A única fonte da verdade)
+      const schemaForcado = `<script type="application/ld+json">${JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": targetSeed.title,
         "author": { "@type": "Person", "name": "Paulino Gerlack" },
         "datePublished": new Date().toISOString().split('T')[0],
-        "publisher": {
-          "@type": "Organization",
-          "name": "Educatech AI Digital Sovereign Ltda",
-          "logo": { "@type": "ImageObject", "url": "https://certusengine.ia.br/logo.svg" }
-        },
-        "about": targetSeed.law,
-        "description": result.rawOutput.gancho_usado
-      })}</script>\n`;
-      const canonical = `<link rel="canonical" href="https://certusengine.ia.br/article/${targetSeed.slug}" />\n`;
-      
-      // 🛡️ [OE-14.1] INJEÇÃO FORÇADA DE RÓTULOS POR IDIOMA
-      const labelsFormatados: any = {
+        "publisher": { "@type": "Organization", "name": "Educatech AI Digital Sovereign Ltda", "logo": { "@type": "ImageObject", "url": "https://certusengine.ia.br/logo.svg" } },
+        "about": targetSeed.law || "GDPR (Europe)",
+        "description": result.rawOutput.gancho_usado || targetSeed.title.substring(0, 150)
+      })}</script>
+<link rel="canonical" href="https://certusengine.ia.br/article/${targetSeed.slug}" />`;
+
+      const rotulos: any = {
         PT: "🟡 CENÁRIO SIMULADO / THREAT MODEL\n\n",
         ES: "🟡 ESCENARIO SIMULADO / THREAT MODEL\n\n",
         EN: "🟡 SIMULATED SCENARIO / THREAT MODEL\n\n"
       };
-      
-      let textoLimpo = conteudoLLM.replace(/🟡\s*(CENÁRIO|ESCENARIO|SIMULATED)\s*SIMULADO.*\n/gi, '');
+
       const locIdioma = (targetSeed.locale as string || 'pt').toUpperCase();
-      let textoFinalComRotulo = (labelsFormatados[locIdioma] || labelsFormatados.PT) + textoLimpo;
-
-      // 🛡️ [OE-12.1] CORREÇÃO FORÇADA DE BLOCOS DE CÓDIGO SEM CRASES
-      textoFinalComRotulo = textoFinalComRotulo.replace(
-        /(^|\n)(# Certus Engine:|if \[ "\$latency"|def verify_identity)/g, 
-        '\n```bash\n$2'
-      );
-      textoFinalComRotulo = textoFinalComRotulo.replace(
-        /(^|\n)(import hashlib|import time)/g, 
-        '\n```python\n$2'
-      );
-      // Garante que o bloco de código seja fechado se não estiver
-      if (textoFinalComRotulo.split('```').length % 2 === 0) {
-        textoFinalComRotulo += '\n```';
-      }
-
-      const outputFinal = schema + canonical + textoFinalComRotulo;
+      const outputFinal = schemaForcado + "\n\n" + (rotulos[locIdioma] || rotulos.PT) + textoLimpo.trim();
       
       seeds[seedIndex].contentMarkdown = outputFinal;
       // Injeta também as metainformações da Forja V2

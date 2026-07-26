@@ -59,14 +59,16 @@ function createShortSlug(title: string, v: number, hookId: string) {
   // Remover "case-study-N" se existir no meio, pois vamos colocar no final
   s = s.replace(/-case-study-\d+/g, '');
   
-  // 🛡️ [OE-12 ATUALIZAÇÃO FINAL] Dicionário de Truncamento Bilíngue
+  // 🛡️ [OE-16] Dicionário de Truncamento Agressivo (PT + ES + EN)
   const palavrasLongas: any = {
     // Português
     "governanca": "gov", "probabilistica": "prob", "criptografica": "cripto", "possivel": "possiv", "conformidade": "conf",
     // Espanhol
-    "gobierno": "gob", "secuestro": "secuest", "ransomware": "ransom", "instituciones": "inst", "actualizaciones": "actual",
-    // Inglês (Novo)
-    "enterprise": "ent", "healthcare": "health", "espionage": "esp", "vulnerability": "vuln", "infrastructure": "infra"
+    "gobierno": "gob", "secuestro": "secuest", "ransomware": "ransom", "instituciones": "inst", "regulacion": "reg",
+    // Inglês (Agressivo)
+    "corporate": "corp", "espionage": "esp", "enterprise": "ent", "healthcare": "health", 
+    "compliance": "comp", "without": "wout", "sensitive": "sens", "vulnerability": "vuln", "infrastructure": "infra",
+    "regulation": "reg", "cross-border": "cross", "leaks": "leak", "difference": "diff", "probabilistic": "prob"
   };
   if (s.length > 65) {
     s = s.split('-').map(palavra => {
