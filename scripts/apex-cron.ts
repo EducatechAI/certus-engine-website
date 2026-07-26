@@ -386,7 +386,8 @@ async function runCron() {
       textoLimpo = textoLimpo.replace(/<\/\s*(script|style)\s*>/gi, ''); // Pega </script> órfão
 
       // 2. ANIQUILAR qualquer bloco JSON-LD solto no corpo do texto (mesmo sem tag <script>)
-      textoLimpo = textoLimpo.replace(/\{\s*"@context"\s*:\s*"https:\/\/schema\.org"[\s\S]*?\}(?:\s*<\/script>)?/gi, '');
+      // O Qwen injeta JSON sem tags HTML e com quebras de linha escapadas. Usamos lookahead para fechar a captura com segurança.
+      textoLimpo = textoLimpo.replace(/\{\s*"@context"[\s\S]*?\}(?=\s*(?:<\/script>|<\/?meta|<\/?link|\n\s*#|🟡|🔵|🟢|$))/gi, '');
 
       // 3. ANIQUILAR TODAS as ocorrências dos rótulos em QUALQUER lugar do texto (Global, não só início de linha)
       // Isso elimina duplicatas, variações com espaços estranhos ou quebras de linha
