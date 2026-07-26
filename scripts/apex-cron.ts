@@ -378,41 +378,42 @@ async function runCron() {
       // Atualiza na memória
       const seedIndex = seeds.findIndex((s: any) => s.id === targetSeed.id);
       
-      // 🛡️ [OE-16] ESTERILIZAÇÃO TOTAL E MONTAGEM IMUTÁVEL
+      // 🛡️ [OE-17] MARTELO DETERMINÍSTICO: LIMPEZA POR DESTRUIÇÃO GLOBAL
       let textoLimpo = result.content;
 
-      // 1. ANIQUILAR qualquer tag HTML de metadados ou comentários no corpo do texto
-      // (Pega <meta...>, <link...>, <script...>, <!-- --> e blocos inteiros de JSON-LD alucinados)
-      textoLimpo = textoLimpo.replace(/\{[\s\S]*?"@context"[\s\S]*?<\/script>/gi, '');
-      textoLimpo = textoLimpo.replace(/<\s*\/?(meta|link|script|style)\b[^>]*>/gi, '');
-      textoLimpo = textoLimpo.replace(/<!--[\s\S]*?-->/g, '');
+      // 1. ANIQUILAR qualquer tag HTML de metadados (aberta ou fechada, mesmo malformada)
+      textoLimpo = textoLimpo.replace(/<\s*(meta|link|script|style)\b[^>]*>/gi, '');
+      textoLimpo = textoLimpo.replace(/<\/\s*(script|style)\s*>/gi, ''); // Pega </script> órfão
 
-      // 2. ANIQUILAR QUALQUER rótulo de cenário/referência gerado pelo LLM em qualquer lugar do texto
-      textoLimpo = textoLimpo.replace(/[^\n]*[🟡🔵🟢][^\n]*/gi, '');
+      // 2. ANIQUILAR qualquer bloco JSON-LD solto no corpo do texto (mesmo sem tag <script>)
+      textoLimpo = textoLimpo.replace(/\{\s*"@context"\s*:\s*"https:\/\/schema\.org"[\s\S]*?\}(?:\s*<\/script>)?/gi, '');
 
-      // 3. FORÇAR BLOCOS DE CÓDIGO (A Regra de Ouro)
-      // Se encontrar linhas consecutivas que parecem código (começam com #, ./, def, import, bash, python, certus, etc.)
-      // e NÃO estão dentro de crases, envelopa tudo em ```bash ou ```python
+      // 3. ANIQUILAR TODAS as ocorrências dos rótulos em QUALQUER lugar do texto (Global, não só início de linha)
+      // Isso elimina duplicatas, variações com espaços estranhos ou quebras de linha
+      textoLimpo = textoLimpo.replace(/🟡\s*(CENÁRIO|ESCENARIO|SIMULATED|SIMULADO)\s*(SIMULADO|SCENARIO|THREAT|MODEL)?.*/gi, '');
+      textoLimpo = textoLimpo.replace(/🔵\s*(REFERÊNCIA|REFERENCE)\s*(NORMATIVA)?.*/gi, '');
+      textoLimpo = textoLimpo.replace(/🟢\s*(AUTORIZADO|AUTHORIZED).*/gi, '');
+
+      // 4. Limpar linhas vazias excessivas deixadas pela remoção agressiva
+      textoLimpo = textoLimpo.replace(/\n{3,}/g, '\n\n').trim();
+
+      // 5. FORÇAR BLOCOS DE CÓDIGO (Mantido do OE-16, pois funcionou perfeitamente)
       textoLimpo = textoLimpo.replace(/((?:^|\n)(?:bash|python|powershell|javascript|json|sql|#\s[^\n]*|\.[\/\\][^\n]*|def\s[^\n]*|import\s[^\n]*|certus[^\n]*|lazarus[^\n]*|wolfdog[^\n]*){1,})/gm, (match) => {
-          // Se já tiver crases, não mexe
           if (match.includes('```')) return match;
-          
-          // Tenta adivinhar a linguagem pelo primeiro token
           let lang = 'bash';
           if (match.match(/def\s|import\s|python/i)) lang = 'python';
           if (match.match(/powershell/i)) lang = 'powershell';
           if (match.match(/\bjson\b/i)) lang = 'json';
-          
           return '\n```' + lang + '\n' + match.trim() + '\n```\n';
       });
 
-      // 4. Correção de borda: garante que o número de crases seja par (bloco fechado)
+      // 6. Correção de borda: garante que o número de crases seja par
       const partes = textoLimpo.split('```');
       if (partes.length % 2 !== 0) {
           textoLimpo += '\n```';
       }
 
-      // 5. MONTAGEM FINAL SAGRADA (A única fonte da verdade)
+      // 7. MONTAGEM FINAL SAGRADA (Imutável)
       const schemaForcado = `<script type="application/ld+json">${JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Article",
@@ -420,7 +421,7 @@ async function runCron() {
         "author": { "@type": "Person", "name": "Paulino Gerlack" },
         "datePublished": new Date().toISOString().split('T')[0],
         "publisher": { "@type": "Organization", "name": "Educatech AI Digital Sovereign Ltda", "logo": { "@type": "ImageObject", "url": "https://certusengine.ia.br/logo.svg" } },
-        "about": targetSeed.law || "GDPR (Europe)",
+        "about": targetSeed.law || "LGPD (Europe)",
         "description": result.rawOutput.gancho_usado || targetSeed.title.substring(0, 150)
       })}</script>
 <link rel="canonical" href="https://certusengine.ia.br/article/${targetSeed.slug}" />`;
@@ -432,7 +433,7 @@ async function runCron() {
       };
 
       const locIdioma = (targetSeed.locale as string || 'pt').toUpperCase();
-      const outputFinal = schemaForcado + "\n\n" + (rotulos[locIdioma] || rotulos.PT) + textoLimpo.trim();
+      const outputFinal = schemaForcado + "\n\n" + (rotulos[locIdioma] || rotulos.PT) + textoLimpo;
       
       seeds[seedIndex].contentMarkdown = outputFinal;
       // Injeta também as metainformações da Forja V2
