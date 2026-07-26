@@ -382,13 +382,13 @@ async function runCron() {
       let textoLimpo = result.content;
 
       // 1. ANIQUILAR qualquer tag HTML de metadados ou comentários no corpo do texto
-      // (Pega <meta...>, <link...>, <script...>, <!-- --> mesmo com quebras de linha ou aspas estranhas)
-      textoLimpo = textoLimpo.replace(/<\s*(meta|link|script|style)\b[^>]*>/gi, '');
+      // (Pega <meta...>, <link...>, <script...>, <!-- --> e blocos inteiros de JSON-LD alucinados)
+      textoLimpo = textoLimpo.replace(/\{[\s\S]*?"@context"[\s\S]*?<\/script>/gi, '');
+      textoLimpo = textoLimpo.replace(/<\s*\/?(meta|link|script|style)\b[^>]*>/gi, '');
       textoLimpo = textoLimpo.replace(/<!--[\s\S]*?-->/g, '');
 
       // 2. ANIQUILAR QUALQUER rótulo de cenário/referência gerado pelo LLM em qualquer lugar do texto
-      // (Remove linhas que começam com 🟡, 🔵, 🟢 seguidas de palavras-chave de cenário)
-      textoLimpo = textoLimpo.replace(/^[\s]*[🟡🔵🟢]\s*(CENÁRIO|ESCENARIO|SIMULATED|SIMULADO|SCENARIO|THREAT|MODEL|REFERÊNCIA|REFERENCE|NORMATIVA).*$/gim, '');
+      textoLimpo = textoLimpo.replace(/[^\n]*[🟡🔵🟢][^\n]*/gi, '');
 
       // 3. FORÇAR BLOCOS DE CÓDIGO (A Regra de Ouro)
       // Se encontrar linhas consecutivas que parecem código (começam com #, ./, def, import, bash, python, certus, etc.)
