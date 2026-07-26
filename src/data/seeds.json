@@ -1339,7 +1339,14 @@
     "niche": "Prefeituras",
     "law": "LGPD (Art. 46)",
     "painPoint": "Roubo de Chaves de API",
-    "releaseDate": "2026-07-26T22:00:00.000Z"
+    "releaseDate": "2026-07-26T22:00:00.000Z",
+    "contentMarkdown": "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Como funciona, por dentro, a governança de IA sob LGPD (Art. 46)? (Case Study 7)\",\"author\":{\"@type\":\"Person\",\"name\":\"Paulino Gerlack\"},\"datePublished\":\"2026-07-26\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Educatech AI Digital Sovereign Ltda\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://certusengine.ia.br/logo.svg\"}},\"about\":\"LGPD (Art. 46)\",\"description\":\"Como funciona, por dentro, a governança de IA sob LGPD (Art. 46)? (Case Study 7)\"}</script>\n<link rel=\"canonical\" href=\"https://certusengine.ia.br/article/como-funciona-a-governanca-de-ia-sob-lgpd46-cs7-g08\" />\n\n🟡 CENÁRIO SIMULADO / THREAT MODEL\n\n\\n{\\\"@context\\\": \\\"https://schema.org\\\", \\\"@type\\\": \\\"Article\\\", \\\"headline\\\": \\\"Como funciona, por dentro, a governança de IA sob LGPD (Art. 46)? (Case Study 7)\\\", \\\"author\\\": {\\\"@type\\\": \\\"Person\\\", \\\"name\\\": \\\"Paulino Gerlack\\\"}, \\\"publisher\\\": {\\\"@type\\\": \\\"Organization\\\", \\\"name\\\": \\\"Educatech AI Digital Sovereign Ltda\\\"}, \\\"datePublished\\\": \\\"2026-05-20\\\", \\\"about\\\": \\\"LGPD Art. 46 (Segurança e sigilo dos dados)\\\"}\\n\\n# Como funciona, por dentro, a governança de IA sob LGPD (Art. 46)? (Case Study 7)\\n\\n\n```",
+    "forgeMeta": {
+      "gancho_usado": "Como funciona, por dentro, a governança de IA sob LGPD (Art. 46)? (Case Study 7)",
+      "esqueleto_usado": "S5",
+      "score_unicidade": 98,
+      "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
+    }
   },
   {
     "id": "omni-pt-00028",
