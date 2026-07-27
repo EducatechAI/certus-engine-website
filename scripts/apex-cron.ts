@@ -341,7 +341,22 @@ async function runCron() {
   const seeds = JSON.parse(fs.readFileSync(SEEDS_FILE, 'utf-8'));
   const now = Date.now();
   
-  // Protocolo Berserker: Captura até 3 sementes maduras atrasadas para compensar delay do GitHub
+  // 🧹 [JANITOR] Expurgo Automático de Conteúdo Defeituoso (< 2000 chars)
+  let purgedCount = 0;
+  seeds.forEach((s: any) => {
+    if (s.contentMarkdown && s.contentMarkdown.length < 2000) {
+      console.warn(`[Janitor] Expurgo ativado: Semente ${s.slug} possui apenas ${s.contentMarkdown.length} caracteres. Conteúdo deletado para reforja.`);
+      delete s.contentMarkdown;
+      delete s.forgeMeta;
+      purgedCount++;
+    }
+  });
+  if (purgedCount > 0) {
+    fs.writeFileSync(SEEDS_FILE, JSON.stringify(seeds, null, 2));
+  }
+
+  // Protocolo Berserker: Captura até 3 sementes maduras atrasadas (agora inclui as recém-expurgadas)
+
   const targetSeeds = seeds.filter((s: any) => !s.contentMarkdown && new Date(s.releaseDate).getTime() <= now).slice(0, 3);
   
   if (targetSeeds.length === 0) {
