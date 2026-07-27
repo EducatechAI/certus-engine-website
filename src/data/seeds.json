@@ -8,14 +8,7 @@
     "niche": "Prefeituras",
     "law": "LGPD (Art. 46)",
     "painPoint": "Vazamento de CPF e PII",
-    "releaseDate": "2026-07-23T20:00:00.000Z",
-    "contentMarkdown": "# Cenário Simulado: Vazamento de Dados em uma Prefeitura\n\n**Caso hipotético:** Uma prefeitura de médio porte, localizada em uma região metropolitana, possui um sistema de gestão de dados que armazena informações sensíveis de cidadãos, incluindo CPF e outros dados pessoais. \n\nUm dia, o sistema é comprometido por um ataque cibernético, resultando no vazamento desses dados sensíveis.\n\n## Impacto do Vazamento\n\nO vazamento de dados causa uma grande preocupação para a prefeitura, pois pode resultar em perdas financeiras, danos à reputação e multas legais.\n\n## Conformidade com a LGPD\n\nPara provar conformidade com a LGPD (Art. 46), a prefeitura deve demonstrar que adotou medidas adequadas para proteger os dados pessoais dos cidadãos.\n\nIsso inclui a implementação de políticas de segurança da informação, treinamento de funcionários e a realização de auditorias regulares.\n\n## Rotulagem de Integridade\n\n CENÁRIO SIMULADO / THREAT MODEL\n\n## Dados Técnicos Específicos\n\n* Porta de entrada: 443\n* Protocolo de comunicação: HTTPS\n* Tipo de ataque: Injeção de SQL\n\n## Elemento do Ecossistema Certus\n\n* Ferramenta de monitoramento: Wolfdog\n\n## Referências\n\n* LGPD (Art. 46): [https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)\n\n## Links\n\n* [https://certusengine.ia.br/article/provar-conformidade-com-lgpd46-sem-expor-dados-sensiveis-g03](https://certusengine.ia.br/article/provar-conformidade-com-lgpd46-sem-expor-dados-sensiveis-g03)",
-    "forgeMeta": {
-      "gancho_usado": "Como podemos provar conformidade com LGPD (Art. 46) sem expor dados sensíveis?",
-      "esqueleto_usado": "S3",
-      "score_unicidade": 92,
-      "rotulo_integridade": ""
-    }
+    "releaseDate": "2026-07-23T20:00:00.000Z"
   },
   {
     "id": "omni-pt-00002",
@@ -1379,14 +1372,7 @@
     "niche": "Prefeituras",
     "law": "LGPD (Art. 46)",
     "painPoint": "Roubo de Chaves de API",
-    "releaseDate": "2026-07-27T01:00:00.000Z",
-    "contentMarkdown": "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"É possível criar infraestrutura à prova de Roubo de Chaves de API usando ZK-Proofs? (Case Study 10)\",\"author\":{\"@type\":\"Person\",\"name\":\"Paulino Gerlack\"},\"datePublished\":\"2026-07-27\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Educatech AI Digital Sovereign Ltda\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://certusengine.ia.br/logo.svg\"}},\"about\":\"LGPD (Art. 46)\",\"description\":\"É possível criar infraestrutura à prova de Roubo de Chaves de API usando ZK-Proofs? (Case Study 10)\"}</script>\n<link rel=\"canonical\" href=\"https://certusengine.ia.br/article/e-possivel-criar-infraestrutura-a-prova-de-api-keys-usando-z-cs10-g04\" />\n\n🟡 CENÁRIO SIMULADO / THREAT MODEL\n\n{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"É possível criar infraestrutura à prova de Roubo de Chaves de API usando ZK-Proofs? (Case Study 10)\", \"author\": {\"@type\": \"Person\", \"name\": \"Paulino Gerlack\"}, \"datePublished\": \"2026-05-20\", \"publisher\": \"Educatech AI Digital Sovereign Ltda\", \"about\": \"LGPD Art. 46\"}\\n\\n\\n# É possível criar infraestrutura à prova de Roubo de Chaves de API usando ZK-Proofs? (Case Study 10)\\n\\n\n```",
-    "forgeMeta": {
-      "gancho_usado": "É possível criar infraestrutura à prova de Roubo de Chaves de API usando ZK-Proofs? (Case Study 10)",
-      "esqueleto_usado": "S6",
-      "score_unicidade": 98,
-      "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    "releaseDate": "2026-07-27T01:00:00.000Z"
   },
   {
     "id": "omni-pt-00031",
@@ -1397,14 +1383,7 @@
     "niche": "Prefeituras",
     "law": "LGPD (Art. 46)",
     "painPoint": "Manipulação de Logs Eleitorais",
-    "releaseDate": "2026-07-27T02:00:00.000Z",
-    "contentMarkdown": "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Qual a diferença entre IA probabilística e governança determinística em Prefeituras?\",\"author\":{\"@type\":\"Person\",\"name\":\"Paulino Gerlack\"},\"datePublished\":\"2026-07-27\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Educatech AI Digital Sovereign Ltda\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://certusengine.ia.br/logo.svg\"}},\"about\":\"LGPD (Art. 46)\",\"description\":\"Qual a diferença entre IA probabilística e governança determinística em Prefeituras?\"}</script>\n<link rel=\"canonical\" href=\"https://certusengine.ia.br/article/qual-a-diferenca-entre-ia-probabilistica-e-governanca-determinist-g10\" />\n\n🟡 CENÁRIO SIMULADO / THREAT MODEL\n\n{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Qual a diferença entre IA probabilística e governança determinística em Prefeituras?\", \"author\": {\"@type\": \"Person\", \"name\": \"Paulino Gerlack\"}, \"publisher\": {\"@type\": \"Organization\", \"name\": \"Educatech AI Digital Sovereign Ltda\"}, \"about\": \"LGPD Artigo 46\"}\\n\\n\\n# Qual a diferença entre IA probabilística e governança determinística em Prefeituras?\\n\\n\n```",
-    "forgeMeta": {
-      "gancho_usado": "Qual a diferença entre IA probabilística e governança determinística em Prefeituras?",
-      "esqueleto_usado": "S5",
-      "score_unicidade": 98,
-      "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    "releaseDate": "2026-07-27T02:00:00.000Z"
   },
   {
     "id": "omni-pt-00032",
@@ -1415,14 +1394,7 @@
     "niche": "Prefeituras",
     "law": "LGPD (Art. 46)",
     "painPoint": "Manipulação de Logs Eleitorais",
-    "releaseDate": "2026-07-27T03:00:00.000Z",
-    "contentMarkdown": "<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Como o PII-Zero mascara dados sensíveis antes do envio à LLM em Prefeituras? (Case Study 2)\",\"author\":{\"@type\":\"Person\",\"name\":\"Paulino Gerlack\"},\"datePublished\":\"2026-07-27\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Educatech AI Digital Sovereign Ltda\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://certusengine.ia.br/logo.svg\"}},\"about\":\"LGPD (Art. 46)\",\"description\":\"Como o PII-Zero mascara dados sensíveis antes do envio à LLM em Prefeituras? (Case Study 2)\"}</script>\n<link rel=\"canonical\" href=\"https://certusengine.ia.br/article/como-o-pii-zero-mascara-dados-sensiveis-antes-do-envio-a-llm-cs2-g17\" />\n\n🟡 CENÁRIO SIMULADO / THREAT MODEL\n\n{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Como o PII-Zero mascara dados sensíveis antes do envio à LLM em Prefeituras? (Case Study 2)\", \"author\": {\"@type\": \"Person\", \"name\": \"Paulino Gerlack\"}, \"datePublished\": \"2026-05-22\", \"publisher\": {\"@type\": \"Organization\", \"name\": \"Educatech AI Digital Sovereign Ltda\"}, \"about\": \"LGPD (Art. 46)\"}\\n\\n\\n# Como o PII-Zero mascara dados sensíveis antes do envio à LLM em Prefeituras? (Case Study 2)\\n\\n\n```",
-    "forgeMeta": {
-      "gancho_usado": "Como o PII-Zero mascara dados sensíveis antes do envio à LLM em Prefeituras? (Case Study 2)",
-      "esqueleto_usado": "S6",
-      "score_unicidade": 98,
-      "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    "releaseDate": "2026-07-27T03:00:00.000Z"
   },
   {
     "id": "omni-pt-00033",
