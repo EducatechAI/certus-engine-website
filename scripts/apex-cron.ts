@@ -406,9 +406,10 @@ async function runCron() {
 
       // 3. ANIQUILAR TODAS as ocorrências dos rótulos em QUALQUER lugar do texto (Global, não só início de linha)
       // Isso elimina duplicatas, variações com espaços estranhos ou quebras de linha
-      textoLimpo = textoLimpo.replace(/🟡\s*(CENÁRIO|ESCENARIO|SIMULATED|SIMULADO)\s*(SIMULADO|SCENARIO|THREAT|MODEL)?.*/gi, '');
-      textoLimpo = textoLimpo.replace(/🔵\s*(REFERÊNCIA|REFERENCE)\s*(NORMATIVA)?.*/gi, '');
-      textoLimpo = textoLimpo.replace(/🟢\s*(AUTORIZADO|AUTHORIZED).*/gi, '');
+      // Removemos o '.*' para impedir que devore o artigo inteiro caso a LLM retorne tudo na mesma linha com '\n' literais.
+      textoLimpo = textoLimpo.replace(/🟡\s*[a-zA-ZÁ-ú \/_-]+(?:\s*(?:\\n|\n))*/gi, '');
+      textoLimpo = textoLimpo.replace(/🔵\s*[a-zA-ZÁ-ú \/_-]+(?:\s*(?:\\n|\n))*/gi, '');
+      textoLimpo = textoLimpo.replace(/🟢\s*[a-zA-ZÁ-ú \/_-]+(?:\s*(?:\\n|\n))*/gi, '');
 
       // 4. Limpar linhas vazias excessivas deixadas pela remoção agressiva
       textoLimpo = textoLimpo.replace(/\n{3,}/g, '\n\n').trim();
