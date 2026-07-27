@@ -426,7 +426,8 @@ async function runCron() {
 
       // 6. Correção de borda: garante que o número de crases seja par
       const partes = textoLimpo.split('```');
-      if (partes.length % 2 !== 0) {
+      // Se partes.length é par (ex: 2), significa que há 1 bloco (ímpar) de crases.
+      if (partes.length % 2 === 0) {
           textoLimpo += '\n```';
       }
 
