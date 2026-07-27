@@ -414,22 +414,6 @@ async function runCron() {
       // 4. Limpar linhas vazias excessivas deixadas pela remoção agressiva
       textoLimpo = textoLimpo.replace(/\n{3,}/g, '\n\n').trim();
 
-      // 5. FORÇAR BLOCOS DE CÓDIGO (Mantido do OE-16, pois funcionou perfeitamente)
-      textoLimpo = textoLimpo.replace(/((?:^|\n)(?:bash|python|powershell|javascript|json|sql|#\s[^\n]*|\.[\/\\][^\n]*|def\s[^\n]*|import\s[^\n]*|certus[^\n]*|lazarus[^\n]*|wolfdog[^\n]*){1,})/gm, (match) => {
-          if (match.includes('```')) return match;
-          let lang = 'bash';
-          if (match.match(/def\s|import\s|python/i)) lang = 'python';
-          if (match.match(/powershell/i)) lang = 'powershell';
-          if (match.match(/\bjson\b/i)) lang = 'json';
-          return '\n```' + lang + '\n' + match.trim() + '\n```\n';
-      });
-
-      // 6. Correção de borda: garante que o número de crases seja par
-      const partes = textoLimpo.split('```');
-      // Se partes.length é par (ex: 2), significa que há 1 bloco (ímpar) de crases.
-      if (partes.length % 2 === 0) {
-          textoLimpo += '\n```';
-      }
 
       // 7. MONTAGEM FINAL SAGRADA (Imutável)
       const schemaForcado = `<script type="application/ld+json">${JSON.stringify({
