@@ -10,9 +10,9 @@ const clusters: any = {
     pains: ['Vazamento de CPF e PII', 'Ransomware bloqueando servidores', 'Roubo de Chaves de API', 'Manipulação de Logs Eleitorais', 'Fraude em Licitações via IA', 'Deepfakes Governamentais', 'Ataque DDoS na Camada 7', 'Injeção de Prompts (AI Poisoning)'],
   },
   en: {
-    niches: ['Enterprise Healthcare', 'Defense Contractors', 'DeFi Protocols', 'Global Banks', 'Cloud Providers', 'SaaS Platforms', 'E-voting Systems', 'Telecom Networks'],
-    laws: ['GDPR (Europe)', 'HIPAA (US Healthcare)', 'CCPA (California)', 'SEC AI Washing Rules', 'Cloud Act', 'EU AI Act'],
-    pains: ['Corporate Espionage', 'Cross-Border Data Leaks', 'Smart Contract Exploits', 'Zero-Day AI Vulnerabilities', 'Insider Threats', 'Supply Chain Ransomware', 'Quantum Decryption Risks'],
+    niches: ['Multinational CISOs', 'LATAM Expansion Teams', 'Global VCs', 'Enterprise Healthcare', 'Defense Contractors', 'DeFi Protocols', 'Global Banks', 'Cloud Providers'],
+    laws: ['LGPD (Brazil)', 'Ley 1581 (Colombia)', 'Ley 25.326 (Argentina)', 'GDPR (Europe)', 'HIPAA (US Healthcare)', 'CCPA (California)', 'SEC AI Washing Rules', 'EU AI Act'],
+    pains: ['Multi-Jurisdictional LATAM Compliance', 'Cross-Border Data Leaks', 'Corporate Espionage', 'Smart Contract Exploits', 'Zero-Day AI Vulnerabilities', 'Insider Threats', 'Supply Chain Ransomware'],
   }
 };
 
@@ -109,7 +109,7 @@ function generateSeeds() {
   const forgedMap = new Map();
   for (const seed of existingSeeds) {
     if (seed.contentMarkdown) {
-      // forgedMap.set(seed.id, seed); // PURGED: Limpando a base antiga para aplicar os ganchos 100%
+      forgedMap.set(seed.id, seed);
     }
   }
   
