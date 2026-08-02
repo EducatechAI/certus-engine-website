@@ -5,7 +5,7 @@
   "scripts": {
     "build:pdfs": "node scripts/generate-all-pdfs.js",
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx tsx scripts/generate-sitemap.ts && next build",
     "start": "next start",
     "lint": "next lint",
     "upload-sdk": "node scripts/upload-blob.js"
