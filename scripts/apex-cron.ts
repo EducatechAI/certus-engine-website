@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { normalizeHeaders, type Lang, type Assunto } from '../src/lib/canonical';
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const SERPER_API_KEY = process.env.SERPER_API_KEY;
@@ -425,8 +426,7 @@ async function runCron() {
         "publisher": { "@type": "Organization", "name": "Educatech AI Digital Sovereign Ltda", "logo": { "@type": "ImageObject", "url": "https://certusengine.ia.br/logo.svg" } },
         "about": targetSeed.law || "LGPD (Europe)",
         "description": result.rawOutput.gancho_usado || targetSeed.title.substring(0, 150)
-      })}</script>
-<link rel="canonical" href="https://certusengine.ia.br/article/${targetSeed.slug}" />`;
+      })}</script>`;
 
       const rotulos: any = {
         PT: "🟡 CENÁRIO SIMULADO / THREAT MODEL\n\n",
@@ -435,7 +435,15 @@ async function runCron() {
       };
 
       const locIdioma = (targetSeed.locale as string || 'pt').toUpperCase();
-      const outputFinal = schemaForcado + "\n\n" + (rotulos[locIdioma] || rotulos.PT) + textoLimpo;
+      const outputParcial = schemaForcado + "\n\n" + (rotulos[locIdioma] || rotulos.PT) + textoLimpo;
+      
+      // Passa pela normalização para garantir as rotas de cauda longa e injeção do url no JSON-LD
+      const { content: outputFinal } = normalizeHeaders(
+        outputParcial,
+        targetSeed.locale as Lang,
+        targetSeed.assunto as Assunto,
+        targetSeed.slug
+      );
       
       seeds[seedIndex].contentMarkdown = outputFinal;
       // Injeta também as metainformações da Forja V2
