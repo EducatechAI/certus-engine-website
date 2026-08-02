@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { normalizeHeaders, type Lang, type Assunto } from '../src/lib/canonical';
 
 // Interfaces
 interface Seed {
@@ -34,6 +35,16 @@ const TOP_DOSSIERS = [
   'WHITEPAPER_EN_v3_0_0.md',
   'CAPACIDADES_SOBERANAS.md'
 ];
+
+// 🛡️ LANGUAGE GUARD (Fail-Closed) — Pureza de idioma por cluster
+const PT_MARKERS = ['ção', 'ções', 'ão', 'ões', 'nh', 'lh', 'ç', 'não', 'ê', 'â'];
+
+function hasPortugueseBleed(text: string, locale: string): boolean {
+  if (locale === 'pt') return false; // PT é o esperado, permitimos as tags
+  const lower = text.toLowerCase();
+  // Retorna true se houver qualquer marcador (Sangramento detectado)
+  return PT_MARKERS.some(m => lower.includes(m));
+}
 
 async function loadRAGContext(locale: string): Promise<string> {
   let context = '';
@@ -116,7 +127,19 @@ async function runPhaseC() {
   }
 
   const seeds: Seed[] = JSON.parse(fs.readFileSync(SEEDS_FILE, 'utf-8'));
-  const pendingSeeds = seeds.filter(s => !s.contentMarkdown);
+  let pendingSeeds = seeds.filter(s => !s.contentMarkdown);
+  
+  // [Fase 14C] Protocolo de Prioridade Tática 2026 (Opção B)
+  const priorityKeywords = ['2026', 'AI Act', 'ANPD', 'Marco Civil', '27001', '37001', '21.719'];
+  const prioritySeeds = pendingSeeds.filter(s => 
+    priorityKeywords.some(kw => s.law.includes(kw) || s.painPoint.includes(kw))
+  );
+  const legacySeeds = pendingSeeds.filter(s => 
+    !priorityKeywords.some(kw => s.law.includes(kw) || s.painPoint.includes(kw))
+  );
+  
+  // As sementes prioritárias assumem a vanguarda. O legado fica como reserva.
+  pendingSeeds = [...prioritySeeds, ...legacySeeds];
   
   console.log(`[Fase C] Iniciando Forja APEX. Restam: ${pendingSeeds.length} / ${seeds.length} dossiês.`);
 
@@ -135,9 +158,25 @@ async function runPhaseC() {
         console.log(`  -> Forjando Texto (Claude-3.5-Sonnet) para: ${seed.slug}`);
         const markdown = await generateContent(seed, localRAG, webRAG);
         
+        // 🛡️ LANGUAGE GUARD INTERCEPTOR
+        if (hasPortugueseBleed(markdown, seed.locale)) {
+          throw new Error('LANGUAGE GUARD BLOCKED: Bleed-over de Português detectado na geração. Dossiê rejeitado e mantido pendente para regeneração.');
+        }
+        
+        // --- NORMALIZAÇÃO CANONICAL (Fase 14) ---
+        const { content: safeMarkdown, prependedCanonical } = normalizeHeaders(
+          markdown,
+          seed.locale as Lang,
+          seed.assunto as Assunto,
+          seed.slug,
+        );
+        if (prependedCanonical) {
+          console.warn(`[forge-writer] canonical ausente no output do LLM — injetado para ${seed.slug}`);
+        }
+
         // Atualiza a semente na memória e salva no disco imediatamente (Resume capability)
         const seedIndex = seeds.findIndex(s => s.id === seed.id);
-        seeds[seedIndex].contentMarkdown = markdown;
+        seeds[seedIndex].contentMarkdown = safeMarkdown;
         fs.writeFileSync(SEEDS_FILE, JSON.stringify(seeds, null, 2));
         
         console.log(`  ✅ [SUCESSO] Dossiê blindado: ${seed.slug}`);
