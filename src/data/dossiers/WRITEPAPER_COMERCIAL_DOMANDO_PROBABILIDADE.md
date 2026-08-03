@@ -33,11 +33,11 @@ O Certus Engine resolve a imprevisibilidade de custos em nuvem através de um Di
 Registro criptográfico de todas as violações bloqueadas, persistido em SQLite embutido (100% air-gapped ready). Cada registro recebe hash SHA-256 + timestamp UTC, gerando prova legal irrefutável para auditorias de Tribunal de Contas, ANPD, BACEN e CVM. Requests aprovados não são gravados, economizando 90% do I/O de disco.
 
 **Pilar 6: A Frota APEX Guardian (Defesa Ativa em Tempo Real)**
-Além da contenção passiva, a IDE Command é escoltada por uma frota de agentes autônomos operando na borda do sistema operacional:
-* **KANGAL (Perímetro):** WAF determinístico que barra tentativas de injeção de prompt e exfiltração de rede antes que a requisição seja processada.
-* **WOLFDOG (Comportamento):** Rastreia e mascara PII em nanossegundos, blindando dados.
-* **PITBULL (Resposta):** Em caso de anomalia crítica (ex: ransomware detectado na máquina host), mata o processo malicioso em menos de 50ms.
-* **PRESA (Integridade):** Monitora a raiz do projeto contra adulterações não autorizadas (Supply Chain Attacks) via checksums SHA-256 constantes.
+Além da contenção passiva, a IDE Command é escoltada por uma frota de **14 Agentes Generais e Sub-Agentes Táticos** operando com dupla capacidade (Estratégica e Tática):
+* **KANGAL (Compliance e Perímetro):** Lê a lei e atua como WAF determinístico que barra injeção e exfiltração.
+* **WOLFDOG (PII e Comportamento):** Mascara CPFs/dados sensíveis na borda e rastreia ransomware em processos.
+* **PITBULL (RBAC e Resposta):** Executa controle de acesso por roles e mata processos maliciosos em menos de 50ms.
+* **PRESA (Sub-Agente de Integridade):** Subordinado à frota, monitora a raiz do projeto contra adulterações não autorizadas (Supply Chain Attacks) via checksums SHA-256 constantes.
 O Certus não apenas audita o código; ele blinda o ambiente onde o código é gerado.
 
 **Validação em Números: 91+ Testes Empíricos**

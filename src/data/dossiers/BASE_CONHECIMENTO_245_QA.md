@@ -628,53 +628,54 @@ Acesse certusengine.com.br/docs para baixar o TECH_STACK_BLUEPRINT.md, INCIDENT_
 
 ---
 
-## 🐺 EXTRA 2: OS 12 AGENTES DO CERTUS — DEFESA E CONSTRUÇÃO (45 Q&A)
-### *Módulos Especializados e Capacidades Técnicas da Frota*
+## 🐺 EXTRA 2: OS 14 AGENTES GENERAIS E SEUS SUB-AGENTES (45 Q&A)
+### *Módulos Especializados e Capacidades Técnicas da Frota APEX*
 
 ### 1. O que é a arquitetura de agentes do Certus Engine?
-É um ecossistema de 12 sub-agentes especializados que atuam de forma coordenada para proteger, auditar, construir e otimizar operações. Cada agente tem uma função específica, mas todos operam sob governança determinística central.
+É um ecossistema governado por **14 Agentes Generais** (A Frota APEX principal) e diversos **Sub-Agentes (Soldados Rasos)** que atuam de forma coordenada para proteger, auditar, construir e otimizar operações. A hierarquia permite desde controle tático de borda até orquestração estratégica.
 
-### 2. Quais são os 12 agentes do Certus?
-Wolfdog (persistência de kernel / anti-kill), Kangal (bloqueio de rede / WFP), Pitbull (defesa de recursos / anti-ransomware), Ghost (refatoração segura), Lazarus (auditoria imutável), Janitor (limpeza de logs), Forge (construção de módulos), Dogo Argentino (caça a vulnerabilidades), Presa Canario (integridade do sistema de arquivos), Apex Guardian (resposta a incidentes), Sentinel (monitoramento contínuo) e Oracle (orquestração de consenso).
+### 2. Quais são os 14 Agentes Generais do Certus e seus Sub-Agentes?
+*   **Os 14 Generais:** Wolfdog, Kangal, Pitbull, Sentinel Prime, Sentinel Defense, LAZARUS Auditor, GHOST Recon, FORGE Exploit, CIVITAS-GOVERNOR, ZK-SOVEREIGN-GUARD, EDUCATECH-BUILDER, ANALYST Deep, SCRIBE Intel e GUARDIAN Ethical.
+*   **Sub-Agentes / Utilitários Táticos:** Dogo Argentino (caça CVEs), Oracle (orquestração legada/consenso), Presa Canario (Hash checker) e Janitor (Limpeza), que operam sob o comando dos generais (como Sentinel Defense e Sentinel Prime).
 
 ### 3. Como os agentes se comunicam entre si?
 Via barramento de eventos criptografado com assinatura Ed25519. Cada ação de um agente gera um log imutável que os demais podem consultar, garantindo rastreabilidade completa e coordenação sem ponto único de falha.
 
-### 4. O que faz o agente Wolfdog?
-Garante a persistência determinística e resiliência em nível de kernel (Watchdog). Ele monitora reciprocamente os processos do Certus Engine e, caso detecte uma tentativa de encerramento forçado (como um `taskkill` hostil), ressuscita o motor de governança em menos de 500ms.
+### 4. O que faz o agente Wolfdog (General)?
+Possui **poder cumulativo**: Atua primariamente como *Farejador de PII*, varrendo buffers e prompts com 847 regex, BERTimbau e CNN para mascarar dados sensíveis (LGPD). Simultaneamente, mantém sua função tática de *Rastreador Comportamental*, vigiando processos (Watchdog) e calculando scores de risco para impedir ações de ransomware.
 
-### 5. Qual a função do agente Kangal?
-Atua no bloqueio ativo e controle de perímetro na camada de rede/transporte via WFP (Windows Filtering Platform) ou iptables. Ele impede a exfiltração de dados sensíveis não mascarados e bloqueia conexões de saída suspeitas, como servidores de controle C2.
+### 5. Qual a função do agente Kangal (General)?
+Possui **poder cumulativo**: É o guardião do *Compliance Regulatório*, mapeando normativas e impedindo que o código viole a LGPD. Ao mesmo tempo, mantém seu poder tático de *Filtro de Perímetro (WFP)*, bloqueando tentativas de exfiltração de dados e conexões a servidores de controle (C2) na camada de rede.
 
-### 6. Como o Pitbull protege contra ransomware?
-Monitora o comportamento de processos em tempo real via ETW/eBPF. Se detectar ações anômalas, como criptografia em massa de arquivos, eleva o score de risco e mata o processo invasor em menos de 50ms, isolando o binário hostil em quarentena e acionando o Shadow Vault para restauração automática.
+### 6. Como atua o Pitbull (General)?
+Possui **poder cumulativo**: É o executor do *RBAC Dinâmico*, isolando identidades e matando tokens JWT de usuários que tentam movimentos não autorizados. No espectro tático, atua como *Eliminador Implacável*: se detectar ransomware, mata o processo hostil em <50ms e aciona o Shadow Vault para restauração automática.
 
-### 7. O que o agente Ghost faz?
-Refatoração segura de código legado. Identifica trechos com vulnerabilidades conhecidas (ex: concatenação de SQL) e sugere reescrita com padrões seguros, mantendo a lógica de negócio intacta.
+### 7. O que o agente GHOST Recon (General) faz?
+Mapeamento silencioso e refatoração segura de código legado. Identifica vulnerabilidades conhecidas sem disparar sensores de segurança da rede, sugerindo padrões seguros e mantendo a lógica intacta.
 
-### 8. Qual o papel do Lazarus?
-Auditoria imutável. Coleta logs de todos os agentes, aplica hash chaining (SHA-256) e assinatura Ed25519, gerando dossiês à prova de adulteração para TCE, MP e ANPD.
+### 8. Qual o papel do LAZARUS Auditor (General)?
+Especialista em auditoria imutável e consistência temporal. Coleta logs, aplica hash chaining (SHA-256) e assinaturas Ed25519, bloqueando fraudes temporais ("Ordens Lázaro") e gerando dossiês à prova de adulteração.
 
-### 9. Como o Janitor mantém o sistema limpo?
-Gerencia retenção e rotação de logs, aplicando políticas de conformidade (ex: LGPD Art. 16) para exclusão segura de dados pessoais após o prazo legal, sem comprometer a auditoria histórica.
+### 9. O que faz o sub-agente Janitor (Soldado Raso)?
+Operando sob a tutela de auditoria, gerencia retenção e rotação de logs menores, aplicando políticas de exclusão segura para manter o sistema otimizado sem comprometer a trilha legal principal.
 
-### 10. O que o agente Forge constrói?
-Geração automatizada de módulos personalizados. A partir de especificações em Policy-as-Code, compila componentes de governança (ex: validador de zoneamento urbano) prontos para deploy on-premise.
+### 10. O que o agente FORGE Exploit (General) constrói?
+Além da geração automatizada de módulos personalizados (Policy-as-Code), ele atua em *Red Teaming Interno*, testando as defesas do próprio Certus constantemente para garantir a invulnerabilidade.
 
-### 11. Qual a função do Dogo Argentino?
-Caça proativa de vulnerabilidades. Varre repositórios, dependências e configurações em busca de CVEs conhecidos, sugerindo patches ou workarounds antes da exploração.
+### 11. Qual a função do sub-agente Dogo Argentino (Soldado Raso)?
+Auxilia o Ghost Recon na caça tática de vulnerabilidades. Varre repositórios, dependências e configurações em busca de CVEs conhecidos para sugerir patches.
 
-### 12. Como o Presa Canario defende o perímetro?
-Guarda a verdade do código e a Raiz de Confiança (Root of Trust) do sistema de arquivos. Ele monitora a integridade de arquivos críticos via checksums SHA-256 e Merkle Trees a cada 5 minutos; caso detecte qualquer alteração não autorizada, bloqueia o sistema de arquivos imediatamente e ativa alarmes.
+### 12. Como o sub-agente Presa Canario defende o perímetro?
+Subordinado ao Sentinel Defense, ele tira "fotografias" criptográficas (hashes SHA-256) de arquivos críticos. Se um único caractere for modificado sem autorização, ele ativa o alarme de adulteração.
 
-### 13. O que faz o Apex Guardian?
-Resposta a incidentes em tempo real. Coordena os demais agentes em cenários de ataque, acionando isolamento, restauração e notificação conforme o INCIDENT_RESPONSE_RUNBOOK.md.
+### 13. O que faz o Sentinel Prime (General / Apex Guardian)?
+Orquestrador Mestre. Coordena os demais agentes em cenários de ataque, acionando isolamento, restauração e notificando o Mestre. Ele gerencia a topologia de toda a frota APEX.
 
-### 14. Qual o papel do Sentinel?
-Monitoramento contínuo de saúde do sistema. Coleta métricas de desempenho, disponibilidade e segurança, acionando alertas proativos antes que problemas afetem a operação.
+### 14. Qual o papel do Sentinel Defense (General)?
+Hardening contínuo. Projeta defesas ativas contra ataques, assumindo as funções de anti-tamper, monitoramento de saúde do sistema e absorvendo os sinais de sub-agentes como Presa Canario.
 
-### 15. Como o Oracle orquestra o consenso?
-Implementa o "Tribunal de CPUs": antes de ações críticas, consulta múltiplos agentes para validação cruzada. Só prossegue se houver concordância mínima (2/3), bloqueando decisões unilaterais.
+### 15. Como o sub-agente Oracle orquestra o consenso?
+Atuando como linha de apoio para o Tribunal de CPUs, ele valida cruzamentos de dados antes de ações críticas. Se as validações (2/3) não concordarem, a ação é bloqueada.
 
 ### 16. Os agentes podem ser desativados individualmente?
 Sim, via Policy-as-Code. Porém, para ambientes de produção governamental, recomendamos manter todos ativos. Alterações são registradas em logs imutáveis para auditoria.

@@ -54,11 +54,11 @@ A interceptação não usa expressões regulares simples. Ela atua baseada na Te
 3. **Curto-circuito Imediato:** O Gateway retorna HTTP 401/403 com um manifesto de bloqueio assinado, cortando a comunicação de rede antes da computação na nuvem de IA.
 
 ## 7. FROTA APEX
-Uma matilha composta por **12 Agentes de Defesa de Kernel**, projetados para atuar em uníssono. Entre os principais, destacam-se:
-*   **WOLFDOG:** Detecta e tokeniza Dados Pessoais (PII) e ofuscação (Base64/Eval).
-*   **PITBULL:** Monitora comportamentos destrutivos (deleção em loop, Ransomware).
-*   **KANGAL:** Especialista anti-exfiltração (bloqueio de IPs e domínios não autorizados).
-*   **SENTINEL:** O orquestrador mestre que consolida os alertas dos 11 agentes subordinados da Frota.
+Uma matilha composta por **14 Agentes Generais** apoiada por sub-agentes de utilidade tática (como Oracle e Dogo Argentino). Atuando com *Poderes Cumulativos*, os principais destacam-se:
+*   **WOLFDOG:** Farejador de PII (mascaramento de CPFs/Senhas via CNN/Regex) + Rastreador de Ransomware em processos.
+*   **KANGAL:** Especialista em Compliance (LGPD) + Filtro de rede anti-exfiltração (C2/DGA).
+*   **PITBULL:** Executor de RBAC Dinâmico + Eliminador de ameaças implacável (<50ms).
+*   **SENTINEL:** O núcleo (Prime e Defense) que consolida orquestração e hardening contínuo.
 
 ## 8. TRIBUNAL DE CPUs
 Mecanismo de Tolerância a Falhas Bizantinas em IA. Em transações críticas, o mesmo payload é enviado a múltiplos LLMs (ex: Qwen, DeepSeek). Através de um **Consensus Gate**, se 2/3 dos modelos divergirem matematicamente, a resposta é rejeitada, prevenindo alucinações sistêmicas.

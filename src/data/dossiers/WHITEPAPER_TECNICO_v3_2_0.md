@@ -18,12 +18,13 @@ pgp_signed: true
 
 ## 1. Resumo Executivo
 
-O Certus Engine v3.2.0 representa a evolução de uma arquitetura de governança de IA para um **sistema imunológico digital operacional**. Validado sob 17 cenários end-to-end sob ataque real de segurança ofensiva e stress (Sprint 9), o Certus integra a **Frota Apex Guardian** — quatro agentes autônomos que defendem, auditam e recuperam a infraestrutura em tempo real.
+O Certus Engine v3.2.0 representa a evolução de uma arquitetura de governança de IA para um **sistema imunológico digital operacional**. Validado sob 17 cenários end-to-end sob ataque real de segurança ofensiva e stress (Sprint 9), o Certus integra a **Frota Apex Guardian** — 14 Agentes Generais apoiados por sub-agentes utilitários, que defendem, auditam e orquestram a infraestrutura em tempo real.
 
-Principais inovações da v3.2.0:
-- ✅ **KANGAL**: WAF avançado com Drop Policy determinístico contra injeção de prompts e payloads maliciosos
-- ✅ **WOLFDOG**: PII-Zero Enforcement na borda com mascaramento criptográfico em nanossegundos
-- ✅ **SENTINEL**: Monitoramento contínuo com Circuit Breaker financeiro e recuperação automática <30s
+Principais inovações da v3.2.0 (Poderes Cumulativos):
+- ✅ **KANGAL**: WAF avançado com Drop Policy determinístico e Guardião de Compliance Regulatório
+- ✅ **WOLFDOG**: PII-Zero Enforcement na borda e Rastreador Comportamental Anti-Ransomware
+- ✅ **PITBULL**: Executor de RBAC Dinâmico e Resposta de Eliminação Implacável (<50ms)
+- ✅ **SENTINEL**: Monitoramento contínuo (Prime e Defense), Circuit Breaker financeiro e recuperação <30s
 - ✅ **LAZARUS**: Auditoria imutável com hash chaining SHA-256 + Ed25519, verificável por terceiros
 - ✅ **Ambassador Network**: Arquitetura descentralizada de subagentes autônomos para pesquisa, auditoria e refatoração
 - ✅ **Detalhes de Validação E2E**: Detalhamento completo e mapeamento técnico dos 17 testes de estresse, segurança ofensiva e conformidade.
@@ -61,11 +62,11 @@ A escolha do ecossistema **Midnight** deve-se à sua capacidade de lidar com **C
 
 ## 4. A Frota Apex Guardian: Defesa Ativa em Camadas
 
-A v3.2.0 substitui o conceito genérico de "Governador de Borda" por uma arquitetura de **quatro agentes especializados**, cada um com responsabilidade determinística e interface criptograficamente verificável.
+A v3.2.0 consolida a arquitetura da **Frota Apex**, composta por 14 Agentes Generais e Sub-Agentes utilitários (como Dogo Argentino, Oracle e Presa Canario), operando com **Poderes Cumulativos** (Táticos e Estratégicos).
 
-### 4.1 KANGAL 🐕 — Web Application Firewall Determinístico
+### 4.1 KANGAL 🐕 — Compliance e Firewall Determinístico
 
-**Função:** Bloquear ataques antes que toquem a lógica de negócio ou consumam recursos de IA.
+**Função:** Mapear normativas regulatórias (LGPD) e atuar como WAF de borda, bloqueando ataques e exfiltrações antes que toquem a lógica de negócio.
 
 **Arquitetura Técnica:**
 ```typescript
@@ -94,9 +95,9 @@ interface KangalMiddleware {
 
 ---
 
-### 4.2 WOLFDOG 🐺 — PII-Zero Enforcement na Borda
+### 4.2 WOLFDOG 🐺 — PII-Zero e Farejador Comportamental
 
-**Função:** Mascarar dados sensíveis **antes** de qualquer processamento, garantindo conformidade LGPD por design.
+**Função:** Mascarar dados sensíveis **antes** de qualquer processamento e vigiar processos em memória (Watchdog) contra comportamentos destrutivos.
 
 **Arquitetura Técnica:**
 ```typescript
