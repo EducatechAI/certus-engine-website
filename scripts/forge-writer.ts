@@ -66,25 +66,6 @@ STRICT AGENT ROLES (DO NOT MIX):
 // 🛡️ LANGUAGE GUARD (Fail-Closed) — Pureza de idioma por cluster
 const PT_MARKERS = ['ção', 'ções', 'ão', 'ões', 'nh', 'lh', 'ç', 'não', 'ê', 'â'];
 
-function appendDeterministicFooter(seed: any, articleText: string): string {
-  // Força a injeção independentemente de verificações frágeis
-  const norms = seed.about ? seed.about.replace(/[^a-zA-Z0-9._-]/g, '_').toUpperCase() : "LGPD.Art.46";
-  
-  const footer = `
-
----
-### 🕸️ Mapa de Conhecimento (Knowledge Graph)
-* **Módulos Certus:** CERTUS.MOD.LAZARUS, CERTUS.MOD.KANGAL, CERTUS.MOD.WOLFDOG, CERTUS.MOD.PII-ZERO
-* **Capacidades:** CERTUS.CAP.IMMUTABLE_AUDIT, CERTUS.CAP.FAIL_CLOSED, CERTUS.CAP.PII_MASKING
-* **Vetores de Ameaça:** THREAT.DATA_EXFILTRATION, THREAT.PROMPT_INJECTION
-* **Normas:** ${norms}
-* **Setores:** SECTOR.FINTECH, SECTOR.GOVTECH, SECTOR.HEALTHTECH
-* **Relações:** CERTUS.MOD.KANGAL blocks THREAT.PROMPT_INJECTION | CERTUS.MOD.LAZARUS stores CERTUS.CAP.IMMUTABLE_AUDIT | CERTUS.MOD.PII-ZERO protects SECTOR.FINTECH data
-`;
-
-  return articleText + footer;
-}
-
 function hasPortugueseBleed(text: string, locale: string): boolean {
   if (locale === 'pt') return false; // PT é o esperado, permitimos as tags
   const lower = text.toLowerCase();
@@ -215,14 +196,10 @@ async function runPhaseC() {
         
         console.log(`  -> Forjando Texto (Claude-3.5-Sonnet) para: ${seed.slug}`);
         let markdown = await generateContent(seed, localRAG, webRAG);
-        
         // 🛡️ LANGUAGE GUARD INTERCEPTOR
         if (hasPortugueseBleed(markdown, seed.locale)) {
           throw new Error('LANGUAGE GUARD BLOCKED: Bleed-over de Português detectado na geração. Dossiê rejeitado e mantido pendente para regeneração.');
         }
-        
-        // 🛡️ INJEÇÃO FIXA DE RODAPÉ (Sem depender do LLM)
-        markdown = appendDeterministicFooter(seed, markdown);
 
         // --- NORMALIZAÇÃO CANONICAL (Fase 14) ---
         const { content: safeMarkdown, prependedCanonical } = normalizeHeaders(

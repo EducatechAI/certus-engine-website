@@ -4,6 +4,7 @@ import path from 'path';
 import type { Metadata } from 'next';
 import DripFeedDashboard from '@/components/ui/DripFeedDashboard';
 import ReactMarkdown from 'react-markdown';
+import { KnowledgeGraphFooter } from '@/components/KnowledgeGraphFooter';
 
 // Função para ler o seeds.json
 function getSeeds() {
@@ -85,6 +86,7 @@ export default async function Page({ params }: { params: { locale: string; assun
           <ReactMarkdown>{page.contentMarkdown}</ReactMarkdown>
         </div>
         
+        <KnowledgeGraphFooter seed={page} />
 
       </article>
 
