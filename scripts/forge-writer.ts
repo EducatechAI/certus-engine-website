@@ -237,6 +237,11 @@ async function runPhaseC() {
           throw new Error('LANGUAGE GUARD BLOCKED: Bleed-over de Português detectado na geração. Dossiê rejeitado e mantido pendente para regeneração.');
         }
         
+        // 🛡️ FOOTER GUARD INTERCEPTOR
+        if (!markdown.includes('### 🕸️ Mapa de Conhecimento') || !markdown.includes('CERTUS.MOD.')) {
+           throw new Error('FOOTER GUARD BLOCKED: O LLM ignorou a injeção do Identificador Permanente (Knowledge Graph). Dossiê rejeitado e mantido pendente.');
+        }
+
         // --- NORMALIZAÇÃO CANONICAL (Fase 14) ---
         const { content: safeMarkdown, prependedCanonical } = normalizeHeaders(
           markdown,
