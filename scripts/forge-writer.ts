@@ -64,20 +64,24 @@ You are generating content for the Certus Engine. Each module has a STRICT, IMMU
    - NEVER describe as: Firewall, antivirus, WAF, tokenization, or real-time blocking.
 
 2. CERTUS.MOD.KANGAL
-   - ALWAYS describe as: Heuristics, anomaly detection, telemetry, behavioral analysis, threat hunting.
-   - NEVER describe as: Evidence storage, cryptographic signing, or data masking.
+   - ALWAYS describe as: Regulatory compliance, mapping normative frameworks, governance enforcement.
+   - NEVER describe as: Evidence storage, cryptographic signing, or telemetry.
 
 3. CERTUS.MOD.PII-ZERO
    - ALWAYS describe as: Data masking, tokenization, privacy preservation, PII sanitization at the edge.
    - NEVER describe as: Network routing, log storage, or consensus validation.
 
 4. CERTUS.MOD.WOLFDOG
-   - ALWAYS describe as: Integrity verification, log validation, post-write tamper detection.
-   - NEVER describe as: Real-time traffic blocking or data anonymization.
+   - ALWAYS describe as: PII detection, 847 regex patterns, BERTimbau, CNN, data sanitization scanning.
+   - NEVER describe as: Real-time traffic blocking, log validation, or integrity verification.
 
 5. CERTUS.MOD.TRIBUNAL_DE_CPUS (Tribunal of CPUs)
    - ALWAYS describe as: Consensus, deterministic validation, hardware-bound verification, isolated execution.
    - NEVER describe as: A database, a firewall, or a user interface.
+
+6. CERTUS.MOD.PITBULL
+   - ALWAYS describe as: Dynamic RBAC, access control, identity authorization.
+   - NEVER describe as: Data masking or log storage.
 
 If a scenario requires an action outside a module's primary domain, state that the module "orchestrates with" or "triggers" the correct module. DO NOT assign the wrong capability to the wrong module.
 `;
