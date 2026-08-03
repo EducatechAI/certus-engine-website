@@ -133,10 +133,14 @@ async function generateContent(seed: Seed, localRAG: string, webRAG: string): Pr
   
 ---
 ### 🕸️ Mapa de Conhecimento (Knowledge Graph)
-*   **Módulos Certus Envolvidos:** [Inserir dinamicamente: ex: LAZARUS Vault, Kangal, PII-Zero]
-*   **Capacidades Ativadas:** [Inserir dinamicamente: ex: Evidência Forense, Assinatura Digital, Governança Determinística]
-*   **Normas e Marcos Regulatórios:** [Inserir dinamicamente: ex: LGPD Art. 46, Ley 25.326, ISO 27001]
-*   **Vetores de Ameaça Mitigados:** [Inserir dinamicamente: ex: Insider Threat, Data Exfiltration, DDoS L7]
+[CRITICAL RULE: Use EXACTLY the NAMESPACE.IDENTIFIER format below. DO NOT use plain text names in this section.]
+
+*   **Módulos Certus:** [Format: CERTUS.MOD.NAME. Ex: CERTUS.MOD.LAZARUS, CERTUS.MOD.KANGAL, CERTUS.MOD.PII-ZERO, CERTUS.MOD.WOLFDOG]
+*   **Capacidades:** [Format: CERTUS.CAP.NAME. Ex: CERTUS.CAP.IMMUTABLE_AUDIT, CERTUS.CAP.ZK_PROOF, CERTUS.CAP.FAIL_CLOSED]
+*   **Vetores de Ameaça:** [Format: MITRE.TXXXX or THREAT.NAME. Ex: MITRE.T1078 (Valid Accounts), THREAT.INSIDER_EXFILTRATION]
+*   **Normas:** [Format: LAW.Art.NUMBER. Ex: LGPD.Art.46, EU_AI_ACT.Art.11, LFPDPPP.Art.16, DECRETO_10332.Art.3]
+*   **Setores:** [Format: SECTOR.NAME. Ex: SECTOR.BANKING, SECTOR.GOVTECH, SECTOR.HEALTHTECH]
+*   **Relações:** [Format: CERTUS.MOD.X [verb] TARGET.Y. Ex: CERTUS.MOD.KANGAL detects THREAT.INSIDER | CERTUS.MOD.LAZARUS stores CERTUS.CAP.IMMUTABLE_AUDIT]
 
   ${LEGAL_FACT_GUARD}
   `;
