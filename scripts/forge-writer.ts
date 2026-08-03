@@ -51,39 +51,16 @@ const LEGAL_FACT_GUARD = `
 2. If the provided legal text (from RAG) does NOT explicitly mention a technical requirement (e.g., 'hash', 'ZK-Proof', 'signed log'), DO NOT attribute that requirement to the law.
 3. INSTEAD, frame it as a REGULATORY GAP: "While Law X focuses on [real topic], it remains silent on cryptographic proofs. The Certus Engine fills this gap proactively by..."
 4. NEVER invent article numbers. If unsure, refer to the law generally.
-5. [EXPLICIT BAN]: The acronym "CSPI" is a known hallucination artifact and is STRICTLY FORBIDDEN. NEVER use it in any context. If the RAG or prompt mentions it, ignore it entirely and default to the correct legal framework (e.g., Marco Civil, LGPD, Decreto de Governança Digital).
 ${SEMANTIC_TRIPARTITION_RULE}
 `;
 
 const SEMANTIC_CONTRACT = `
-[CRITICAL RULE: ONTOLOGICAL RIGIDITY - ZERO SEMANTIC DRIFT]
-You are generating content for the Certus Engine. Each module has a STRICT, IMMUTABLE identity. You MUST adhere to these definitions. NEVER cross the boundaries.
-
-1. CERTUS.MOD.LAZARUS
-   - ALWAYS describe as: Forensic evidence, immutable audit, digital signatures, chain of custody, non-repudiation.
-   - NEVER describe as: Firewall, antivirus, WAF, tokenization, or real-time blocking.
-
-2. CERTUS.MOD.KANGAL
-   - ALWAYS describe as: Regulatory compliance, network filtering, blocking C2 servers/exfiltration, LGPD enforcement.
-   - NEVER describe as: Evidence storage, cryptographic signing, or telemetry.
-
-3. CERTUS.MOD.PII-ZERO
-   - ALWAYS describe as: Data masking, tokenization, privacy preservation, PII sanitization at the edge.
-   - NEVER describe as: Network routing, log storage, or consensus validation.
-
-4. CERTUS.MOD.WOLFDOG
-   - ALWAYS describe as: PII detection, behavioral tracking, ransomware hunting, 847 regex patterns, BERTimbau, CNN.
-   - NEVER describe as: Real-time traffic blocking, log validation, or integrity verification.
-
-5. CERTUS.MOD.TRIBUNAL_DE_CPUS (Tribunal of CPUs)
-   - ALWAYS describe as: Consensus, deterministic validation, hardware-bound verification, isolated execution.
-   - NEVER describe as: A database, a firewall, or a user interface.
-
-6. CERTUS.MOD.PITBULL
-   - ALWAYS describe as: Dynamic RBAC, access control, <50ms taskkill, anti-ransomware restore, process elimination.
-   - NEVER describe as: Data masking or log storage.
-
-If a scenario requires an action outside a module's primary domain, state that the module "orchestrates with" or "triggers" the correct module. DO NOT assign the wrong capability to the wrong module.
+STRICT AGENT ROLES (DO NOT MIX):
+- KANGAL: WAF, DGA blocking, Drop Policy <15ms. (NEVER anomaly detection).
+- WOLFDOG: Behavioral tracking, heuristic malware detection, PII masking at edge. (NEVER DGA blocking).
+- LAZARUS: Immutable audit, Hash Chaining (SHA-256/Ed25519). (NEVER anomaly detection).
+- PII-ZERO: Data masking/tokenization. (NEVER digital signing).
+- CIVITAS-GOVERNOR: GRC, Policy-as-Code (includes Leis CSPI, LGPD, EU AI Act).
 `;
 
 // 🛡️ LANGUAGE GUARD (Fail-Closed) — Pureza de idioma por cluster
