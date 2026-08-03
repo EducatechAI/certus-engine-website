@@ -67,10 +67,7 @@ STRICT AGENT ROLES (DO NOT MIX):
 const PT_MARKERS = ['ção', 'ções', 'ão', 'ões', 'nh', 'lh', 'ç', 'não', 'ê', 'â'];
 
 function appendDeterministicFooter(seed: any, articleText: string): string {
-  if (articleText.includes("Mapa de Conhecimento") || articleText.includes("Knowledge Graph")) {
-    return articleText;
-  }
-
+  // Força a injeção independentemente de verificações frágeis
   const norms = seed.about ? seed.about.replace(/[^a-zA-Z0-9._-]/g, '_').toUpperCase() : "LGPD.Art.46";
   
   const footer = `
