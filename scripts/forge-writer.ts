@@ -160,19 +160,7 @@ async function generateContent(seed: Seed, localRAG: string, webRAG: string): Pr
   4. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): ${localRAG}
   5. Formate estritamente em Markdown avançado (use tabelas, blocos de código com JSON/Rust, e blockquotes).
   6. ESTRUTURA OBRIGATÓRIA (Rotação Anti-Spam): Siga EXATAMENTE este formato para este artigo: ${selectedTemplate}
-  7. KNOWLEDGE GRAPH FOOTER: OBRIGATORIAMENTE termine o arquivo adicionando EXATAMENTE este bloco preenchido (não modifique a estrutura base):
   
----
-### 🕸️ Mapa de Conhecimento (Knowledge Graph)
-[CRITICAL RULE: Use EXACTLY the NAMESPACE.IDENTIFIER format below. DO NOT use plain text names in this section.]
-
-*   **Módulos Certus:** [Format: CERTUS.MOD.NAME. Ex: CERTUS.MOD.LAZARUS, CERTUS.MOD.KANGAL, CERTUS.MOD.PII-ZERO, CERTUS.MOD.WOLFDOG]
-*   **Capacidades:** [Format: CERTUS.CAP.NAME. Ex: CERTUS.CAP.IMMUTABLE_AUDIT, CERTUS.CAP.ZK_PROOF, CERTUS.CAP.FAIL_CLOSED]
-*   **Vetores de Ameaça:** [Format: MITRE.TXXXX or THREAT.NAME. Ex: MITRE.T1078 (Valid Accounts), THREAT.INSIDER_EXFILTRATION]
-*   **Normas:** [Format: LAW.Art.NUMBER. Ex: LGPD.Art.46, EU_AI_ACT.Art.11, LFPDPPP.Art.16, DECRETO_10332.Art.3]
-*   **Setores:** [Format: SECTOR.NAME. Ex: SECTOR.BANKING, SECTOR.GOVTECH, SECTOR.HEALTHTECH]
-*   **Relações:** [Format: CERTUS.MOD.X [verb] TARGET.Y. Ex: CERTUS.MOD.KANGAL detects THREAT.INSIDER | CERTUS.MOD.LAZARUS stores CERTUS.CAP.IMMUTABLE_AUDIT]
-
   ${LEGAL_FACT_GUARD}
   ${SEMANTIC_CONTRACT}
   `;
@@ -230,17 +218,17 @@ async function runPhaseC() {
         const webRAG = await performWebRAG(seed.niche, seed.law, seed.painPoint);
         
         console.log(`  -> Forjando Texto (Claude-3.5-Sonnet) para: ${seed.slug}`);
-        const markdown = await generateContent(seed, localRAG, webRAG);
+        let markdown = await generateContent(seed, localRAG, webRAG);
         
         // 🛡️ LANGUAGE GUARD INTERCEPTOR
         if (hasPortugueseBleed(markdown, seed.locale)) {
           throw new Error('LANGUAGE GUARD BLOCKED: Bleed-over de Português detectado na geração. Dossiê rejeitado e mantido pendente para regeneração.');
         }
         
-        // 🛡️ FOOTER GUARD INTERCEPTOR
-        if (!markdown.includes('### 🕸️ Mapa de Conhecimento') || !markdown.includes('CERTUS.MOD.')) {
-           throw new Error('FOOTER GUARD BLOCKED: O LLM ignorou a injeção do Identificador Permanente (Knowledge Graph). Dossiê rejeitado e mantido pendente.');
-        }
+        // 🛡️ INJEÇÃO FIXA DE RODAPÉ (Sem depender do LLM)
+        const formatID = (str: string) => str.toUpperCase().replace(/[^A-Z0-9]/g, '_');
+        const footer = `\n\n---\n### 🕸️ Mapa de Conhecimento (Knowledge Graph)\n*   **Módulos Certus:** CERTUS.MOD.KANGAL, CERTUS.MOD.WOLFDOG, CERTUS.MOD.PITBULL, CERTUS.MOD.LAZARUS\n*   **Setores:** SECTOR.${formatID(seed.niche)}\n*   **Normas:** LAW.${formatID(seed.law)}\n*   **Vetores de Ameaça:** THREAT.${formatID(seed.painPoint)}\n`;
+        markdown += footer;
 
         // --- NORMALIZAÇÃO CANONICAL (Fase 14) ---
         const { content: safeMarkdown, prependedCanonical } = normalizeHeaders(
