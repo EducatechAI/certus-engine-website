@@ -55,6 +55,33 @@ const LEGAL_FACT_GUARD = `
 ${SEMANTIC_TRIPARTITION_RULE}
 `;
 
+const SEMANTIC_CONTRACT = `
+[CRITICAL RULE: ONTOLOGICAL RIGIDITY - ZERO SEMANTIC DRIFT]
+You are generating content for the Certus Engine. Each module has a STRICT, IMMUTABLE identity. You MUST adhere to these definitions. NEVER cross the boundaries.
+
+1. CERTUS.MOD.LAZARUS
+   - ALWAYS describe as: Forensic evidence, immutable audit, digital signatures, chain of custody, non-repudiation.
+   - NEVER describe as: Firewall, antivirus, WAF, tokenization, or real-time blocking.
+
+2. CERTUS.MOD.KANGAL
+   - ALWAYS describe as: Heuristics, anomaly detection, telemetry, behavioral analysis, threat hunting.
+   - NEVER describe as: Evidence storage, cryptographic signing, or data masking.
+
+3. CERTUS.MOD.PII-ZERO
+   - ALWAYS describe as: Data masking, tokenization, privacy preservation, PII sanitization at the edge.
+   - NEVER describe as: Network routing, log storage, or consensus validation.
+
+4. CERTUS.MOD.WOLFDOG
+   - ALWAYS describe as: Integrity verification, log validation, post-write tamper detection.
+   - NEVER describe as: Real-time traffic blocking or data anonymization.
+
+5. CERTUS.MOD.TRIBUNAL_DE_CPUS (Tribunal of CPUs)
+   - ALWAYS describe as: Consensus, deterministic validation, hardware-bound verification, isolated execution.
+   - NEVER describe as: A database, a firewall, or a user interface.
+
+If a scenario requires an action outside a module's primary domain, state that the module "orchestrates with" or "triggers" the correct module. DO NOT assign the wrong capability to the wrong module.
+`;
+
 // 🛡️ LANGUAGE GUARD (Fail-Closed) — Pureza de idioma por cluster
 const PT_MARKERS = ['ção', 'ções', 'ão', 'ões', 'nh', 'lh', 'ç', 'não', 'ê', 'â'];
 
@@ -143,6 +170,7 @@ async function generateContent(seed: Seed, localRAG: string, webRAG: string): Pr
 *   **Relações:** [Format: CERTUS.MOD.X [verb] TARGET.Y. Ex: CERTUS.MOD.KANGAL detects THREAT.INSIDER | CERTUS.MOD.LAZARUS stores CERTUS.CAP.IMMUTABLE_AUDIT]
 
   ${LEGAL_FACT_GUARD}
+  ${SEMANTIC_CONTRACT}
   `;
 
   const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
