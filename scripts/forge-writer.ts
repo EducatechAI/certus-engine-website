@@ -36,6 +36,25 @@ const TOP_DOSSIERS = [
   'CAPACIDADES_SOBERANAS.md'
 ];
 
+const SEMANTIC_TRIPARTITION_RULE = `
+[CRITICAL RULE: STRUCTURAL CLARITY]
+When generating the article, you MUST clearly distinguish between three layers:
+1. EXTERNAL FACTS: Laws, regulations, and public standards (e.g., "Art. 9 of Ley 25.326 states...").
+2. PRODUCT CAPABILITIES: What the Certus Engine modules objectively do (e.g., "The Kangal module monitors...").
+3. SIMULATED SCENARIOS: Hypothetical examples, metrics, or benchmarks (e.g., "In a simulated breach of 50GB/day...").
+NEVER blur the lines. Do not present a simulated metric as a legal requirement, and do not present a product feature as an external law.
+`;
+
+const LEGAL_FACT_GUARD = `
+[CRITICAL RULE: ZERO LEGAL HALLUCINATION]
+1. NEVER invent, modify, or paraphrase the text of a law, article, decree, or its official acronym. Use ONLY official names (e.g., "Lei 18.430/2021", "LGPD", "Decreto 10.332/2020").
+2. If the provided legal text (from RAG) does NOT explicitly mention a technical requirement (e.g., 'hash', 'ZK-Proof', 'signed log'), DO NOT attribute that requirement to the law.
+3. INSTEAD, frame it as a REGULATORY GAP: "While Law X focuses on [real topic], it remains silent on cryptographic proofs. The Certus Engine fills this gap proactively by..."
+4. NEVER invent article numbers. If unsure, refer to the law generally.
+5. [EXPLICIT BAN]: The acronym "CSPI" is a known hallucination artifact and is STRICTLY FORBIDDEN. NEVER use it in any context. If the RAG or prompt mentions it, ignore it entirely and default to the correct legal framework (e.g., Marco Civil, LGPD, Decreto de Governança Digital).
+${SEMANTIC_TRIPARTITION_RULE}
+`;
+
 // 🛡️ LANGUAGE GUARD (Fail-Closed) — Pureza de idioma por cluster
 const PT_MARKERS = ['ção', 'ções', 'ão', 'ões', 'nh', 'lh', 'ç', 'não', 'ê', 'â'];
 
@@ -86,6 +105,14 @@ async function performWebRAG(niche: string, law: string, pain: string): Promise<
 async function generateContent(seed: Seed, localRAG: string, webRAG: string): Promise<string> {
   if (!OPENROUTER_API_KEY) throw new Error('OPENROUTER_API_KEY is required');
 
+  const templateIndex = [...(seed.id || seed.slug)].reduce((acc, char) => acc + char.charCodeAt(0), 0) % 3;
+  const templates = [
+    "Formato A (O Padrão): Estudo de Caso / Cenário de Ameaça.",
+    "Formato B (Especificação Técnica): Focado em 'Como o Módulo X funciona'. Mais técnico, com mais código, menos narrativa jurídica. Estilo 'Documentação de API'.",
+    "Formato C (Matriz de Decisão / FAQ): Estruturado como 'Pergunta: [Dor do CISO] -> Resposta: [Solução Certus] -> Prova: [Comando/Hash]'."
+  ];
+  const selectedTemplate = templates[templateIndex];
+
   const prompt = `
   Você é o Mestre Soberano do Certus Engine, a IA letal de defesa cibernética.
   Escreva um Dossiê Técnico de altíssima densidade (1500 a 2500 palavras) no idioma '${seed.locale}'.
@@ -101,6 +128,17 @@ async function generateContent(seed: Seed, localRAG: string, webRAG: string): Pr
   3. Não cite "achismos". Use os fatos recentes do Web RAG: ${webRAG}
   4. Baseie-se nas capacidades técnicas (Kangal, Wolfdog): ${localRAG}
   5. Formate estritamente em Markdown avançado (use tabelas, blocos de código com JSON/Rust, e blockquotes).
+  6. ESTRUTURA OBRIGATÓRIA (Rotação Anti-Spam): Siga EXATAMENTE este formato para este artigo: ${selectedTemplate}
+  7. KNOWLEDGE GRAPH FOOTER: OBRIGATORIAMENTE termine o arquivo adicionando EXATAMENTE este bloco preenchido (não modifique a estrutura base):
+  
+---
+### 🕸️ Mapa de Conhecimento (Knowledge Graph)
+*   **Módulos Certus Envolvidos:** [Inserir dinamicamente: ex: LAZARUS Vault, Kangal, PII-Zero]
+*   **Capacidades Ativadas:** [Inserir dinamicamente: ex: Evidência Forense, Assinatura Digital, Governança Determinística]
+*   **Normas e Marcos Regulatórios:** [Inserir dinamicamente: ex: LGPD Art. 46, Ley 25.326, ISO 27001]
+*   **Vetores de Ameaça Mitigados:** [Inserir dinamicamente: ex: Insider Threat, Data Exfiltration, DDoS L7]
+
+  ${LEGAL_FACT_GUARD}
   `;
 
   const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {

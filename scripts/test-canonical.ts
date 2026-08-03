@@ -1,0 +1,4 @@
+const { normalizeHeaders } = require('./src/lib/canonical');
+const content = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Is sovereign on-premise AI viable for Multinational CISOs without losing performance? (Case Study 10)","author":{"@type":"Person","name":"Paulino Gerlack"},"datePublished":"2026-08-02","publisher":{"@type":"Organization","name":"Educatech AI Digital Sovereign Ltda","logo":{"@type":"ImageObject","url":"https://certusengine.ia.br/logo.svg"}},"about":"GDPR (Europe)","description":"Is sovereign on-premise AI viable for Multinational CISOs without losing performance?"}</script> <link rel="canonical" href="https://certusengine.ia.br/article/is-sovereign-on-premise-ai-viable-for-multinational-cisos-wo-cs10-g16" />🟡 SIMULATED SCENARIO`;
+
+console.log(normalizeHeaders(content, 'en', 'global', 'is-sovereign-on-premise-ai-viable-for-multinational-cisos-wo-cs10-g16'));
