@@ -106,16 +106,25 @@ O que o técnico cria com ZK-Proofs:
 
 **Para a empresa:** Permite criar sistemas de identidade digital, assinaturas eletrónicas e validações de licença 100% à prova de pirataria e clones, totalmente imunes a proxies, VPNs ou roubo de banco de dados.
 
-#### 🛡️ 4. A FORTALEZA INTEGRADA (Os 4 Guardiões)
-O técnico tem sob as suas ordens o APEX GUARDIAN a rodar em tempo real:
+#### 🛡️ 4. A FROTA APEX (Os 14 Agentes Soberanos)
+O técnico tem sob as suas ordens a Frota APEX GUARDIAN a rodar em tempo real (Poderes Cumulativos):
 
-| Guardião | Ação da IDE Command | Exemplo Técnico |
+| Agente | Domínio Principal (Evolução Estratégica) | Exemplo Técnico |
 | :--- | :--- | :--- |
-| **Wolfdog** 🐺 | Rastreamento comportamental de processos | Deteta ransomware ou trojans pelo comportamento, com score de risco de 0 a 100 em tempo real. |
-| **Kangal** 🐕 | Filtro de perímetro de rede ativo | Bloqueia tentativas de exfiltração de dados (envio de >10MB) e servidores C2 na camada de rede. |
-| **Pitbull** 🐶 | Resposta ativa implacável | Mata o processo em menos de 50ms, faz quarentena do ficheiro e limpa o registo do Windows. |
-| **Presa** 🦮 | Integridade de ficheiros | Varre o servidor a cada 5 minutos contra checksums SHA-256 para detetar alterações não autorizadas. |
-| **Janitor** 🧹 | Otimização de Sistema | Varre processos mortos, limpa resíduos temporários e desfragmenta pastas proativamente (Smart Filing). |
+| **1. Wolfdog** 🐺 | Detecção de PII + Caça a Ransomware | Varre PII em memória (847 regex/CNN) e detecta ransomware pelo comportamento de processos. |
+| **2. Kangal** 🐕 | Compliance Regulatório + Filtro de Rede | Mapeia normativas (LGPD) e bloqueia vazamentos de dados ou conexões a servidores C2 na camada de rede. |
+| **3. Pitbull** 🐶 | RBAC Dinâmico + Resposta Implacável | Executa controle de acesso (Roles) e elimina ameaças matando processos em <50ms. |
+| **4. Sentinel Prime** 👑 | Orquestração Mestre | Gerencia a topologia dos agentes e despacha tarefas. |
+| **5. Sentinel Defense** 🛡️ | Hardening Contínuo (Módulo Pai) | Projeta defesas ativas contra ataques. *Nota: Absorve as antigas rotinas "Presa" (Integridade) e "Janitor" (Otimização) como sub-processos táticos.* |
+| **6. LAZARUS Auditor** 🧟 | Consistência Temporal | Reconciliação financeira em milissegundos e bloqueio de "Ordens Lázaro". |
+| **7. GHOST Recon** 👻 | Mapeamento Silencioso | Vasculha a rede internamente sem disparar sensores. |
+| **8. FORGE Exploit** ⚔️ | Red Teaming Interno | Tenta ativamente invadir o próprio sistema. |
+| **9. CIVITAS-GOVERNOR** 🏛️ | GRC e Governança | Controla o risco corporativo. |
+| **10. ZK-SOVEREIGN-GUARD** 🔐 | PII-Zero Enforcement | Criptografia de Prova de Conhecimento Zero. |
+| **11. EDUCATECH-BUILDER** 🏗️ | UI/UX | Gera interfaces seguras. |
+| **12. ANALYST Deep** 🕵️ | Forense Pós-Incidente | Relatórios judiciais imutáveis. |
+| **13. SCRIBE Intel** 📜 | Logs Imutáveis | Assina cada ação criptograficamente (SHA-256). |
+| **14. GUARDIAN Ethical** ⚖️ | Compliance Ético | Bloqueia violações das Regras de Engajamento. |
 
 ---
 
@@ -123,8 +132,10 @@ O técnico tem sob as suas ordens o APEX GUARDIAN a rodar em tempo real:
 Exclusivo da Command Edition. Quatro módulos que trabalham juntos como uma equipe de segurança autónoma.
 
 #### 🐺 WOLFDOG — "O Rastreador"
-Não pergunta o que um programa é. Pergunta o que ele está a fazer.
-Enquanto o técnico trabalha na IDE, o Wolfdog vigia todos os processos do computador em tempo real e calcula um score de risco de 0 a 100 para cada um, baseado no comportamento:
+Não pergunta o que um programa é. Pergunta o que ele está a fazer e que dados ele carrega.
+*(⚡ NOVA EVOLUÇÃO ESTRATÉGICA: O Wolfdog agora atua primariamente como Farejador de PII, varrendo os buffers de memória e inputs de LLM com 847 padrões regex complexos, modelo CNN e dicionário BERTimbau para mascarar CPFs e senhas em tempo real, impedindo exfiltração acidental.)*
+
+Simultaneamente (Poder Tático Mantido), enquanto o técnico trabalha na IDE, o Wolfdog vigia todos os processos do computador em tempo real e calcula um score de risco de 0 a 100 para cada um, baseado no comportamento:
 
 | Comportamento Detectado | Score de Risco | O que significa |
 | :--- | :--- | :--- |
@@ -140,9 +151,10 @@ Se detectar combinações específicas (ex: apagar Shadow Copies e renomear fich
 **Exemplo real numa empresa:** Um funcionário abre um e-mail com um ficheiro Excel malicioso. O Excel começa a renomear documentos silenciosamente. O Wolfdog deteta em segundos e manda sinal de alarme — antes que um único ficheiro seja comprometido.
 
 #### 🐕 KANGAL — "O Guardião do Perímetro"
-Vigia toda a comunicação de rede da empresa — entrada e saída.
+Vigia toda a comunicação de rede da empresa — entrada e saída, com foco em soberania de dados.
+*(⚡ NOVA EVOLUÇÃO ESTRATÉGICA: O Kangal agora é o guardião absoluto do Compliance Regulatório (LGPD, Marco Civil, GDPR). Ele lê os fluxos e aplica travas estruturais de governança. Se um dado tentar cruzar fronteiras sem salvaguarda contratual (Art. 46 LGPD), ele decepa a conexão.)*
 
-O que bloqueia automaticamente:
+Além disso (Poder Tático Mantido), o que ele bloqueia automaticamente na camada TCP/IP:
 
 | Tipo de Ameaça | Como Detecta | Ação |
 | :--- | :--- | :--- |
@@ -155,9 +167,10 @@ O que bloqueia automaticamente:
 **Exemplo real:** O computador de um funcionário está infetado. O vírus tenta enviar dados da empresa para um servidor na Rússia. O Kangal deteta o domínio suspeito, bloqueia a ligação em milissegundos e regista a tentativa com hora, destino e processo responsável.
 
 #### 🐶 PITBULL — "O Eliminador Implacável"
-Quando o Wolfdog ou o Kangal confirmam uma ameaça, o Pitbull age. Não para até a eliminação estar completa.
+Onde o Wolfdog fareja e o Kangal audita, o Pitbull elimina acessos indevidos com brutalidade algorítmica.
+*(⚡ NOVA EVOLUÇÃO ESTRATÉGICA: O Pitbull é o executor do Role-Based Access Control (RBAC) dinâmico. Se um usuário tentar um movimento lateral não autorizado, o Pitbull mata o token JWT, derruba a conexão e tranca a conta na mesma fração de segundo.)*
 
-Cadeia de eliminação automática (sem precisar de humano):
+Quando o Wolfdog ou o Kangal confirmam uma ameaça sistêmica (Poder Tático Mantido), a sua cadeia de eliminação automática (sem precisar de humano) atua assim:
 1. **Passo 1 — Matar o processo (<50ms):** O processo malicioso é terminado imediatamente via taskkill. Cinquenta milissegundos — mais rápido do que qualquer técnico humano conseguiria reagir.
 2. **Passo 2 — Quarentena do ficheiro:** O ficheiro malicioso não é apagado (isso destruiria evidências). É movido para uma pasta de quarentena selada, preservado para análise forense posterior.
 3. **Passo 3 — Caçar e eliminar persistências:** O vírus pode ter criado entradas no registo do Windows para reiniciar automaticamente. O Pitbull varre todas as chaves de startup (`HKLM\SOFTWARE\...\Run`, `HKCU\...`), elimina as entradas do malware e cancela tarefas agendadas maliciosas.
@@ -169,7 +182,9 @@ Cadeia de eliminação automática (sem precisar de humano):
 
 **Exemplo real:** Um vírus de ransomware começa a criptografar os contratos PDF da empresa. O Wolfdog deteta. O Pitbull mata o processo em 50ms, move o executável malicioso para quarentena, elimina as entradas de startup que o fariam reiniciar no boot, e restaura os 47 ficheiros PDF que já tinham sido criptografados — tudo automaticamente, em menos de 2 minutos.
 
-#### 🦮 PRESA — "O Guardião do Território"
+#### 🦮 PRESA & JANITOR — (Sub-Rotinas do Sentinel Defense)
+*(Nota: Para manter a topologia estrita de 14 Agentes Soberanos, as capacidades do antigo cão "Presa" e da rotina "Janitor" operam agora sob o manto do módulo pai **Sentinel Defense**.)*
+
 Cria uma "fotografia" criptográfica (hash SHA-256) de cada ficheiro crítico do site e do servidor.
 A cada 5 minutos, compara o estado atual com a fotografia. Se qualquer ficheiro for alterado sem autorização — mesmo um só caracter num ficheiro de configuração — o Presa deteta e aciona alarme imediato.
 
