@@ -15,7 +15,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00002",
@@ -33,7 +34,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00003",
@@ -51,7 +53,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 97,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00004",
@@ -69,7 +72,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00005",
@@ -87,7 +91,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 97,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00006",
@@ -105,7 +110,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00007",
@@ -123,7 +129,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00008",
@@ -141,7 +148,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 97,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00009",
@@ -159,7 +167,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00010",
@@ -177,7 +186,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00011",
@@ -195,7 +205,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00012",
@@ -213,7 +224,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 97,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00013",
@@ -231,7 +243,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00014",
@@ -249,7 +262,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00015",
@@ -267,7 +281,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 93,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00016",
@@ -285,7 +300,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00017",
@@ -303,7 +319,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00018",
@@ -321,7 +338,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00019",
@@ -339,7 +357,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00020",
@@ -357,7 +376,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00021",
@@ -375,7 +395,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 91,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00022",
@@ -393,7 +414,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00023",
@@ -411,7 +433,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00024",
@@ -429,7 +452,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00025",
@@ -447,7 +471,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00026",
@@ -465,7 +490,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00027",
@@ -483,7 +509,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00028",
@@ -501,7 +528,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00029",
@@ -519,7 +547,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00030",
@@ -537,7 +566,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00031",
@@ -555,7 +585,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00032",
@@ -573,7 +604,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00033",
@@ -591,7 +623,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 92,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00034",
@@ -609,7 +642,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00035",
@@ -627,7 +661,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00036",
@@ -645,7 +680,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00037",
@@ -663,7 +699,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00038",
@@ -681,7 +718,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00039",
@@ -699,7 +737,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00040",
@@ -717,7 +756,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00041",
@@ -735,7 +775,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00042",
@@ -753,7 +794,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00043",
@@ -771,7 +813,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00044",
@@ -789,7 +832,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00045",
@@ -807,7 +851,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00046",
@@ -825,7 +870,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00047",
@@ -843,7 +889,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00048",
@@ -861,7 +908,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00049",
@@ -879,7 +927,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00050",
@@ -897,7 +946,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00051",
@@ -915,7 +965,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00052",
@@ -933,7 +984,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00053",
@@ -951,7 +1003,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00054",
@@ -969,7 +1022,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00055",
@@ -987,7 +1041,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00056",
@@ -1005,7 +1060,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00057",
@@ -1023,7 +1079,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00058",
@@ -1041,7 +1098,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00059",
@@ -1059,7 +1117,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00060",
@@ -1077,7 +1136,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00061",
@@ -1095,7 +1155,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00062",
@@ -1113,7 +1174,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00063",
@@ -1131,7 +1193,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00064",
@@ -1149,7 +1212,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00065",
@@ -1167,7 +1231,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00066",
@@ -1185,7 +1250,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00067",
@@ -1203,7 +1269,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00068",
@@ -1221,7 +1288,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00069",
@@ -1239,7 +1307,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00070",
@@ -1257,7 +1326,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00071",
@@ -1275,7 +1345,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00072",
@@ -1293,7 +1364,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01561",
@@ -1311,7 +1383,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01562",
@@ -1329,7 +1402,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01563",
@@ -1347,7 +1421,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01564",
@@ -1365,7 +1440,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01565",
@@ -1383,7 +1459,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01566",
@@ -1401,7 +1478,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01567",
@@ -1419,7 +1497,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01568",
@@ -1437,7 +1516,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 93,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01569",
@@ -1455,7 +1535,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01570",
@@ -1473,7 +1554,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01571",
@@ -1491,7 +1573,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01572",
@@ -1509,7 +1592,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01573",
@@ -1527,7 +1611,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01574",
@@ -1545,7 +1630,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01575",
@@ -1563,7 +1649,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01576",
@@ -1581,7 +1668,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01577",
@@ -1599,7 +1687,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01578",
@@ -1617,7 +1706,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01579",
@@ -1635,7 +1725,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01580",
@@ -1653,7 +1744,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01581",
@@ -1671,7 +1763,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01582",
@@ -1689,7 +1782,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01583",
@@ -1707,7 +1801,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01584",
@@ -1725,7 +1820,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01585",
@@ -1743,7 +1839,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01586",
@@ -1761,7 +1858,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01587",
@@ -1779,7 +1877,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01588",
@@ -1797,7 +1896,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01589",
@@ -1815,7 +1915,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01590",
@@ -1833,7 +1934,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01591",
@@ -1851,7 +1953,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01592",
@@ -1869,7 +1972,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01593",
@@ -1887,7 +1991,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01594",
@@ -1905,7 +2010,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 93,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01595",
@@ -1923,7 +2029,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01596",
@@ -1941,7 +2048,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01597",
@@ -1959,7 +2067,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01598",
@@ -1977,7 +2086,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01599",
@@ -1995,7 +2105,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01600",
@@ -2013,7 +2124,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01601",
@@ -2031,7 +2143,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01602",
@@ -2049,7 +2162,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01603",
@@ -2067,7 +2181,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01604",
@@ -2085,7 +2200,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01605",
@@ -2103,7 +2219,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01606",
@@ -2121,7 +2238,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01607",
@@ -2139,7 +2257,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01608",
@@ -2157,7 +2276,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03121",
@@ -2175,7 +2295,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03122",
@@ -2193,7 +2314,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 97,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03123",
@@ -2211,7 +2333,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03124",
@@ -2229,7 +2352,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03125",
@@ -2247,7 +2371,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 92,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03126",
@@ -2265,7 +2390,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03127",
@@ -2283,7 +2409,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03128",
@@ -2300,7 +2427,8 @@
       "gancho_usado": "¿Es posible crear infraestructura a prueba de Secuestro de Datos (Ransomware) usando ZK-Proofs?",
       "esqueleto_usado": "S3",
       "score_unicidade": 95
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03129",
@@ -2318,7 +2446,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03130",
@@ -2336,7 +2465,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03131",
@@ -2354,7 +2484,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03132",
@@ -2372,7 +2503,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03133",
@@ -2390,7 +2522,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03134",
@@ -2408,7 +2541,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03135",
@@ -2426,7 +2560,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03136",
@@ -2444,7 +2579,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03137",
@@ -2462,7 +2598,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03138",
@@ -2480,7 +2617,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03139",
@@ -2498,7 +2636,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03140",
@@ -2516,7 +2655,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03141",
@@ -2534,7 +2674,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03142",
@@ -2552,7 +2693,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03143",
@@ -2570,7 +2712,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03144",
@@ -2588,7 +2731,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03145",
@@ -2606,7 +2750,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03146",
@@ -2624,7 +2769,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03147",
@@ -2642,7 +2788,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03148",
@@ -2660,7 +2807,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03149",
@@ -2678,7 +2826,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03150",
@@ -2696,7 +2845,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03151",
@@ -2714,7 +2864,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 93,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03152",
@@ -2732,7 +2883,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03153",
@@ -2750,7 +2902,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03154",
@@ -2768,7 +2921,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03155",
@@ -2786,7 +2940,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03156",
@@ -2804,7 +2959,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03157",
@@ -2822,7 +2978,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03158",
@@ -2840,7 +2997,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03159",
@@ -2858,7 +3016,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03160",
@@ -2876,7 +3035,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03161",
@@ -2894,7 +3054,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03162",
@@ -2912,7 +3073,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03163",
@@ -2930,7 +3092,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03164",
@@ -2948,7 +3111,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03165",
@@ -2966,7 +3130,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03166",
@@ -2984,7 +3149,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03167",
@@ -3002,7 +3168,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03168",
@@ -3020,7 +3187,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03169",
@@ -3038,7 +3206,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03170",
@@ -3056,7 +3225,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03171",
@@ -3074,7 +3244,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03172",
@@ -3092,7 +3263,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03173",
@@ -3110,7 +3282,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03174",
@@ -3128,7 +3301,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03175",
@@ -3146,7 +3320,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 94,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03176",
@@ -3164,7 +3339,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03177",
@@ -3182,7 +3358,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03178",
@@ -3200,7 +3377,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03179",
@@ -3218,7 +3396,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03180",
@@ -3236,7 +3415,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03181",
@@ -3254,7 +3434,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 94,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03182",
@@ -3272,7 +3453,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03183",
@@ -3290,7 +3472,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03184",
@@ -3308,7 +3491,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03918",
@@ -3326,7 +3510,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03967",
@@ -3344,7 +3529,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 97,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04203",
@@ -3362,7 +3548,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04672",
@@ -3380,7 +3567,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02401",
@@ -3398,7 +3586,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 96,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02693",
@@ -3416,7 +3605,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 94,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04372",
@@ -3434,7 +3624,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01434",
@@ -3452,7 +3643,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 92,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02273",
@@ -3470,7 +3662,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 93,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03579",
@@ -3488,7 +3681,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00858",
@@ -3506,7 +3700,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01107",
@@ -3524,7 +3719,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03410",
@@ -3542,7 +3738,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01231",
@@ -3560,7 +3757,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02776",
@@ -3578,7 +3776,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01410",
@@ -3596,7 +3795,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00482",
@@ -3614,7 +3814,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01795",
@@ -3632,7 +3833,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01241",
@@ -3650,7 +3852,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04125",
@@ -3668,7 +3871,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03580",
@@ -3686,7 +3890,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03596",
@@ -3704,7 +3909,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01114",
@@ -3722,7 +3928,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01282",
@@ -3740,7 +3947,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00815",
@@ -3758,7 +3966,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03816",
@@ -3776,7 +3985,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03676",
@@ -3794,7 +4004,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00771",
@@ -3812,7 +4023,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-03006",
@@ -3830,7 +4042,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04108",
@@ -3848,7 +4061,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00496",
@@ -3866,7 +4080,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02198",
@@ -3884,7 +4099,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01635",
@@ -3902,7 +4118,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02489",
@@ -3920,7 +4137,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03273",
@@ -3938,7 +4156,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01357",
@@ -3956,7 +4175,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01959",
@@ -3974,7 +4194,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01780",
@@ -3992,7 +4213,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02043",
@@ -4010,7 +4232,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00293",
@@ -4028,7 +4251,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04221",
@@ -4046,7 +4270,8 @@
       "esqueleto_usado": "S4",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00736",
@@ -4064,7 +4289,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03543",
@@ -4082,7 +4308,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04657",
@@ -4100,7 +4327,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04553",
@@ -4118,7 +4346,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01499",
@@ -4136,7 +4365,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04060",
@@ -4154,7 +4384,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00321",
@@ -4172,7 +4403,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02678",
@@ -4190,7 +4422,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03463",
@@ -4208,7 +4441,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03540",
@@ -4226,7 +4460,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03823",
@@ -4244,7 +4479,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03552",
@@ -4262,7 +4498,8 @@
       "esqueleto_usado": "S2",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03497",
@@ -4280,7 +4517,8 @@
       "esqueleto_usado": "S3",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 ESCENARIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02144",
@@ -4298,7 +4536,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02329",
@@ -4316,7 +4555,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 95,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03597",
@@ -4334,7 +4574,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-01753",
@@ -4352,7 +4593,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00630",
@@ -4370,7 +4612,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02306",
@@ -4388,7 +4631,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00869",
@@ -4406,7 +4650,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01115",
@@ -4424,7 +4669,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02061",
@@ -4442,7 +4688,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01393",
@@ -4461,7 +4708,7 @@
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
     },
-    "status": "quarantine"
+    "status": "ready"
   },
   {
     "id": "omni-pt-00375",
@@ -4479,7 +4726,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03479",
@@ -4497,7 +4745,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02492",
@@ -4515,7 +4764,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-00480",
@@ -4533,7 +4783,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02405",
@@ -4551,7 +4802,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-03529",
@@ -4569,7 +4821,8 @@
       "esqueleto_usado": "S5",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02532",
@@ -4587,7 +4840,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 SIMULATED SCENARIO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04293",
@@ -4605,7 +4859,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-es-04235",
@@ -4623,7 +4878,8 @@
       "esqueleto_usado": "S6",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-pt-01007",
@@ -4793,7 +5049,8 @@
       "esqueleto_usado": "S1",
       "score_unicidade": 98,
       "rotulo_integridade": "🟡 CENÁRIO SIMULADO / THREAT MODEL"
-    }
+    },
+    "status": "ready"
   },
   {
     "id": "omni-en-02371",

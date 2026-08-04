@@ -40,8 +40,9 @@ function generateSitemap() {
   const seeds: Seed[] = JSON.parse(raw);
   console.log(`Total de sementes no banco: ${seeds.length}`);
 
-  // 2. Filtrar APENAS páginas forjadas (contentMarkdown preenchido)
+  // 2. Filtrar APENAS páginas forjadas (status ready/published)
   const forgedSeeds = seeds.filter(s => 
+    (s.status === 'ready' || s.status === 'published') &&
     s.contentMarkdown && 
     s.contentMarkdown.trim() !== '' &&
     s.locale && 
