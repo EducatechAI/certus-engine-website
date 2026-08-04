@@ -5,6 +5,7 @@ interface SeedData {
   about?: string;
   locale?: string;
   headline?: string;
+  contentMarkdown?: string;
 }
 
 export const KnowledgeGraphFooter: React.FC<{ seed: SeedData }> = ({ seed }) => {
@@ -34,9 +35,39 @@ export const KnowledgeGraphFooter: React.FC<{ seed: SeedData }> = ({ seed }) => 
     if (textToSearch.includes('vc') || textToSearch.includes('venture')) return 'SECTOR.VC';
     return 'SECTOR.ENTERPRISE'; // Fallback melhor que GENERAL
   };
-  
-  const norms = getNorms();
-  const sector = getSector();
+
+  let graphData = {
+    modules: ['CERTUS.MOD.KANGAL', 'CERTUS.MOD.LAZARUS', 'CERTUS.MOD.PII-ZERO', 'CERTUS.MOD.WOLFDOG'],
+    capabilities: ['CERTUS.CAP.IMMUTABLE_AUDIT', 'CERTUS.CAP.FAIL_CLOSED', 'CERTUS.CAP.PII_MASKING'],
+    threats: ['THREAT.DATA_EXFILTRATION', 'THREAT.PROMPT_INJECTION'],
+    norms: [getNorms()],
+    sector: getSector(),
+    relations: `CERTUS.MOD.KANGAL blocks THREAT.PROMPT_INJECTION | CERTUS.MOD.LAZARUS stores CERTUS.CAP.IMMUTABLE_AUDIT | CERTUS.MOD.PII-ZERO protects ${getSector()} data`
+  };
+
+  if (seed.contentMarkdown) {
+    try {
+      const jsonMatch = seed.contentMarkdown.match(/```json\s*([\s\S]*?)\s*```/g);
+      if (jsonMatch && jsonMatch.length > 0) {
+        // Tenta pegar o último bloco JSON (caso haja outros no meio do texto)
+        const lastJsonBlock = jsonMatch[jsonMatch.length - 1];
+        const rawJson = lastJsonBlock.replace(/```json\s*/, '').replace(/\s*```/, '');
+        const parsed = JSON.parse(rawJson);
+        if (parsed.knowledge_graph) {
+          graphData = {
+            modules: parsed.knowledge_graph.modules || graphData.modules,
+            capabilities: parsed.knowledge_graph.capabilities || graphData.capabilities,
+            threats: parsed.knowledge_graph.threats || graphData.threats,
+            norms: parsed.knowledge_graph.norms || graphData.norms,
+            sector: parsed.knowledge_graph.sector || graphData.sector,
+            relations: parsed.knowledge_graph.relations || graphData.relations
+          };
+        }
+      }
+    } catch (e) {
+      console.warn("JSON do Knowledge Graph não encontrado ou inválido, usando fallback.");
+    }
+  }
 
   // TRADUÇÃO DOS TÍTULOS BASEADO NO LOCALE
   const labels = {
@@ -79,26 +110,26 @@ export const KnowledgeGraphFooter: React.FC<{ seed: SeedData }> = ({ seed }) => 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-200">
           <div>
             <span className="font-semibold text-emerald-300">{t.modules}</span>
-            <p className="mt-1 font-mono text-xs">CERTUS.MOD.KANGAL, CERTUS.MOD.LAZARUS, CERTUS.MOD.PII-ZERO, CERTUS.MOD.WOLFDOG</p>
+            <p className="mt-1 font-mono text-xs">{graphData.modules.join(', ')}</p>
           </div>
           <div>
             <span className="font-semibold text-emerald-300">{t.capabilities}</span>
-            <p className="mt-1 font-mono text-xs">CERTUS.CAP.IMMUTABLE_AUDIT, CERTUS.CAP.FAIL_CLOSED, CERTUS.CAP.PII_MASKING</p>
+            <p className="mt-1 font-mono text-xs">{graphData.capabilities.join(', ')}</p>
           </div>
           <div>
             <span className="font-semibold text-emerald-300">{t.threats}</span>
-            <p className="mt-1 font-mono text-xs">THREAT.DATA_EXFILTRATION, THREAT.PROMPT_INJECTION</p>
+            <p className="mt-1 font-mono text-xs">{graphData.threats.join(', ')}</p>
           </div>
           <div>
             <span className="font-semibold text-emerald-300">{t.norms}</span>
-            <p className="mt-1 font-mono text-xs">{norms}</p>
+            <p className="mt-1 font-mono text-xs">{graphData.norms.join(', ')}</p>
           </div>
         </div>
 
         <div className="mt-4 pt-4 border-t border-white/10">
           <span className="font-semibold text-emerald-300 text-sm">{t.relations}</span>
           <p className="mt-1 font-mono text-xs text-gray-300">
-            CERTUS.MOD.KANGAL blocks THREAT.PROMPT_INJECTION | CERTUS.MOD.LAZARUS stores CERTUS.CAP.IMMUTABLE_AUDIT | CERTUS.MOD.PII-ZERO protects {sector} data
+            {graphData.relations}
           </p>
         </div>
       </div>
