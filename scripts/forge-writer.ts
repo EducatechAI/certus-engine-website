@@ -79,8 +79,6 @@ Gere o artigo em Markdown. Ao FINAL ABSOLUTO da sua resposta, você DEVE gerar A
     "modules": ["CERTUS.MOD.NOME_DO_MODULO", "CERTUS.MOD.OUTRO"],
     "capabilities": ["CERTUS.CAP.NOME_DA_CAPACIDADE"],
     "threats": ["THREAT.NOME_DA_AMENACA"],
-    "norms": ["NOME_REAL_DA_LEI_CITADA_NO_TEXTO"],
-    "sector": "SECTOR.NOME_DO_SETOR",
     "relations": "CERTUS.MOD.X faz AÇÃO | CERTUS.MOD.Y faz AÇÃO"
   }
 }
@@ -120,7 +118,7 @@ function validateOntologicalIntegrity(content: string): { isValid: boolean; reas
   }
   
   // 2. Verifica se a estrutura mínima do Knowledge Graph JSON está presente
-  if (!content.includes('"knowledge_graph"') || !content.includes('"norms"') || !content.includes('"sector"')) {
+  if (!content.includes('"knowledge_graph"')) {
     return { isValid: false, reason: 'Estrutura do Knowledge Graph JSON ausente ou malformada.' };
   }
 

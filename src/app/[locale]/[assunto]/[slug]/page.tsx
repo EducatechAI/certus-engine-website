@@ -84,13 +84,10 @@ export default async function Page({ params }: { params: { locale: string; assun
                      prose-blockquote:border-l-emerald-500 prose-blockquote:bg-emerald-900/10 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
                      prose-table:border prose-table:border-emerald-900/40 prose-th:bg-emerald-900/20 prose-th:p-3 prose-td:p-3 prose-td:border-t prose-td:border-emerald-900/40">
           <ReactMarkdown>{page.contentMarkdown}</ReactMarkdown>
-        </div>
         
-        <KnowledgeGraphFooter seed={page} />
+        <KnowledgeGraphFooter slug={page.slug} language={page.locale} />
 
       </article>
-
-      {/* Como DripFeedDashboard está estático e não foi atualizado, usamos um link direto para o Command Center */}
       <div className="fixed bottom-6 right-6 z-50">
         <a href="/status" className="px-6 py-3 border border-emerald-500/40 rounded-full bg-black/80 backdrop-blur-xl text-emerald-400 font-mono text-xs uppercase tracking-widest hover:bg-emerald-900/50 transition-colors shadow-[0_0_20px_rgba(16,185,129,0.2)]">
           [Retornar ao Command Center]
