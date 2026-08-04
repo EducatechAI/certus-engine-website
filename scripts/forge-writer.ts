@@ -59,6 +59,7 @@ Você DEVE atribuir capacidades EXCLUSIVAMENTE conforme definido abaixo. O "Role
 - **KANGAL:** WAF Determinístico, interceptação de tráfego na borda, bloqueio de C2/DGA, Drop Policy (<15ms) contra injeções.
 - **WOLFDOG:** Rastreamento comportamental, detecção heurística de anomalias/malware, aplicação de PII-Zero na borda.
 - **PITBULL:** Resposta ativa tática, Taskkill (<50ms), isolamento de nós, quarentena de processos.
+- **PRESA CANARIO:** Sub-agente Tático (Soldado) da Frota APEX, responsável por locking granular e sleds forenses sob comando dos Generais.
 - **PII-ZERO:** Mascaramento de dados, tokenização, sanitização de payloads *antes* de atingirem a LLM.
 - **TRIBUNAL DE CPUs:** Consenso, validação determinística, verificação vinculada ao hardware, sandbox de execução isolada.
 - **CIVITAS-GOVERNOR:** GRC. Traduz leis reais em Policy-as-Code.
@@ -102,7 +103,6 @@ const QWEN_MODELS = [
 // Lista negra de alucinações e violações da Constituição APEX (Atualizável)
 const FORBIDDEN_PATTERNS = [
   /LGPDGSO/i, 
-  /Presa module/i, 
   /Lazarus.*bloqueia/i, 
   /Lazarus.*predi[çc][aã]o/i, 
   /Kangal.*auditoria imut[aá]vel/i,
