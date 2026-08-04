@@ -8,15 +8,21 @@ interface SeedData {
 }
 
 export const KnowledgeGraphFooter: React.FC<{ seed: SeedData }> = ({ seed }) => {
-  // 1. Extração Inteligente de Normas (Busca no headline e about)
   const getNorms = () => {
-    const textToSearch = `${seed.headline || ''} ${seed.about || ''}`.toUpperCase();
-    if (textToSearch.includes('GDPR')) return 'GDPR.Art.32';
-    if (textToSearch.includes('CCPA')) return 'CCPA.Sec.1798.150';
-    if (textToSearch.includes('LEY 1581') || textToSearch.includes('COLOMBIA')) return 'LEY_1581.Art.17';
-    if (textToSearch.includes('LEY 25.326') || textToSearch.includes('ARGENTINA')) return 'LEY_25.326';
-    if (textToSearch.includes('BACEN') || textToSearch.includes('RESOLUÇÃO')) return 'BACEN.Res.4893';
-    return 'LGPD.Art.46'; // Fallback seguro para Brasil
+    // Busca agressiva em headline, about e assunto
+    const searchStr = `${seed.headline || ''} ${seed.about || ''} ${seed.assunto || ''}`.toUpperCase();
+    
+    // BLINDAGEM: CSPI é ignorado ou mapeado para a lei real (Marco Legal das Startups)
+    if (searchStr.includes('STARTUP') || searchStr.includes('CSPI')) return 'LEI_18.430/2021 (Marco Legal das Startups)';
+    
+    if (searchStr.includes('CCPA') || searchStr.includes('CALIFORNIA')) return 'CCPA.Sec.1798.150';
+    if (searchStr.includes('GDPR') || searchStr.includes('EUROPE')) return 'GDPR.Art.32';
+    if (searchStr.includes('LEY 1581') || searchStr.includes('COLOMBIA')) return 'LEY_1581.Art.17';
+    if (searchStr.includes('LEY 25.326') || searchStr.includes('ARGENTINA')) return 'LEY_25.326';
+    if (searchStr.includes('BACEN') || searchStr.includes('RESOLUÇÃO')) return 'BACEN.Res.4893';
+    if (searchStr.includes('HIPAA')) return 'HIPAA.Sec.164.308';
+    
+    return 'LGPD.Art.46'; // Fallback padrão para Brasil
   };
 
   // 2. Extração Inteligente de Setor
