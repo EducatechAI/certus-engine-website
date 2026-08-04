@@ -4,23 +4,32 @@ interface SeedData {
   assunto?: string;
   about?: string;
   locale?: string;
+  headline?: string;
 }
 
 export const KnowledgeGraphFooter: React.FC<{ seed: SeedData }> = ({ seed }) => {
-  // EXTRAI DINAMICAMENTE AS NORMAS DO CAMPO 'about' DA SEED
-  const norms = seed.about 
-    ? seed.about.replace(/[^a-zA-Z0-9._-]/g, '_').toUpperCase()
-    : 'LGPD.Art.46';
-  
-  // DETERMINA O SETOR BASEADO NO ASSUNTO OU LOCALE
+  // 1. Extração Inteligente de Normas (Busca no headline e about)
+  const getNorms = () => {
+    const textToSearch = `${seed.headline || ''} ${seed.about || ''}`.toUpperCase();
+    if (textToSearch.includes('GDPR')) return 'GDPR.Art.32';
+    if (textToSearch.includes('CCPA')) return 'CCPA.Sec.1798.150';
+    if (textToSearch.includes('LEY 1581') || textToSearch.includes('COLOMBIA')) return 'LEY_1581.Art.17';
+    if (textToSearch.includes('LEY 25.326') || textToSearch.includes('ARGENTINA')) return 'LEY_25.326';
+    if (textToSearch.includes('BACEN') || textToSearch.includes('RESOLUÇÃO')) return 'BACEN.Res.4893';
+    return 'LGPD.Art.46'; // Fallback seguro para Brasil
+  };
+
+  // 2. Extração Inteligente de Setor
   const getSector = () => {
-    if (seed.assunto?.includes('gov') || seed.assunto?.includes('soberana')) return 'SECTOR.GOVTECH';
-    if (seed.assunto?.includes('salud') || seed.assunto?.includes('health')) return 'SECTOR.HEALTHTECH';
-    if (seed.assunto?.includes('banca') || seed.assunto?.includes('bank')) return 'SECTOR.BANKING';
-    if (seed.assunto?.includes('fintech')) return 'SECTOR.FINTECH';
-    return 'SECTOR.GENERAL';
+    const textToSearch = `${seed.headline || ''} ${seed.assunto || ''} ${seed.about || ''}`.toLowerCase();
+    if (textToSearch.includes('banco') || textToSearch.includes('bank') || textToSearch.includes('fintech') || textToSearch.includes('banca')) return 'SECTOR.BANKING';
+    if (textToSearch.includes('saúde') || textToSearch.includes('salud') || textToSearch.includes('health') || textToSearch.includes('hospital')) return 'SECTOR.HEALTHTECH';
+    if (textToSearch.includes('gov') || textToSearch.includes('prefeitura') || textToSearch.includes('gobierno')) return 'SECTOR.GOVTECH';
+    if (textToSearch.includes('vc') || textToSearch.includes('venture')) return 'SECTOR.VC';
+    return 'SECTOR.ENTERPRISE'; // Fallback melhor que GENERAL
   };
   
+  const norms = getNorms();
   const sector = getSector();
 
   // TRADUÇÃO DOS TÍTULOS BASEADO NO LOCALE

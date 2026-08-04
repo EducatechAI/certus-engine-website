@@ -138,6 +138,8 @@ async function generateContent(seed: Seed, localRAG: string, webRAG: string): Pr
   5. Formate estritamente em Markdown avançado (use tabelas, blocos de código com JSON/Rust, e blockquotes).
   6. ESTRUTURA OBRIGATÓRIA (Rotação Anti-Spam): Siga EXATAMENTE este formato para este artigo: ${selectedTemplate}
   
+  7. CRITICAL: When writing code comments, NEVER attribute blocking, mitigation, or heuristic detection to LAZARUS. LAZARUS ONLY audits, logs, and hashes. Blocking is KANGAL/PITBULL. Heuristics is WOLFDOG.
+  
   ${LEGAL_FACT_GUARD}
   ${SEMANTIC_CONTRACT}
   `;
