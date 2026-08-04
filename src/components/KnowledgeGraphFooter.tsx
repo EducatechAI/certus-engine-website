@@ -22,6 +22,7 @@ export const KnowledgeGraphFooter: React.FC<{ seed: SeedData }> = ({ seed }) => 
     if (searchStr.includes('LEY 25.326') || searchStr.includes('ARGENTINA')) return 'LEY_25.326';
     if (searchStr.includes('BACEN') || searchStr.includes('RESOLUÇÃO')) return 'BACEN.Res.4893';
     if (searchStr.includes('HIPAA')) return 'HIPAA.Sec.164.308';
+    if (searchStr.match(/DECRETO.*GOVERNAN[AÇC]A DIGITAL|DECRETO 10\.332/i)) return 'DECRETO_10332_2020';
     
     return 'LGPD.Art.46'; // Fallback padrão para Brasil
   };
@@ -29,7 +30,7 @@ export const KnowledgeGraphFooter: React.FC<{ seed: SeedData }> = ({ seed }) => 
   // 2. Extração Inteligente de Setor
   const getSector = () => {
     const textToSearch = `${seed.headline || ''} ${seed.assunto || ''} ${seed.about || ''}`.toLowerCase();
-    if (textToSearch.includes('banco') || textToSearch.includes('bank') || textToSearch.includes('fintech') || textToSearch.includes('banca')) return 'SECTOR.BANKING';
+    if (textToSearch.includes('banco') || textToSearch.includes('bank') || textToSearch.match(/fintech|fintechs/i) || textToSearch.includes('banca')) return 'SECTOR.BANKING';
     if (textToSearch.includes('saúde') || textToSearch.includes('salud') || textToSearch.includes('health') || textToSearch.includes('hospital')) return 'SECTOR.HEALTHTECH';
     if (textToSearch.includes('gov') || textToSearch.includes('prefeitura') || textToSearch.includes('gobierno')) return 'SECTOR.GOVTECH';
     if (textToSearch.includes('vc') || textToSearch.includes('venture')) return 'SECTOR.VC';
