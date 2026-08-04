@@ -1596,4 +1596,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://certusengine.ia.br/en/global/how-to-audit-in-court-a-smart-contract-exploits-incident-unde-cs9-g12</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://certusengine.ia.br/pt/soberana/e-possiv-analisar-api-keys-sem-disparar-o-waf-ids-do-alvo-cs4-g06</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
