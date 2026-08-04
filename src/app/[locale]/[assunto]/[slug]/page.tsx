@@ -84,6 +84,7 @@ export default async function Page({ params }: { params: { locale: string; assun
                      prose-blockquote:border-l-emerald-500 prose-blockquote:bg-emerald-900/10 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
                      prose-table:border prose-table:border-emerald-900/40 prose-th:bg-emerald-900/20 prose-th:p-3 prose-td:p-3 prose-td:border-t prose-td:border-emerald-900/40">
           <ReactMarkdown>{page.contentMarkdown}</ReactMarkdown>
+        </div>
         
         <KnowledgeGraphFooter slug={page.slug} language={page.locale} />
 
