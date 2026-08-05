@@ -238,7 +238,7 @@ async function generateArticleWithFallback(seed: Seed, localRAG: string, webRAG:
             { role: 'user', content: userPrompt }
           ],
           temperature: model.temperature,
-          max_tokens: 4096
+          max_tokens: 8192
         })
       });
 
