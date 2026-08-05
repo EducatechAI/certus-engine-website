@@ -246,16 +246,8 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
   `;
 
   const MODELS_ROULETTE = [
-    "deepseek/deepseek-r1",
     "qwen/qwen-3.7-plus",
-    "deepseek/deepseek-v4-pro",
-    "google/gemini-3.1-flash-lite",
-    "google/gemini-3.5-flash",
-    "zhipuai/glm-5.2",
-    "google/gemma-4-31b-it",
-    "moonshotai/kimi-k2.7-code",
-    "xiaomi/mimo-v2.5-pro",
-    "anthropic/claude-5-sonnet"
+    "qwen/qwen-3.7-flash"
   ];
 
   let lastError = null;
@@ -274,7 +266,7 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
           messages: [{ role: "user", content: prompt }],
           max_tokens: 3000
         }),
-        signal: AbortSignal.timeout(90000) // 🛡️ TIMEOUT SOBERANO: 90s máximo por LLM
+        signal: AbortSignal.timeout(600000) // 🛡️ TIMEOUT SOBERANO: 10m máximo por LLM
       });
 
       const data = await response.json();
