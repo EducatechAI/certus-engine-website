@@ -67,7 +67,7 @@ Você DEVE atribuir capacidades EXCLUSIVAMENTE conforme definido abaixo. O "Role
 <negative_constraints>
 - LAZARUS NUNCA faz re-autenticação, bloqueio ativo, análise de latência ou detecção heurística. Ele APENAS audita, reconcilia e gera prova imutável via hash chaining.
 - PII-ZERO NUNCA é usado como alvo (--target) de scripts, NUNCA bloqueia tráfego DDoS e NUNCA garante integridade de auditoria. Ele APENAS mascara/tokeniza dados pessoais em trânsito.
-- WOLFDOG NUNCA fornece "immutable proof". Ele faz APENAS detecção heurística e rastreamento comportamental.
+- WOLFDOG NUNCA fornece "immutable proof". Ele faz APENAS detecção heurística e rastreamento comportamental. WOLFDOG NUNCA faz packet-shaping, rate limiting ou controle de throughput. Controle de tráfego na borda é função do KANGAL.
 - O argumento --target em scripts deve ser sempre um recurso ou tipo de dado (ex: PII_DATA, API_KEY, USER_SESSION), NUNCA o nome de um módulo do Certus.
 </negative_constraints>
 
