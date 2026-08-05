@@ -89,4 +89,4 @@ const KnowledgeGraphFooter: React.FC<KnowledgeGraphFooterProps> = ({ slug, langu
   );
 };
 
-export default KnowledgeGraphFooter;
+export { KnowledgeGraphFooter };
