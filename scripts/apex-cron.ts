@@ -264,7 +264,7 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
         body: JSON.stringify({
           model: model,
           messages: [{ role: "user", content: prompt }],
-          max_tokens: 3000
+          max_tokens: 8192
         }),
         signal: AbortSignal.timeout(600000) // 🛡️ TIMEOUT SOBERANO: 10m máximo por LLM
       });
@@ -289,9 +289,38 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
         throw new Error(`Quality Gate Reprovado: Texto gerado muito curto (${content.length} caracteres). O ponto de corte é de 2000 caracteres, recomendado entre 2500 e 4000.`);
       }
       
-      const lastChar = content.trim().slice(-1);
+      let finalContent = content;
+      const lastChar = finalContent.trim().slice(-1);
       if (!['.', '!', '?', '}'].includes(lastChar)) {
-        throw new Error(`Quality Gate Reprovado: Texto cortado abruptamente (truncation detected). O último caractere foi '${lastChar}'.`);
+        console.log(`  -> ⚠️ Truncamento detectado no último caractere '${lastChar}'. Acionando Completion Prompt...`);
+        const compResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            model: model,
+            messages: [
+              { role: "user", content: prompt },
+              { role: "assistant", content: rawContent },
+              { role: "user", content: "O texto foi truncado. Continue EXATAMENTE de onde parou e complete a string 'contentMarkdown'. Não repita o JSON inteiro, apenas gere a continuação do texto Markdown." }
+            ],
+            max_tokens: 8192
+          }),
+          signal: AbortSignal.timeout(600000)
+        });
+        const compData = await compResponse.json();
+        if (compData.error) throw new Error(compData.error.message);
+        
+        let compText = compData.choices[0].message.content;
+        compText = compText.replace(/```(json|markdown)?/gi, '').trim();
+        if(compText.startsWith('"')) compText = compText.substring(1);
+        if(compText.endsWith('"')) compText = compText.slice(0, -1);
+        if(compText.endsWith('}')) compText = compText.slice(0, -1);
+        if(compText.endsWith('"')) compText = compText.slice(0, -1);
+        
+        finalContent += compText;
       }
 
       if (ultimaDoMesmoSetorLei && similaridade(content, ultimaDoMesmoSetorLei) >= 0.30) {
@@ -311,8 +340,8 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
         throw new Error("Quality Gate Reprovado: Limite S3 atingido (30%) no banco de dados.");
       }
 
-      console.log(`  -> [SUCESSO] Texto forjado pelo modelo: ${model} (${content.length} chars, Score: ${parsedOutput.score_unicidade}, Jaccard < 30%)`);
-      return { model, content, rawOutput: parsedOutput };
+      console.log(`  -> [SUCESSO] Texto forjado pelo modelo: ${model} (${finalContent.length} chars, Score: ${parsedOutput.score_unicidade}, Jaccard < 30%)`);
+      return { model, content: finalContent, rawOutput: parsedOutput };
 
     } catch (error: any) {
       console.warn(`  ⚠️ [FALHA] no modelo ${model}: ${error.message}. Puxando fallback...`);
