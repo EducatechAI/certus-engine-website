@@ -246,8 +246,8 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
   `;
 
   const MODELS_ROULETTE = [
-    "qwen/qwen-3.7-plus",
-    "qwen/qwen-3.7-flash"
+    "qwen/qwen3.7-plus",
+    "qwen/qwen3.7-flash"
   ];
 
   let lastError = null;
