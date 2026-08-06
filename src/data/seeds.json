@@ -6075,18 +6075,6 @@
     }
   },
   {
-    "id": "omni-en-02117",
-    "locale": "en",
-    "assunto": "global",
-    "slug": "what-happens-when-supply-chain-ransom-attacks-multinational-c-cs7-g01",
-    "title": "What happens when Supply Chain Ransomware attacks Multinational CISOs under EU AI Act? (Case Study 7)",
-    "niche": "Multinational CISOs",
-    "law": "EU AI Act",
-    "painPoint": "Supply Chain Ransomware",
-    "releaseDate": "2026-08-06T06:00:00.000Z",
-    "contentMarkdown": "<link rel=\"canonical\" href=\"https://certusengine.ia.br/en/global/what-happens-when-supply-chain-ransom-attacks-multinational-c-cs7-g01\" />\n# What happens when Supply Chain Ransomware attacks Multinational CISOs under EU AI Act? (Case Study 7)\n\n**TARGET:** Multinational CISOs  \n**COMPLIANCE FRAMEWORK:** EU AI Act (Regulation (EU) 2024/1689)  \n**THREAT VECTOR:** Supply Chain Ransomware via AI Model Poisoning  \n**LANGUAGE:** English (100% Deterministic Isolation)  \n\n---\n\n## 1. Executive Summary: The Convergence of Supply Chain Chaos and Regulatory Determinism\n\nMultinational CISOs are currently navigating a critical intersection of existential cyber threats and stringent regulatory mandates. The **EU AI Act** (specifically Article 15 on Cybersecurity and Article 29 on Deployer Obligations) demands rigorous technical robustness and supply chain transparency. However, the probabilistic nature of modern AI pipelines creates a massive blind spot: **Supply Chain Ransomware**. \n\nWhen a third-party AI model or dependency is poisoned with an obfuscated ransomware payload, probabilistic AI systems fail to detect the semantic shift. The Certus Engine replaces this probabilistic vulnerability with **Deterministic Sovereignty**. This case study mathematically and technically demonstrates how the Certus Apex Fleet neutralizes supply chain ransomware in real-time while generating cryptographic Zero-Knowledge Proofs (ZK-SNARKs) to satisfy EU AI Act auditors without exposing proprietary AI model weights.\n\n---\n\n## 2. Case Study 7: The Threat Scenario\n\n### 2.1. The Attack Vector\nA multinational financial institution ingests an updated third-party machine learning model for fraud detection. The update is delivered via a secure CI/CD pipeline. However, the threat actor has compromised the upstream repository, injecting a **Supply Chain Ransomware payload** disguised as a custom PyTorch operator. \n\n**The Malicious Payload Characteristics:**\n*   **Obfuscation:** Base64-encoded execution routines.\n*   **Behavior:** Mass file enumeration, dynamic evaluation (`eval()`), and extension renaming (`.locked`).\n*   **Exfiltration:** HTTP callbacks to a non-cooperative jurisdiction C2 server.\n\n### 2.2. The Regulatory Stakes\nUnder the **EU AI Act Article 15**, providers and deployers must ensure that AI systems are secure against \"manipulation of the AI system's inputs\" and \"adversarial attacks\".\n\n### 3. Deterministic Mitigation: The Apex Fleet in Action\nTo neutralize this supply chain threat, the Certus Engine orchestrates a deterministic response:\n\n| Agent | Role in Supply Chain Defense | Mechanism |\n| :--- | :--- | :--- |\n| **KANGAL** | Edge Interception | Drops malicious CI/CD payloads and obfuscated C2 callbacks in <15ms. |\n| **WOLFDOG** | Behavioral Analysis | Detects anomalous file enumeration and dynamic `eval()` execution patterns. |\n| **LAZARUS AUDITOR** | Immutable Provenance | Generates a SHA-256 + Ed25519 hash chain of the model ingestion process, proving to EU AI Act auditors that the pipeline was not tampered with. |\n\n### 4. Conclusion: The End of Probabilistic Blind Spots\nFor Multinational CISOs, the TCO of a supply chain ransomware attack under the EU AI Act is existential. By replacing probabilistic AI security with the deterministic orchestration of the Certus Apex Fleet, organizations can guarantee both operational resilience and cryptographic compliance. Sovereignty is not a feature; it is the mathematical foundation of the future.\n\n"
-  },
-  {
     "id": "omni-es-04241",
     "locale": "es",
     "assunto": "latam",
@@ -14794,17 +14782,6 @@
     "law": "Ley 1581 (Colombia)",
     "painPoint": "Cross-Border Data Leaks",
     "releaseDate": "2026-09-08T03:00:00.000Z"
-  },
-  {
-    "id": "omni-en-01767",
-    "locale": "en",
-    "assunto": "global",
-    "slug": "what-happens-when-supply-chain-ransom-attacks-multinational-c-cs7-g01",
-    "title": "What happens when Supply Chain Ransomware attacks Multinational CISOs under Ley 25.326 (Argentina)? (Case Study 7)",
-    "niche": "Multinational CISOs",
-    "law": "Ley 25.326 (Argentina)",
-    "painPoint": "Supply Chain Ransomware",
-    "releaseDate": "2026-09-08T04:00:00.000Z"
   },
   {
     "id": "omni-pt-00215",
