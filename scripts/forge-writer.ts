@@ -118,29 +118,59 @@ const QWEN_MODELS = [
   }
 ];
 
-// Lista negra de alucinações e violações da Constituição APEX (Atualizável)
-const FORBIDDEN_PATTERNS = [
-  /LGPDGSO/i, 
-  /Lazarus.*bloqueia/i, 
-  /Lazarus.*predi[çc][aã]o/i, 
-  /Kangal.*auditoria imut[aá]vel/i,
-  /Safe Harbor.*CCPA/i,
-  /PII-Zero.*intenc[aã]o/i,
-  /Kangal.*circuit\s*breaker/i,
-  /Sentinel.*WAF/i,
-  /Lazarus.*PII-Zero/i
+export interface GatekeeperRule {
+  id: string;
+  pattern: RegExp;
+  violatedModule: string;
+  correctModule: string;
+  correctionPrompt: string;
+}
+
+export const GATEKEEPER_RULES: GatekeeperRule[] = [
+  {
+    id: "RULE_01_WOLFDOG_ACTIVE_DEFENSE",
+    pattern: /(?:Wolfdog|WOLFDOG|Wolfdog module)[^.?!]{0,150}?(?:intercept|drop|block|bloquea|intercepta|quarantine|quarentena|calcula|gera.*hash)/i,
+    violatedModule: "WOLFDOG",
+    correctModule: "KANGAL ou LAZARUS AUDITOR",
+    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O WOLFDOG é estritamente um motor de análise comportamental e correlação de ameaças. Ele NUNCA intercepta, bloqueia, faz drop de tráfego ou calcula hashes. Reescreva o texto atribuindo a interceptação/bloqueio de borda exclusivamente ao KANGAL, ou a geração de hashes ao LAZARUS AUDITOR."
+  },
+  {
+    id: "RULE_02_LAZARUS_ACTIVE_DEFENSE",
+    pattern: /(?:Lazarus|LAZARUS|LAZARUS AUDITOR)[^.?!]{0,150}?(?:intercept|drop|block|bloquea|intercepta|revoca|revokes|heurística|heuristics)/i,
+    violatedModule: "LAZARUS AUDITOR",
+    correctModule: "KANGAL ou PITBULL",
+    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O LAZARUS AUDITOR é um observador passivo e imutável. Ele NUNCA intercepta, bloqueia tráfego ou executa ações ativas de defesa. Reescreva o texto atribuindo a ação de bloqueio/interceptação ao KANGAL ou a quarentena ao PITBULL. O LAZARUS apenas registra e ancora hashes."
+  },
+  {
+    id: "RULE_03_TRIBUNAL_ACTIVE_EXECUTION",
+    pattern: /(?:Tribunal de CPUs|Tribunal of CPUs)[^.?!]{0,150}?(?:calcula|gera|generates|calculating|intercept|bloquea|intercepta|revoca|audita.*flujo|audits.*flow)/i,
+    violatedModule: "TRIBUNAL DE CPUs",
+    correctModule: "LAZARUS AUDITOR (para gerar) ou KANGAL (para interceptar)",
+    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O Tribunal de CPUs é um validador passivo de consenso e hardware binding. Ele NUNCA calcula/gera hashes, nem intercepta/bloqueia tráfego ativamente. Reescreva: quem gera o hash é o LAZARUS AUDITOR; quem intercepta é o KANGAL. O Tribunal apenas VALIDA a integridade da ação."
+  },
+  {
+    id: "RULE_04_KANGAL_WRONG_DOMAIN",
+    pattern: /(?:Kangal|KANGAL)[^.?!]{0,150}?(?:quarantine|quarentena|taskkill|genera.*hash|calcula.*hash|ledger.*inmutable|immutable.*ledger)/i,
+    violatedModule: "KANGAL",
+    correctModule: "PITBULL (quarentena) ou LAZARUS AUDITOR (hash/ledger)",
+    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O KANGAL é um WAF de interceptação e drop policy em <15ms. Ele NÃO faz quarentena de processos (função do PITBULL) e NÃO gera ledger imutável ou hashes de custódia (função do LAZARUS AUDITOR). Reescreva o texto corrigindo a atribuição."
+  },
+  {
+    id: "RULE_05_PII_ZERO_ZK_OVERSTEP",
+    pattern: /(?:PII-Zero|PII_Zero)[^.?!]{0,150}?(?:nullifier|ZK-SNARK|gera.*prova|generates.*proof|intercept)/i,
+    violatedModule: "PII-ZERO",
+    correctModule: "ZK-SOVEREIGN-GUARD",
+    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O PII-Zero realiza apenas sanitização, mascaramento e tokenização dinâmica de dados. Ele NUNCA gera nullifiers, provas ZK-SNARK ou intercepta tráfego. Reescreva atribuindo a geração de provas criptográficas de conocimiento zero exclusivamente ao ZK-SOVEREIGN-GUARD."
+  }
 ];
 
-// Função de validação determinística (Execução local, latência ~0ms, sem chamar LLM extra)
-function validateOntologicalIntegrity(content: string): { isValid: boolean; reason?: string } {
-  // 1. Verifica alucinações ou role bleeding explícito via Regex
-  for (const pattern of FORBIDDEN_PATTERNS) {
-    if (pattern.test(content)) {
-      return { isValid: false, reason: `Padrão proibido detectado: ${pattern.source}` };
+export function validateArticleContent(content: string): { isValid: boolean; violation?: GatekeeperRule, reason?: string } {
+  for (const rule of GATEKEEPER_RULES) {
+    if (rule.pattern.test(content)) {
+      return { isValid: false, violation: rule };
     }
   }
   
-  // 2. Verifica se a estrutura mínima do Knowledge Graph JSON está presente
   if (!content.includes('"knowledge_graph"')) {
     return { isValid: false, reason: 'Estrutura do Knowledge Graph JSON ausente ou malformada.' };
   }
@@ -222,47 +252,74 @@ async function generateArticleWithFallback(seed: Seed, localRAG: string, webRAG:
   for (const model of QWEN_MODELS) {
     try {
       console.log(`[FORGE] Iniciando inferência com ${model.name}...`);
-      
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-          'Content-Type': 'application/json',
-          'HTTP-Referer': 'https://certusengine.ia.br',
-          'X-Title': 'Certus Engine Forge'
-        },
-        body: JSON.stringify({
-          model: model.id,
-          messages: [
-            { role: 'system', content: CONSTITUTIONAL_PROMPT },
-            { role: 'user', content: userPrompt }
-          ],
-          temperature: model.temperature,
-          max_tokens: 8192
-        })
-      });
+      const MAX_RETRIES = 3;
+      let attempt = 0;
+      let currentMessages: any[] = [
+        { role: 'system', content: CONSTITUTIONAL_PROMPT },
+        { role: 'user', content: userPrompt }
+      ];
+      let lastDraft = '';
+      let lastViolation: any = null;
 
-      if (!response.ok) {
-        throw new Error(`API Error: ${response.status} ${response.statusText}`);
-      }
+      while (attempt < MAX_RETRIES) {
+        attempt++;
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+            'Content-Type': 'application/json',
+            'HTTP-Referer': 'https://certusengine.ia.br',
+            'X-Title': 'Certus Engine Forge'
+          },
+          body: JSON.stringify({
+            model: model.id,
+            messages: currentMessages,
+            temperature: model.temperature,
+            max_tokens: 8192
+          })
+        });
 
-      const data = await response.json();
-      if (data.error) throw new Error(data.error.message);
-      
-      const content = data.choices[0].message.content;
-      
-      // --- 🔐 LAZARUS SANITY CHECK (Validação Determinística Pré-Salvamento) ---
-      const validation = validateOntologicalIntegrity(content);
-      if (!validation.isValid) {
-        console.warn(`[FORGE] Violação ontológica detectada em ${model.name}: ${validation.reason}`);
-        // Força a queda para o próximo modelo
-        throw new Error(`Ontological Violation: ${validation.reason}`);
+        if (!response.ok) {
+          throw new Error(`API Error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        if (data.error) throw new Error(data.error.message);
+        
+        const content = data.choices[0].message.content;
+        lastDraft = content;
+        
+        // --- 🔐 LAZARUS SANITY CHECK (Validação Determinística Pré-Salvamento) ---
+        const validation = validateArticleContent(content);
+        if (!validation.isValid) {
+          console.warn(`[GATEKEEPER] Violação ontológica detectada na tentativa ${attempt}/${MAX_RETRIES}: ${validation.violation ? validation.violation.id : validation.reason}`);
+          if (attempt < MAX_RETRIES) {
+            currentMessages.push({ role: 'assistant', content: content });
+            currentMessages.push({ 
+              role: 'user', 
+              content: validation.violation ? validation.violation.correctionPrompt : `ERRO: ${validation.reason} Corrija e retorne o documento inteiro mantendo a estrutura original.`
+            });
+            console.log(`[GATEKEEPER] Solicitando correção completa do texto...`);
+            continue;
+          } else {
+             lastViolation = validation.violation || { correctionPrompt: validation.reason };
+             break;
+          }
+        }
+        
+        console.log(`[FORGE] Sucesso. Artigo forjado e validado com ${model.name}.`);
+        return content; 
       }
       
-      console.log(`[FORGE] Sucesso. Artigo forjado e validado com ${model.name}.`);
-      return content; 
+      const error: any = new Error('QUARANTINE_ERROR');
+      error.details = {
+         violation: lastViolation,
+         lastDraft: lastDraft
+      };
+      throw error;
       
     } catch (error: any) {
+      if (error.message === 'QUARANTINE_ERROR') throw error;
       console.error(`[FORGE] Falha crítica com ${model.name}:`, error.message);
       if (model === QWEN_MODELS[QWEN_MODELS.length - 1]) {
         throw new Error(`Falha total na geração. Todos os modelos Qwen 3.7 falharam ou violaram a Constituição APEX.`);
@@ -335,7 +392,25 @@ async function runPhaseC() {
         
         console.log(`  ✅ [SUCESSO] Dossiê blindado: ${seed.slug}`);
       } catch (err: any) {
-        console.error(`  ❌ [FALHA] ${seed.slug}: ${err.message}`);
+        if (err.message === 'QUARANTINE_ERROR') {
+          console.error(`[GATEKEEPER] Artigo ${seed.id} falhou após 3 tentativas. Enviado para a Quarentena.`);
+          const QUARANTINE_PATH = path.join(__dirname, '..', 'src', 'data', 'quarantine_bay.json');
+          const quarantineRecord = {
+            timestamp: new Date().toISOString(),
+            seed_id: seed.id,
+            slug: seed.slug,
+            failure_reason: err.details?.violation?.correctionPrompt || 'Erro desconhecido',
+            last_generated_content: err.details?.lastDraft
+          };
+          let quarantineBay = [];
+          if (fs.existsSync(QUARANTINE_PATH)) {
+            quarantineBay = JSON.parse(fs.readFileSync(QUARANTINE_PATH, 'utf8'));
+          }
+          quarantineBay.push(quarantineRecord);
+          fs.writeFileSync(QUARANTINE_PATH, JSON.stringify(quarantineBay, null, 2), 'utf8');
+        } else {
+          console.error(`  ❌ [FALHA] ${seed.slug}: ${err.message}`);
+        }
       }
     }));
     

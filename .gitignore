@@ -40,3 +40,6 @@ next-env.d.ts
 public/downloads/*.pdf
 public/downloads/*.sha256
 public/downloads/hashes.json
+
+# Quarentena do Gatekeeper (Arquivos de falha da LLM para revisão manual)
+src/data/quarantine_bay.json
