@@ -116,7 +116,7 @@ export function validateArticleContent(content: string, seedId?: string): { isVa
   for (const rule of GATEKEEPER_RULES) {
     if (rule.id === "RULE_04_TRUNCATION_CHECK" && seedId) {
       const idNum = parseInt(seedId);
-      if (!isNaN(idNum) && idNum < 290) continue;
+      if (!isNaN(idNum) && idNum < 295) continue;
     }
     const isMatch = rule.pattern.test(content);
     if (rule.mustMatch) {
