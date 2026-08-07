@@ -37,6 +37,7 @@ jobs:
         run: tsx scripts/apex-cron.ts
         
       - name: 💾 Commit & Push das Novas Sementes
+        if: always()
         run: |
           git config --global user.name "APEX Guardian Bot"
           git config --global user.email "apex-bot@certus.engine"
