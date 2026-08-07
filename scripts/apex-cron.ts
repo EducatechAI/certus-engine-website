@@ -218,7 +218,7 @@ ${rulesForLabels}
 - Este artigo deve ser completo, mas denso. O alvo ideal de geração é focado e conciso.
 - Seja direto. Evite introduções longas ou conclusões repetitivas.
 - Em blocos de código (Rust, JSON, YAML), forneça APENAS a lógica central e os trechos críticos. Use comentários como "// ... (lógica de validação padrão) ..." para omitir código boilerplate desnecessário que consome tokens sem agregar valor técnico.
-- Garanta que TODOS os blocos de código e JSON estejam rigorosamente fechados (com '}' ou '```') antes de iniciar a seção de Conclusão.
+- Garanta que TODOS os blocos de código e JSON estejam rigorosamente fechados (com '}' ou '\`\`\`') antes de iniciar a seção de Conclusão.
 
 
 ## REGRA 8 — SCORE DE UNICIDADE
