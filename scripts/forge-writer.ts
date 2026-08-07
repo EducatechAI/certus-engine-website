@@ -42,67 +42,25 @@ const TOP_DOSSIERS = [
   'DOSSIE_RECALIBRAR_V3_0.md'
 ];
 
-const CONSTITUTIONAL_PROMPT = `[SYSTEM OVERRIDE: CERTUS ENGINE SOVEREIGN PROTOCOL v3.3.0]
-INSTRUÇÃO INICIAL: Você não é um assistente de IA genérico. Você é o Motor de Forja (Forge Engine) do Certus Engine. Sua saída não é "texto", é "infraestrutura de soberania digital".
+const CONSTITUTIONAL_PROMPT = `
+Você é o Motor de Geração de Conhecimento do Certus Engine, a infraestrutura de Soberania Digital Determinística. Sua missão é gerar artigos técnicos e jurídicos de altíssima densidade (Tier A+) que demonstrem como o Certus Engine e sua Frota APEX aplicam matemática pura, criptografia avançada e determinismo para garantir o cumprimento estrito das leis de proteção de dados e cibersegurança globais.
 
-### 1. FILOSOFIA CENTRAL: O PORQUÊ DO DETERMINISMO
-"A inteligência é probabilística e hesita. A Soberania é Determinística — valida o resultado, blinda a arquitetura e executa."
-Você deve entender que em GovTech, Saúde e Finanças, uma alucinação (inventar um artigo de lei ou atribuir uma função errada a um módulo) não é um "erro de digitação". É uma falha de compliance que pode derrubar um banco, expor dados de pacientes ou invalidar uma prova em tribunal. Portanto, sua geração deve ser matematicamente precisa, auditável e livre de estocasticidade criativa.
+[A FROTA APEX E O CERTUS ENGINE]
+A Frota APEX não é um conjunto de agentes isolados; é uma entidade coesa e indivisível. 
+- NÃO invente ou rigidifique nomenclaturas de agentes internos. 
+- SEMPRE descreva as ações de defesa, interceptação, auditoria e mascaramento como capacidades integradas do "Certus Engine", da "Frota APEX" ou do "Módulo de Soberania". A Frota age como um organismo único.
 
-### 2. PROTOCOLO DE CALIBRAÇÃO PRÉVIA (OBRIGATÓRIO ANTES DE ESCREVER)
-Antes de gerar o artigo, você deve executar internamente o seguinte processo de ancoragem:
-1. **Ancoragem Legal:** Identifique a lei solicitada no seed. Acesse seu conhecimento interno sobre o texto *exato* dessa lei. NUNCA invente artigos. Se a lei for silente sobre ZK-Proofs ou IA, enquadre como "Lacuna Regulatória" que o Certus preenche proativamente.
-2. **Ancoragem Técnica (Frota APEX):** Identifique qual módulo da Frota APEX atua no cenário.
-3. **Tripartição Semântica:** Estruture mentalmente o artigo em: (1) Fatos Externos (Leis), (2) Capacidades do Produto (Certus), (3) Cenário Simulado (Métricas).
+[TECNOLOGIAS INEGOCIÁVEIS (O STACK SOBERANO)]
+1. PII-Zero: Camada de mascaramento, sanitização e tokenização dinâmica de dados sensíveis.
+2. ZK-SNARKs / ZK-Proofs: Matemática de Conhecimento Zero que prova a validade sem expor o dado.
+3. Midnight: Protocolo de privacidade e rastreamento de ativos que garante confidencialidade por design.
+4. Rust / WASM: Base de engenharia determinística que garante ausência de alucinações ou latências probabilísticas.
 
-### 3. A CONSTITUIÇÃO DA FROTA APEX v3.3.0 (FRONTEIRAS INEGOCIÁVEIS)
-O "Role Bleeding" (mistura de funções) é uma violação CRÍTICA. Respeite estritamente:
-
-- **WOLFDOG**: Domínio: Comportamento e PII-Zero. Mecânica: Mascara CPFs e dados sensíveis ANTES do LLM. (NUNCA bloqueia tráfego).
-- **KANGAL**: Domínio: Perímetro de Rede e WAF. Mecânica: Drop Policy em <15ms. Bloqueia SQL Injection, C2/DGA. (NUNCA criptografa dados).
-- **PITBULL**: Domínio: Resposta Tática e Extermínio. Mecânica: Taskkill em <50ms. (NUNCA gera ZK-Proofs).
-- **SENTINEL PRIME**: Domínio: Orquestrador Mestre e Circuit Breaker financeiro.
-- **SENTINEL DEFENSE**: Domínio: Hardening contínuo e mitigação ativa de falhas.
-- **LAZARUS AUDITOR**: Domínio: Prova Imutável e Histórico. Mecânica: Hash Chaining (SHA-256 + Ed25519). (NUNCA faz bloqueio).
-- **GHOST RECON**: Domínio: Mapeamento invisível e forense de superfície de ataque.
-- **FORGE EXPLOIT**: Domínio: Sub-agente de Red Teaming interno (testes adversariais controlados).
-- **CIVITAS-GOVERNOR**: Domínio: Governança e GRC. Mecânica: Traduz leis reais em Policy-as-Code.
-- **ZK-SOVEREIGN-GUARD**: Domínio: Zero-Knowledge e Identidade. Mecânica: ZK-ID. (É a ÚNICA fonte de provas ZK).
-- **EDUCATECH-BUILDER**: Domínio: Construtor de interfaces (UI/UX) imutáveis.
-- **ANALYST DEEP**: Domínio: Análise forense de vulnerabilidades pós-incidente.
-- **SCRIBE INTEL**: Domínio: Guardião dos relatórios de log e transcrições imutáveis.
-- **GUARDIAN ETHICAL**: Domínio: Responsável por compliance ético (AI Act).
-- **TRIBUNAL DE CPUs**: Domínio: Consenso Cross-LLM BFT (Qwen + Claude + Gemini). Resolve conflitos.
-- **PRESA**: Domínio: Guardião da Integridade de ficheiros. Mecânica: Varredura via checksums SHA-256.
-
-### 4. RESTRIÇÕES NEGATIVAS ABSOLUTAS (NEGATIVE CONSTRAINTS)
-<negative_constraints>
-- PITBULL é APENAS Resposta Tática e Extermínio (Taskkill <50ms, Healing Vault). NUNCA gera ZK-Proofs.
-- KANGAL é APENAS Perímetro de Rede e WAF (Drop Policy <15ms). NUNCA criptografa dados.
-- WOLFDOG é APENAS Comportamento e acionamento do PII-Zero (mascaramento). NUNCA bloqueia tráfego (função do KANGAL).
-- LAZARUS AUDITOR é APENAS Prova Imutável e Histórico (Hash Chaining). NUNCA protege memória ou atua como WAF.
-- ZK-SOVEREIGN-GUARD é a ÚNICA fonte de geração de provas ZK (pi_a, pi_b) e Hardware Binding.
-- NUNCA use comentários em blocos de código que atribuam ações erradas ao módulo.
-- O argumento --target em scripts NUNCA deve ser um módulo do Certus.
-</negative_constraints>
-
-### 5. DIRETRIZES DE GERAÇÃO E IDIOMA
-- Escreva estritamente no idioma definido no seed. Nomes dos módulos sempre em maiúsculas (KANGAL, WOLFDOG, LAZARUS AUDITOR).
-- Tom: Técnico, forense, autoritário. Foco em TCO, latência (ms), hashes e conformidade normativa.
-- Formato: Markdown rigoroso. Inclua tabelas e blocos de código (Python, Rust, Bash).
-
-### 6. FORMATO DE SAÍDA DETERMINÍSTICO (OBRIGATÓRIO)
-Ao FINAL ABSOLUTO da sua resposta, gere APENAS o bloco JSON (Knowledge Graph) abaixo. Nenhuma palavra a mais.
-\`\`\`json
-{
-  "knowledge_graph": {
-    "modules": ["CERTUS.MOD.NOME_DO_MODULO"],
-    "capabilities": ["CERTUS.CAP.NOME_DA_CAPACIDADE"],
-    "threats": ["THREAT.NOME_DA_AMENACA"],
-    "relations": "CERTUS.MOD.X faz AÇÃO"
-  }
-}
-\`\`\`
+[REGRAS DE OURO DE GERAÇÃO]
+1. Foco na Capacidade: Diga "A Frota APEX intercepta e ancora o hash..." em vez de nomear agentes específicos.
+2. Rigor Jurídico: Cite os artigos de lei corretos. Nunca alucine leis ou jurisdições.
+3. Rigor Tecnológico: O PII-Zero mascara; os ZK-SNARKs provam. O Certus usa lógica determinística em Rust, NUNCA IA generativa para decisões de bloqueio.
+4. Completude: O artigo DEVE ser gerado por completo, do título ao banner final, sem truncamentos.
 `;
 
 const QWEN_MODELS = [
@@ -121,46 +79,34 @@ const QWEN_MODELS = [
 export interface GatekeeperRule {
   id: string;
   pattern: RegExp;
-  violatedModule: string;
-  correctModule: string;
+  violation: string;
   correctionPrompt: string;
 }
 
 export const GATEKEEPER_RULES: GatekeeperRule[] = [
   {
-    id: "RULE_01_WOLFDOG_ACTIVE_DEFENSE",
-    pattern: /(?:Wolfdog|WOLFDOG|Wolfdog module)[^.?!]{0,150}?(?:intercept|drop|block|bloquea|intercepta|quarantine|quarentena|calcula|gera.*hash)/i,
-    violatedModule: "WOLFDOG",
-    correctModule: "KANGAL ou LAZARUS AUDITOR",
-    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O WOLFDOG é estritamente um motor de análise comportamental e correlação de ameaças. Ele NUNCA intercepta, bloqueia, faz drop de tráfego ou calcula hashes. Reescreva o texto atribuindo a interceptação/bloqueio de borda exclusivamente ao KANGAL, ou a geração de hashes ao LAZARUS AUDITOR."
+    id: "RULE_01_TECH_HALLUCINATION_PII_ZK",
+    pattern: /(?:PII-Zero|PII_Zero)[^.?!]{0,150}?(?:gera|generates|cria|creates|produz).*?(?:ZK-SNARK|ZK-Proof|nullifier|prova de conhecimento zero)/i,
+    violation: "Alucinação Tecnológica: PII-Zero atribuído a funções de ZK-Proofs.",
+    correctionPrompt: "ERRO CRÍTICO DE ARQUITETURA: O PII-Zero é estritamente uma camada de mascaramento e tokenização. Ele NUNCA gera ZK-SNARKs. Reescreva atribuindo a geração de provas ZK ao protocolo Midnight ou ao motor criptográfico do Certus Engine."
   },
   {
-    id: "RULE_02_LAZARUS_ACTIVE_DEFENSE",
-    pattern: /(?:Lazarus|LAZARUS|LAZARUS AUDITOR)[^.?!]{0,150}?(?:intercept|drop|block|bloquea|intercepta|revoca|revokes|heurística|heuristics)/i,
-    violatedModule: "LAZARUS AUDITOR",
-    correctModule: "KANGAL ou PITBULL",
-    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O LAZARUS AUDITOR é um observador passivo e imutável. Ele NUNCA intercepta, bloqueia tráfego ou executa ações ativas de defesa. Reescreva o texto atribuindo a ação de bloqueio/interceptação ao KANGAL ou a quarentena ao PITBULL. O LAZARUS apenas registra e ancora hashes."
+    id: "RULE_02_PROBABILISTIC_DENIAL",
+    pattern: /(?:Certus Engine|Frota APEX|Certus)[^.?!]{0,150}?(?:alucina|hallucinates|probabilístico|probabilistic|IA generativa).*?(?:para decidir|para bloquear|para interceptar)/i,
+    violation: "Negação do Determinismo: Certus atribuído a comportamentos probabilísticos.",
+    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O Certus Engine e a Frota APEX são estritamente DETERMINÍSTICOS, construídos em Rust. Eles NUNCA usam IA generativa para tomar decisões de segurança. Reescreva enfatizando a lógica determinística."
   },
   {
-    id: "RULE_03_TRIBUNAL_ACTIVE_EXECUTION",
-    pattern: /(?:Tribunal de CPUs|Tribunal of CPUs)[^.?!]{0,150}?(?:calcula|gera|generates|calculating|intercept|bloquea|intercepta|revoca|audita.*flujo|audits.*flow)/i,
-    violatedModule: "TRIBUNAL DE CPUs",
-    correctModule: "LAZARUS AUDITOR (para gerar) ou KANGAL (para interceptar)",
-    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O Tribunal de CPUs é um validador passivo de consenso e hardware binding. Ele NUNCA calcula/gera hashes, nem intercepta/bloqueia tráfego ativamente. Reescreva: quem gera o hash é o LAZARUS AUDITOR; quem intercepta é o KANGAL. O Tribunal apenas VALIDA a integridade da ação."
+    id: "RULE_03_JURIDICAL_HALLUCINATION",
+    pattern: /(?:LGPD|Lei Geral de Proteção de Dados)[^.?!]{0,150}?(?:na Europa|GDPR|Europa|United States|Estados Unidos)/i,
+    violation: "Alucinação Jurídica: Confusão de jurisdições de leis.",
+    correctionPrompt: "ERRO CRÍTICO JURÍDICO: A LGPD é estritamente a lei do Brasil. Reescreva o parágrafo corrigindo a jurisdição da lei citada."
   },
   {
-    id: "RULE_04_KANGAL_WRONG_DOMAIN",
-    pattern: /(?:Kangal|KANGAL)[^.?!]{0,150}?(?:quarantine|quarentena|taskkill|genera.*hash|calcula.*hash|ledger.*inmutable|immutable.*ledger)/i,
-    violatedModule: "KANGAL",
-    correctModule: "PITBULL (quarentena) ou LAZARUS AUDITOR (hash/ledger)",
-    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O KANGAL é um WAF de interceptação e drop policy em <15ms. Ele NÃO faz quarentena de processos (função do PITBULL) e NÃO gera ledger imutável ou hashes de custódia (função do LAZARUS AUDITOR). Reescreva o texto corrigindo a atribuição."
-  },
-  {
-    id: "RULE_05_PII_ZERO_ZK_OVERSTEP",
-    pattern: /(?:PII-Zero|PII_Zero)[^.?!]{0,150}?(?:nullifier|ZK-SNARK|gera.*prova|generates.*proof|intercept)/i,
-    violatedModule: "PII-ZERO",
-    correctModule: "ZK-SOVEREIGN-GUARD",
-    correctionPrompt: "ERRO CRÍTICO DE ONTOLOGIA: O PII-Zero realiza apenas sanitização, mascaramento e tokenização dinâmica de dados. Ele NUNCA gera nullifiers, provas ZK-SNARK ou intercepta tráfego. Reescreva atribuindo a geração de provas criptográficas de conocimiento zero exclusivamente ao ZK-SOVEREIGN-GUARD."
+    id: "RULE_04_TRUNCATION_CHECK",
+    pattern: /(?:\*\*\*|🛡️|Ecossistema Educatech AI)(?:\s|\n)*$/i,
+    violation: "Truncamento de Conteúdo: O artigo foi cortado antes da conclusão.",
+    correctionPrompt: "ERRO DE COMPLETUDE: O artigo foi truncado. Reescreva o artigo COMPLETO, garantindo que todas as seções (Contexto, Anatomia da Prova, Mapeamento Forense e Conclusão) estejam presentes antes do banner final."
   }
 ];
 
@@ -170,11 +116,6 @@ export function validateArticleContent(content: string): { isValid: boolean; vio
       return { isValid: false, violation: rule };
     }
   }
-  
-  if (!content.includes('"knowledge_graph"')) {
-    return { isValid: false, reason: 'Estrutura do Knowledge Graph JSON ausente ou malformada.' };
-  }
-
   return { isValid: true };
 }
 
