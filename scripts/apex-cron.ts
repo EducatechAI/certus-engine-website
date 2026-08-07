@@ -211,7 +211,8 @@ ${rulesForLabels}
 | Coluna 1 | Coluna 2 |
 |---|---|
 | Dado A | Dado B |
-3. Conclua sempre o artigo com uma frase de fechamento completa e pontuada. Não corte o texto no meio de uma palavra ou frase.
+3. Conclua sempre o artigo com uma seção intitulada "## Conclusão". Dentro dela, encerre o texto com uma frase completa e pontuada. Não corte o texto no meio de uma palavra ou frase.
+4. O ARTIGO DEVE TERMINAR OBRIGATORIAMENTE COM O BANNER DE ASSINATURA EXATO: "🛡️ Ecossistema Educatech AI"
 
 
 ## REGRA 8 — SCORE DE UNICIDADE
