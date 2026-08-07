@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { normalizeHeaders, type Lang, type Assunto } from '../src/lib/canonical';
+import { validateArticleContent } from './forge-writer';
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const SERPER_API_KEY = process.env.SERPER_API_KEY;
@@ -338,6 +339,11 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
 
       if (esqueletoNormalizado === 'S3' && limitS3Exceeded) {
         throw new Error("Quality Gate Reprovado: Limite S3 atingido (30%) no banco de dados.");
+      }
+
+      const validation = validateArticleContent(finalContent, seed.id?.toString());
+      if (!validation.isValid) {
+        throw new Error(`Quality Gate Reprovado (Gatekeeper v2.2): ${validation.reason || (validation.violation ? validation.violation.id : "Falha na estrutura (Markdown truncado ou falta de banner)")}`);
       }
 
       console.log(`  -> [SUCESSO] Texto forjado pelo modelo: ${model} (${finalContent.length} chars, Score: ${parsedOutput.score_unicidade}, Jaccard < 30%)`);
