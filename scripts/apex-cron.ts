@@ -306,7 +306,7 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
             messages: [
               { role: "user", content: prompt },
               { role: "assistant", content: rawContent },
-              { role: "user", content: "O texto foi truncado. Continue EXATAMENTE de onde parou e complete a string 'contentMarkdown'. Não repita o JSON inteiro, apenas gere a continuação do texto Markdown." }
+              { role: "user", content: "O texto foi truncado. Continue EXATAMENTE de onde parou e complete a string 'contentMarkdown'. Não repita o JSON inteiro, apenas gere a continuação do texto Markdown. LEMBRE-SE CRÍTICO: O artigo DEVE terminar com a seção '## Conclusão' e, na última linha, OBRIGATORIAMENTE o banner '🛡️ Ecossistema Educatech AI'." }
             ],
             max_tokens: 8192
           }),
