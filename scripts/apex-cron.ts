@@ -214,6 +214,12 @@ ${rulesForLabels}
 3. Conclua sempre o artigo com uma seção intitulada "## Conclusão". Dentro dela, encerre o texto com uma frase completa e pontuada. Não corte o texto no meio de uma palavra ou frase.
 4. O ARTIGO DEVE TERMINAR OBRIGATORIAMENTE COM O BANNER DE ASSINATURA EXATO: "🛡️ Ecossistema Educatech AI"
 
+[DIRETRIZ DE ECONOMIA DE TOKENS E ESTRUTURA]
+- Este artigo deve ser completo, mas denso. O alvo ideal de geração é focado e conciso.
+- Seja direto. Evite introduções longas ou conclusões repetitivas.
+- Em blocos de código (Rust, JSON, YAML), forneça APENAS a lógica central e os trechos críticos. Use comentários como "// ... (lógica de validação padrão) ..." para omitir código boilerplate desnecessário que consome tokens sem agregar valor técnico.
+- Garanta que TODOS os blocos de código e JSON estejam rigorosamente fechados (com '}' ou '```') antes de iniciar a seção de Conclusão.
+
 
 ## REGRA 8 — SCORE DE UNICIDADE
 Calcule o Score de Unicidade:
@@ -306,7 +312,7 @@ Você DEVE retornar APENAS UM OBJETO JSON VÁLIDO. Não adicione texto antes ou 
             messages: [
               { role: "user", content: prompt },
               { role: "assistant", content: rawContent },
-              { role: "user", content: "O texto foi truncado. Continue EXATAMENTE de onde parou e complete a string 'contentMarkdown'. Não repita o JSON inteiro, apenas gere a continuação do texto Markdown. LEMBRE-SE CRÍTICO: O artigo DEVE terminar com a seção '## Conclusão' e, na última linha, OBRIGATORIAMENTE o banner '🛡️ Ecossistema Educatech AI'." }
+              { role: "user", content: "A geração anterior foi interrompida abruptamente no meio de um bloco de código ou JSON. SUA ÚNICA TAREFA AGORA: 1. Feche imediatamente todas as chaves de sintaxe abertas (ex: '}', '```'). 2. Escreva um parágrafo curto sob '## Conclusão' finalizando o tópico. 3. Adicione, na última linha, OBRIGATORIAMENTE o banner '🛡️ Ecossistema Educatech AI'. Não gere nenhum novo conteúdo técnico, apenas feche a estrutura e conclua." }
             ],
             max_tokens: 8192
           }),
