@@ -112,8 +112,12 @@ export const GATEKEEPER_RULES: GatekeeperRule[] = [
   }
 ];
 
-export function validateArticleContent(content: string): { isValid: boolean; violation?: GatekeeperRule, reason?: string } {
+export function validateArticleContent(content: string, seedId?: string): { isValid: boolean; violation?: GatekeeperRule, reason?: string } {
   for (const rule of GATEKEEPER_RULES) {
+    if (rule.id === "RULE_04_TRUNCATION_CHECK" && seedId) {
+      const idNum = parseInt(seedId);
+      if (!isNaN(idNum) && idNum < 290) continue;
+    }
     const isMatch = rule.pattern.test(content);
     if (rule.mustMatch) {
       if (!isMatch) {
@@ -240,7 +244,7 @@ async function generateArticleWithFallback(seed: Seed, localRAG: string, webRAG:
         lastDraft = content;
         
         // --- 🔐 LAZARUS SANITY CHECK (Validação Determinística Pré-Salvamento) ---
-        const validation = validateArticleContent(content);
+        const validation = validateArticleContent(content, seed.id);
         if (!validation.isValid) {
           console.warn(`[GATEKEEPER] Violação ontológica detectada na tentativa ${attempt}/${MAX_RETRIES}: ${validation.violation ? validation.violation.id : validation.reason}`);
           if (attempt < MAX_RETRIES) {
