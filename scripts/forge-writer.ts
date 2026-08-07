@@ -104,7 +104,13 @@ export const GATEKEEPER_RULES: GatekeeperRule[] = [
     correctionPrompt: "ERRO CRÍTICO JURÍDICO: A LGPD é estritamente a lei do Brasil. Reescreva o parágrafo corrigindo a jurisdição da lei citada."
   },
   {
-    id: "RULE_04_TRUNCATION_CHECK",
+    id: "RULE_04_AGGRESSIVE_TRUNCATION",
+    pattern: /(?:\{|\[|,|:)\s*\n?\s*🛡️|(?:\/\/\s*Regra|private_user_token|cpf_real|wolfdog_entropy).*🛡️/si,
+    violation: "Truncamento Crítico: Bloco de código, JSON ou função aberta imediatamente antes do banner final.",
+    correctionPrompt: "ERRO FATAL DE SINTAXE: A geração anterior foi cortada no meio de um bloco de código ou JSON. SUA ÚNICA TAREFA AGORA: 1. Feche IMEDIATAMENTE todas as chaves '}' e blocos '\`\`\`' que estavam abertos. 2. Escreva um parágrafo curto de 'Conclusão'. 3. Adicione o banner final. NÃO gere novo código, apenas feche a estrutura e conclua."
+  },
+  {
+    id: "RULE_05_BANNER_CHECK",
     pattern: /(?:\*\*\*|🛡️|Ecossistema Educatech AI)(?:\s|\n)*$/i,
     violation: "Truncamento de Conteúdo: O artigo foi cortado antes da conclusão.",
     correctionPrompt: "ERRO DE COMPLETUDE: O artigo foi truncado. Reescreva o artigo COMPLETO, garantindo que todas as seções (Contexto, Anatomia da Prova, Mapeamento Forense e Conclusão) estejam presentes antes do banner final.",
@@ -131,7 +137,7 @@ export function validateArticleContent(content: string, seedId?: string): { isVa
   }
 
   for (const rule of GATEKEEPER_RULES) {
-    if (rule.id === "RULE_04_TRUNCATION_CHECK" && isHistoric) continue;
+    if ((rule.id === "RULE_04_AGGRESSIVE_TRUNCATION" || rule.id === "RULE_05_BANNER_CHECK") && isHistoric) continue;
     
     const isMatch = rule.pattern.test(content);
     if (rule.mustMatch) {

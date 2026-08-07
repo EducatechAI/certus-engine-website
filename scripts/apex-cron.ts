@@ -220,6 +220,9 @@ ${rulesForLabels}
 - Em blocos de código (Rust, JSON, YAML), forneça APENAS a lógica central e os trechos críticos. Use comentários como "// ... (lógica de validação padrão) ..." para omitir código boilerplate desnecessário que consome tokens sem agregar valor técnico.
 - Garanta que TODOS os blocos de código e JSON estejam rigorosamente fechados (com '}' ou '\`\`\`') antes de iniciar a seção de Conclusão.
 
+[REGRA ABSOLUTA DE FECHAMENTO DE SINTAXE]
+NUNCA, sob hipótese alguma, imprima o banner "🛡️ Ecossistema Educatech AI" se houver qualquer bloco de código, JSON, YAML ou função Rust aberto. Você DEVE fechar TODAS as chaves '}' e blocos '\`\`\`' e escrever a seção "Conclusão" antes de tocar no banner. Se o espaço de tokens estiver acabando, use "// ... (lógica omitida)" para fechar o bloco rapidamente.
+
 
 ## REGRA 8 — SCORE DE UNICIDADE
 Calcule o Score de Unicidade:
