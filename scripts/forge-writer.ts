@@ -81,6 +81,7 @@ export interface GatekeeperRule {
   pattern: RegExp;
   violation: string;
   correctionPrompt: string;
+  mustMatch?: boolean;
 }
 
 export const GATEKEEPER_RULES: GatekeeperRule[] = [
@@ -106,14 +107,22 @@ export const GATEKEEPER_RULES: GatekeeperRule[] = [
     id: "RULE_04_TRUNCATION_CHECK",
     pattern: /(?:\*\*\*|🛡️|Ecossistema Educatech AI)(?:\s|\n)*$/i,
     violation: "Truncamento de Conteúdo: O artigo foi cortado antes da conclusão.",
-    correctionPrompt: "ERRO DE COMPLETUDE: O artigo foi truncado. Reescreva o artigo COMPLETO, garantindo que todas as seções (Contexto, Anatomia da Prova, Mapeamento Forense e Conclusão) estejam presentes antes do banner final."
+    correctionPrompt: "ERRO DE COMPLETUDE: O artigo foi truncado. Reescreva o artigo COMPLETO, garantindo que todas as seções (Contexto, Anatomia da Prova, Mapeamento Forense e Conclusão) estejam presentes antes do banner final.",
+    mustMatch: true
   }
 ];
 
 export function validateArticleContent(content: string): { isValid: boolean; violation?: GatekeeperRule, reason?: string } {
   for (const rule of GATEKEEPER_RULES) {
-    if (rule.pattern.test(content)) {
-      return { isValid: false, violation: rule };
+    const isMatch = rule.pattern.test(content);
+    if (rule.mustMatch) {
+      if (!isMatch) {
+        return { isValid: false, violation: rule };
+      }
+    } else {
+      if (isMatch) {
+        return { isValid: false, violation: rule };
+      }
     }
   }
   return { isValid: true };
