@@ -113,11 +113,26 @@ export const GATEKEEPER_RULES: GatekeeperRule[] = [
 ];
 
 export function validateArticleContent(content: string, seedId?: string): { isValid: boolean; violation?: GatekeeperRule, reason?: string } {
-  for (const rule of GATEKEEPER_RULES) {
-    if (rule.id === "RULE_04_TRUNCATION_CHECK" && seedId) {
-      const idNum = parseInt(seedId);
-      if (!isNaN(idNum) && idNum < 295) continue;
+  let isHistoric = false;
+  if (seedId) {
+    const idNum = parseInt(seedId);
+    if (!isNaN(idNum) && idNum < 295) isHistoric = true;
+  }
+
+  if (!isHistoric) {
+    const splitParts = content.split('```');
+    if (splitParts.length % 2 === 0) {
+      return { isValid: false, reason: "ERRO DE COMPLETUDE: Bloco de código não fechado. A LLM abortou a geração no meio do código." };
     }
+    
+    if (!content.toLowerCase().includes('conclusão')) {
+      return { isValid: false, reason: "ERRO DE ESTRUTURA: A seção obrigatória 'Conclusão' está ausente. O artigo foi truncado antes do fim." };
+    }
+  }
+
+  for (const rule of GATEKEEPER_RULES) {
+    if (rule.id === "RULE_04_TRUNCATION_CHECK" && isHistoric) continue;
+    
     const isMatch = rule.pattern.test(content);
     if (rule.mustMatch) {
       if (!isMatch) {
