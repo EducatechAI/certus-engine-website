@@ -27,6 +27,10 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const SERPER_API_KEY = process.env.SERPER_API_KEY;
 const BATCH_SIZE = 1;
 
+console.error("[LAZARUS OVERRIDE] Omni matriz generator blocked. Manual generation mode active.");
+process.exit(0);
+
+
 const SEEDS_FILE = path.join(__dirname, '..', 'src', 'data', 'seeds.json');
 const DOSSIERS_DIR = path.join(__dirname, '..', '..', 'Docs', 'Certus_SDK_Internal', 'dossiês');
 
