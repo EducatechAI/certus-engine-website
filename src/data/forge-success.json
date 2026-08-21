@@ -1,0 +1,50 @@
+[
+  {
+    "timestamp": "2026-08-07T15:58:34.751Z",
+    "seedId": "omni-es-04293",
+    "slug": "que-debe-hacer-un-dpo-ciso-en-los-primeros-60-min-de-fuga-de-cs13-g22",
+    "modelUsed": "qwen/qwen3.7-flash",
+    "length": 4319,
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-08-07T16:02:08.755Z",
+    "seedId": "omni-en-02799",
+    "slug": "what-is-zero-day-ai-vulnerabilities-and-how-to-solve-it-in-pr-cs9-g09",
+    "modelUsed": "qwen/qwen3.7-flash",
+    "length": 4698,
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-08-07T16:05:42.090Z",
+    "seedId": "omni-es-03685",
+    "slug": "es-viable-una-ia-on-premise-soberana-para-gob-salud-chile-sin-cs5-g16",
+    "modelUsed": "qwen/qwen3.7-flash",
+    "length": 5386,
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-08-07T16:18:41.362Z",
+    "seedId": "omni-en-03078",
+    "slug": "how-do-security-standards-apply-to-zero-day-ai-vulnerabilitie-cs8-g07",
+    "modelUsed": "qwen/qwen3.7-flash",
+    "length": 5417,
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-08-07T16:20:51.659Z",
+    "seedId": "omni-en-02371",
+    "slug": "how-does-pii-zero-mask-sens-data-before-sending-it-to-the-llm-in-g17",
+    "modelUsed": "qwen/qwen3.7-plus",
+    "length": 4289,
+    "status": "SUCCESS"
+  },
+  {
+    "timestamp": "2026-08-07T16:24:32.145Z",
+    "seedId": "omni-pt-00464",
+    "slug": "quanto-custa-nao-ter-controle-quando-ataque-ddos-na-camada-7-cs4-g11",
+    "modelUsed": "qwen/qwen3.7-flash",
+    "length": 5390,
+    "status": "SUCCESS"
+  }
+]
