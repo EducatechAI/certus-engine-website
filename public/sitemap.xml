@@ -2,1525 +2,1525 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/provar-conformidade-com-lgpd46-sem-expor-dados-sensiveis-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-funciona-a-governanca-de-ia-sob-lgpd46-cs2-g08</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-viavel-ia-on-premise-soberana-para-pref-sem-perder-desempen-cs3-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/podemos-defender-pref-contra-cpf-pii-em-menos-de-50ms-cs4-g05</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possivel-criar-infraestrutura-a-prova-de-cpf-pii-usando-zk-cs5-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/qual-a-diferenca-entre-ia-probabilistica-e-governanca-determi-cs6-g10</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-o-pii-zero-mascara-dados-sensiveis-antes-do-envio-a-llm-cs7-g17</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-o-lazarus-vault-torna-a-resposta-a-cpf-pii-imutavel-e-as-cs8-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-a-regulacao-exige-que-cpf-pii-coloca-em-risco-em-pref-cs9-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-as-normas-de-seguranca-se-aplicam-a-cpf-pii-em-pref-cs10-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/quais-os-sinais-precoces-de-ransom-que-o-comportamento-denuncia-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possivel-analisar-ransom-sem-disparar-o-waf-ids-do-alvo-cs2-g06</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-e-ransom-e-como-resolver-na-pratica-sob-lgpd46-cs3-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-acontece-quando-ransom-ataca-pref-sob-lgpd46-cs4-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/por-que-confie-em-mim-nao-e-governanca-para-pref-e-o-que-a-pr-cs5-g14</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-um-dpo-ciso-deve-fazer-nas-primeiras-60-min-de-ransom-cs6-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/quanto-custa-nao-ter-controle-quando-ransom-acontece-em-pref-cs7-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possivel-implementar-sistemas-civicos-em-pref-com-sigilo-e-cs8-g23</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-lgpd46-exige-protecao-estrita-no-tratamento-de-ransom-cs9-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-se-ransom-explorar-uma-falha-em-pref-qual-o-impacto-real-cs10-g02</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/por-que-o-determinismo-elimina-a-alucinacao-ao-mitigar-api-keys-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-auditar-em-tribunal-um-incidente-de-api-keys-sob-lgpd46-cs2-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/qual-o-tco-de-remediar-api-keys-depois-vs-compliance-by-desig-cs3-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-lgpd46-trata-o-vazamento-de-dados-criticos-em-pref-cs4-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-pref-prova-autoria-identidade-sem-revelar-o-dado-pessoal-cs5-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/provar-conformidade-com-lgpd46-sem-expor-dados-sensiveis-cs6-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-funciona-a-governanca-de-ia-sob-lgpd46-cs7-g08</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-viavel-ia-on-premise-soberana-para-pref-sem-perder-desempen-cs8-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/podemos-defender-pref-contra-api-keys-em-menos-de-50ms-cs9-g05</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possivel-criar-infraestrutura-a-prova-de-api-keys-usando-z-cs10-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/qual-a-diferenca-entre-ia-probabilistica-e-governanca-determinist-g10</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-o-pii-zero-mascara-dados-sensiveis-antes-do-envio-a-llm-cs2-g17</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-o-lazarus-vault-torna-a-resposta-a-manipulacao-de-logs-e-cs3-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-a-regulacao-exige-que-manipulacao-de-logs-eleitorais-co-cs4-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-as-normas-de-seguranca-se-aplicam-a-manipulacao-de-logs-cs5-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/quais-os-sinais-precoces-de-manipulacao-de-logs-eleitorais-qu-cs6-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possivel-analisar-manipulacao-de-logs-eleitorais-sem-dispar-cs7-g06</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-e-manipulacao-de-logs-eleitorais-e-como-resolver-na-pra-cs8-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-acontece-quando-manipulacao-de-logs-eleitorais-ataca-pr-cs9-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/por-que-confie-em-mim-nao-e-governanca-para-pref-e-o-que-a-p-cs10-g14</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-um-dpo-ciso-deve-fazer-nas-primeiras-60-min-de-fraude-em-li-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/quanto-custa-nao-ter-controle-quando-fraude-em-licitacoes-via-cs2-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possivel-implementar-sistemas-civicos-em-pref-com-sigilo-e-cs3-g23</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-lgpd46-exige-protecao-estrita-no-tratamento-de-fraude-em-cs4-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-se-fraude-em-licitacoes-via-ia-explorar-uma-falha-em-pref-q-cs5-g02</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/por-que-o-determinismo-elimina-a-alucinacao-ao-mitigar-fraude-cs6-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-auditar-em-tribunal-um-incidente-de-fraude-em-licitacoes-cs7-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/qual-o-tco-de-remediar-fraude-em-licitacoes-via-ia-depois-vs-cs8-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-lgpd46-trata-o-vazamento-de-dados-criticos-em-pref-cs9-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-pref-prova-autoria-identidade-sem-revelar-o-dado-pessoa-cs10-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/podemos-defender-pref-contra-deepfakes-governamentais-em-meno-cs4-g05</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possivel-criar-infraestrutura-a-prova-de-deepfakes-governam-cs5-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-o-lazarus-vault-torna-a-resposta-a-deepfakes-governament-cs8-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-a-regulacao-exige-que-deepfakes-governamentais-coloca-e-cs9-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-as-normas-de-seguranca-se-aplicam-a-deepfakes-govername-cs10-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/quais-os-sinais-precoces-de-ataque-ddos-na-camada-7-que-o-comport-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possivel-analisar-ataque-ddos-na-camada-7-sem-disparar-o-wa-cs2-g06</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-e-ataque-ddos-na-camada-7-e-como-resolver-na-pratica-so-cs3-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-acontece-quando-ataque-ddos-na-camada-7-ataca-pref-sob-cs4-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-um-dpo-ciso-deve-fazer-nas-primeiras-60-min-de-ataque-d-cs6-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/quanto-custa-nao-ter-controle-quando-ataque-ddos-na-camada-7-cs7-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-lgpd46-exige-protecao-estrita-no-tratamento-de-ataque-dd-cs9-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-se-ataque-ddos-na-camada-7-explorar-uma-falha-em-pref-qual-cs10-g02</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/por-que-o-determinismo-elimina-a-alucinacao-ao-mitigar-injecao-de-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-auditar-em-tribunal-um-incidente-de-injecao-de-prompts-a-cs2-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-to-audit-in-court-a-corporate-espionage-incident-under-gdpr-e-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-if-corporate-espionage-exploits-a-flaw-in-enterprise-hea-cs2-g02</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-the-lazarus-vault-make-the-response-to-corporate-esp-cs3-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-can-we-prove-compliance-with-gdpr-europe-without-exposing-cs4-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-it-possible-to-analyze-corporate-espionage-without-trigger-cs5-g06</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/why-does-determinism-eliminate-hallucination-when-mitigating-cs6-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-it-possible-to-implement-civic-systems-in-enterprise-healt-cs7-g23</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-should-a-dpo-ciso-do-in-the-first-60-mins-of-corporate-e-cs8-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-happens-when-corporate-espionage-attacks-enterprise-heal-cs9-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-gdpr-europe-handle-critical-data-leakage-in-enterpr-cs10-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-it-possible-to-build-cross-border-data-leaks-proof-infrastruct-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/why-trust-me-is-not-governance-for-enterprise-healthcare-and-cs2-g14</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-pii-zero-mask-sensitive-data-before-sending-it-to-th-cs3-g17</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-does-regulation-demand-that-cross-border-data-leaks-puts-cs4-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-enterprise-healthcare-prove-authorship-identity-with-cs5-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-cross-border-data-leaks-and-how-to-solve-it-in-practi-cs6-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/can-we-defend-enterprise-healthcare-against-cross-border-data-cs7-g05</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-the-difference-between-probabilistic-ai-and-determini-cs8-g10</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-are-the-early-signs-of-cross-border-data-leaks-that-beha-cs9-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-do-security-standards-apply-to-cross-border-data-leaks-i-cs10-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-gdpr-europe-strictly-require-protection-when-handling-sm-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-sovereign-on-premise-ai-viable-for-enterprise-healthcare-w-cs2-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-much-does-it-cost-not-to-have-control-when-smart-contract-cs3-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-the-tco-of-remediating-smart-contract-exploits-later-cs4-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-ai-governance-under-gdpr-europe-work-from-the-inside-cs5-g08</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-to-audit-in-court-a-smart-contract-exploits-incident-unde-cs6-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-if-smart-contract-exploits-exploits-a-flaw-in-enterprise-cs7-g02</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-the-lazarus-vault-make-the-response-to-smart-contrac-cs8-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-can-we-prove-compliance-with-gdpr-europe-without-exposing-cs9-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-it-possible-to-analyze-smart-contract-exploits-without-tr-cs10-g06</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/why-does-determinism-eliminate-hallucination-when-mitigating-zero-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-it-possible-to-implement-civic-systems-in-enterprise-healt-cs2-g23</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-should-a-dpo-ciso-do-in-the-first-60-mins-of-zero-day-ai-cs3-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-happens-when-zero-day-ai-vulnerabilities-attacks-enterpr-cs4-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-gdpr-europe-handle-critical-data-leakage-in-enterpri-cs5-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-it-possible-to-build-zero-day-ai-vulnerabilities-proof-inf-cs6-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/why-trust-me-is-not-governance-for-enterprise-healthcare-and-cs7-g14</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-pii-zero-mask-sensitive-data-before-sending-it-to-th-cs8-g17</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-does-regulation-demand-that-zero-day-ai-vulnerabilities-cs9-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-enterprise-healthcare-prove-authorship-identity-wit-cs10-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-insider-threats-and-how-to-solve-it-in-practice-under-gdp-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/can-we-defend-enterprise-healthcare-against-insider-threats-i-cs2-g05</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-the-difference-between-probabilistic-ai-and-determini-cs3-g10</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-are-the-early-signs-of-insider-threats-that-behavior-rev-cs4-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-do-security-standards-apply-to-insider-threats-in-enterpr-cs5-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-gdpr-europe-strictly-require-protection-when-handlin-cs6-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-sovereign-on-premise-ai-viable-for-enterprise-healthcare-w-cs7-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-much-does-it-cost-not-to-have-control-when-insider-threat-cs8-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-viable-una-ia-on-premise-soberana-para-gobierno-digital-mexico-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-implementar-sistemas-civicos-en-gobierno-digital-m-cs2-g23</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-es-secuestro-de-datos-ransomware-y-como-resolverlo-en-la-cs3-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-podemos-demostrar-cumplimiento-con-lgpdgso-art-19-63-sin-cs4-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-el-lazarus-vault-hace-que-la-respuesta-a-secuestro-de-da-cs5-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-trata-lgpdgso-art-19-63-la-fuga-de-datos-criticos-en-gob-cs6-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuales-son-las-senales-tempranas-de-secuestro-de-datos-ransom-cs7-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-crear-infraestructura-a-prueba-de-secuestro-de-dat-cs8-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-debe-hacer-un-dpo-ciso-en-los-primeros-60-min-de-secuestr-cs9-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-analizar-secuestro-de-datos-ransomware-sin-activa-cs10-g06</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/podemos-defender-gobierno-digital-mexico-contra-secuestro-de-cs11-g05</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cual-es-el-tco-de-remediar-secuestro-de-datos-ransomware-des-cs12-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-sucede-cuando-secuestro-de-datos-ransomware-ataca-gobier-cs13-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-exige-la-regulacion-que-secuestro-de-datos-ransomware-po-cs14-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cual-es-la-diferencia-entre-ia-probabilistica-y-gobernanza-d-cs15-g10</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-funciona-la-gobernanza-de-ia-bajo-lgpdgso-art-19-63-cs16-g08</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-se-aplican-las-normas-de-seguridad-a-secuestro-de-datos-cs17-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/por-que-el-determinismo-elimina-la-alucinacion-al-mitigar-se-cs18-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-pii-zero-enmascara-datos-sensibles-antes-de-enviarlos-a-cs19-g17</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuanto-cuesta-no-tener-control-cuando-secuestro-de-datos-ran-cs20-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-lgpdgso-art-19-63-exige-una-proteccion-estricta-en-el-t-cs21-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/y-si-secuestro-de-datos-ransomware-explota-una-falla-en-gobi-cs22-g02</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/por-que-confia-en-mi-no-es-gobernanza-para-gobierno-digital-cs23-g14</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-prueba-gobierno-digital-mexico-la-autoria-identidad-sin-cs24-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-auditar-en-un-tribunal-un-incidente-de-secuestro-de-dat-cs25-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-viable-una-ia-on-premise-soberana-para-gobierno-digital-m-cs26-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-implementar-sistemas-civicos-en-gobierno-digital-cs27-g23</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-es-secuestro-de-datos-ransomware-y-como-resolverlo-en-la-cs28-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-podemos-demostrar-cumplimiento-con-lgpdgso-art-19-63-si-cs29-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-el-lazarus-vault-hace-que-la-respuesta-a-secuestro-de-d-cs30-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-trata-lgpdgso-art-19-63-la-fuga-de-datos-criticos-en-go-cs31-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuales-son-las-senales-tempranas-de-secuestro-de-datos-ranso-cs32-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-crear-infraestructura-a-prueba-de-secuestro-de-da-cs33-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-debe-hacer-un-dpo-ciso-en-los-primeros-60-min-de-secuest-cs34-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-analizar-secuestro-de-datos-ransomware-sin-activa-cs35-g06</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/podemos-defender-gobierno-digital-mexico-contra-secuestro-de-cs36-g05</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cual-es-el-tco-de-remediar-secuestro-de-datos-ransomware-des-cs37-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-sucede-cuando-secuestro-de-datos-ransomware-ataca-gobier-cs38-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-exige-la-regulacion-que-secuestro-de-datos-ransomware-po-cs39-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cual-es-la-diferencia-entre-ia-probabilistica-y-gobernanza-d-cs40-g10</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-funciona-la-gobernanza-de-ia-bajo-lgpdgso-art-19-63-g08</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-se-aplican-las-normas-de-seguridad-a-robo-de-identidad-c-cs2-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/por-que-el-determinismo-elimina-la-alucinacion-al-mitigar-rob-cs3-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-pii-zero-enmascara-datos-sensibles-antes-de-enviarlos-al-cs4-g17</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuanto-cuesta-no-tener-control-cuando-robo-de-identidad-ciuda-cs5-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-lgpdgso-art-19-63-exige-una-proteccion-estricta-en-el-tr-cs6-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/y-si-robo-de-identidad-ciudadana-explota-una-falla-en-gobiern-cs7-g02</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/por-que-confia-en-mi-no-es-gobernanza-para-gobierno-digital-m-cs8-g14</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-prueba-gobierno-digital-mexico-la-autoria-identidad-sin-cs9-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-auditar-en-un-tribunal-un-incidente-de-robo-de-identida-cs10-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-viable-una-ia-on-premise-soberana-para-gobierno-digital-m-cs11-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-implementar-sistemas-civicos-en-gobierno-digital-cs12-g23</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-es-robo-de-identidad-ciudadana-y-como-resolverlo-en-la-p-cs13-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-podemos-demostrar-cumplimiento-con-lgpdgso-art-19-63-si-cs14-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-el-lazarus-vault-hace-que-la-respuesta-a-robo-de-identi-cs15-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-trata-lgpdgso-art-19-63-la-fuga-de-datos-criticos-en-go-cs16-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuales-son-las-senales-tempranas-de-robo-de-identidad-ciudad-cs17-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-crear-infraestructura-a-prueba-de-robo-de-identid-cs18-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-debe-hacer-un-dpo-ciso-en-los-primeros-60-min-de-robo-de-cs19-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-analizar-robo-de-identidad-ciudadana-sin-activar-cs20-g06</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/podemos-defender-gobierno-digital-mexico-contra-robo-de-iden-cs21-g05</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cual-es-el-tco-de-remediar-robo-de-identidad-ciudadana-despu-cs22-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-sucede-cuando-robo-de-identidad-ciudadana-ataca-gobierno-cs23-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-exige-la-regulacion-que-robo-de-identidad-ciudadana-pone-cs24-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-debe-hacer-un-dpo-ciso-en-los-primeros-60-min-de-robo-de-cs38-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-posible-crear-infraestructura-a-prueba-de-vulnerabilidad-e-cs7-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-pii-zero-enmascara-datos-sensibles-antes-de-enviarlos-al-cs3-g17</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-sucede-cuando-falsificacion-de-votos-ataca-ent-uruguai-b-cs32-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-the-diff-between-prob-ai-and-deterministic-governance-in-g10</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-lgpd-brazil-handle-critical-data-leakage-in-global-v-cs3-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-sucede-cuando-robo-de-identidad-ciudadana-ataca-banca-go-cs12-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-latam-expansion-teams-prove-authorship-identity-wout-cs3-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuanto-cuesta-no-tener-control-cuando-fuga-de-datos-masiva-o-cs19-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/quais-os-sinais-precoces-de-deepfakes-governamentais-que-o-co-cs8-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-as-normas-de-seguranca-se-aplicam-a-ataque-ddos-na-camad-cs7-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-viable-una-ia-on-premise-soberana-para-banca-ent-mexico-s-cs10-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-a-regulacao-exige-que-manipulacao-de-logs-eleitorais-coloca-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-the-diff-between-prob-ai-and-deterministic-governance-cs6-g10</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-as-normas-de-seguranca-se-aplicam-a-cpf-pii-em-bancos-cs2-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/why-trust-me-is-not-governance-for-multinational-cisos-and-wh-cs5-g14</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-lgpd46-exige-protecao-estrita-no-tratamento-de-fraude-em-lic-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-funciona-la-gobernanza-de-ia-bajo-ley-1581-decreto-1377-cs5-g08</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-lfpdppp-art-16-21-exige-una-proteccion-estricta-en-el-t-cs20-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cual-es-el-tco-de-remediar-fuga-de-datos-masiva-despues-vs-c-cs36-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/quanto-custa-nao-ter-controle-quando-injecao-de-prompts-ai-po-cs4-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-as-normas-de-seguranca-se-aplicam-a-cpf-pii-em-hospitais-cs2-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-possiv-implementar-sistemas-civicos-em-fintechs-com-sigilo-cs5-g23</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuales-son-las-senales-tempranas-de-fuga-de-datos-masiva-que-cs16-g13</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-se-aplican-las-normas-de-seguridad-a-robo-de-identidad-cs36-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-decreto-gov-digital-trata-o-vazamento-de-dados-criticos-em-b-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-much-does-it-cost-not-to-have-control-when-zero-day-ai-vu-cs6-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-prueba-govtech-salud-colombia-la-autoria-identidad-sin-cs28-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-bacen4893-trata-o-vazamento-de-dados-criticos-em-bancos-cs6-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-latam-expansion-teams-prove-authorship-identity-wout-cs8-g19</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-if-multi-jurisdictional-latam-comp-exploits-a-flaw-in-mu-cs5-g02</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/why-does-determinism-eliminate-hallucination-when-mitigating-cs9-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-exige-la-reg-que-vulnerabilidad-en-apis-abiertas-pone-en-cs33-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-as-normas-de-seguranca-se-aplicam-a-injecao-de-prompts-a-cs7-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-to-audit-in-court-a-zero-day-ai-vulnerabilities-incident-cs9-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-sovereign-on-premise-ai-viable-for-multinational-cisos-wo-cs10-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-sec-ai-washing-rules-handle-critical-data-leakage-in-cs3-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/por-que-o-determinismo-elimina-a-alucinacao-ao-mitigar-deepfa-cs3-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cual-es-el-tco-de-remediar-vulnerabilidad-en-apis-abiertas-d-cs21-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/o-que-acontece-quando-ransom-ataca-bancos-sob-decreto-gov-dig-cs6-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-debe-hacer-un-dpo-ciso-en-los-primeros-60-min-de-ataques-cs23-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/por-que-confia-en-mi-no-es-gobernanza-para-ent-uruguai-y-que-cs17-g14</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-pii-zero-enmascara-datos-sensibles-antes-de-enviarlos-a-cs33-g17</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-funciona-a-gov-de-ia-sob-marco-civil-da-internet-cs9-g08</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-viable-una-ia-on-premise-soberana-para-estado-fintech-arg-cs20-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-decreto-gov-digital-trata-o-vazamento-de-dados-criticos-em-p-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-do-security-standards-apply-to-supply-chain-ransom-in-lat-cs8-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-podemos-demostrar-cumplimiento-con-lfpdppp-art-16-21-si-cs23-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-trata-lfpdppp-art-16-21-la-fuga-de-datos-criticos-en-ba-cs20-g15</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-exige-la-reg-que-fuga-de-datos-masiva-pone-en-riesgo-en-cs23-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/por-que-el-determinismo-elimina-la-alucinacion-al-mitigar-at-cs32-g25</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-sucede-cuando-vulnerabilidad-en-apis-abiertas-ataca-banc-cs17-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-it-possible-to-build-corp-esp-proof-infra-using-zk-proofs-cs4-g04</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-ley-25-326-argentina-strictly-require-protection-whe-cs9-g21</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-sucede-cuando-fuga-de-datos-masiva-ataca-banca-ent-mexic-cs37-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-do-security-standards-apply-to-insider-threats-in-multina-cs3-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-much-does-it-cost-not-to-have-control-when-zero-day-ai-vu-cs6-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-auditar-em-tribunal-um-incidente-de-ataque-ddos-na-camad-cs9-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-does-the-lazarus-vault-make-the-response-to-cross-border-data-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/e-viavel-ia-on-premise-soberana-para-pref-sem-perder-desempen-cs5-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuanto-cuesta-no-tener-control-cuando-falsificacion-de-votos-cs39-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-happens-when-corp-esp-attacks-latam-expansion-teams-unde-cs2-g01</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-o-lazarus-vault-torna-a-resposta-a-injecao-de-prompts-a-cs10-g24</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/is-sovereign-on-premise-ai-viable-for-latam-expansion-teams-w-cs5-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/cuanto-cuesta-no-tener-control-cuando-ataques-a-infraestructu-cs9-g11</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-the-tco-of-remediating-supply-chain-ransom-later-vs-c-cs2-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-debe-hacer-un-dpo-ciso-en-los-primeros-60-min-de-fuga-de-cs13-g22</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-viable-una-ia-on-premise-soberana-para-govtech-salud-colo-cs35-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/what-is-zero-day-ai-vulnerabilities-and-how-to-solve-it-in-pr-cs9-g09</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-podemos-demostrar-cumplimiento-con-ley-25-326-ley-27-74-cs28-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/qual-o-tco-de-remediar-fraude-em-licitacoes-via-ia-depois-vs-cs5-g20</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/es-viable-una-ia-on-premise-soberana-para-gob-salud-chile-sin-cs5-g16</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/pt/soberana/como-as-normas-de-seguranca-se-aplicam-a-deepfakes-governamen-cs2-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/que-exige-la-reg-que-falsificacion-de-votos-pone-en-riesgo-e-cs18-g18</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-do-security-standards-apply-to-zero-day-ai-vulnerabilitie-cs8-g07</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/es/latam/como-podemos-demostrar-cumplimiento-con-ley-1581-decreto-137-cs23-g03</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://certusengine.ia.br/en/global/how-to-audit-in-court-a-smart-contract-exploits-incident-unde-cs9-g12</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
