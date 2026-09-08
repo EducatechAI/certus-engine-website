@@ -68,7 +68,7 @@ export function Footer() {
         <div className="pt-8 border-t border-emerald-900/20 flex flex-col md:flex-row justify-between items-center gap-6">
            <div className="flex flex-col gap-1 text-[10px] text-slate-600 font-bold uppercase tracking-widest">
              <p>{t('footer_copyright')}</p>
-             <p className="text-[8px] text-slate-700 font-mono mt-1">CNPJ: [AGUARDANDO VALIDAÇÃO] • Educatech AI Digital Sovereign</p>
+             <p className="text-[8px] text-slate-700 font-mono mt-1">CNPJ: 67.747.504/0001-40 • Educatech AI Digital Sovereign Ltda.</p>
            </div>
            <div className="flex gap-8 text-[10px] font-bold text-slate-600 uppercase tracking-widest">
               <Link href="/faq" className="hover:text-emerald-500">FAQ</Link>
