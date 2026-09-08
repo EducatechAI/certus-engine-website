@@ -197,7 +197,7 @@ export const translations = {
     gov_timeline_step3_time: 'Dia 10: Veredito',
     gov_timeline_step3_title: 'Conclusão da auditoria de compliance.',
     gov_timeline_step3_no: 'Sem Certus: Notificação de inconformidade e multa por falta de governança ativa.',
-    gov_timeline_step3_yes: 'Com Certus: Emissão do laudo de integridade. Aprovado com louvor e risco zero de sanções.',
+    gov_timeline_step3_yes: 'Com Certus: Emissão do laudo de integridade. Aprovado com redução verificável de superfície regulatória.',
     gov_cta_final_title: 'Pronto para materializar sua Governança de TI?',
     gov_cta_final_desc: 'Implemente conformidade determinística e elimine as lacunas de auditoria.',
 
@@ -250,7 +250,7 @@ export const translations = {
 
     // ── PROJETOS PAGE ──
     projects_page_title:   'Vitrine da Frota Soberana.',
-    projects_page_subtitle:'Cada projeto da frota é uma demonstração de como o motor Certus governa aplicações complexas com erro zero e soberania total.',
+    projects_page_subtitle:'Cada projeto da frota é uma demonstração de como o motor Certus governa aplicações complexas com fail-closed para invariantes testáveis e soberania total.',
     projects_view_prod:    'Ver em Produção ↗',
     projects_audit_title:  'Deseja Auditar um Projeto?',
     projects_audit_desc:   'Oferecemos acesso aos logs de Hash SHA-256 para entidades verificadas que desejam atestar a integridade das decisões de IA.',

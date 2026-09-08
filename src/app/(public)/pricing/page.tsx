@@ -214,8 +214,8 @@ export function PricingContent() {
             </div>
             <div className="flex flex-col items-center justify-center text-center">
               <Fingerprint className="w-10 h-10 mb-4 text-white" />
-              <h4 className="font-semibold text-sm">100% LGPD</h4>
-              <p className="text-xs text-slate-400 mt-2">Conformidade Absoluta</p>
+              <h4 className="font-semibold text-sm">Privacy by Design</h4>
+              <p className="text-xs text-slate-400 mt-2">Controles técnicos alinhados à LGPD</p>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
               <Cpu className="w-10 h-10 mb-4 text-gray-400" />
