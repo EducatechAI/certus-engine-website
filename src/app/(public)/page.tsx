@@ -470,54 +470,36 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-3">
-              {locale === 'en' ? 'Partnerships and Credibility' : locale === 'es' ? 'Alianzas y Credibilidad' : 'Parcerias e Credibilidade'}
+              {locale === 'en' ? 'Sovereign Pilot Program' : locale === 'es' ? 'Programa de Pilotos Soberanos' : 'Programa de Pilotos Soberanos'}
             </p>
-            <h2 className="text-3xl font-black text-white">
-              {locale === 'en' ? 'Who Trusts Certus Sovereignty' : locale === 'es' ? 'Quién Confía en la Soberanía de Certus' : 'Quem Confia na Soberania Certus'}
+            <h2 className="text-3xl font-black text-white mb-6">
+              {locale === 'en' ? 'Technological Partnerships' : locale === 'es' ? 'Asociaciones Tecnológicas' : 'Parcerias Tecnológicas'}
             </h2>
+            <p className="text-xs text-emerald-500/80 font-mono">
+              Faça parte das parcerias técnicas ou projetos internos, com Status verificado em <Link href="/status" className="underline hover:text-emerald-400">/status</Link>
+            </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center mb-16 justify-items-center opacity-60">
-            <span className="font-black text-gray-400 text-lg sm:text-xl tracking-tight">Prefeitura de Joinville</span>
-            <span className="font-black text-gray-400 text-lg sm:text-xl tracking-tight">StartupES</span>
-            <span className="font-black text-gray-400 text-lg sm:text-xl tracking-tight">Prefeitura de Aveiro</span>
-            <span className="font-black text-gray-400 text-lg sm:text-xl tracking-tight">EducaTech AI Corp</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="bg-navy-800/40 border border-navy-700/60 p-6 rounded-2xl flex flex-col justify-between">
-              <p className="text-sm text-gray-300 italic leading-relaxed">
-                {locale === 'en' 
-                  ? '"Certus Engine neutralized 100% of data leak (PII) risks in our IT support department and automated regulatory verification."'
-                  : locale === 'es'
-                  ? '"Certus Engine neutralizó el 100% de los riesgos de filtración de datos (PII) en nuestro departamento de soporte de TI y automatizó la verificación regulatoria."'
-                  : '"O Certus Engine neutralizou 100% dos riscos de vazamento de dados (PII) em nosso setor de suporte de TI e automatizou a verificação regulatória."'}
-              </p>
-              <div className="mt-6">
-                <span className="font-bold text-white text-xs block">
-                  {locale === 'en' ? 'Digital Innovation Manager' : locale === 'es' ? 'Gestor de Innovación Digital' : 'Gestor de Inovação Digital'}
-                </span>
-                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">
-                  {locale === 'en' ? 'Department of Administration' : locale === 'es' ? 'Secretaría de Administración' : 'Secretaria de Administração'}
-                </span>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-navy-800/40 border border-emerald-500/30 p-6 rounded-2xl flex flex-col items-center text-center hover:bg-navy-800/60 transition-colors">
+              <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981] mb-4 animate-pulse"></div>
+              <h3 className="font-bold text-white mb-2">Piloto Liberado</h3>
+              <p className="text-xs text-gray-400 mb-6">Ambiente em Produção (CPSI)</p>
+              <Link href="/status" className="mt-auto text-[10px] font-bold text-emerald-400 uppercase tracking-widest hover:text-emerald-300">Ver Status →</Link>
             </div>
-            <div className="bg-navy-800/40 border border-navy-700/60 p-6 rounded-2xl flex flex-col justify-between">
-              <p className="text-sm text-gray-300 italic leading-relaxed">
-                {locale === 'en' 
-                  ? '"Hiring via CPSI simplified the regulatory process. The continuous auditing of Lazarus ensures that the system strictly complies with GDPR/LGPD."'
-                  : locale === 'es'
-                  ? '"La contratación a través de CPSI simplificó el proceso regulatorio. La auditoría continua de Lazarus garantiza que el sistema cumpla estrictamente con la LGPD."'
-                  : '"A contratação via CPSI simplificou o processo regulatório. A auditoria contínua do Lazarus garante que o sistema atenda rigorosamente à LGPD."'}
-              </p>
-              <div className="mt-6">
-                <span className="font-bold text-white text-xs block">
-                  {locale === 'en' ? 'IT and Compliance Advisor' : locale === 'es' ? 'Asesor de TI y Cumplimiento' : 'Assessor de TI e Compliance'}
-                </span>
-                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">
-                  {locale === 'en' ? 'Associated Public Sector' : locale === 'es' ? 'Sector Público Asociado' : 'Setor Público Associado'}
-                </span>
-              </div>
+            
+            <div className="bg-navy-800/40 border border-yellow-500/30 p-6 rounded-2xl flex flex-col items-center text-center hover:bg-navy-800/60 transition-colors">
+              <div className="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_#eab308] mb-4"></div>
+              <h3 className="font-bold text-white mb-2">Seja Parceiro Técnico</h3>
+              <p className="text-xs text-gray-400 mb-6">Homologação de soluções conjuntas</p>
+              <Link href="/pricing" className="mt-auto text-[10px] font-bold text-yellow-400 uppercase tracking-widest hover:text-yellow-300">Aplicar →</Link>
+            </div>
+
+            <div className="bg-navy-800/40 border border-blue-500/30 p-6 rounded-2xl flex flex-col items-center text-center hover:bg-navy-800/60 transition-colors">
+              <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6] mb-4"></div>
+              <h3 className="font-bold text-white mb-2">Solicite PoC</h3>
+              <p className="text-xs text-gray-400 mb-6">Prova de Conceito (30-90 dias)</p>
+              <Link href="/pricing" className="mt-auto text-[10px] font-bold text-blue-400 uppercase tracking-widest hover:text-blue-300">Agendar →</Link>
             </div>
           </div>
         </div>
