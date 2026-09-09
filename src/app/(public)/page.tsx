@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import { FAQSection } from '@/components/FAQSection'
@@ -18,7 +18,7 @@ export default function HomePage() {
 
   const COMPLIANCE_ITEMS = [
     { icon: '🔒', title: 'Privacidade by Design', desc: 'Seus dados não treinam modelos externos. PII-Zero ativo em todas as camadas.' },
-    { icon: '🛡️', title: 'Fail-Closed Nativo',    desc: 'Em caso de incerteza, a execução é interrompida. Zero alucinação em produção.' },
+    { icon: '🛡️', title: 'Fail-Closed Nativo',    desc: 'Em caso de incerteza, a execução é interrompida. Intervenção via circuit breaker determinístico.' },
     { icon: '📜', title: 'Auditoria Criptográfica', desc: 'Logs imutáveis com hashes SHA-256 para total transparência de decisão arquitetural.' },
   ]
 

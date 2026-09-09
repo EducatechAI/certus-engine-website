@@ -1,4 +1,4 @@
-// ── FAQ data multilíngue ────────────────────────────────────────────────────
+﻿// ── FAQ data multilíngue ────────────────────────────────────────────────────
 
 export const FAQ_ITEMS_I18N = {
   'pt-BR': [
@@ -9,7 +9,7 @@ export const FAQ_ITEMS_I18N = {
     { q: "O Certus substitui as LLMs existentes?", a: "Não. O Certus assume o comando delas. Elas se tornam 'CPUs de processamento' subordinadas que obedecem ao Maestro (Certus Engine), garantindo que a execução siga o plano técnico original." },
     { q: "O que é o 'Header de Ferro' (Iron Header)?", a: "É a instrução sistêmica suprema e indestrutível que o Certus injeta em cada chamada. Ela obriga a IA a seguir protocolos sintáticos estritos (Tier A+) e proíbe divagações ou alucinações criativas." },
     { q: "Como o Certus garante o 'Fail-Closed'?", a: "Através do Tribunal de CPUs. Antes de entregar um resultado crítico, o Certus consulta múltiplos modelos simultaneamente e aplica uma votação de maioria com validação de código em tempo real — bloqueando outputs que falhem nos invariantes testáveis." },
-    { q: "O que acontece se uma IA externa (OpenAI/Google) falhar?", a: "O Certus ativa o Failover institucional. Ele redireciona o tráfego automaticamente para outro modelo da 'Frota' (Fleet) sem interrupção de serviço, garantindo resiliência absoluta." },
+    { q: "O que acontece se uma IA externa (OpenAI/Google) falhar?", a: "O Certus ativa o Failover institucional. Ele redireciona o tráfego automaticamente para outro modelo da 'Frota' (Fleet) sem interrupção de serviço, mitigando indisponibilidades do provedor base." },
     { q: "O que é o PII-Zero 2.0?", a: "É o nosso paradigma de Privacidade Absoluta. Nenhum Dado Pessoal Identificável (PII) sai da rede local. O Certus mascara ou encripta informações sensíveis na borda antes de qualquer interação externa." },
     { q: "O que é o 'Hardware Binding'?", a: "É a âncora física do sistema. O Certus mapeia a identidade única do seu hardware (CPU, SSD, MAC). Se o software for movido para um ambiente não autorizado, ele se auto-bloqueia instantaneamente." },
     { q: "Por que não posso simplesmente usar o ChatGPT na minha empresa?", a: "O ChatGPT não possui governança local. Dados enviados são usados para treinamento externo e não há garantia de que a resposta será tecnicamente correta 100% das vezes. O Certus elimina esse risco." },

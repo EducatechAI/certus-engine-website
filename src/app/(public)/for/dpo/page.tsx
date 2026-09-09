@@ -1,4 +1,4 @@
-import React from 'react';
+ï»¿import React from 'react';
 import Link from 'next/link';
 
 export default function DpoPersonaPage() {
@@ -12,40 +12,40 @@ export default function DpoPersonaPage() {
             [ CERTUS FOR COMPLIANCE ]
           </p>
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-            Mapeamento Regulatório para <span className="text-emerald-500">DPOs</span>.
+            Mapeamento Regulatï¿½rio para <span className="text-emerald-500">DPOs</span>.
           </h1>
           <p className="text-lg text-slate-400 max-w-3xl leading-relaxed">
-            Uma infraestrutura institucional multi-jurisdição. O Certus Engine consolida mais de 40 leis e 10+ normas ISO em um único Middleware Determinístico, permitindo auditorias baseadas em matemática (ZK-Proofs) ao invés de promessas de fornecedores.
+            Uma infraestrutura institucional multi-jurisdiï¿½ï¿½o. O Certus Engine consolida mais de 40 leis e 10+ normas ISO em um ï¿½nico Middleware Determinï¿½stico, permitindo auditorias baseadas em matemï¿½tica (ZK-Proofs) ao invï¿½s de promessas de fornecedores.
           </p>
         </div>
 
-        {/* Diferenciais Regulatórios */}
+        {/* Diferenciais Regulatï¿½rios */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="bg-navy-900/30 border border-emerald-900/30 p-6 rounded-xl">
             <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center mb-4">
               <span className="text-emerald-400 font-bold">1</span>
             </div>
-            <h3 className="text-white font-bold mb-2">Multi-jurisdição Simultânea</h3>
-            <p className="text-xs text-slate-400">Executa DPIA (GDPR), FRIA (EU AI Act) e RIPD (LGPD) em um único fluxo criptográfico integrado.</p>
+            <h3 className="text-white font-bold mb-2">Multi-jurisdiï¿½ï¿½o Simultï¿½nea</h3>
+            <p className="text-xs text-slate-400">Executa DPIA (GDPR), FRIA (EU AI Act) e RIPD (LGPD) em um ï¿½nico fluxo criptogrï¿½fico integrado.</p>
           </div>
           <div className="bg-navy-900/30 border border-emerald-900/30 p-6 rounded-xl">
             <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center mb-4">
               <span className="text-emerald-400 font-bold">2</span>
             </div>
-            <h3 className="text-white font-bold mb-2">Prova Sem Exposição (ZK-Proofs)</h3>
-            <p className="text-xs text-slate-400">Permite auditar a conformidade de ponta a ponta sem nunca revelar os dados sensíveis subjacentes.</p>
+            <h3 className="text-white font-bold mb-2">Prova Sem Exposiï¿½ï¿½o (ZK-Proofs)</h3>
+            <p className="text-xs text-slate-400">Permite auditar a conformidade de ponta a ponta sem nunca revelar os dados sensï¿½veis subjacentes.</p>
           </div>
           <div className="bg-navy-900/30 border border-emerald-900/30 p-6 rounded-xl">
             <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center mb-4">
               <span className="text-emerald-400 font-bold">3</span>
             </div>
-            <h3 className="text-white font-bold mb-2">Evidência Admissível (LAZARUS)</h3>
-            <p className="text-xs text-slate-400">Gera prova criptográfica imutável (Hash Chain + Ed25519) juridicamente superior a logs SIEM tradicionais.</p>
+            <h3 className="text-white font-bold mb-2">Evidï¿½ncia Admissï¿½vel (LAZARUS)</h3>
+            <p className="text-xs text-slate-400">Gera prova criptogrï¿½fica imutï¿½vel (Hash Chain + Ed25519) com trilha de auditoria determinÃ­stica.</p>
           </div>
         </div>
 
         {/* Leis e Normas Grid */}
-        <h2 className="text-2xl font-bold text-white mb-8 border-l-4 border-emerald-500 pl-4">Cobertura Geográfica e Setorial</h2>
+        <h2 className="text-2xl font-bold text-white mb-8 border-l-4 border-emerald-500 pl-4">Cobertura Geogrï¿½fica e Setorial</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {/* Brasil */}
           <div className="bg-navy-900/20 border border-slate-800 p-6 rounded-2xl">
@@ -53,9 +53,9 @@ export default function DpoPersonaPage() {
             <ul className="space-y-2 text-xs text-slate-400">
               <li><strong className="text-emerald-400 block">LGPD (Lei 13.709/18)</strong>Arts. 12, 37, 39, 46, 48, 50</li>
               <li><strong className="text-emerald-400">Marco Civil da Internet</strong></li>
-              <li><strong className="text-emerald-400">Resolução BACEN 4.893</strong></li>
+              <li><strong className="text-emerald-400">Resoluï¿½ï¿½o BACEN 4.893</strong></li>
               <li><strong className="text-emerald-400">LC 182/2021 (CPSI)</strong></li>
-              <li><strong className="text-emerald-400">Lei 14.133/21 (Licitações)</strong></li>
+              <li><strong className="text-emerald-400">Lei 14.133/21 (Licitaï¿½ï¿½es)</strong></li>
             </ul>
           </div>
 
@@ -65,7 +65,7 @@ export default function DpoPersonaPage() {
             <ul className="space-y-2 text-xs text-slate-400">
               <li><strong className="text-emerald-400 block">GDPR</strong>Arts. 25, 32, 35</li>
               <li><strong className="text-emerald-400">EU AI Act (FRIA)</strong></li>
-              <li><strong className="text-emerald-400">HIPAA (45 CFR § 164)</strong></li>
+              <li><strong className="text-emerald-400">HIPAA (45 CFR ï¿½ 164)</strong></li>
               <li><strong className="text-emerald-400">CCPA & SOX</strong></li>
               <li><strong className="text-emerald-400">NIST 800-53</strong></li>
             </ul>
@@ -76,17 +76,17 @@ export default function DpoPersonaPage() {
             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">?? LATAM</h3>
             <ul className="space-y-2 text-xs text-slate-400">
               <li><strong className="text-emerald-400 block">???? Argentina</strong>Ley 25.326 / 27.741</li>
-              <li><strong className="text-emerald-400 block">???? Colômbia</strong>Ley 1581 / Decreto 1377</li>
+              <li><strong className="text-emerald-400 block">???? Colï¿½mbia</strong>Ley 1581 / Decreto 1377</li>
               <li><strong className="text-emerald-400 block">???? Peru</strong>Ley 29733</li>
-              <li><strong className="text-emerald-400 block">???? Chile & ???? México</strong>Ley 21.719 / LFPDPPP</li>
+              <li><strong className="text-emerald-400 block">???? Chile & ???? Mï¿½xico</strong>Ley 21.719 / LFPDPPP</li>
             </ul>
           </div>
 
-          {/* Padrões ISO */}
+          {/* Padrï¿½es ISO */}
           <div className="bg-navy-900/20 border border-slate-800 p-6 rounded-2xl">
             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">?? ISO Standards</h3>
             <ul className="space-y-2 text-xs text-slate-400">
-              <li><strong className="text-emerald-400">Segurança:</strong> 27001, 27701, 27017, 27018</li>
+              <li><strong className="text-emerald-400">Seguranï¿½a:</strong> 27001, 27701, 27017, 27018</li>
               <li><strong className="text-emerald-400">IA & Riscos:</strong> 42001, 23894, 31000</li>
               <li><strong className="text-emerald-400">Continuidade:</strong> 22301</li>
               <li><strong className="text-emerald-400">Auditoria:</strong> 19011</li>
@@ -104,25 +104,25 @@ export default function DpoPersonaPage() {
               <thead className="bg-navy-900/50 text-slate-300">
                 <tr>
                   <th className="p-4 font-bold">Tier</th>
-                  <th className="p-4 font-bold">Regulamentações Suportadas</th>
+                  <th className="p-4 font-bold">Regulamentaï¿½ï¿½es Suportadas</th>
                   <th className="p-4 font-bold">Arquitetura Base</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/50">
                 <tr className="hover:bg-white/5 transition-colors">
                   <td className="p-4 text-white font-mono">Sovereign (R$ 79,90)</td>
-                  <td className="p-4">IDE básica, para Devs Juniors e Pequenas Empresas</td>
+                  <td className="p-4">IDE bï¿½sica, para Devs Juniors e Pequenas Empresas</td>
                   <td className="p-4">Qualidade Certus Engine</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
                   <td className="p-4 text-white font-mono">Command (R$ 499,90)</td>
-                  <td className="p-4 text-emerald-400">LGPD completa, GDPR completo, HIPAA básico, BACEN 4.893</td>
-                  <td className="p-4">Frota Apex, Middleware Rust, Módulo Diamante</td>
+                  <td className="p-4 text-emerald-400">LGPD completa, GDPR completo, HIPAA bï¿½sico, BACEN 4.893</td>
+                  <td className="p-4">Frota Apex, Middleware Rust, Mï¿½dulo Diamante</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
                   <td className="p-4 text-white font-mono">Command + Enterprise</td>
                   <td className="p-4 text-emerald-400 font-bold">Todas + ISO 27001 path + SOC 2 Type II</td>
-                  <td className="p-4">Implantação on-premise e Treinamento In-Company</td>
+                  <td className="p-4">Implantaï¿½ï¿½o on-premise e Treinamento In-Company</td>
                 </tr>
               </tbody>
             </table>
@@ -132,10 +132,10 @@ export default function DpoPersonaPage() {
         {/* CTA */}
         <div className="text-center mt-12">
           <Link href="/contato" className="inline-block bg-emerald-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-emerald-500 transition-colors uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-            Acessar Documentação de Compliance
+            Acessar Documentaï¿½ï¿½o de Compliance
           </Link>
           <p className="text-xs text-slate-500 mt-4">
-            Relatórios DPIA/RIPD e laudos de auditoria de 3ª parte disponíveis sob NDA.
+            Relatï¿½rios DPIA/RIPD e laudos de auditoria de 3ï¿½ parte disponï¿½veis sob NDA.
           </p>
         </div>
       </div>

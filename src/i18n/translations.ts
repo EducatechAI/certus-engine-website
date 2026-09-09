@@ -1,4 +1,4 @@
-// ─── CERTUS ENGINE — SOVEREIGN i18n TRANSLATION LAYER ────────────────────────
+﻿// ─── CERTUS ENGINE — SOVEREIGN i18n TRANSLATION LAYER ────────────────────────
 // Alinhado com o Tratado Maestro de Soberania LATAM v2.1.1
 // Idiomas: PT-BR 🇧🇷 | EN 🇺🇸 | ES 🇪🇸
 // ─────────────────────────────────────────────────────────────────────────────
@@ -48,7 +48,7 @@ export const translations = {
     hero_badge:       'Núcleo Determinístico Ativo',
     hero_title_1:     'O Cérebro que',
     hero_title_2:     'Comanda as IAs.',
-    hero_desc:        'O <strong>Certus Engine</strong> é um núcleo de IA soberana, determinístico e auditável, projetado para orquestrar, validar e governar outras LLMs. Ele não improvisa. Ele obedece a regras, executa com precisão e prova sua correção criptograficamente.',
+    hero_desc:        'O <strong>Certus Engine</strong> é um núcleo de IA soberana, determinístico e auditável, projetado para orquestrar, validar e governar outras LLMs. Ele não improvisa. Ele obedece a regras, executa com precisão e executa sob restrições invariantes.',
     hero_cta_primary: 'Solicitar Acesso à Certus Studio',
     hero_cta_secondary: 'Pedir API Privada',
     stat_uptime:      'Uptime Validado',
@@ -125,7 +125,7 @@ export const translations = {
     cta_notice:       'RESPOSTA EM ATÉ 48H ÚTEIS. TRIAGEM TÉCNICA OBRIGATÓRIA.',
 
     // ── FOOTER ──
-    footer_desc:      'O motor de governança soberana que transforma probabilidade em determinismo absoluto.',
+    footer_desc:      'O motor de governança soberana que transforma probabilidade em execução determinística.',
     footer_platform:  'Plataforma',
     footer_brain:     'O Cérebro',
     footer_fleet:     'Frota Soberana',
@@ -219,7 +219,7 @@ export const translations = {
     faq_contact_cta2: 'Ver Documentação',
 
     // ── O CÉREBRO PAGE ──
-    brain_title:      'A Filosofia do Determinismo Absoluto.',
+    brain_title:      'A Filosofia da Execução Determinística.',
     brain_subtitle:   'O Certus Engine não é uma ferramenta de conversação. É um motor de governança que transforma a probabilidade estatística das LLMs em execução de engenharia verificável.',
     brain_card1_title:'Fail-Closed Nativo',
     brain_card1_desc: 'Diferente de sistemas que "tentam" acertar, o Certus opera sob o princípio de paralisia segura. Se um output não atende aos critérios de segurança Tier A+, a execução é terminada antes de qualquer impacto.',
@@ -432,7 +432,7 @@ export const translations = {
     hero_badge:       'Deterministic Core Active',
     hero_title_1:     'The Brain that',
     hero_title_2:     'Commands the AIs.',
-    hero_desc:        'The <strong>Certus Engine</strong> is a sovereign, deterministic, and auditable AI core designed to orchestrate, validate, and govern other LLMs. It does not improvise. It obeys rules, executes with precision, and proves its correctness cryptographically.',
+    hero_desc:        'The <strong>Certus Engine</strong> is a sovereign, deterministic, and auditable AI core designed to orchestrate, validate, and govern other LLMs. It does not improvise. It obeys rules, executes with precision, and executes under invariant constraints.',
     hero_cta_primary: 'Request Certus Studio Access',
     hero_cta_secondary: 'Request Private API',
     stat_uptime:      'Validated Uptime',
@@ -509,7 +509,7 @@ export const translations = {
     cta_notice:       'RESPONSE WITHIN 48 BUSINESS HOURS. MANDATORY TECHNICAL SCREENING.',
 
     // ── FOOTER ──
-    footer_desc:      'The sovereign governance engine that transforms probability into absolute determinism.',
+    footer_desc:      'The sovereign governance engine that transforms probability into predictable execution.',
     footer_platform:  'Platform',
     footer_brain:     'The Brain',
     footer_fleet:     'Sovereign Fleet',
@@ -603,7 +603,7 @@ export const translations = {
     faq_contact_cta2: 'View Documentation',
 
     // ── O CÉREBRO PAGE ──
-    brain_title:      'The Philosophy of Absolute Determinism.',
+    brain_title:      'The Philosophy of Fail-Closed Execution.',
     brain_subtitle:   'The Certus Engine is not a conversational tool. It is a governance engine that transforms the statistical probability of LLMs into verifiable engineering execution.',
     brain_card1_title:'Native Fail-Closed',
     brain_card1_desc: 'Unlike systems that "try" to be right, Certus operates under the principle of safe paralysis. If an output does not meet Tier A+ security criteria, execution is terminated before any impact.',
@@ -893,7 +893,7 @@ export const translations = {
     cta_notice:       'RESPUESTA EN HASTA 48 HORAS HÁBILES. REVISIÓN TÉCNICA OBLIGATORIA.',
 
     // ── FOOTER ──
-    footer_desc:      'El motor de gobernanza soberana que transforma la probabilidad en determinismo absoluto.',
+    footer_desc:      'El motor de gobernanza soberana que transforma la probabilidad en ejecución determinística.',
     footer_platform:  'Plataforma',
     footer_brain:     'El Cerebro',
     footer_fleet:     'Flota Soberana',
@@ -925,7 +925,7 @@ export const translations = {
     faq_contact_cta2: 'Ver Documentación',
 
     // ── O CÉREBRO PAGE ──
-    brain_title:      'La Filosofía del Determinismo Absoluto.',
+    brain_title:      'La Filosofía de la Ejecución Determinística.',
     brain_subtitle:   'El Certus Engine no es una herramienta de conversación. Es un motor de gobernanza que transforma la probabilidad estadística de los LLMs en ejecución de ingeniería verificable.',
     brain_card1_title:'Fail-Closed Nativo',
     brain_card1_desc: 'A diferencia de sistemas que "intentan" acertar, Certus opera bajo el principio de parálisis segura. Si un output no cumple los criterios de seguridad Tier A+, la ejecución se termina antes de cualquier impacto.',

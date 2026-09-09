@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import './globals.css'
 import Script from 'next/script'
 
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | Certus Engine v3.0.0',
   },
   description:
-    'Alcance o determinismo absoluto com o Certus Engine v3.0.0 Tiered Intelligence Edition. Governança Tier A+, PII-Zero e orquestração multi-motor para codebases complexas.',
+    'Alcance o governança algorítmica com o Certus Engine v3.0.0 Tiered Intelligence Edition. Governança Tier A+, PII-Zero e orquestração multi-motor para codebases complexas.',
   keywords: [
     'governança de IA', 'controle de tokens', 'IA para empresas', 'PII-Zero', 'eliminar alucinação IA',
     'AI compliance LGPD', 'inteligência artificial determinística', 'certus engine', 'custo de API IA',
