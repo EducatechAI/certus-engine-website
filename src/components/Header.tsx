@@ -16,6 +16,7 @@ export function Header() {
     { href: '/o-cerebro', label: t('nav_brain') },
     { href: '/governance', label: locale === 'en' ? 'Governance' : locale === 'es' ? 'Gobernanza' : 'Governança' },
     { href: '/projetos',  label: t('nav_projects') },
+    { href: '/benchmarks', label: locale === 'en' ? 'Benchmarks' : locale === 'es' ? 'Benchmarks' : 'Benchmarks' },
     { href: '/#materiais', label: locale === 'en' ? 'Resources' : locale === 'es' ? 'Recursos' : 'Recursos' },
     { href: '/#embaixadores', label: locale === 'en' ? 'Ambassadors' : locale === 'es' ? 'Embajadores' : 'Embaixadores' },
     { href: '/documentacao', label: t('nav_docs') },

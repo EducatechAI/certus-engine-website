@@ -194,6 +194,13 @@ export default function StatusPage() {
             Infraestrutura em conformidade com LGPD (Art. 46) e Resolução BACEN 4.893.<br />
             Powered by Certus Engine v3.3.0 & Midnight Network
           </p>
+          <div className="flex justify-center gap-6 mt-4">
+            <a href="/benchmarks" className="text-[10px] text-emerald-600 hover:text-emerald-400 uppercase tracking-widest font-bold transition-colors">Benchmarks</a>
+            <span className="text-slate-700">|</span>
+            <a href="/legal" className="text-[10px] text-emerald-600 hover:text-emerald-400 uppercase tracking-widest font-bold transition-colors">Trust Center Legal</a>
+            <span className="text-slate-700">|</span>
+            <a href="/status" className="text-[10px] text-emerald-600 hover:text-emerald-400 uppercase tracking-widest font-bold transition-colors">Status</a>
+          </div>
         </footer>
 
       </div>
