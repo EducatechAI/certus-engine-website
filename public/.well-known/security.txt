@@ -1,0 +1,7 @@
+Contact: mailto:security@certus.engine
+Contact: https://certusengine.ia.br/security#bug-bounty
+Expires: 2027-12-31T23:59:59.000Z
+Acknowledgments: https://certusengine.ia.br/security/hall-of-fame
+Preferred-Languages: pt-BR, en, es
+Canonical: https://certusengine.ia.br/.well-known/security.txt
+Policy: https://certusengine.ia.br/security#disclosure-policy
