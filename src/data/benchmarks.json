@@ -1,8 +1,8 @@
-﻿{
+{
   "meta": {
     "version": "3.4.0",
     "measured_at": "2026-09-06T14:30:00-03:00",
-    "environment": "Render.com (Free Tier) — Rust Middleware — 1 vCPU / 512MB RAM",
+    "environment": "Render.com (Free Tier) ? Rust Middleware ? 1 vCPU / 512MB RAM",
     "samples_per_metric": 10000,
     "tool": "wrk2 + custom Rust harness (scripts/bench.sh)",
     "slo_p99_ms": 50
@@ -10,9 +10,9 @@
   "measured": [
     {
       "id": "crypto_sign",
-      "name": "Assinatura Criptográfica Ed25519",
+      "name": "Assinatura Criptogr?fica Ed25519",
       "description": "Tempo de assinar um payload de 256 bytes com Ed25519 no LAZARUS Vault",
-      "methodology": "10k chamadas sequenciais ao módulo sign() do barramento imutável, ambiente quente",
+      "methodology": "10k chamadas sequenciais ao m?dulo sign() do barramento imut?vel, ambiente quente",
       "p50_ms": 0.8,
       "p95_ms": 1.2,
       "p99_ms": 1.9,
@@ -22,7 +22,7 @@
       "id": "sha256_hash",
       "name": "Hash SHA-256 de Payload",
       "description": "Tempo de computar SHA-256 de um payload JSON de 1KB",
-      "methodology": "10k iterações, payload fixo de 1024 bytes, sem I/O de disco",
+      "methodology": "10k itera??es, payload fixo de 1024 bytes, sem I/O de disco",
       "p50_ms": 0.3,
       "p95_ms": 0.5,
       "p99_ms": 0.9,
@@ -30,9 +30,9 @@
     },
     {
       "id": "pii_inspection",
-      "name": "Inspeção PII-Zero (Wolfdog)",
-      "description": "Tempo de inspeção de PII em payload de texto livre (512 chars) com 847 padrões regex + heurísticas",
-      "methodology": "10k payloads sintéticos com mix de PII real e limpeza, medidos no Input Guard",
+      "name": "Inspe??o PII-Zero (Wolfdog)",
+      "description": "Tempo de inspe??o de PII em payload de texto livre (512 chars) com 847 padr?es regex + heur?sticas",
+      "methodology": "10k payloads sint?ticos com mix de PII real e limpeza, medidos no Input Guard",
       "p50_ms": 4.2,
       "p95_ms": 7.8,
       "p99_ms": 12.1,
@@ -42,23 +42,23 @@
   "pending": [
     {
       "id": "gateway_latency",
-      "name": "Latência End-to-End do Gateway Rust",
-      "methodology_planned": "Medir RTT completo request→LLM→response com wrk2, 10k amostras, payload padronizado"
+      "name": "Lat?ncia End-to-End do Gateway Rust",
+      "methodology_planned": "Medir RTT completo request?LLM?response com wrk2, 10k amostras, payload padronizado"
     },
     {
       "id": "zk_verify",
-      "name": "Verificação ZK-SNARK (Groth16 / BN254)",
-      "methodology_planned": "Benchmark de verify() do circuito Groth16 com snarkjs, 1k provas únicas"
+      "name": "Verifica??o ZK-SNARK (Groth16 / BN254)",
+      "methodology_planned": "Benchmark de verify() do circuito Groth16 com snarkjs, 1k provas ?nicas"
     },
     {
       "id": "failover_rtt",
-      "name": "Failover entre Nós (RTO)",
-      "methodology_planned": "Injeção de falha controlada no nó primário, medir tempo de detecção + roteamento para backup"
+      "name": "Failover entre N?s (RTO)",
+      "methodology_planned": "Inje??o de falha controlada no n? prim?rio, medir tempo de detec??o + roteamento para backup"
     },
     {
       "id": "throughput_sustained",
       "name": "Throughput Sustentado (req/s)",
-      "methodology_planned": "Carga de 60 minutos com wrk2, medir req/s estável sem degradação acima de 5%"
+      "methodology_planned": "Carga de 60 minutos com wrk2, medir req/s est?vel sem degrada??o acima de 5%"
     }
   ],
   "evolution": [
@@ -71,19 +71,19 @@
     {
       "metric": "PII Inspection Latency (p99)",
       "certus": "12.1ms",
-      "category_range": "15–80ms",
+      "category_range": "15?80ms",
       "status": "above"
     },
     {
       "metric": "Cryptographic Hash (p99)",
       "certus": "0.9ms",
-      "category_range": "1–5ms",
+      "category_range": "1?5ms",
       "status": "above"
     },
     {
       "metric": "Digital Signature Ed25519 (p99)",
       "certus": "1.9ms",
-      "category_range": "2–10ms",
+      "category_range": "2?10ms",
       "status": "above"
     }
   ]
