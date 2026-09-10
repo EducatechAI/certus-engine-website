@@ -1,0 +1,4 @@
+[
+  { "version": "v3.4.0", "label": "latest", "isCurrent": true },
+  { "version": "v3.3.0", "label": "legacy", "isCurrent": false }
+]

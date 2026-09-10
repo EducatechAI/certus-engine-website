@@ -1,0 +1,6 @@
+[
+  { "title": "Getting Started", "path": "/documentacao/getting-started", "content": "Quickstart, instalacao e conceitos fundamentais como PII-Zero e Fail-Closed." },
+  { "title": "Architecture & Failure Modes", "path": "/documentacao/architecture", "content": "Visao geral da arquitetura, Tribunal de CPUs, LAZARUS, e tratamento de falhas." },
+  { "title": "API Reference", "path": "/documentacao/api-reference", "content": "Endpoints REST, autenticacao, rate limits e schemas de payload." },
+  { "title": "Compliance & Regulations", "path": "/documentacao/compliance", "content": "Mapeamento LGPD, GDPR, HIPAA e BACEN 4.893 para SEC-IDs." }
+]
