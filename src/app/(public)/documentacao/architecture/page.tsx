@@ -62,6 +62,81 @@ export default function ArchitecturePage() {
         </table>
       </div>
 
+            <h2 id="frota-apex" className="text-2xl font-bold text-white mt-12 mb-4">Frota APEX — Defesa Ativa</h2>
+      <p className="text-slate-400 mb-6">
+        O núcleo defensivo do Certus Engine é composto pela <strong>Frota APEX</strong>, um exército de 14 agentes especializados em orquestração, governança e segurança em tempo real.
+      </p>
+
+      <div className="grid md:grid-cols-2 gap-4 mb-6">
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">1. Wolfdog</h4>
+          <p className="text-xs text-slate-400">Persistência de kernel (watchdog) + sanitização PII-Zero (<Link href="/security#SEC-PII-001" className="text-emerald-500 hover:underline">SEC-PII-001</Link>).</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">2. Kangal</h4>
+          <p className="text-xs text-slate-400">Interceptação de rede (WFP/iptables) e bloqueio heurístico de PII na borda.</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">3. Pitbull</h4>
+          <p className="text-xs text-slate-400">Hardening ativo (ETW) e encerramento implacável de processos maliciosos.</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">4. Sentinel Prime</h4>
+          <p className="text-xs text-slate-400">Análise estrutural de padrões de ataque e coordenação de respostas.</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">5. Sentinel Defense</h4>
+          <p className="text-xs text-slate-400">Defesa ativa e mitigação (detalhes sob NDA).</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">6. LAZARUS Auditor</h4>
+          <p className="text-xs text-slate-400">Auditoria imutável e cadeia de evidência criptográfica (<Link href="/security#SEC-LAZ-001" className="text-emerald-500 hover:underline">SEC-LAZ-001</Link>).</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">7. GHOST Recon</h4>
+          <p className="text-xs text-slate-400">Mapeamento furtivo e análise silenciosa de infraestrutura.</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">8. FORGE Exploit</h4>
+          <p className="text-xs text-slate-400">Laboratório de ataque ético diário para fortalecimento contínuo.</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">9. CIVITAS-GOVERNOR</h4>
+          <p className="text-xs text-slate-400">Governança cívica e regulatória (detalhes sob NDA).</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">10. ZK-SOVEREIGN-GUARD</h4>
+          <p className="text-xs text-slate-400">Guarda de provas Zero-Knowledge e arquitetura ZK-ID.</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">11. EDUCATECH-BUILDER</h4>
+          <p className="text-xs text-slate-400">Construção e fluxos de educação técnica (detalhes sob NDA).</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">12. ANALYST Deep</h4>
+          <p className="text-xs text-slate-400">Análise profunda e forense (detalhes sob NDA).</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">13. SCRIBE Intel</h4>
+          <p className="text-xs text-slate-400">Inteligência documental estruturada (detalhes sob NDA).</p>
+        </div>
+        <div className="p-4 bg-black/40 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-1">14. GUARDIAN Ethical</h4>
+          <p className="text-xs text-slate-400">Guarda ética e compliance moral (detalhes sob NDA).</p>
+        </div>
+      </div>
+      
+      <div className="bg-emerald-950/20 border border-emerald-900/30 rounded-xl p-6 mb-6">
+        <h4 className="text-emerald-400 font-bold mb-2">Presa Canário (Root of Trust)</h4>
+        <p className="text-sm text-slate-300">
+          O <strong>Presa Canário</strong> é um módulo de integridade de filesystem, distinto da Frota APEX. Sua função exclusiva é atuar como cão de guarda da Raiz de Confiança (Root of Trust) do sistema de arquivos, impedindo adulterações de estado persistente.
+        </p>
+      </div>
+
+      <p className="text-xs text-slate-500 mb-12 p-4 border-l-2 border-emerald-500 bg-emerald-950/10">
+        <strong>Disponibilidade:</strong> A Frota APEX está disponível nos níveis <strong>IDE Command Standard</strong> (deploy compartilhado) e <strong>Enterprise/Government</strong> (deploy dedicado). Para agentes marcados <em>'sob NDA'</em>, detalhes completos são fornecidos após assinatura de acordo de confidencialidade (exclusivo no nível Enterprise/Government).
+      </p>
+
       <h2 id="topologies" className="text-2xl font-bold text-white mt-12 mb-4">Deployment Topologies</h2>
       <ul className="space-y-4 text-slate-400 text-sm mb-12">
         <li><strong>SaaS Public (Default):</strong> API Multi-tenant isolada lógicamente via RBAC. Ideal para PMEs.</li>

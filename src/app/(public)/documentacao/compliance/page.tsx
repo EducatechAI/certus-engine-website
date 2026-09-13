@@ -15,6 +15,76 @@ export default function CompliancePage() {
         Como as capacidades técnicas do Certus Engine se alinham com regulações globais de proteção de dados. Mapeamento direto de Artigo Jurídico para Controle Técnico (SEC-ID).
       </p>
 
+            <h2 id="niveis-recomendados" className="text-2xl font-bold text-white mt-12 mb-6">Nível Recomendado por Setor Regulado</h2>
+      <div className="overflow-x-auto border border-slate-800 rounded-xl mb-12">
+        <table className="w-full text-sm text-left">
+          <thead className="bg-black/50 text-[10px] uppercase tracking-widest text-slate-500">
+            <tr>
+              <th className="px-4 py-3">Setor</th>
+              <th className="px-4 py-3">Nível Recomendado</th>
+              <th className="px-4 py-3">Por Que</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-800/50">
+            <tr className="bg-black/20">
+              <td className="px-4 py-3 font-semibold text-white">Pequena empresa (LGPD)</td>
+              <td className="px-4 py-3 text-emerald-400">IDE Sovereign</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Conformidade básica</td>
+            </tr>
+            <tr className="bg-black/20">
+              <td className="px-4 py-3 font-semibold text-white">Startup (LGPD + GDPR)</td>
+              <td className="px-4 py-3 text-emerald-400 font-bold">IDE Command Standard</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Compliance + Frota APEX</td>
+            </tr>
+            <tr className="bg-black/20">
+              <td className="px-4 py-3 font-semibold text-white">Deep Tech</td>
+              <td className="px-4 py-3 text-emerald-400 font-bold">IDE Command Standard</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Middleware Rust + ZK</td>
+            </tr>
+            <tr className="bg-black/20">
+              <td className="px-4 py-3 font-semibold text-white">Empresa médio porte</td>
+              <td className="px-4 py-3 text-emerald-400 font-bold">IDE Command Standard</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Módulo Diamante + CI/CD</td>
+            </tr>
+            <tr className="bg-emerald-950/20">
+              <td className="px-4 py-3 font-semibold text-white">Banco (BACEN 4.893)</td>
+              <td className="px-4 py-3 text-blue-400 font-bold">Enterprise/Government</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Single-tenant + auditoria</td>
+            </tr>
+            <tr className="bg-emerald-950/20">
+              <td className="px-4 py-3 font-semibold text-white">Hospital (HIPAA)</td>
+              <td className="px-4 py-3 text-blue-400 font-bold">Enterprise/Government</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Compliance HIPAA + air-gapped</td>
+            </tr>
+            <tr className="bg-emerald-950/20">
+              <td className="px-4 py-3 font-semibold text-white">Escola</td>
+              <td className="px-4 py-3 text-blue-400 font-bold">Enterprise/Government</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">ECA Digital + treinamento</td>
+            </tr>
+            <tr className="bg-emerald-950/20">
+              <td className="px-4 py-3 font-semibold text-white">Universidade/Faculdade</td>
+              <td className="px-4 py-3 text-blue-400 font-bold">Enterprise/Government</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Multi-usuário + pesquisa</td>
+            </tr>
+            <tr className="bg-emerald-950/20">
+              <td className="px-4 py-3 font-semibold text-white">Prefeitura (LGPD + TCU)</td>
+              <td className="px-4 py-3 text-blue-400 font-bold">Enterprise/Government</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Auditoria Cega + CPSI</td>
+            </tr>
+            <tr className="bg-emerald-950/20">
+              <td className="px-4 py-3 font-semibold text-white">Tribunal (TCU/TCE)</td>
+              <td className="px-4 py-3 text-blue-400 font-bold">Enterprise/Government</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Evidência criptográfica</td>
+            </tr>
+            <tr className="bg-emerald-950/20">
+              <td className="px-4 py-3 font-semibold text-white">Defesa</td>
+              <td className="px-4 py-3 text-blue-400 font-bold">Enterprise/Government</td>
+              <td className="px-4 py-3 text-slate-400 text-xs">Air-gapped + LAZARUS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <h2 id="lgpd" className="text-2xl font-bold text-white mt-12 mb-6">LGPD (Brasil)</h2>
       <div className="space-y-6 mb-12">
         <div className="bg-black/40 border border-emerald-900/30 rounded-xl p-6">

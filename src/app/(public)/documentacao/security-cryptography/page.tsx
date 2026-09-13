@@ -28,9 +28,24 @@ Sig_n = Ed25519_Sign( PrivateKey, H_n )`}
 
       <p className="text-slate-400 mb-4">Isso torna qualquer adulteração do banco de dados detectável retroativamente, garantindo integridade forense.</p>
 
-      <h2 id="zk" className="text-2xl font-bold text-white mt-12 mb-4">ZK Protocols (Roadmap)</h2>
+            <h2 id="zk" className="text-2xl font-bold text-white mt-12 mb-4">ZK Protocols (Roadmap)</h2>
       <p className="text-slate-400 mb-12">Integração com <code>Groth16</code> e curvas <code>BN254</code> está em andamento para permitir Zero-Knowledge Identity proofs, onde atributos podem ser verificados pela política sem jamais serem revelados ao motor do Certus.</p>
 
+      <h2 id="integracao-apex" className="text-2xl font-bold text-white mt-12 mb-4">Integração com Frota APEX</h2>
+      <p className="text-slate-400 mb-6">
+        Os mecanismos criptográficos operam como as fundações para os agentes de defesa autônomos da <strong>Frota APEX</strong>:
+      </p>
+
+      <ul className="list-disc pl-5 space-y-3 text-slate-300 mb-8">
+        <li><strong>Ed25519 (Assinatura):</strong> Utilizado pelo <Link href="/documentacao/architecture#frota-apex" className="text-emerald-400 hover:underline">LAZARUS Auditor</Link> para validar autoridade e Consenso BFT.</li>
+        <li><strong>SHA-256 Chain:</strong> Mantido ativamente pelo LAZARUS Auditor e protegido em repouso pelo <strong>Presa Canário</strong> (Root of Trust).</li>
+        <li><strong>FPE-FF3-1 (Tokenização PII):</strong> Motor matemático alimentado aos agentes <Link href="/documentacao/architecture#frota-apex" className="text-emerald-400 hover:underline">Wolfdog</Link> e Kangal para higienização em memória.</li>
+        <li><strong>ZK Proofs:</strong> Infraestrutura baseada nas curvas Groth16 operada pelo agente ZK-SOVEREIGN-GUARD.</li>
+      </ul>
+
+      <p className="text-xs text-slate-500 mb-12 p-4 border-l-2 border-emerald-500 bg-emerald-950/10">
+        <strong>Disponibilidade:</strong> A Frota APEX e o Módulo Diamante estão disponíveis tanto no nível <strong>IDE Command Standard</strong> (deploy compartilhado) quanto no nível <strong>Enterprise/Government</strong> (deploy dedicado com air-gapped opcional).
+      </p>
       <DocsFooter />
     </div>
   );

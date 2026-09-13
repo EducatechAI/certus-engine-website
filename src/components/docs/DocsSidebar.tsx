@@ -1,9 +1,11 @@
 ﻿'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 export function DocsSidebar() {
   const pathname = usePathname();
+  const [tier, setTier] = useState('standard');
   
   const SECTIONS = [
     { title: 'Overview', links: [
@@ -17,7 +19,7 @@ export function DocsSidebar() {
     ]},
     { title: 'Integration', links: [
       { name: 'API Reference', path: '/documentacao/api-reference' },
-      { name: 'SDKs & CLI', path: '/documentacao/sdks' }
+      { name: 'Canais de Integração', path: '/documentacao/sdks' }
     ]},
     { title: 'Governance', links: [
       { name: 'Compliance Mappings', path: '/documentacao/compliance' },
@@ -28,11 +30,24 @@ export function DocsSidebar() {
   return (
     <aside className="w-64 shrink-0 hidden md:flex flex-col h-[calc(100vh-80px)] sticky top-20 overflow-y-auto pr-6 border-r border-emerald-900/20 py-8">
       
-      <div className="mb-8">
+      <div className="mb-6 space-y-3">
         <select className="w-full bg-black/40 border border-emerald-900/50 rounded-lg px-3 py-2 text-xs text-emerald-400 font-mono outline-none focus:border-emerald-500/50 cursor-pointer">
           <option value="v3.4.0">v3.4.0 (latest)</option>
           <option value="v3.3.0">v3.3.0 (legacy)</option>
         </select>
+        
+        <div className="p-3 bg-emerald-950/30 border border-emerald-900/50 rounded-lg">
+          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Nível Atual</label>
+          <select 
+            value={tier}
+            onChange={(e) => setTier(e.target.value)}
+            className="w-full bg-black/40 border border-slate-700 rounded-md px-2 py-1.5 text-xs text-white outline-none focus:border-emerald-500/50 cursor-pointer"
+          >
+            <option value="sovereign">IDE Sovereign</option>
+            <option value="standard">IDE Command Standard</option>
+            <option value="enterprise">Enterprise/Government</option>
+          </select>
+        </div>
       </div>
 
       <nav className="flex-1 space-y-8">
@@ -46,11 +61,7 @@ export function DocsSidebar() {
                   <li key={link.path}>
                     <Link 
                       href={link.path}
-                      className={`block text-sm px-3 py-1.5 rounded-md transition-colors border-l-2 ${
-                        active 
-                          ? 'border-emerald-500 bg-emerald-500/10 text-emerald-400 font-medium' 
-                          : 'border-transparent text-slate-400 hover:text-slate-200 hover:bg-white/5'
-                      }`}
+                      className={lock text-sm px-3 py-1.5 rounded-md transition-colors border-l-2 }
                     >
                       {link.name}
                     </Link>
@@ -73,7 +84,7 @@ export function DocsSidebar() {
           <li className="flex justify-between"><span>PII Shield</span><span className="text-emerald-400">ONLINE ✓</span></li>
           <li className="flex justify-between"><span>LAZARUS</span><span className="text-emerald-400">ONLINE ✓</span></li>
         </ul>
-        <Link href="/status" className="text-[10px] text-emerald-500 hover:underline uppercase tracking-widest">Ver relatorio completo →</Link>
+        <Link href="/status" className="text-[10px] text-emerald-500 hover:underline uppercase tracking-widest">Ver relatório completo &rarr;</Link>
       </div>
 
     </aside>

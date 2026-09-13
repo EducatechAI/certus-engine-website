@@ -13,8 +13,8 @@ export default function DocumentacaoHub() {
     { title: 'Architecture', path: '/documentacao/architecture', desc: 'Threat Model, Failure Modes e Deployment Topologies.', icon: '🏛️' },
     { title: 'API Reference', path: '/documentacao/api-reference', desc: 'Endpoints, schemas e autenticação REST.', icon: '🔌' },
     { title: 'Policy Language', path: '/documentacao/policy-language', desc: 'YAML specs e Policy Cookbook por setor.', icon: '📜' },
-    { title: 'Security & Crypto', path: '/documentacao/security-cryptography', desc: 'FPE, LAZARUS Chain e ZK Protocols.', icon: '🔒' },
-    { title: 'SDKs', path: '/documentacao/sdks', desc: 'Integração oficial via Node.js e Python.', icon: '📦' },
+    { title: 'Security & Crypto', path: '/documentacao/security-cryptography', desc: 'FPE, LAZARUS Chain e ZK Protocols.', icon: '🔐' },
+    { title: 'Canais de Integração', path: '/documentacao/sdks', desc: 'Integração oficial via canais dedicados.', icon: '📦' },
     { title: 'Compliance', path: '/documentacao/compliance', desc: 'Mapeamento LGPD, GDPR, HIPAA para SEC-IDs.', icon: '⚖️' },
     { title: 'Operations', path: '/documentacao/operations', desc: 'Monitoring, Incident Runbook e Troubleshooting.', icon: '⚙️' }
   ];
@@ -29,6 +29,40 @@ export default function DocumentacaoHub() {
         <p className="text-lg text-slate-400">
           A referência completa para desenvolvedores, arquitetos e DPOs integrarem governança de IA com determinismo absoluto.
         </p>
+      </div>
+
+      <div className="mb-12 space-y-4">
+        <h2 className="text-xl font-bold text-white mb-4">Escolha seu caminho</h2>
+        
+        <Link href="/documentacao/getting-started" className="block p-6 rounded-2xl bg-black/40 border border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-900/10 transition-all">
+          <div className="flex items-center gap-4">
+            <span className="text-2xl">🌱</span>
+            <div>
+              <h3 className="font-bold text-white mb-1">IDE Sovereign</h3>
+              <p className="text-sm text-slate-400">Sou dev júnior, low-code ou pequena empresa.</p>
+            </div>
+          </div>
+        </Link>
+        
+        <Link href="/documentacao/getting-started" className="block p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/50 hover:border-emerald-500/80 transition-all">
+          <div className="flex items-center gap-4">
+            <span className="text-2xl">⚡</span>
+            <div>
+              <h3 className="font-bold text-emerald-400 mb-1">IDE Command Standard</h3>
+              <p className="text-sm text-slate-300">Sou dev sênior, startup, empresa médio porte ou Deep Tech.</p>
+            </div>
+          </div>
+        </Link>
+        
+        <Link href="/pricing" className="block p-6 rounded-2xl bg-black/40 border border-slate-800 hover:border-blue-500/50 hover:bg-blue-900/10 transition-all">
+          <div className="flex items-center gap-4">
+            <span className="text-2xl">🏛️</span>
+            <div>
+              <h3 className="font-bold text-white mb-1">Modalidade Enterprise/Government</h3>
+              <p className="text-sm text-slate-400">Sou prefeitura, banco, hospital, escola, universidade, tribunal ou defesa. (Falar com vendas)</p>
+            </div>
+          </div>
+        </Link>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
