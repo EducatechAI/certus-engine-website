@@ -17,7 +17,7 @@ export default function PolicyPage() {
 
       <h2 id="schema" className="text-2xl font-bold text-white mt-12 mb-4">Spec Base</h2>
       <pre className="bg-[#050b08] border border-slate-800 rounded-lg p-4 font-mono text-xs overflow-x-auto text-emerald-300/90 mb-8">
-{ersion: "1.0"
+{version: "1.0"
 governance:
   pii_shield:
     mode: "redact" # ou "block"

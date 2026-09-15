@@ -1,0 +1,19 @@
+﻿{
+  "id": "omni-pt-govtech-00001",
+  "locale": "pt",
+  "assunto": "GovTech",
+  "slug": "por-que-sua-prefeitura-precisa-do-certus-engine-o-que-ele-resolve-tcu-cs405-g01",
+  "title": "Por que sua prefeitura precisa do Certus Engine — e o que ele resolve antes do próximo relatório do TCU?",
+  "niche": "Prefeituras",
+  "law": "TCU / LGPD (Art. 46)",
+  "painPoint": "Auditoria sem Expor Dados",
+  "releaseDate": "2026-09-07T11:00:00.000Z",
+  "contentMarkdown": "",
+  "forgeMeta": {
+    "gancho_usado": "Por que sua prefeitura precisa do Certus Engine — e o que ele resolve antes do próximo relatório do TCU?",
+    "esqueleto_usado": "CS-405",
+    "score_unicidade": 99,
+    "rotulo_integridade": "🟢 PUBLICO"
+  },
+  "status": "ready"
+}
