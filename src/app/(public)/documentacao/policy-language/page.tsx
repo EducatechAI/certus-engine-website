@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { DocsFooter } from '@/components/docs/DocsFooter';
 
 export const metadata = { title: 'Policy Language | Certus Engine Docs' };
@@ -16,8 +16,7 @@ export default function PolicyPage() {
       </p>
 
       <h2 id="schema" className="text-2xl font-bold text-white mt-12 mb-4">Spec Base</h2>
-      <pre className="bg-[#050b08] border border-slate-800 rounded-lg p-4 font-mono text-xs overflow-x-auto text-emerald-300/90 mb-8">
-{version: "1.0"
+      <pre className="bg-[#050b08] border border-slate-800 rounded-lg p-4 font-mono text-xs overflow-x-auto text-emerald-300/90 mb-8">{`version: "1.0"
 governance:
   pii_shield:
     mode: "redact" # ou "block"
@@ -26,8 +25,7 @@ governance:
     threshold: 0.85
     action: "block" # SEC-PI-001
   fail_closed:
-    timeout_ms: 50 # SEC-FC-001}
-      </pre>
+    timeout_ms: 50 # SEC-FC-001`}</pre>
 
       <h2 id="cookbook" className="text-2xl font-bold text-white mt-12 mb-4">Cookbook por Setor</h2>
       
@@ -36,64 +34,54 @@ governance:
           <h3 className="font-bold text-white mb-2">Financeiro (BACEN 4.893)</h3>
           <p className="text-xs text-blue-400 font-bold mb-2">Política padrão do nível Enterprise/Government</p>
           <p className="text-sm text-slate-400 mb-4">Bloqueio estrito de PAN, CVV e dados de conta.</p>
-          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">
-{pii_shield:
+          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">{`pii_shield:
   mode: "block"
   targets: ["credit_card", "bank_account", "cpf"]
-  on_violation: "throw_500"}
-          </pre>
+  on_violation: "throw_500"`}</pre>
         </div>
 
         <div className="bg-black/40 border border-slate-800 rounded-xl p-6">
           <h3 className="font-bold text-white mb-2">Saúde (HIPAA)</h3>
           <p className="text-xs text-blue-400 font-bold mb-2">Política padrão do nível Enterprise/Government</p>
           <p className="text-sm text-slate-400 mb-4">Redação dinâmica de identificadores de paciente.</p>
-          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">
-{pii_shield:
+          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">{`pii_shield:
   mode: "redact"
   targets: ["name", "ssn", "medical_record_id", "date_of_birth"]
-  redaction_format: "[PHI_{TYPE}]"}
-          </pre>
+  redaction_format: "[PHI_{TYPE}]"`}</pre>
         </div>
 
         <div className="bg-black/40 border border-slate-800 rounded-xl p-6">
           <h3 className="font-bold text-white mb-2">Governo (LGPD + TCU)</h3>
           <p className="text-xs text-blue-400 font-bold mb-2">Política padrão do nível Enterprise/Government</p>
           <p className="text-sm text-slate-400 mb-4">Modo redact para CPF, block para saúde, retenção auditoria 7 anos (vinculado a <Link href="/security#SEC-LAZ-001" className="text-emerald-400 hover:underline">SEC-LAZ-001</Link>).</p>
-          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">
-{pii_shield:
+          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">{`pii_shield:
   mode: "hybrid"
-  targets: 
+  targets:
     cpf: "redact"
     health_data: "block"
 lazarus_vault:
   retention_years: 7
-  audit_chain: "strict"}
-          </pre>
+  audit_chain: "strict"`}</pre>
         </div>
 
         <div className="bg-black/40 border border-slate-800 rounded-xl p-6">
           <h3 className="font-bold text-white mb-2">Educação (ECA Digital)</h3>
           <p className="text-xs text-blue-400 font-bold mb-2">Política padrão do nível Enterprise/Government</p>
           <p className="text-sm text-slate-400 mb-4">Proteção reforçada para menores, exige consentimento do responsável, block estrito para biometria.</p>
-          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">
-{pii_shield:
+          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">{`pii_shield:
   mode: "block"
   targets: ["biometrics", "minor_identity", "geolocation"]
-  consent_required: true}
-          </pre>
+  consent_required: true`}</pre>
         </div>
 
         <div className="bg-black/40 border border-slate-800 rounded-xl p-6">
           <h3 className="font-bold text-white mb-2">Enterprise (GDPR + SOX)</h3>
           <p className="text-xs text-emerald-400 font-bold mb-2">Política padrão do nível Command Standard ou Enterprise/Government (conforme porte)</p>
           <p className="text-sm text-slate-400 mb-4">Mapeamento de consentimento cruzado e proteção de dados financeiros corporativos.</p>
-          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">
-{pii_shield:
+          <pre className="bg-[#050b08] border border-slate-800 p-4 rounded-lg font-mono text-[10px] text-slate-300">{`pii_shield:
   mode: "redact"
   targets: ["email", "phone", "corporate_financials"]
-  gdpr_consent_flag: "enforce"}
-          </pre>
+  gdpr_consent_flag: "enforce"`}</pre>
         </div>
       </div>
 
