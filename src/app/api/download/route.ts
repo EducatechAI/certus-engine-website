@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 
 const REPO_OWNER = 'EducatechAI';
-const REPO_NAME = 'Certus-Engine';
+const REPO_NAME = 'certus-engine-website';
 const TAG_NAME_SOVEREIGN = 'v1.3.5'; 
 const TAG_NAME_COMMAND = 'v1.3.4';
 
