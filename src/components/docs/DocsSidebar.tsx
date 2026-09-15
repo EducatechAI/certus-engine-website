@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -61,7 +61,7 @@ export function DocsSidebar() {
                   <li key={link.path}>
                     <Link 
                       href={link.path}
-                      className={lock text-sm px-3 py-1.5 rounded-md transition-colors border-l-2 }
+                      className={`block text-sm px-3 py-1.5 rounded-md transition-colors border-l-2 ${active ? 'text-emerald-400 border-emerald-500 bg-emerald-500/5' : 'text-slate-400 border-transparent hover:text-slate-300 hover:bg-white/5'}`}
                     >
                       {link.name}
                     </Link>
