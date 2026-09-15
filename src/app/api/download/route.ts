@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 const REPO_OWNER = 'EducatechAI';
 const REPO_NAME = 'Certus-Engine';
 const TAG_NAME_SOVEREIGN = 'v1.3.5'; 
-const TAG_NAME_COMMAND = 'v1.3.7';
+const TAG_NAME_COMMAND = 'v1.3.4';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
